@@ -559,6 +559,130 @@ Without a green tick you would at least go and look yourself. Three separate che
 
 ## Who actually checks the marketplaces?
 
+
+---
+
+<span class="kicker">A question for you</span>
+
+<p class="statement">Which marketplaces are bad?</p>
+
+Note:
+Let the audience shout names. Then the answer.
+
+---
+
+<p class="statement">The ones that list this skill.</p>
+
+It shows that anything gets in. <!-- .element: class="fragment" -->
+
+So let’s look. All checked on 4 November 2026. <!-- .element: class="fragment" -->
+
+---
+
+<span class="kicker">skills.sh · “Made with care by Vercel”</span>
+
+<div class="shot"><img src="img/market-skillssh.webp" alt="skills.sh listing of brand-landingpage from wshobson/agents with 39.8K installs, 42.2K GitHub stars, first seen May 2, 2026, and the install command npx skills add"></div>
+
+<p class="caption"><strong>39.8K installs</strong> · one-line install command</p>
+
+---
+
+<span class="kicker">skills.sh, their own security audit</span>
+
+<div class="shot"><img src="img/market-skillssh-audit.webp" alt="skills.sh security audit page for brand-landingpage by Gen Agent Trust Hub: risk level critical, flags for external downloads, remote code execution, command execution and indirect prompt injection"></div>
+
+<p class="caption"><span class="bad"><strong>“RISK LEVEL: CRITICAL … DO NOT USE”</strong></span> · and still listed for installation</p>
+
+Note:
+Gen Agent Trust Hub audit from Sep 15, 2026: "Contains 2 malicious URL(s) - DO NOT USE" and "1 file(s) identified as malware by FileRep". Socket and Snyk audits on the same page: PASS.
+
+---
+
+<span class="kicker">Two more</span>
+
+<div class="shots">
+<figure><img src="img/market-claudemarketplaces.webp" alt="Claude Marketplaces listing of Brand Landingpage in the category Frontend Development with 39.6K installs"><figcaption><strong>Claude Marketplaces</strong><br>39.6K installs</figcaption></figure>
+<figure><img src="img/market-claudemarket.webp" alt="Claude Market listing of brand-landingpage with risk tags like Remote Code Execution next to an install command and an affiliate button for Hostinger"><figcaption><strong>Claude Market</strong><br>risk tags, install button, <span class="bad">hosting ad</span></figcaption></figure>
+</div>
+
+---
+
+<span class="kicker">And they all passed the checks</span>
+
+<div class="shots">
+<figure><img src="img/market-skillselion.webp" alt="Skillselion listing of the Brand Landingpage Skill with 39.7k installs"><figcaption><strong>Skillselion</strong><br><span class="ok">“3 / 3 scanners passed”</span></figcaption></figure>
+<figure><img src="img/market-agentskillsh.webp" alt="agentskill.sh listing of brand-landingpage with a secured badge, quality 92 and security 93"><figcaption><strong>agentskill.sh</strong><br><span class="ok">“secured” · Security 93</span></figcaption></figure>
+</div>
+
+---
+
+<span class="kicker">Everywhere</span>
+
+<div class="shots">
+<figure><img src="img/market-skillstore.webp" alt="Skillstore listing of brand-landingpage marked High Risk with a score of 38"><figcaption><strong>Skillstore</strong><br>“High Risk”, still listed</figcaption></figure>
+<figure><img src="img/market-opendesign.webp" alt="OpenDesign listing of the Brand Landing Page Skill by Seth Hobson with a download button"><figcaption><strong>OpenDesign</strong><br>download button</figcaption></figure>
+</div>
+
+---
+
+<span class="kicker">The list</span>
+
+## 15 places, one malicious skill
+
+<div class="columns small-list">
+<div>
+
+- skills.sh (Vercel)
+- Claude Marketplaces
+- SkillsMP
+- Claude Market
+- Skillselion
+- OpenDesign
+- @skills
+- claude-plugins.dev
+
+</div>
+<div>
+
+- Skillstore
+- agentskill.sh
+- Skills.lc
+- Awesome Skills
+- Vibe Index
+- Build with Claude
+- LobeHub
+- Claude Skills Registry
+
+</div>
+</div>
+
+Plus **89 copies in 66 GitHub repositories**. <!-- .element: class="fragment" -->
+
+---
+
+<p class="statement">Every big marketplace you know<br><span class="gradient-text">is potentially full of malware.</span></p>
+
+This skill is the proof that nobody stops it. <!-- .element: class="fragment" -->
+
+---
+
+<span class="kicker">It gets worse</span>
+
+## A second copy, a second domain
+
+<div class="shots one">
+<figure><img src="img/market-lobehub.webp" alt="LobeHub listing of brand-landingpage version 1.0.1 by NeverSight from October 21, 2026"><figcaption><strong>LobeHub</strong>, copy from Oct 2026</figcaption></figure>
+<div class="left">
+
+- Links to <span class="domain bad">stitch-designer[.]ai</span>
+- Origin: GitHub account `adamturner-1`
+- Created **five minutes** before `travis-d-elliott`
+
+</div>
+</div>
+
+Note:
+Observed on GitHub and LobeHub on 4 Nov 2026. Both accounts were created on 23 April 2026, 11:43 and 11:48 UTC; both design-skill repos are deleted now. I don't know whether this variant is part of the AIR experiment.
 ---
 
 <span class="kicker">Gemini CLI, install warning</span>

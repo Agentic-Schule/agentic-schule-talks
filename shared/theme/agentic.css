@@ -230,6 +230,17 @@ body,
 /* Zweispaltig: <div class="columns"><div>…</div><div>…</div></div> */
 .reveal .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; text-align: left; }
 
+/* Screenshots: eine große Aufnahme oder zwei nebeneinander, die Aussage steht in der Bildunterschrift */
+.reveal .shot img { display: block; width: 100%; max-height: 470px; object-fit: contain; margin: 0 auto; border: 1px solid var(--border); border-radius: 10px; }
+.reveal .caption { margin-top: 16px; font-size: 0.9em; }
+.reveal .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.reveal .shots.one { grid-template-columns: 1.3fr 1fr; align-items: center; }
+.reveal .shots figure { margin: 0; }
+.reveal .shots img { display: block; width: 100%; margin: 0; border: 1px solid var(--border); border-radius: 10px; }
+.reveal .shots figcaption { margin-top: 14px; font-size: 0.8em; line-height: 1.35; }
+.reveal .small-list ul { font-size: 0.8em; }
+.reveal .small-list li { margin: 0.15em 0; }
+
 /* Vorstellung: Foto links, Text rechts */
 .reveal .about { display: grid; grid-template-columns: 400px 1fr; gap: 56px; align-items: center; text-align: left; }
 .reveal .about img { width: 400px; height: 400px; object-fit: cover; margin: 0; border-radius: 12px; border: 1px solid var(--border); }
@@ -290,7 +301,7 @@ body,
 .reveal .source { font-size: 0.65em; color: var(--muted); margin-top: 8px; }
 
 /* Domain-Vergleich und ähnliche Gegenüberstellungen */
-.reveal .domain { font-family: var(--font-code); font-size: 1.15em; font-weight: 500; padding: 0.25em 0.6em; border-radius: 8px; display: inline-block; }
+.reveal .domain { white-space: nowrap; font-family: var(--font-code); font-size: 1.15em; font-weight: 500; padding: 0.25em 0.6em; border-radius: 8px; display: inline-block; }
 .reveal .domain.ok { background: color-mix(in srgb, var(--ok) 14%, transparent); border: 2px solid var(--ok); }
 .reveal .domain.bad { background: color-mix(in srgb, var(--danger) 14%, transparent); border: 2px solid var(--danger); }
 
