@@ -20,8 +20,8 @@ Die Eventzeile merkt sich, was du eintippst. Mit ?reset-edits in der URL ist all
 
 | Taste | Wirkung |
 | --- | --- |
-| <kbd>D</kbd> | Hell und Dunkel umschalten |
-| <kbd>E</kbd> | aktuelle Folie bearbeiten, <kbd>Esc</kbd> beendet |
+| Klick in die Folie | Text und Code direkt bearbeiten, <kbd>Esc</kbd> beendet |
+| <kbd>D</kbd> oder ☀︎ oben rechts | Hell und Dunkel umschalten |
 | <kbd>+</kbd> <kbd>-</kbd> <kbd>0</kbd> | Code auf der Folie größer, kleiner, zurück |
 | <kbd>S</kbd> | Speaker View mit Notizen und Timer |
 | <kbd>O</kbd> | Übersicht aller Folien |
@@ -37,7 +37,7 @@ Die Eventzeile merkt sich, was du eintippst. Mit ?reset-edits in der URL ist all
 
 - Dunkel ist agentic.schule
 - Hell ist angular.schule, nur das Logo wechselt
-- <kbd>D</kbd> schaltet um, die Wahl bleibt gespeichert
+- Der Schalter oben rechts oder <kbd>D</kbd> wechselt, die Wahl bleibt gespeichert
 - `?theme=light` in der URL erzwingt einen Modus
 
 **Tipp:** Vor dem Talk auf dem echten Beamer beide Modi ansehen.
@@ -46,22 +46,23 @@ Die Eventzeile merkt sich, was du eintippst. Mit ?reset-edits in der URL ist all
 
 <span class="kicker">Code</span>
 
-## Codeblöcke sind live editierbar
+## Jede Folie ist live editierbar
 
 ```ts
 import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
-  template: `<button (click)="count.set(count() + 1)">{{ count() }}</button>`,
+  template: `<button (click)="inc()">{{ count() }}</button>`,
 })
 export class Counter {
   // Hier hineinklicken und den Code ändern
   count = signal(0);
+  inc = () => this.count.update((n) => n + 1);
 }
 ```
 
-Beim Verlassen des Blocks wird der Code neu eingefärbt.
+Anklicken und tippen, Esc beendet.
 
 ---
 

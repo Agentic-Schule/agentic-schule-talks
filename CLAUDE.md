@@ -64,14 +64,14 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 - Zeilen schrittweise hervorheben: ```` ```ts [1|3-6|8] ````, auch kombiniert mit einer Größe: ```` ```ts small [1|3] ````.
 - Code wachsen lassen: zwei aufeinanderfolgende Folien mit `<!-- .slide: data-auto-animate -->`, beide Codeblöcke mit `<!-- .element: data-id="name" -->`.
 - `bash`, `sh`, `shell`, `console`, `zsh` erscheinen als Terminal mit Fensterleiste und blinkendem Cursor. Ein `$`, `%`, `❯` oder `>` am Zeilenanfang wird als Prompt eingefärbt.
-- Codeblöcke ohne Zeilen-Highlights sind im Vortrag direkt editierbar.
+- Jede Folie ist im Vortrag direkt editierbar, auch Code. Ausnahme: Codeblöcke mit Zeilen-Highlights.
 
 ## Im Vortrag
 
 | Taste | Wirkung |
 | --- | --- |
-| D | Hell/Dunkel umschalten (Wahl bleibt gespeichert, `?theme=light` erzwingt) |
-| E | aktuelle Folie bearbeiten, Esc beendet |
+| Klick in die Folie | Text und Code bearbeiten, Esc beendet (Änderungen bis zum Neuladen) |
+| D oder Schalter oben rechts | Hell/Dunkel umschalten (Wahl bleibt gespeichert, `?theme=light` erzwingt) |
 | + / - / 0 | Code der aktuellen Folie größer, kleiner, zurück |
 | S | Speaker View | 
 | O oder Esc | Übersicht |
@@ -90,13 +90,14 @@ PDF: Deck mit `?print-pdf` in Chrome öffnen und drucken (Hintergrundgrafiken an
 - Alle Farben sind CSS-Variablen unter `:root[data-theme=…]`. Neue Bausteine verwenden nur diese Variablen, damit beide Modi funktionieren.
 - Schriften: Inter und Inter Tight über `@fontsource`, Code im System-Monospace.
 - Terminal-Blöcke sind in beiden Modi dunkel.
+- Code-Farben haben mindestens 7:1 Kontrast zum Code-Hintergrund (WCAG AAA), weil Beamer Kontrast schlucken. Keine kursiven Kommentare.
 
 ## Eigene Plugins
 
 | Datei | Zweck |
 | --- | --- |
-| `theme-toggle.js` | Taste D, URL-Parameter, gespeicherte Wahl |
-| `live-edit.js` | editierbare Codeblöcke, Taste E, `data-sticky` |
+| `theme-toggle.js` | Schalter oben rechts, Taste D, URL-Parameter, gespeicherte Wahl |
+| `live-edit.js` | alle Folien editierbar, Esc, `data-sticky` |
 | `code-size.js` | Tasten + / - / 0 |
 | `terminal.js` | Prompt-Markierung als highlight.js-Plugin |
 

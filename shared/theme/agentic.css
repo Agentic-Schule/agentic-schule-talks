@@ -266,8 +266,35 @@ body,
 
 /* ---------- Live-Bearbeitung ---------- */
 
-.reveal [contenteditable='true']:focus { outline: 2px dashed var(--accent); outline-offset: 6px; }
-.reveal section.is-editing { outline: 2px dashed var(--accent); outline-offset: 12px; }
+/* Folien sind immer bearbeitbar; beim Tippen nur eine feine Kante, kein Rahmen im Normalfall */
+.reveal .slides section[contenteditable='true'] { outline: none; caret-color: var(--accent); }
+.reveal .slides section[contenteditable='true']:focus { outline: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 14px; }
+.reveal pre code[contenteditable='true']:focus { outline: none; box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 50%, transparent); }
+
+/* ---------- Hell/Dunkel-Schalter ---------- */
+
+.reveal .theme-switch {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 40;
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  opacity: 0.35;
+  cursor: pointer;
+  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.reveal .theme-switch:hover,
+.reveal .theme-switch:focus-visible { opacity: 1; color: var(--heading); border-color: var(--border); outline: none; }
+.reveal .theme-switch svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.reveal .theme-switch svg path[d^='M20.5'] { fill: currentColor; stroke: none; }
+.reveal-viewport:is(.title, .chapter, .end) .theme-switch { color: #ffffff; }
+html.print-pdf .reveal .theme-switch { display: none; }
 
 /* ---------- Druck / PDF (?print-pdf) ---------- */
 

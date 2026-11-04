@@ -8,6 +8,7 @@
   --code-bg: #261e33;
   --code-text: #f8f8f2;
   --code-inline-bg: rgba(255, 255, 255, 0.08);
+  --code-inline: #f481b1;
   --hl-comment: #d4d0ab;
   --hl-variable: #ffa07a;
   --hl-number: #f5ab35;
@@ -19,15 +20,17 @@
 
 :root[data-theme='light'] {
   --code-bg: #f6f8fa;
-  --code-text: #383a42;
-  --code-inline-bg: rgba(27, 31, 35, 0.06);
-  --hl-comment: #696969;
-  --hl-variable: #d91e18;
-  --hl-number: #aa5d00;
-  --hl-attr: #aa5d00;
-  --hl-string: #008000;
-  --hl-title: #007aa3;
-  --hl-keyword: #7928a1;
+  --code-text: #24292f;
+  --code-inline-bg: rgba(27, 31, 35, 0.07);
+  --code-inline: #a50e55;
+  /* alle Tokens mindestens 7:1 auf --code-bg (WCAG AAA), weil Beamer Kontrast schlucken */
+  --hl-comment: #555555;
+  --hl-variable: #a8150f;
+  --hl-number: #7a4100;
+  --hl-attr: #7a4100;
+  --hl-string: #005c00;
+  --hl-title: #00587a;
+  --hl-keyword: #6a1f91;
 }
 
 /* Terminal ist in beiden Modi dunkel, so wie ein echtes Terminal */
@@ -39,6 +42,7 @@
 }
 
 .reveal pre {
+  position: relative; /* Zeilen-Highlight-Schritte liegen als Klone absolut darüber */
   width: 92%;
   margin: var(--r-block-margin) auto;
   text-align: left;
@@ -49,13 +53,14 @@
 }
 
 .reveal pre code {
-  --code-size: 24px;
+  --code-size: 26px;
   display: block;
   padding: 18px 22px;
   max-height: 560px;
   overflow: auto;
   font-size: calc(var(--code-size) * var(--code-scale, 1));
   line-height: 1.45;
+  font-weight: 500;
   color: var(--code-text);
   background: var(--code-bg);
   border: 1px solid var(--border);
@@ -76,13 +81,13 @@
   font-family: var(--font-code);
   font-size: 0.85em;
   padding: 0.08em 0.35em;
-  color: var(--accent);
+  color: var(--code-inline);
   background: var(--code-inline-bg);
   border-radius: 6px;
 }
 
 /* Zeilen-Highlights ([1-3|5]): nicht markierte Zeilen treten zurück */
-.reveal .hljs.has-highlights tr:not(.highlight-line) { opacity: 0.35; }
+.reveal .hljs.has-highlights tr:not(.highlight-line) { opacity: 0.5; }
 .reveal .hljs-ln-numbers { color: var(--muted); padding-right: 0.8em !important; user-select: none; }
 
 /* ---------- Terminal: ```bash, ```sh, ```shell, ```console, ```zsh ---------- */
@@ -113,7 +118,7 @@
 }
 .reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) * { color: inherit; }
 .reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) .term-prompt { color: var(--term-prompt); font-weight: 700; user-select: none; }
-.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) :is(.hljs-comment) { color: #8f84a6; }
+.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) :is(.hljs-comment) { color: #a99fbf; }
 .reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) :is(.hljs-string) { color: #abe338; }
 
 /* Blinkender Cursor am Ende */
@@ -134,7 +139,7 @@ html.print-pdf .reveal pre > code::after { animation: none; }
 /* ---------- Syntaxfarben ---------- */
 
 .reveal .hljs { color: var(--code-text); background: var(--code-bg); }
-.reveal .hljs-comment, .reveal .hljs-quote { color: var(--hl-comment); font-style: italic; }
+.reveal .hljs-comment, .reveal .hljs-quote { color: var(--hl-comment); }
 .reveal .hljs-variable, .reveal .hljs-template-variable, .reveal .hljs-tag, .reveal .hljs-name,
 .reveal .hljs-selector-id, .reveal .hljs-selector-class, .reveal .hljs-regexp, .reveal .hljs-deletion { color: var(--hl-variable); }
 .reveal .hljs-number, .reveal .hljs-built_in, .reveal .hljs-literal, .reveal .hljs-type,
