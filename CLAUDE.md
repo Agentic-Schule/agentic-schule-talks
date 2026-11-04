@@ -74,7 +74,7 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 ### View Transitions
 
 - Zwei aufeinanderfolgende Folien mit `<!-- .slide: data-view-transition data-transition="none" -->`. Elemente mit demselben `data-vt="name"` auf beiden Folien verwandeln sich ineinander (Position, Größe, Inhalt), der Rest blendet über.
-- Technik: Browser-API `document.startViewTransition` (`plugins/view-transitions.js`). Ohne Unterstützung und im PDF wechseln die Folien normal. Funktioniert auch mit SVG-Gruppen (`<g data-vt="…">`) in eingebundenen Diagrammen.
+- Technik: Browser-API `document.startViewTransition` (`plugins/view-transitions.js`). Ohne Unterstützung und im PDF wechseln die Folien normal..
 - Sparsam einsetzen: nur, wo die Verwandlung selbst die Aussage ist.
 
 ### Code
