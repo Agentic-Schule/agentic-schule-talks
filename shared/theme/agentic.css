@@ -193,7 +193,7 @@ body,
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
-.reveal-viewport:is(.title, .chapter, .end) .brand-logo { opacity: 0; }
+html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { opacity: 0; }
 
 /* ---------- Bausteine ---------- */
 
@@ -308,17 +308,17 @@ body,
 
 /* ---------- Titel-, Kapitel- und Schlussfolie: Hero-Verlauf ---------- */
 
-.reveal-viewport:is(.title, .chapter, .end) {
+html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) {
   background:
     linear-gradient(175deg, transparent 0 74%, rgba(0, 0, 0, 0.14) 74.2%),
     var(--hero);
 }
-.reveal-viewport:is(.title, .chapter, .end) .slides section.present,
-.reveal-viewport:is(.title, .chapter, .end) .slides section.present :is(h1, h2, h3, p, li, a, strong, small, .kicker) {
+html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .slides section.present,
+html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .slides section.present :is(h1, h2, h3, p, li, a, strong, small, .kicker) {
   color: #ffffff;
 }
-.reveal-viewport:is(.title, .chapter, .end) .slides section.present .kicker::before { background: #ffffff; }
-.reveal-viewport:is(.title, .chapter, .end) .progress span { background: #ffffff; }
+html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .slides section.present .kicker::before { background: #ffffff; }
+html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .progress span { background: #ffffff; }
 
 .reveal section.title .title-logo {
   display: block;
@@ -415,14 +415,16 @@ body,
 .reveal .theme-switch:focus-visible { opacity: 1; color: var(--heading); border-color: var(--border); outline: none; }
 .reveal .theme-switch svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .reveal .theme-switch svg path[d^='M20.5'] { fill: currentColor; stroke: none; }
-.reveal-viewport:is(.title, .chapter, .end) .theme-switch { color: #ffffff; }
+html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .theme-switch { color: #ffffff; }
 html.print-pdf .reveal .theme-switch { display: none; }
 
 /* ---------- Druck / PDF (?print-pdf) ---------- */
 
 html.print-pdf .reveal .brand-logo { display: none; }
+html.print-pdf .reveal-viewport, html.print-pdf body { background: var(--bg) !important; }
 html.print-pdf .reveal .pdf-page { background: var(--bg); }
-html.print-pdf .reveal .pdf-page:has(section:is(.title, .chapter, .end)) { background: var(--hero); }
+html.print-pdf .reveal .pdf-page:has(section:is(.title, .chapter, .end)),
+html.print-pdf .reveal .pdf-page:has(section:is(.title, .chapter, .end)) .slide-background { background: var(--hero) !important; }
 html.print-pdf .reveal section:is(.title, .chapter, .end),
 html.print-pdf .reveal section:is(.title, .chapter, .end) :is(h1, h2, h3, p, li, strong, .kicker) { color: #ffffff; }
 html.print-pdf .reveal section.title .title-logo { background-image: url('../img/logo-white.svg'); }

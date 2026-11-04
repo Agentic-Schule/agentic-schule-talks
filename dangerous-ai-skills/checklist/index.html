@@ -7,7 +7,7 @@
     <link rel="icon" href="../../shared/img/logo-icon.svg" />
     <script type="module" src="../../shared/page/page.js"></script>
     <style>
-      @page { size: A4; margin: 14mm 16mm; }
+      @page { size: A4; margin: 12mm 15mm; }
       .sheet { max-width: 46rem; margin: 0 auto; padding: 32px 16px 48px; }
       .sheet header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 3px solid var(--accent); padding-bottom: 12px; }
       .sheet header img { width: 120px; height: auto; }
@@ -26,8 +26,12 @@
       @media print {
         .sheet { padding: 0; }
         .logo-dark { display: none; } .logo-light { display: block; }
-        .step { margin: 12px 0; break-inside: avoid; }
-        pre { font-size: 8.5pt; }
+        body { font-size: 10pt; line-height: 1.4; }
+        .sheet h1 { font-size: 18pt; }
+        .step { margin: 8px 0; break-inside: avoid; }
+        .step h2 { font-size: 11.5pt; }
+        pre { font-size: 8.5pt; margin: 4px 0; padding: 6px 10px; }
+        .rules { margin-top: 12px; padding: 8px 12px; }
       }
     </style>
   </head>
