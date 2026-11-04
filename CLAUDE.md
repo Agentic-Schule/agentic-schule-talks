@@ -27,7 +27,8 @@ shared/img/                Logos (hell, dunkel, weiß, Icon)
 features/                  Vorführ-Deck mit allen Funktionen und Bausteinen
 <talk>/index.html          Seite des Talks, lädt slides.md
 <talk>/slides.md           die Folien
-<talk>/img/                Bilder des Talks
+<talk>/img/                Bilder und SVG-Diagramme des Talks
+<talk>/diagrams.py         erzeugt die SVG-Diagramme (falls vorhanden): python3 diagrams.py
 ```
 
 Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index.html` anpassen, Link in der Übersicht `index.html` ergänzen. Vite findet jeden Ordner mit `index.html` von selbst (`vite.config.js`). Der Ordnername ist der Kurzname des Talks, etwa `dangerous-ai-skills`. Unterschiede pro Event (Länge, Eventname) regeln wir im selben Deck, nicht mit Kopien.
@@ -56,7 +57,16 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 - `<div class="columns">` mit zwei `<div>`: zwei Spalten. `<div class="card">`: Karte.
 - `<p class="statement">`: große Kernaussage. `<span class="gradient-text">`: Verlauf im Text.
 - `class="r-fit-text"`: Überschrift so groß wie die Folie erlaubt (reveal.js).
-- `<kbd>`: Taste. `.muted`, `.accent`, `.left`: Hilfsklassen.
+- `<kbd>`: Taste. `.muted`, `.accent`, `.ok`, `.bad`, `.left`: Hilfsklassen.
+- `<p class="source">`: Quellenangabe unter einem Zitat oder einer Zahl.
+- `<span class="domain ok">` / `<span class="domain bad">`: Adressen gegenüberstellen.
+
+### Diagramme
+
+- Diagramme sind SVG-Dateien in `<talk>/img/` und werden mit `<div class="svg" data-svg="name"></div>` eingebunden. Das SVG landet direkt im DOM (`plugins/inline-svg.js`), so übernimmt es die Theme-Farben und Fragmente funktionieren darin (`<g class="fragment">`).
+- Farben im SVG nur über die Klassen aus `agentic.css` (Abschnitt Diagramme): `box`, `box-2`, `box-accent`, `box-ok`, `box-bad`, `line`, `line-accent`, `line-ok`, `line-bad`, `t-head`, `t-muted`, `t-accent`, `t-ok`, `t-bad`, `t-code` und so weiter. Keine festen Farben, sonst bricht ein Modus.
+- IDs im SVG (Pfeilspitzen, Verläufe) brauchen ein eindeutiges Präfix pro Datei, weil alle SVGs im selben Dokument liegen.
+- Die index.html des Talks lädt die SVGs per `import.meta.glob` und übergibt sie an `createDeck(slides, { svgs })`.
 
 ### Code
 

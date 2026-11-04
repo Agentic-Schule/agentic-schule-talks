@@ -22,12 +22,16 @@ import { ThemeToggle, applyInitialTheme } from './plugins/theme-toggle.js';
 import { LiveEdit } from './plugins/live-edit.js';
 import { CodeSize } from './plugins/code-size.js';
 import { terminalPrompts } from './plugins/terminal.js';
+import { inlineSvgs } from './plugins/inline-svg.js';
+
+export { svgMap } from './plugins/inline-svg.js';
 
 /**
  * @param {string} markdown  Inhalt der slides.md (per `import md from './slides.md?raw'`)
- * @param {object} [options] zusätzliche reveal.js-Optionen, überschreiben die Vorgaben
+ * @param {object} [options] zusätzliche reveal.js-Optionen, überschreiben die Vorgaben;
+ *   options.svgs: { name: svgText } für <div data-svg="name"></div> (siehe plugins/inline-svg.js)
  */
-export function createDeck(markdown, options = {}) {
+export function createDeck(markdown, { svgs, ...options } = {}) {
   applyInitialTheme();
 
   const slides = document.querySelector('.reveal .slides');
@@ -35,7 +39,7 @@ export function createDeck(markdown, options = {}) {
   section.setAttribute('data-markdown', '');
   const template = document.createElement('textarea');
   template.setAttribute('data-template', '');
-  template.textContent = markdown;
+  template.textContent = inlineSvgs(markdown, svgs);
   section.append(template);
   slides.append(section);
 

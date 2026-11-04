@@ -20,7 +20,10 @@
   --hero-1: #6226b0;
   --hero-2: #bb004c;
   --logo: url('../img/logo-dark.svg');
+  --text-gradient: linear-gradient(90deg, #f481b1 0%, #c3a3ff 100%);
   --selection: rgba(244, 129, 177, 0.35);
+  --ok: #3ddc97;
+  --danger: #ff5c7a;
   color-scheme: dark;
 }
 
@@ -38,7 +41,10 @@
   --hero-1: #5c44e4;
   --hero-2: #e90464;
   --logo: url('../img/logo-light.svg');
+  --text-gradient: linear-gradient(90deg, #5c44e4 0%, #e90464 100%);
   --selection: rgba(105, 1, 162, 0.2);
+  --ok: #0a7d4a;
+  --danger: #c8102e;
   color-scheme: light;
 }
 
@@ -214,7 +220,7 @@ body,
 .reveal .muted { color: var(--muted); }
 .reveal .accent { color: var(--accent); }
 .reveal .gradient-text {
-  background: var(--hero);
+  background: var(--text-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -235,6 +241,53 @@ body,
 
 /* Große Zahl oder Kernaussage */
 .reveal .statement { font-family: var(--font-heading); font-size: 1.8em; font-weight: 700; line-height: 1.15; color: var(--heading); }
+
+/* ---------- Diagramme (inline SVG, siehe plugins/inline-svg.js) ---------- */
+
+.reveal .svg { width: 100%; margin: 0 auto; }
+.reveal .svg svg { display: block; width: 100%; height: auto; max-height: 470px; margin: 0 auto; overflow: visible; }
+.reveal .svg text { font-family: var(--font-body); fill: var(--text); }
+.reveal .svg .t-head { fill: var(--heading); font-family: var(--font-heading); font-weight: 700; }
+.reveal .svg .t-muted { fill: var(--muted); }
+.reveal .svg .t-accent { fill: var(--accent); }
+.reveal .svg .t-ok { fill: var(--ok); }
+.reveal .svg .t-bad { fill: var(--danger); }
+.reveal .svg .t-code { font-family: var(--font-code); }
+.reveal .svg .t-bold { font-weight: 700; }
+.reveal .svg .box { fill: var(--surface); stroke: var(--border); stroke-width: 1.5; }
+.reveal .svg .box-2 { fill: var(--surface-2); stroke: var(--border); stroke-width: 1.5; }
+.reveal .svg .box-accent { fill: color-mix(in srgb, var(--accent) 14%, transparent); stroke: var(--accent); stroke-width: 2.5; }
+.reveal .svg .box-ok { fill: color-mix(in srgb, var(--ok) 14%, transparent); stroke: var(--ok); stroke-width: 2.5; }
+.reveal .svg .box-bad { fill: color-mix(in srgb, var(--danger) 16%, transparent); stroke: var(--danger); stroke-width: 2.5; }
+.reveal .svg .fill-accent { fill: var(--accent); }
+.reveal .svg .fill-ok { fill: var(--ok); }
+.reveal .svg .fill-bad { fill: var(--danger); }
+.reveal .svg .fill-muted { fill: var(--muted); opacity: 0.45; }
+.reveal .svg .fill-text { fill: var(--text); }
+.reveal .svg .fill-surface { fill: var(--surface-2); }
+.reveal .svg .line { stroke: var(--muted); stroke-width: 2.5; fill: none; }
+.reveal .svg .line-accent { stroke: var(--accent); stroke-width: 3; fill: none; }
+.reveal .svg .line-ok { stroke: var(--ok); stroke-width: 3; fill: none; }
+.reveal .svg .line-bad { stroke: var(--danger); stroke-width: 3; fill: none; }
+.reveal .svg .dash { stroke-dasharray: 8 8; }
+.reveal .svg .stop-1 { stop-color: var(--hero-1); }
+.reveal .svg .stop-2 { stop-color: var(--hero-2); }
+.reveal .svg .arrow-muted { fill: var(--muted); }
+.reveal .svg .arrow-accent { fill: var(--accent); }
+.reveal .svg .arrow-ok { fill: var(--ok); }
+.reveal .svg .arrow-bad { fill: var(--danger); }
+
+/* Rot und Grün für Fließtext */
+.reveal .ok { color: var(--ok); }
+.reveal .bad { color: var(--danger); }
+
+/* Zitat mit Quelle: > Zitat … dann <p class="source">Quelle</p> */
+.reveal .source { font-size: 0.55em; color: var(--muted); margin-top: 8px; }
+
+/* Domain-Vergleich und ähnliche Gegenüberstellungen */
+.reveal .domain { font-family: var(--font-code); font-size: 1.15em; font-weight: 500; padding: 0.25em 0.6em; border-radius: 8px; display: inline-block; }
+.reveal .domain.ok { background: color-mix(in srgb, var(--ok) 14%, transparent); border: 2px solid var(--ok); }
+.reveal .domain.bad { background: color-mix(in srgb, var(--danger) 14%, transparent); border: 2px solid var(--danger); }
 
 /* ---------- Titel-, Kapitel- und Schlussfolie: Hero-Verlauf ---------- */
 
