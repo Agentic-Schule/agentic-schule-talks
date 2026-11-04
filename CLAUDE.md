@@ -102,7 +102,9 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 
 `data-sticky="name"` merkt sich bearbeiteten Inhalt im Browser (localStorage, je Deck). `?reset-edits` in der URL löscht alles Gemerkte.
 
-PDF: Deck mit `?print-pdf` in Chrome öffnen und drucken (Hintergrundgrafiken an). Für den Beamer im Zweifel `?theme=light`.
+PDF: Deck mit `?print-pdf&theme=light` in Chrome öffnen und als PDF drucken (Seitengröße 1280×720, Hintergrundgrafiken an), eine Seite pro Folie mit allen Fragmenten. Fertige PDFs liegen unter `public/<talk>/` und werden mit dem Build ausgeliefert, etwa `public/dangerous-ai-skills/dangerous-ai-skills.pdf`. Nach jeder inhaltlichen Änderung neu erzeugen. Für den Beamer im Zweifel `?theme=light`.
+
+Materialseite und Spickzettel: `<talk>/materials/` und `<talk>/checklist/` sind normale Webseiten mit `shared/page/page.css`, Downloads liegen in `public/<talk>/`. Vite baut jede Unterseite `<talk>/<seite>/index.html` mit.
 
 ## Theme
 
