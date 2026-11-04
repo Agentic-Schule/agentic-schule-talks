@@ -23,6 +23,7 @@ import { LiveEdit } from './plugins/live-edit.js';
 import { CodeSize } from './plugins/code-size.js';
 import { terminalPrompts } from './plugins/terminal.js';
 import { inlineSvgs, resolveAssets } from './plugins/inline-svg.js';
+import { QrCodes } from './plugins/qr.js';
 
 export { svgMap, assetMap } from './plugins/inline-svg.js';
 
@@ -69,7 +70,7 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     highlight: {
       beforeHighlight: terminalPrompts,
     },
-    plugins: [Markdown, Highlight, Notes, Zoom, Search, ThemeToggle, LiveEdit, CodeSize],
+    plugins: [Markdown, Highlight, Notes, Zoom, Search, ThemeToggle, LiveEdit, CodeSize, QrCodes],
     ...options,
   });
 

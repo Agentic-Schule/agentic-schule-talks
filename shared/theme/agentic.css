@@ -322,6 +322,15 @@ body,
 
 .reveal section.chapter h2 { font-size: 2em; }
 
+/* QR-Code (SVG aus img/, immer schwarz auf weiß mit Ruhezone) */
+.reveal .qr svg { display: block; width: 100%; height: auto; border-radius: 10px; }
+.reveal section.title .title-qr { position: absolute; right: 0; bottom: -40px; display: flex; align-items: center; gap: 16px; text-align: left; font-size: 0.5em; line-height: 1.3; }
+.reveal section.title .title-qr .qr { width: 120px; }
+.reveal section.title .title-qr strong { color: #ffffff; }
+.reveal section.end .end-qr { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: center; margin-top: 24px; }
+.reveal section.end .end-qr .qr { width: 300px; }
+.reveal section.end .url { font-family: var(--font-heading); font-size: 1.2em; font-weight: 700; margin: 12px 0; }
+
 /* ---------- Live-Bearbeitung ---------- */
 
 /* Folien sind immer bearbeitbar; beim Tippen nur eine feine Kante, kein Rahmen im Normalfall */

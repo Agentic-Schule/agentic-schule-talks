@@ -57,6 +57,7 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 - `<div class="columns">` mit zwei `<div>`: zwei Spalten. `<div class="card">`: Karte.
 - `<p class="statement">`: große Kernaussage. `<span class="gradient-text">`: Verlauf im Text.
 - `class="r-fit-text"`: Überschrift so groß wie die Folie erlaubt (reveal.js).
+- `<div class="qr" data-qr="https://…"></div>`: QR-Code, erzeugt im Browser (`plugins/qr.js`, Generator in `shared/vendor/qrjs2.js`, Public Domain).
 - `<kbd>`: Taste. `.muted`, `.accent`, `.ok`, `.bad`, `.left`: Hilfsklassen.
 - `<p class="source">`: Quellenangabe unter einem Zitat oder einer Zahl.
 - `<span class="domain ok">` / `<span class="domain bad">`: Adressen gegenüberstellen.
@@ -112,6 +113,8 @@ PDF: Deck mit `?print-pdf` in Chrome öffnen und drucken (Hintergrundgrafiken an
 | `live-edit.js` | alle Folien editierbar, Esc, `data-sticky` |
 | `code-size.js` | Tasten + / - / 0 |
 | `terminal.js` | Prompt-Markierung als highlight.js-Plugin |
+| `qr.js` | QR-Codes aus `data-qr` |
+| `inline-svg.js` | SVG-Diagramme und Bildpfade des Talks einbinden |
 
 Plugins folgen der reveal.js-API `{ id, init(deck) }` und werden in `shared/deck.js` registriert. reveal.js selbst wird nie verändert. Eine Erweiterung, die sich nicht als Plugin oder CSS lösen lässt, vorher mit Johannes besprechen.
 

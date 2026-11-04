@@ -9,6 +9,8 @@
 <p class="speaker">Johannes Hoppe</p>
 <p class="event" data-sticky="event">DevFest Nuremberg 2026</p>
 
+<div class="title-qr"><div class="qr" data-qr="https://agentic.schule/skills-talk"></div><span>Slides &amp; materials<br><strong>agentic.schule/skills-talk</strong></span></div>
+
 ---
 
 <p class="statement">A skill is a text file.</p>
@@ -73,6 +75,37 @@ Progressive disclosure: name and description sit in the context all the time, th
 - **Marketplaces**: GitHub repositories full of skills from anyone <!-- .element: class="fragment" -->
 
 One command, and the skill is installed. <!-- .element: class="fragment" -->
+
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## One format, every agent
+
+> The Agent Skills format was originally developed by Anthropic, released as an open standard, and has been adopted by a growing number of agent products.
+
+<p class="source">agentskills.io</p>
+
+<div class="columns">
+<div class="card">
+
+**Gemini CLI** · **Antigravity**<br>
+`~/.gemini/skills/` · `.agents/skills/`
+
+</div>
+<div class="card">
+
+**Claude Code** · **Codex** · **Copilot** · **Cursor** …<br>
+same `SKILL.md`
+
+</div>
+</div>
+
+A malicious skill works in all of them. <!-- .element: class="fragment" -->
+
+Note:
+Gemini CLI has enabled skills by default since v0.25/v0.26 (January 2026). Antigravity: "Skills are an open standard for extending agent capabilities." The agentskills.io client list has 46 entries.
 
 ---
 
@@ -528,9 +561,33 @@ Without a green tick you would at least go and look yourself. Three separate che
 
 ---
 
-<span class="kicker">Anthropic</span>
+<span class="kicker">Gemini CLI, install warning</span>
 
 ## The fine print
+
+> Google does not vet, endorse, or guarantee the functionality or security of extensions. Please carefully inspect any extension and its source code before installing …
+
+<p class="source">gemini-cli, packages/cli/src/config/extensions/consent.ts</p>
+
+---
+
+<span class="kicker">Gemini CLI extension gallery</span>
+
+## How do extensions get into the gallery?
+
+> You don’t need to submit an issue or email us to list your extension.
+
+“Our system crawls tagged repositories daily.” <!-- .element: class="fragment" -->
+
+Extensions can bundle skills, MCP servers, commands and hooks. <!-- .element: class="fragment" -->
+
+<p class="source">geminicli.com/docs/extensions/releasing</p>
+
+---
+
+<span class="kicker">Anthropic, Claude Code plugins</span>
+
+## Same fine print
 
 > Make sure you trust a plugin before installing it. Anthropic doesn’t control what MCP servers, files, or other software are included in plugins and can’t verify that they work as intended.
 
@@ -567,9 +624,30 @@ No one can audit catalogs that almost quadruple within two weeks. <!-- .element:
 
 <span class="kicker">Anthropic’s skills documentation</span>
 
-## Two very different worlds
+## In the cloud vs. on your machine
 
 <div class="svg" data-svg="permissions"></div>
+
+
+---
+
+<span class="kicker">On your machine</span>
+
+## A skill gets what your agent gets
+
+| | Default | Escape hatch |
+| --- | --- | --- |
+| **Gemini CLI** | asks before shell and web fetch, **sandbox off** | `--approval-mode=yolo` |
+| **Antigravity** | sandbox on, **network only outside the sandbox, “with full privileges”** | Turbo, Always Proceed |
+| **Claude Code** | asks before network access, sandbox optional | bypass permissions |
+
+> Agent Skills can execute scripts and access your files.
+<!-- .element: class="fragment" -->
+
+<p class="source fragment">Gemini CLI docs, using-agent-skills.md</p>
+
+Note:
+Gemini CLI: "Sandboxing is disabled by default". Antigravity: commands needing network "run on your host with full privileges", after approval in the Default preset, without prompt in Turbo. The malicious skill needs exactly one network access: fetching the docs.
 
 ---
 
@@ -584,11 +662,16 @@ Not just the machine: the identity. It applies everywhere the agent is already s
 
 ---
 
+<span class="kicker">What the vendors recommend</span>
+
+> **Review third-party skills**: Inspect the `SKILL.md` and scripts of any skill before installing it from an untrusted source.
+
+<p class="source">Gemini CLI, skills best practices</p>
+
 > Use Skills only from trusted sources: those you created yourself or obtained from Anthropic.
+<!-- .element: class="fragment" -->
 
-<p class="source">Anthropic, Agent Skills documentation</p>
-
-For everything else: “exercise extreme caution and thoroughly audit it before use”. <!-- .element: class="fragment" -->
+<p class="source fragment">Anthropic, Agent Skills documentation</p>
 
 ---
 
@@ -659,13 +742,14 @@ Every URL is a place where something different may sit tomorrow.
 
 ## Don’t click the prompts away
 
-- Claude Code asks before network access
-- `curl` and `wget` are not auto-approved
-- Write access stays in the working directory
-- Bash can run in a sandbox with network isolation <!-- .element: class="fragment" -->
+- Fetching the “documentation” is a network access. **Your agent asks. Read the question.**
+- Turn the sandbox on: `gemini --sandbox`, Antigravity’s default preset, Claude Code’s bash sandbox <!-- .element: class="fragment" -->
+- Block downloads you did not ask for, e.g. Antigravity: `command(regex:curl .*)` on the deny list <!-- .element: class="fragment" -->
+- Never YOLO, Turbo or skip-permissions with a new skill <!-- .element: class="fragment" -->
 - New skills first in a throwaway environment, e.g. **Docker Sandboxes** <!-- .element: class="fragment" -->
 
-<p class="source">code.claude.com/docs/en/security · docs.docker.com/ai/sandboxes</p>
+Note:
+gemini skills install has a --consent flag: "Use --consent to skip the security confirmation prompt." Don't.
 
 ---
 
@@ -769,8 +853,15 @@ Use marketplaces as a catalog of ideas. Take ideas away, not files. <!-- .elemen
 
 ## Thank you!
 
-The full case study with all sources:
+<div class="end-qr">
+<div class="qr" data-qr="https://agentic.schule/skills-talk"></div>
+<div class="left">
 
-**agentic.schule/en/blog/2026-09-malicious-ai-skills**
+**Slides, PDF, checklist, scripts and all sources**
+
+<p class="url">agentic.schule/skills-talk</p>
 
 <p class="speaker">Johannes Hoppe · agentic.schule</p>
+
+</div>
+</div>
