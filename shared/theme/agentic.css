@@ -261,6 +261,7 @@ body,
 /* ---------- Diagramme (inline SVG, siehe plugins/inline-svg.js) ---------- */
 
 .reveal .svg { width: 100%; margin: 0 auto; }
+.reveal .svg.short svg { max-height: 400px; }
 .reveal .svg svg { display: block; width: 100%; height: auto; max-height: 470px; margin: 0 auto; overflow: visible; }
 .reveal .svg text { font-family: var(--font-body); fill: var(--text); }
 .reveal .svg .t-head { fill: var(--heading); font-family: var(--font-heading); font-weight: 700; }
@@ -335,7 +336,7 @@ body,
 
 /* QR-Code (SVG aus img/, immer schwarz auf weiß mit Ruhezone) */
 .reveal .qr svg { display: block; width: 100%; height: auto; border-radius: 10px; }
-.reveal section.title .title-qr { position: absolute; right: 0; bottom: -40px; display: flex; align-items: center; gap: 16px; text-align: left; font-size: 0.5em; line-height: 1.3; }
+.reveal section.title .title-qr { position: absolute; right: 0; bottom: -40px; display: flex; align-items: center; gap: 16px; text-align: left; font-size: 0.62em; line-height: 1.3; }
 .reveal section.title .title-qr .qr { width: 120px; }
 .reveal section.title .title-qr strong { color: #ffffff; }
 .reveal section.end .end-qr { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: center; margin-top: 24px; }
@@ -369,6 +370,14 @@ body,
 .reveal .flow .arrow.bad { background: var(--danger); } .reveal .flow .arrow.bad::after { border-left-color: var(--danger); } .reveal .flow .arrow.bad span { color: var(--danger); }
 .reveal .flow-caption { font-size: 0.8em; }
 .reveal .flow-caption.bad { color: var(--danger); }
+
+/* Sichtbar gegen gelesen */
+.reveal .seen { text-align: left; margin: 24px auto 0; width: 92%; }
+.reveal .seen p { margin: 10px 0; }
+
+/* Vergleichstabelle */
+.reveal .compare table { font-size: 0.72em; width: 100%; }
+.reveal .compare td:first-child { white-space: nowrap; }
 
 /* Domain-Gegenüberstellung */
 .reveal .domains { display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px; }

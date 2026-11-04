@@ -71,6 +71,9 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     highlight: {
       beforeHighlight: terminalPrompts,
     },
+    // PDF: eine Seite pro Folie mit allen Fragmenten, Seitenzahlen unten rechts
+    pdfSeparateFragments: false,
+    pdfMaxPagesPerSlide: 1,
     plugins: [Markdown, Highlight, Notes, Zoom, Search, ThemeToggle, LiveEdit, CodeSize, QrCodes, ViewTransitions],
     ...options,
   });

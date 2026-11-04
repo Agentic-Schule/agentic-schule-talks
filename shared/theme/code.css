@@ -170,3 +170,7 @@ html.print-pdf .reveal pre > code::after { animation: none; }
 .reveal pre code.zoom.has-highlights tr.highlight-line td { padding: 0.35em 0; }
 .reveal pre code.zoom.has-highlights tr.highlight-line .hljs-ln-code { color: var(--heading); }
 .reveal pre code.zoom.has-highlights tr:not(.highlight-line) { opacity: 0.45; }
+
+/* Im PDF den ganzen Text zeigen, nicht nur die herangezoomte Zeile */
+html.print-pdf .reveal pre code.zoom.has-highlights tr { display: table-row; font-size: 1em; opacity: 1; }
+html.print-pdf .reveal pre code.zoom.has-highlights tr td { font-size: 0.75em; padding: 0; }

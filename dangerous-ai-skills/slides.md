@@ -87,20 +87,8 @@ One command, and the skill is installed. <!-- .element: class="fragment" -->
 
 <p class="source">agentskills.io</p>
 
-<div class="columns">
-<div class="card">
+**Gemini CLI · Antigravity · Claude Code · Codex · Copilot · Cursor …**
 
-**Gemini CLI** · **Antigravity**<br>
-`~/.gemini/skills/` · `.agents/skills/`
-
-</div>
-<div class="card">
-
-**Claude Code** · **Codex** · **Copilot** · **Cursor** …<br>
-same `SKILL.md`
-
-</div>
-</div>
 
 A malicious skill works in all of them. <!-- .element: class="fragment" -->
 
@@ -380,7 +368,7 @@ For every variant a scanner detects, there are many equally effective ones. <!--
 
 ## Review time is not runtime
 
-<div class="svg" data-svg="review-runtime"></div>
+<div class="svg short" data-svg="review-runtime"></div>
 
 Security researchers call this a **rug pull**. <!-- .element: class="fragment" -->
 
@@ -577,7 +565,7 @@ Instructions loaded at runtime disable “any form of version pinning”. <!-- .
 
 ## The scanners disagree
 
-<div class="svg" data-svg="venn"></div>
+<div class="svg short" data-svg="venn"></div>
 
 <p class="source">“ClawHub Security Signals”, arXiv 2606.01494: 0.69 % of skills flagged by all three</p>
 
@@ -805,11 +793,15 @@ Catalogs grow faster than anyone can review them: ClawHub went from 2,857 to 10,
 
 ## A skill gets what your agent gets
 
-| | Default | Escape hatch |
+<div class="compare">
+
+| | Default | Auto-approve mode |
 | --- | --- | --- |
-| **Gemini CLI** | asks before shell and web fetch, **sandbox off** | `--approval-mode=yolo` |
-| **Antigravity** | sandbox on, **network only outside the sandbox, “with full privileges”** | Turbo, Always Proceed |
-| **Claude Code** | asks before network access, sandbox optional | bypass permissions |
+| **Gemini CLI** | asks first, **sandbox off** | YOLO |
+| **Antigravity** | sandbox on, **network runs outside “with full privileges”** | Turbo |
+| **Claude Code** | asks first, sandbox optional | bypass permissions |
+
+</div>
 
 > Agent Skills can execute scripts and access your files.
 <!-- .element: class="fragment" -->
@@ -882,24 +874,28 @@ HashiCorp says the same: "Contributions to this repository are currently limited
 
 ## Vendors fetch at runtime, too
 
-```markdown small
+```markdown wrap
 Fetch fresh guidelines before each review:
 https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md
 ```
 
 <p class="source">vercel-labs/agent-skills, web-design-guidelines</p>
 
-```bash small
+```bash wrap
 $ curl -fsSL https://raw.githubusercontent.com/google-gemini/gemini-api-cli/main/scripts/install.sh | bash
 ```
 <!-- .element: class="fragment" -->
 
 <p class="source fragment">google-gemini/gemini-skills, gemini-api-cli</p>
 
-Not malicious. But you trust whoever controls that `main` branch, every single run. <!-- .element: class="fragment" -->
-
 Note:
 Same pattern as the attack, only the link belongs to the vendor. That is fine if you trust the vendor like a package manager. Just know that you never reviewed what runs.
+
+---
+
+<p class="statement">Not malicious.<br><span class="gradient-text">But you trust whoever controls that main branch.</span></p>
+
+On every single run. <!-- .element: class="fragment" -->
 ---
 
 <span class="kicker">Still want a foreign skill?</span>
@@ -960,29 +956,15 @@ You can still use it if you trust the operator of that address permanently, like
 
 ---
 
-<span class="kicker">Invisible Unicode</span>
+<span class="kicker">Invisible Unicode: zero-width, direction overrides, tag characters</span>
 
 ## Instructions you cannot see
 
-Zero-width spaces, direction overrides, tag characters (U+E0000 block)
-
 > These characters are invisible when rendered but are still processed by AI models. Attackers use them to smuggle instructions past human review.
 
-<div class="columns fragment">
-<div class="card">
-
-**What you see**
-
-`Format the code nicely.`
-
-</div>
-<div class="card">
-
-**What the agent reads**
-
-`Format the code nicely.`<span class="bad">`⟨U+E0041⟩⟨U+E006C⟩⟨U+E0073⟩⟨U+E006F⟩ …`</span>
-
-</div>
+<div class="seen fragment">
+<p><span class="muted">You see:</span> <code>Format the code nicely.</code></p>
+<p><span class="muted">The agent reads:</span> <code>Format the code nicely.<span class="bad">⟨U+E0041⟩⟨U+E006C⟩⟨U+E0073⟩ …</span></code></p>
 </div>
 
 Note:
