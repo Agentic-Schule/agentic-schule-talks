@@ -1,0 +1,87 @@
+/*
+ * Normale Webseiten neben den Decks (Materialseite, Spickzettel).
+ * Farben wie im Folien-Theme, Modus nach Systemeinstellung, Mobil zuerst.
+ */
+:root {
+  --bg: #1b1525;
+  --surface: #261e33;
+  --surface-2: #342b44;
+  --text: #efedf4;
+  --heading: #ffffff;
+  --muted: #b3aebf;
+  --accent: #f481b1;
+  --border: rgba(255, 255, 255, 0.1);
+  --ok: #3ddc97;
+  --danger: #ff5c7a;
+  --hero: linear-gradient(358deg, #6226b0 0%, #bb004c 90%);
+  --code-bg: #0d0913;
+  --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-heading: 'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-code: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8f8f8;
+    --surface: #ffffff;
+    --surface-2: #eef0f3;
+    --text: #1e1e1e;
+    --heading: #1e1e1e;
+    --muted: #495057;
+    --accent: #a50e55;
+    --border: #dee2e6;
+    --ok: #0a7d4a;
+    --danger: #c8102e;
+    --hero: linear-gradient(358deg, #5c44e4 0%, #e90464 90%);
+    --code-bg: #f6f8fa;
+    color-scheme: light;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.55; }
+a { color: var(--accent); text-underline-offset: 3px; }
+h1, h2, h3 { font-family: var(--font-heading); color: var(--heading); line-height: 1.15; letter-spacing: -0.01em; }
+h2 { font-size: 1.45rem; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+code { font-family: var(--font-code); font-size: 0.9em; }
+:not(pre) > code { padding: 0.1em 0.35em; border-radius: 6px; background: var(--surface-2); }
+pre { margin: 0.75rem 0; padding: 14px 16px; overflow-x: auto; background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; line-height: 1.5; }
+@media (prefers-color-scheme: dark) { pre { color: #e8e4ef; } }
+
+.hero { background: var(--hero); color: #fff; padding: 40px 16px 48px; }
+.hero .inner, main { max-width: 46rem; margin: 0 auto; }
+.hero img.logo { width: 150px; height: auto; display: block; margin-bottom: 28px; }
+.hero h1 { color: #fff; font-size: clamp(1.9rem, 6vw, 2.8rem); margin: 0 0 8px; }
+.hero p { margin: 0; opacity: 0.92; font-size: 1.05rem; }
+.hero .meta { margin-top: 14px; font-size: 0.95rem; opacity: 0.85; }
+
+main { padding: 8px 16px 64px; }
+
+.cards { display: grid; gap: 12px; grid-template-columns: 1fr; margin: 24px 0; }
+@media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+.card { display: block; padding: 16px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: inherit; text-decoration: none; }
+a.card:hover { border-color: var(--accent); }
+.card strong { display: block; color: var(--heading); font-size: 1.05rem; margin-bottom: 2px; }
+.card span { color: var(--muted); font-size: 0.93rem; }
+.card .tag { display: block; margin-top: 8px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+
+ol.check, ul.list { padding-left: 1.3em; }
+ol.check li, ul.list li { margin: 0.45em 0; }
+.muted { color: var(--muted); }
+.note { padding: 12px 16px; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 8px 8px 0; margin: 16px 0; }
+.sources li { margin: 0.35em 0; word-break: break-word; }
+footer { max-width: 46rem; margin: 0 auto; padding: 24px 16px 48px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+/* Druck: hell, ohne Verlauf, kompakt */
+@media print {
+  :root { --bg: #fff; --surface: #fff; --surface-2: #f2f2f2; --text: #111; --heading: #000; --muted: #444; --accent: #6901a2; --border: #ccc; --code-bg: #f6f8fa; color-scheme: light; }
+  body { font-size: 11pt; }
+  .hero { background: none; color: #000; padding: 0 0 8px; }
+  .hero h1, .hero p { color: #000; }
+  .no-print { display: none !important; }
+  a { color: #000; text-decoration: none; }
+  pre { color: #111; }
+}

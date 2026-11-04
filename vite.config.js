@@ -11,6 +11,14 @@ const decks = Object.fromEntries(
     .filter((d) => existsSync(resolve(root, d.name, 'index.html')))
     .map((d) => [d.name, resolve(root, d.name, 'index.html')]),
 );
+// Unterseiten eines Talks (Materialseite, Spickzettel): <talk>/<seite>/index.html
+const subpages = Object.fromEntries(
+  Object.keys(decks).flatMap((deck) =>
+    readdirSync(resolve(root, deck), { withFileTypes: true })
+      .filter((d) => d.isDirectory() && existsSync(resolve(root, deck, d.name, 'index.html')))
+      .map((d) => [`${deck}-${d.name}`, resolve(root, deck, d.name, 'index.html')]),
+  ),
+);
 
 export default defineConfig({
   base: './',
@@ -18,7 +26,7 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 2000,
     rollupOptions: {
-      input: { index: resolve(root, 'index.html'), ...decks },
+      input: { index: resolve(root, 'index.html'), ...decks, ...subpages },
     },
   },
 });

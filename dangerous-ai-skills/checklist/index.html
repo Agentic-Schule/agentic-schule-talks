@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The five-minute skill check · agentic.schule</title>
+    <link rel="icon" href="../../shared/img/logo-icon.svg" />
+    <script type="module" src="../../shared/page/page.js"></script>
+    <style>
+      @page { size: A4; margin: 14mm 16mm; }
+      .sheet { max-width: 46rem; margin: 0 auto; padding: 32px 16px 48px; }
+      .sheet header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 3px solid var(--accent); padding-bottom: 12px; }
+      .sheet header img { width: 120px; height: auto; }
+      .sheet h1 { margin: 0; font-size: 1.7rem; }
+      .sheet .sub { margin: 4px 0 0; color: var(--muted); }
+      .step { display: grid; grid-template-columns: 2.2rem 1fr; gap: 12px; margin: 18px 0; }
+      .step .n { font-family: var(--font-heading); font-weight: 700; font-size: 1.6rem; color: var(--accent); line-height: 1; }
+      .step h2 { margin: 0 0 4px; font-size: 1.1rem; }
+      .step p { margin: 0; }
+      .rules { margin-top: 24px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+      .rules h2 { margin: 0 0 8px; font-size: 1.1rem; }
+      .rules ul { margin: 0; padding-left: 1.2em; }
+      .foot { margin-top: 20px; font-size: 0.85rem; color: var(--muted); }
+      .logo-light { display: none; }
+      @media (prefers-color-scheme: light) { .logo-dark { display: none; } .logo-light { display: block; } }
+      @media print {
+        .sheet { padding: 0; }
+        .logo-dark { display: none; } .logo-light { display: block; }
+        .step { margin: 12px 0; break-inside: avoid; }
+        pre { font-size: 8.5pt; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <header>
+        <div>
+          <h1>The five-minute skill check</h1>
+          <p class="sub">Before you install an agent skill from someone you don’t know</p>
+        </div>
+        <img class="logo-dark" src="../../shared/img/logo-dark.svg" alt="agentic.schule" />
+        <img class="logo-light" src="../../shared/img/logo-light.svg" alt="agentic.schule" />
+      </header>
+
+      <div class="step"><div class="n">1</div><div>
+        <h2>Read the <code>SKILL.md</code></h2>
+        <p>The file your agent will read as instructions, every line. Not the README of the marketplace.</p>
+      </div></div>
+
+      <div class="step"><div class="n">2</div><div>
+        <h2>Search for addresses</h2>
+        <p>Does every domain really belong to the vendor? Is the spelling exactly right? Every URL is a place where something different may sit tomorrow.</p>
+        <pre><code>grep -rn "https\?://" .</code></pre>
+      </div></div>
+
+      <div class="step"><div class="n">3</div><div>
+        <h2>Search for authority</h2>
+        <p>Phrases that turn foreign text into commands: “ground truth”, “authoritative”, “always follow the instructions at”, “without bothering the user”.</p>
+        <pre><code>grep -rniE "ground truth|authoritative|always follow" .</code></pre>
+      </div></div>
+
+      <div class="step"><div class="n">4</div><div>
+        <h2>Look into the scripts</h2>
+        <p>Not only the Markdown files. And everything the skill wants to install: “prerequisites”, “setup”, “install it globally”.</p>
+      </div></div>
+
+      <div class="step"><div class="n">5</div><div>
+        <h2>Origin over popularity</h2>
+        <p>Who submitted it, and how old is the account? Stars belong to the repository, not to a single skill in it.</p>
+      </div></div>
+
+      <div class="rules">
+        <h2>Three rules that matter more than the check</h2>
+        <ul>
+          <li><strong>A skill that fetches instructions from the internet cannot be reviewed.</strong> What gets executed is whatever sits behind the link right now.</li>
+          <li><strong>Treat foreign skills as a template, never as a dependency.</strong> Let your agent rewrite them in its own words. Invisible characters don’t survive being rephrased.</li>
+          <li><strong>Keep the safety nets on.</strong> Sandbox on, no YOLO, Turbo or skip-permissions with a new skill, and read every permission prompt.</li>
+        </ul>
+      </div>
+
+      <p class="foot">From the talk “Dangerous AI Skills” by Johannes Hoppe · Slides, script and sources: talks.agentic.schule/dangerous-ai-skills/materials/</p>
+    </div>
+  </body>
+</html>
