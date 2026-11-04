@@ -1,0 +1,151 @@
+/*
+ * Code: Blöcke, Größenstufen, Terminal-Look und Syntaxfarben.
+ * Syntaxfarben wie auf den Websites: dunkel = a11y-dark (agentic.schule), hell = a11y-light (angular.schule).
+ */
+
+:root,
+:root[data-theme='dark'] {
+  --code-bg: #261e33;
+  --code-text: #f8f8f2;
+  --code-inline-bg: rgba(255, 255, 255, 0.08);
+  --hl-comment: #d4d0ab;
+  --hl-variable: #ffa07a;
+  --hl-number: #f5ab35;
+  --hl-attr: #ffd700;
+  --hl-string: #abe338;
+  --hl-title: #00e0e0;
+  --hl-keyword: #dda0dd;
+}
+
+:root[data-theme='light'] {
+  --code-bg: #f6f8fa;
+  --code-text: #383a42;
+  --code-inline-bg: rgba(27, 31, 35, 0.06);
+  --hl-comment: #696969;
+  --hl-variable: #d91e18;
+  --hl-number: #aa5d00;
+  --hl-attr: #aa5d00;
+  --hl-string: #008000;
+  --hl-title: #007aa3;
+  --hl-keyword: #7928a1;
+}
+
+/* Terminal ist in beiden Modi dunkel, so wie ein echtes Terminal */
+:root {
+  --term-bg: #0d0913;
+  --term-text: #e8e4ef;
+  --term-prompt: #f481b1;
+  --term-bar: #241a33;
+}
+
+.reveal pre {
+  width: 92%;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-family: var(--font-code);
+  font-size: 1em;
+  line-height: 1.45;
+  box-shadow: none;
+}
+
+.reveal pre code {
+  --code-size: 24px;
+  display: block;
+  padding: 18px 22px;
+  max-height: 560px;
+  overflow: auto;
+  font-size: calc(var(--code-size) * var(--code-scale, 1));
+  line-height: 1.45;
+  color: var(--code-text);
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  tab-size: 2;
+  word-wrap: normal;
+  transition: font-size 0.15s ease;
+}
+
+/* Größenstufen: ```ts big */
+.reveal pre code.tiny   { --code-size: 16px; max-height: 620px; }
+.reveal pre code.small  { --code-size: 20px; }
+.reveal pre code.medium { --code-size: 28px; }
+.reveal pre code.big    { --code-size: 34px; }
+.reveal pre code.huge   { --code-size: 44px; }
+
+.reveal :not(pre) > code {
+  font-family: var(--font-code);
+  font-size: 0.85em;
+  padding: 0.08em 0.35em;
+  color: var(--accent);
+  background: var(--code-inline-bg);
+  border-radius: 6px;
+}
+
+/* Zeilen-Highlights ([1-3|5]): nicht markierte Zeilen treten zurück */
+.reveal .hljs.has-highlights tr:not(.highlight-line) { opacity: 0.35; }
+.reveal .hljs-ln-numbers { color: var(--muted); padding-right: 0.8em !important; user-select: none; }
+
+/* ---------- Terminal: ```bash, ```sh, ```shell, ```console, ```zsh ---------- */
+
+.reveal pre:has(> code:is(.bash, .sh, .shell, .console, .zsh)) {
+  position: relative;
+  padding-top: 34px;
+  background: var(--term-bar);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+.reveal pre:has(> code:is(.bash, .sh, .shell, .console, .zsh))::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 20px 0 0 #febc2e, 40px 0 0 #28c840;
+}
+.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) {
+  color: var(--term-text);
+  background: var(--term-bg);
+  border: none;
+  border-radius: 0 0 10px 10px;
+}
+.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) * { color: inherit; }
+.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) .term-prompt { color: var(--term-prompt); font-weight: 700; user-select: none; }
+.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) :is(.hljs-comment) { color: #8f84a6; }
+.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh) :is(.hljs-string) { color: #abe338; }
+
+/* Blinkender Cursor am Ende */
+.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh)::after {
+  content: '';
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--term-text);
+  animation: term-blink 1s step-end infinite;
+}
+.reveal pre > code:is(.bash, .sh, .shell, .console, .zsh):focus::after { display: none; }
+@keyframes term-blink { 50% { opacity: 0; } }
+html.print-pdf .reveal pre > code::after { animation: none; }
+
+/* ---------- Syntaxfarben ---------- */
+
+.reveal .hljs { color: var(--code-text); background: var(--code-bg); }
+.reveal .hljs-comment, .reveal .hljs-quote { color: var(--hl-comment); font-style: italic; }
+.reveal .hljs-variable, .reveal .hljs-template-variable, .reveal .hljs-tag, .reveal .hljs-name,
+.reveal .hljs-selector-id, .reveal .hljs-selector-class, .reveal .hljs-regexp, .reveal .hljs-deletion { color: var(--hl-variable); }
+.reveal .hljs-number, .reveal .hljs-built_in, .reveal .hljs-literal, .reveal .hljs-type,
+.reveal .hljs-params, .reveal .hljs-meta, .reveal .hljs-link { color: var(--hl-number); }
+.reveal .hljs-attribute, .reveal .hljs-attr { color: var(--hl-attr); }
+.reveal .hljs-string, .reveal .hljs-symbol, .reveal .hljs-bullet, .reveal .hljs-addition { color: var(--hl-string); }
+.reveal .hljs-title, .reveal .hljs-section { color: var(--hl-title); }
+.reveal .hljs-keyword, .reveal .hljs-selector-tag { color: var(--hl-keyword); }
+.reveal .hljs-emphasis { font-style: italic; }
+.reveal .hljs-strong { font-weight: 700; }
+
+/* Zeilen-Highlights rendern als Tabelle: keine Tabellen-Optik aus dem Theme übernehmen */
+.reveal pre code table { font-size: inherit; margin: 0; }
+.reveal pre code :is(td, th) { font-size: inherit; padding: 0; border: none; }
