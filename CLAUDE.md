@@ -71,7 +71,9 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 ### Code
 
 - Größe pro Block hinter der Sprache: ```` ```ts big ````. Stufen `tiny`, `small`, `medium`, `big`, `huge`.
-- Zeilen schrittweise hervorheben: ```` ```ts [1|3-6|8] ````, auch kombiniert mit einer Größe: ```` ```ts small [1|3] ````.
+- Zeilen schrittweise hervorheben: ```` ```ts [1|3-6|8] ````, auch kombiniert mit einer Größe: ```` ```ts small [1|3] ````. Ein leerer erster Schritt (```` [|3|5] ````) zeigt erst alles ohne Markierung.
+- Mit Startnummer ```` [27: |5|6] ```` beginnen die Zeilennummern bei 27. Die Schritte zählen trotzdem ab 1 innerhalb des Blocks (5 = Zeile 31).
+- `wrap` bricht lange Zeilen um, `zoom` vergrößert die gerade markierte Zeile: ```` ```markdown tiny wrap zoom [27: |5|6] ````.
 - Code wachsen lassen: zwei aufeinanderfolgende Folien mit `<!-- .slide: data-auto-animate -->`, beide Codeblöcke mit `<!-- .element: data-id="name" -->`.
 - `bash`, `sh`, `shell`, `console`, `zsh` erscheinen als Terminal mit Fensterleiste und blinkendem Cursor. Ein `$`, `%`, `❯` oder `>` am Zeilenanfang wird als Prompt eingefärbt.
 - Jede Folie ist im Vortrag direkt editierbar, auch Code. Ausnahme: Codeblöcke mit Zeilen-Highlights.
@@ -112,6 +114,12 @@ PDF: Deck mit `?print-pdf` in Chrome öffnen und drucken (Hintergrundgrafiken an
 | `terminal.js` | Prompt-Markierung als highlight.js-Plugin |
 
 Plugins folgen der reveal.js-API `{ id, init(deck) }` und werden in `shared/deck.js` registriert. reveal.js selbst wird nie verändert. Eine Erweiterung, die sich nicht als Plugin oder CSS lösen lässt, vorher mit Johannes besprechen.
+
+## Lesbarkeit und Offline
+
+- **Maßstab ist die letzte Reihe bei einem schlechten Beamer.** Die Folie ist 1280×720 groß. Nichts wird kleiner als etwa 22 px dargestellt: Fließtext 34 px, Code mindestens `small` (20 px), im Talk keine Stufe `tiny`. SVG-Texte mindestens `font-size="26"`, weil das SVG etwas verkleinert dargestellt wird.
+- Lange Texte (Prompts, Skills, Logs) nie als Textwand zeigen. Stattdessen Zeile für Zeile mit ```` ```markdown wrap zoom [27: 1|3|5] ```` oder ein kurzer Auszug.
+- **Alles muss offline laufen.** Bilder, Schriften und Grafiken liegen im Repo (`<talk>/img/`, `@fontsource`), nichts wird gehotlinkt. Bilder im Markdown mit `src="img/datei.webp"`, die index.html des Talks löst sie über `import.meta.glob` auf. Externe Links stehen nur als Text oder Link auf der Folie, nie als Bildquelle.
 
 ## Texte auf Folien
 

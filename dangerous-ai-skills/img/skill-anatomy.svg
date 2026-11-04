@@ -1,35 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" role="img">
 <defs><marker id="an-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-muted"/></marker><marker id="an-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-accent"/></marker><marker id="an-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-bad"/></marker><marker id="an-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-ok"/></marker><linearGradient id="an-hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="stop-1"/><stop offset="1" class="stop-2"/></linearGradient></defs>
 <rect x="40" y="20" width="520" height="500" rx="10" class="box"/>
-<text x="64" y="58" class="t-head t-code" font-size="24" text-anchor="start" >SKILL.md</text>
+<text x="64" y="58" class="t-head t-code" font-size="26" text-anchor="start" >SKILL.md</text>
 <rect x="64" y="80" width="472" height="118" rx="6" class="box-2"/>
-<text x="84" y="112" class="t-muted t-code" font-size="20" text-anchor="start" >---</text>
-<text x="84" y="140" class="t-code" font-size="20" text-anchor="start" >name: brand-landingpage</text>
-<text x="84" y="166" class="t-code" font-size="20" text-anchor="start" >description: Design a landing page …</text>
-<text x="84" y="190" class="t-muted t-code" font-size="20" text-anchor="start" >---</text>
+<text x="84" y="112" class="t-muted t-code" font-size="26" text-anchor="start" >---</text>
+<text x="84" y="140" class="t-code" font-size="26" text-anchor="start" >name: brand-landingpage</text>
+<text x="84" y="166" class="t-code" font-size="26" text-anchor="start" >description: Design a landing page …</text>
+<text x="84" y="190" class="t-muted t-code" font-size="26" text-anchor="start" >---</text>
 <rect x="64" y="214" width="472" height="186" rx="6" class="box-2"/>
-<text x="84" y="248" class="t-code t-bold" font-size="20" text-anchor="start" >## Phase 0: Prerequisites</text>
+<text x="84" y="248" class="t-code t-bold" font-size="26" text-anchor="start" >## Phase 0: Prerequisites</text>
 <rect x="84" y="266" width="400" height="10" rx="5" class="fill-muted"/>
 <rect x="84" y="290" width="360" height="10" rx="5" class="fill-muted"/>
 <rect x="84" y="314" width="420" height="10" rx="5" class="fill-muted"/>
 <rect x="84" y="338" width="300" height="10" rx="5" class="fill-muted"/>
 <rect x="84" y="362" width="380" height="10" rx="5" class="fill-muted"/>
 <rect x="64" y="416" width="472" height="84" rx="6" class="box-2"/>
-<text x="84" y="448" class="t-code t-bold" font-size="20" text-anchor="start" >## Documentation</text>
-<text x="84" y="478" class="t-code t-accent" font-size="20" text-anchor="start" >- https://…/docs/sdk</text>
+<text x="84" y="448" class="t-code t-bold" font-size="26" text-anchor="start" >## Documentation</text>
+<text x="84" y="478" class="t-code t-accent" font-size="26" text-anchor="start" >- https://…/docs/sdk</text>
 <g class="">
 <path d="M548,139 L660,139" class="line" marker-end="url(#an-m)"/>
 <text x="680" y="133" class="t-head" font-size="30" text-anchor="start" >Name and description</text>
-<text x="680" y="167" class="t-muted" font-size="24" text-anchor="start" >always in the agent’s context</text>
+<text x="680" y="167" class="t-muted" font-size="26" text-anchor="start" >always in the agent’s context</text>
 </g>
 <g class="fragment">
 <path d="M548,307 L660,307" class="line" marker-end="url(#an-m)"/>
 <text x="680" y="301" class="t-head" font-size="30" text-anchor="start" >Instructions</text>
-<text x="680" y="335" class="t-muted" font-size="24" text-anchor="start" >loaded when the task matches</text>
+<text x="680" y="335" class="t-muted" font-size="26" text-anchor="start" >loaded when the task matches</text>
 </g>
 <g class="fragment">
 <path d="M548,458 L660,458" class="line-accent" marker-end="url(#an-a)"/>
 <text x="680" y="452" class="t-head t-accent" font-size="30" text-anchor="start" >Links</text>
-<text x="680" y="486" class="t-muted" font-size="24" text-anchor="start" >fetched while the agent works</text>
+<text x="680" y="486" class="t-muted" font-size="26" text-anchor="start" >fetched while the agent works</text>
 </g>
 </svg>

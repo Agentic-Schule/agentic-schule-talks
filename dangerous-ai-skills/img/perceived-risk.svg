@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img">
 <defs><marker id="pr-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-muted"/></marker><marker id="pr-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-accent"/></marker><marker id="pr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-bad"/></marker><marker id="pr-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-ok"/></marker><linearGradient id="pr-hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="stop-1"/><stop offset="1" class="stop-2"/></linearGradient></defs>
 <text x="40" y="60" class="t-head" font-size="32" text-anchor="start" >Landing page skill</text>
-<text x="40" y="104" class="t-muted" font-size="22" text-anchor="start" >Perceived risk</text>
+<text x="40" y="104" class="t-muted" font-size="26" text-anchor="start" >Perceived risk</text>
 <rect x="300" y="84" width="800" height="30" rx="15" class="box-2"/>
 <rect x="300" y="84" width="96" height="30" rx="15" class="fill-accent"/>
-<text x="300" y="152" class="t-muted" font-size="22" text-anchor="start" >“It just has to look good.”</text>
+<text x="300" y="152" class="t-muted" font-size="26" text-anchor="start" >“It just has to look good.”</text>
 <g class="fragment" data-fragment-index="1">
-<text x="40" y="200" class="t-muted" font-size="22" text-anchor="start" >Agent permissions</text>
+<text x="40" y="200" class="t-muted" font-size="26" text-anchor="start" >Agent permissions</text>
 <rect x="300" y="180" width="800" height="30" rx="15" class="fill-bad"/>
-<text x="1090" y="203" class="t-head" font-size="20" text-anchor="end" style="fill:#fff">all of yours</text>
+<text x="1090" y="203" class="t-head" font-size="26" text-anchor="end" style="fill:#fff">all of yours</text>
 </g>
 <text x="40" y="290" class="t-head" font-size="32" text-anchor="start" >Database migration skill</text>
-<text x="40" y="334" class="t-muted" font-size="22" text-anchor="start" >Perceived risk</text>
+<text x="40" y="334" class="t-muted" font-size="26" text-anchor="start" >Perceived risk</text>
 <rect x="300" y="314" width="800" height="30" rx="15" class="box-2"/>
 <rect x="300" y="314" width="640" height="30" rx="15" class="fill-accent"/>
-<text x="300" y="382" class="t-muted" font-size="22" text-anchor="start" >“Let me read this carefully.”</text>
+<text x="300" y="382" class="t-muted" font-size="26" text-anchor="start" >“Let me read this carefully.”</text>
 <g class="fragment" data-fragment-index="1">
-<text x="40" y="430" class="t-muted" font-size="22" text-anchor="start" >Agent permissions</text>
+<text x="40" y="430" class="t-muted" font-size="26" text-anchor="start" >Agent permissions</text>
 <rect x="300" y="410" width="800" height="30" rx="15" class="fill-bad"/>
-<text x="1090" y="433" class="t-head" font-size="20" text-anchor="end" style="fill:#fff">all of yours</text>
+<text x="1090" y="433" class="t-head" font-size="26" text-anchor="end" style="fill:#fff">all of yours</text>
 </g>
 </svg>

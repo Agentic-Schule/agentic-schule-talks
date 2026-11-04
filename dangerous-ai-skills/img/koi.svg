@@ -4,14 +4,14 @@
 <text x="40" y="50" class="t-head" font-size="30" text-anchor="start" >Early February</text>
 <rect x="40" y="74" width="294" height="44" rx="6" class="box-2"/>
 <rect x="40" y="74" width="35" height="44" rx="6" class="fill-bad"/>
-<text x="91.05607476635514" y="106" class="t-bad t-bold" font-size="24" text-anchor="start" >341 malicious</text>
-<text x="317.7102803738318" y="154" class="t-muted" font-size="22" text-anchor="end" >2,857 skills</text>
+<text x="91.05607476635514" y="106" class="t-bad t-bold" font-size="26" text-anchor="start" >341 malicious</text>
+<text x="317.7102803738318" y="154" class="t-muted" font-size="26" text-anchor="end" >2,857 skills</text>
 </g>
 <g class="fragment">
 <text x="40" y="220" class="t-head" font-size="30" text-anchor="start" >Two weeks later</text>
 <rect x="40" y="244" width="1100" height="44" rx="6" class="box-2"/>
 <rect x="40" y="244" width="85" height="44" rx="6" class="fill-bad"/>
-<text x="140.71028037383178" y="276" class="t-bad t-bold" font-size="24" text-anchor="start" >824 malicious</text>
-<text x="1124.0" y="324" class="t-muted" font-size="22" text-anchor="end" >10,700+ skills</text>
+<text x="140.71028037383178" y="276" class="t-bad t-bold" font-size="26" text-anchor="start" >824 malicious</text>
+<text x="1124.0" y="324" class="t-muted" font-size="26" text-anchor="end" >10,700+ skills</text>
 </g>
 </svg>

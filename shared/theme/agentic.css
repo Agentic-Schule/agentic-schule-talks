@@ -121,7 +121,7 @@ body,
 .reveal p { margin: var(--r-block-margin) 0; line-height: 1.4; text-wrap: pretty; }
 .reveal strong, .reveal b { font-weight: 700; color: var(--accent); }
 .reveal em { font-style: italic; }
-.reveal small { font-size: 0.6em; line-height: 1.3; color: var(--muted); display: inline-block; }
+.reveal small { font-size: 0.7em; line-height: 1.3; color: var(--muted); display: inline-block; }
 
 .reveal ol, .reveal ul { text-align: left; margin: 0 0 0 1em; display: inline-block; }
 .reveal ul { list-style: none; }
@@ -201,7 +201,7 @@ body,
 .reveal .kicker {
   display: block;
   margin: 0 0 14px;
-  font-size: 0.55em;
+  font-size: 0.62em;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -229,6 +229,11 @@ body,
 
 /* Zweispaltig: <div class="columns"><div>…</div><div>…</div></div> */
 .reveal .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; text-align: left; }
+
+/* Vorstellung: Foto links, Text rechts */
+.reveal .about { display: grid; grid-template-columns: 400px 1fr; gap: 56px; align-items: center; text-align: left; }
+.reveal .about img { width: 400px; height: 400px; object-fit: cover; margin: 0; border-radius: 12px; border: 1px solid var(--border); }
+.reveal .about h2 { margin-bottom: 16px; }
 
 /* Karte mit Kante statt Schatten */
 .reveal .card {
@@ -282,7 +287,7 @@ body,
 .reveal .bad { color: var(--danger); }
 
 /* Zitat mit Quelle: > Zitat … dann <p class="source">Quelle</p> */
-.reveal .source { font-size: 0.55em; color: var(--muted); margin-top: 8px; }
+.reveal .source { font-size: 0.65em; color: var(--muted); margin-top: 8px; }
 
 /* Domain-Vergleich und ähnliche Gegenüberstellungen */
 .reveal .domain { font-family: var(--font-code); font-size: 1.15em; font-weight: 500; padding: 0.25em 0.6em; border-radius: 8px; display: inline-block; }

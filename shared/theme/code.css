@@ -71,7 +71,7 @@
 }
 
 /* Größenstufen: ```ts big */
-.reveal pre code.tiny   { --code-size: 16px; max-height: 620px; }
+.reveal pre code.tiny   { --code-size: 18px; max-height: 620px; } /* nur für Vorführzwecke, im Talk zu klein */
 .reveal pre code.small  { --code-size: 20px; }
 .reveal pre code.medium { --code-size: 28px; }
 .reveal pre code.big    { --code-size: 34px; }
@@ -154,3 +154,19 @@ html.print-pdf .reveal pre > code::after { animation: none; }
 /* Zeilen-Highlights rendern als Tabelle: keine Tabellen-Optik aus dem Theme übernehmen */
 .reveal pre code table { font-size: inherit; margin: 0; }
 .reveal pre code :is(td, th) { font-size: inherit; padding: 0; border: none; }
+
+/* Lange Zeilen umbrechen: ```markdown wrap */
+.reveal pre code.wrap, .reveal pre code.wrap .hljs-ln-code { white-space: pre-wrap; word-break: break-word; }
+.reveal pre code .hljs-ln-numbers { vertical-align: top; width: 1%; white-space: nowrap; word-break: normal; }
+
+/* Zeile für Zeile lesen: ```markdown wrap zoom [27: 1|3|5]
+   Nur die markierte Zeile steht groß da, die Nachbarzeilen klein zur Orientierung,
+   der Rest ist ausgeblendet. So bleibt auch ein langer Text auf jedem Beamer lesbar. */
+.reveal pre code.zoom { --code-size: 30px; max-height: 600px; overflow: hidden; }
+.reveal pre code.zoom.has-highlights tr { display: none; }
+.reveal pre code.zoom.has-highlights tr.highlight-line { display: table-row; }
+.reveal pre code.zoom.has-highlights tr:has(+ tr.highlight-line),
+.reveal pre code.zoom.has-highlights tr.highlight-line + tr { display: table-row; opacity: 0.45; font-size: 0.7em; }
+.reveal pre code.zoom.has-highlights tr.highlight-line td { padding: 0.35em 0; }
+.reveal pre code.zoom.has-highlights tr.highlight-line .hljs-ln-code { color: var(--heading); }
+.reveal pre code.zoom.has-highlights tr:not(.highlight-line) { opacity: 0.45; }

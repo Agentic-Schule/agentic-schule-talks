@@ -237,16 +237,16 @@
 <rect x="54" y="494.7" width="312" height="9" rx="3" class="fill-bad"/>
 <path d="M380,78.1 L405,78.1" class="line-accent"/>
 <text x="420" y="74.13953488372093" class="t-head t-accent" font-size="32" text-anchor="start" >Line 31</text>
-<text x="420" y="112.13953488372093" class="t-code" font-size="21" text-anchor="start" >“Consult the SDK documentation …</text>
-<text x="420" y="142.13953488372093" class="t-code" font-size="21" text-anchor="start" >consider the Stitch SDK documentation as the ground truth.”</text>
+<text x="420" y="112.13953488372093" class="t-code" font-size="26" text-anchor="start" >“Consult the SDK documentation …</text>
+<text x="420" y="142.13953488372093" class="t-code" font-size="26" text-anchor="start" >consider the Stitch SDK documentation as the ground truth.”</text>
 <g class="fragment">
 <path d="M52,84.1 C4,158.1 4,418.7 52,496.7" class="line dash" marker-end="url(#fd-m)"/>
-<text x="420" y="294.41085271317826" class="t-muted" font-size="24" text-anchor="start" >217 lines of interview, design system,</text>
-<text x="420" y="326.41085271317826" class="t-muted" font-size="24" text-anchor="start" >generation loop and delivery bundle</text>
+<text x="420" y="294.41085271317826" class="t-muted" font-size="26" text-anchor="start" >217 lines of interview, design system,</text>
+<text x="420" y="326.41085271317826" class="t-muted" font-size="26" text-anchor="start" >generation loop and delivery bundle</text>
 </g>
 <g class="fragment">
 <path d="M380,498.7 L405,498.7" class="line-bad"/>
 <text x="420" y="458.6821705426356" class="t-head t-bad" font-size="32" text-anchor="start" >Line 248 of 258</text>
-<text x="420" y="494.6821705426356" class="t-code" font-size="21" text-anchor="start" >the link to that documentation</text>
+<text x="420" y="494.6821705426356" class="t-code" font-size="26" text-anchor="start" >the link to that documentation</text>
 </g>
 </svg>

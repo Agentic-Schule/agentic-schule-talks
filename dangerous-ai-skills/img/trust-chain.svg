@@ -2,23 +2,23 @@
 <defs><marker id="tc-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-muted"/></marker><marker id="tc-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-accent"/></marker><marker id="tc-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-bad"/></marker><marker id="tc-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-ok"/></marker><linearGradient id="tc-hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="stop-1"/><stop offset="1" class="stop-2"/></linearGradient></defs>
 <rect x="20" y="40" width="250" height="120" rx="12" class="box"/>
 <text x="145" y="92" class="t-head" font-size="28" text-anchor="middle" >A stranger</text>
-<text x="145" y="128" class="t-muted" font-size="20" text-anchor="middle" >account 6 days old</text>
+<text x="145" y="128" class="t-muted" font-size="26" text-anchor="middle" >account 6 days old</text>
 <path d="M274,100 L310,100" class="line" marker-end="url(#tc-m)"/>
 <rect x="315" y="40" width="250" height="120" rx="12" class="box"/>
 <text x="440" y="92" class="t-head" font-size="28" text-anchor="middle" >A catalog</text>
-<text x="440" y="128" class="t-muted" font-size="20" text-anchor="middle" >stars, install counts</text>
+<text x="440" y="128" class="t-muted" font-size="26" text-anchor="middle" >stars, install counts</text>
 <path d="M569,100 L605,100" class="line" marker-end="url(#tc-m)"/>
 <rect x="610" y="40" width="250" height="120" rx="12" class="box"/>
 <text x="735" y="92" class="t-head" font-size="28" text-anchor="middle" >Your project</text>
-<text x="735" y="128" class="t-muted" font-size="20" text-anchor="middle" >skills folder</text>
+<text x="735" y="128" class="t-muted" font-size="26" text-anchor="middle" >skills folder</text>
 <path d="M864,100 L900,100" class="line" marker-end="url(#tc-m)"/>
 <rect x="905" y="40" width="250" height="120" rx="12" class="box-bad"/>
 <text x="1030" y="92" class="t-head" font-size="28" text-anchor="middle" >Your agent</text>
-<text x="1030" y="128" class="t-muted" font-size="20" text-anchor="middle" >your permissions</text>
+<text x="1030" y="128" class="t-muted" font-size="26" text-anchor="middle" >your permissions</text>
 <g class="fragment">
 <rect x="290" y="190" width="320" height="70" rx="12" class="box-accent dash"/>
-<text x="450" y="234" class="t-accent" font-size="24" text-anchor="middle" >+ one more marketplace</text>
-<text x="600" y="310" class="t-muted" font-size="24" text-anchor="middle" >A longer chain does not become more trustworthy.</text>
+<text x="450" y="234" class="t-accent" font-size="26" text-anchor="middle" >+ one more marketplace</text>
+<text x="600" y="310" class="t-muted" font-size="26" text-anchor="middle" >A longer chain does not become more trustworthy.</text>
 </g>
 <g class="fragment">
 <rect x="20" y="350" width="250" height="100" rx="12" class="box-ok"/>
@@ -29,6 +29,6 @@
 <path d="M569,400 L605,400" class="line-ok" marker-end="url(#tc-o)"/>
 <rect x="610" y="350" width="250" height="100" rx="12" class="box-ok"/>
 <text x="735" y="410" class="t-head" font-size="30" text-anchor="middle" >Your agent</text>
-<text x="900" y="410" class="t-ok" font-size="24" text-anchor="start" >nothing to transfer</text>
+<text x="900" y="410" class="t-ok" font-size="26" text-anchor="start" >nothing to transfer</text>
 </g>
 </svg>

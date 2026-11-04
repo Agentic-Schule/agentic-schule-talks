@@ -1,4 +1,4 @@
-# Erzeugt die SVG-Diagramme in img/. Aufruf: python3 diagrams.py
+# Erzeugt die SVG-Diagramme in img/. Aufruf: python3 diagrams.py. Mindestgröße für Text: 26 (Beamer).
 
 import os, sys
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img')
@@ -26,22 +26,22 @@ def text(x, y, t, cls='', size=26, anchor='start', extra=''):
 p = 'an'
 b = []
 b.append('<rect x="40" y="20" width="520" height="500" rx="10" class="box"/>')
-b.append(text(64, 58, 'SKILL.md', 't-head t-code', 24))
+b.append(text(64, 58, 'SKILL.md', 't-head t-code', 26))
 # frontmatter
 b.append('<rect x="64" y="80" width="472" height="118" rx="6" class="box-2"/>')
-b.append(text(84, 112, '---', 't-muted t-code', 20))
-b.append(text(84, 140, 'name: brand-landingpage', 't-code', 20))
-b.append(text(84, 166, 'description: Design a landing page …', 't-code', 20))
-b.append(text(84, 190, '---', 't-muted t-code', 20))
+b.append(text(84, 112, '---', 't-muted t-code', 26))
+b.append(text(84, 140, 'name: brand-landingpage', 't-code', 26))
+b.append(text(84, 166, 'description: Design a landing page …', 't-code', 26))
+b.append(text(84, 190, '---', 't-muted t-code', 26))
 # body
 b.append('<rect x="64" y="214" width="472" height="186" rx="6" class="box-2"/>')
-b.append(text(84, 248, '## Phase 0: Prerequisites', 't-code t-bold', 20))
+b.append(text(84, 248, '## Phase 0: Prerequisites', 't-code t-bold', 26))
 for i, wdt in enumerate([400, 360, 420, 300, 380]):
     b.append(f'<rect x="84" y="{266 + i * 24}" width="{wdt}" height="10" rx="5" class="fill-muted"/>')
 # references
 b.append('<rect x="64" y="416" width="472" height="84" rx="6" class="box-2"/>')
-b.append(text(84, 448, '## Documentation', 't-code t-bold', 20))
-b.append(text(84, 478, '- https://…/docs/sdk', 't-code t-accent', 20))
+b.append(text(84, 448, '## Documentation', 't-code t-bold', 26))
+b.append(text(84, 478, '- https://…/docs/sdk', 't-code t-accent', 26))
 # annotations
 ann = [
     (139, 'Name and description', 'always in the agent’s context', 'line', 'm', ''),
@@ -52,7 +52,7 @@ for y, head, sub, lcls, mk, frag in ann:
     b.append(f'<g class="{frag}">')
     b.append(f'<path d="M548,{y} L660,{y}" class="{lcls}" marker-end="url(#{p}-{mk})"/>')
     b.append(text(680, y - 6, head, 't-head' + (' t-accent' if mk == 'a' else ''), 30))
-    b.append(text(680, y + 28, sub, 't-muted', 24))
+    b.append(text(680, y + 28, sub, 't-muted', 26))
     b.append('</g>')
 svg('skill-anatomy', 1200, 540, '\n'.join(b), p)
 
@@ -77,17 +77,17 @@ b.append(f'<rect x="{X - 6}" y="{y31 - 4:.1f}" width="{W + 12}" height="9" rx="3
 b.append(f'<rect x="{X - 6}" y="{y248 - 4:.1f}" width="{W + 12}" height="9" rx="3" class="fill-bad"/>')
 b.append(f'<path d="M{X + W + 20},{y31:.1f} L405,{y31:.1f}" class="line-accent"/>')
 b.append(text(420, y31 - 4, 'Line 31', 't-head t-accent', 32))
-b.append(text(420, y31 + 34, '\u201cConsult the SDK documentation \u2026', 't-code', 21))
-b.append(text(420, y31 + 64, 'consider the Stitch SDK documentation as the ground truth.\u201d', 't-code', 21))
+b.append(text(420, y31 + 34, '\u201cConsult the SDK documentation \u2026', 't-code', 26))
+b.append(text(420, y31 + 64, 'consider the Stitch SDK documentation as the ground truth.\u201d', 't-code', 26))
 b.append('<g class="fragment">')
 b.append(f'<path d="M{X - 8},{y31 + 6:.1f} C{X - 56},{y31 + 80:.1f} {X - 56},{y248 - 80:.1f} {X - 8},{y248 - 2:.1f}" class="line dash" marker-end="url(#{p}-m)"/>')
-b.append(text(420, (y31 + y248) / 2 + 6, '217 lines of interview, design system,', 't-muted', 24))
-b.append(text(420, (y31 + y248) / 2 + 38, 'generation loop and delivery bundle', 't-muted', 24))
+b.append(text(420, (y31 + y248) / 2 + 6, '217 lines of interview, design system,', 't-muted', 26))
+b.append(text(420, (y31 + y248) / 2 + 38, 'generation loop and delivery bundle', 't-muted', 26))
 b.append('</g>')
 b.append('<g class="fragment">')
 b.append(f'<path d="M{X + W + 20},{y248:.1f} L405,{y248:.1f}" class="line-bad"/>')
 b.append(text(420, y248 - 40, 'Line 248 of 258', 't-head t-bad', 32))
-b.append(text(420, y248 - 4, 'the link to that documentation', 't-code', 21))
+b.append(text(420, y248 - 4, 'the link to that documentation', 't-code', 26))
 b.append('</g>')
 svg('file-distance', 1200, 540, '\n'.join(b), p)
 
@@ -98,25 +98,25 @@ def redirect(name, armed):
     # agent
     b.append('<rect x="20" y="170" width="250" height="150" rx="12" class="box-2"/>')
     b.append(text(145, 232, 'Your agent', 't-head', 30, 'middle'))
-    b.append(text(145, 270, 'reads the skill', 't-muted', 22, 'middle'))
+    b.append(text(145, 270, 'reads the skill', 't-muted', 26, 'middle'))
     # attacker domain
     b.append('<rect x="400" y="170" width="380" height="150" rx="12" class="box-accent"/>')
     b.append(text(590, 232, 'stitch-design[.]ai', 't-head t-code', 30, 'middle'))
-    b.append(text(590, 270, 'owned by the attacker', 't-muted', 22, 'middle'))
+    b.append(text(590, 270, 'owned by the attacker', 't-muted', 26, 'middle'))
     b.append(f'<path d="M275,245 L390,245" class="line" marker-end="url(#{p}-m)"/>')
     if not armed:
         b.append('<rect x="900" y="170" width="290" height="150" rx="12" class="box-ok"/>')
         b.append(text(1045, 232, 'stitch.withgoogle', 't-head t-code', 26, 'middle'))
-        b.append(text(1045, 270, 'Google’s real docs', 't-ok', 22, 'middle'))
+        b.append(text(1045, 270, 'Google’s real docs', 't-ok', 26, 'middle'))
         b.append(f'<path d="M785,245 L890,245" class="line-ok" marker-end="url(#{p}-o)"/>')
-        b.append(text(838, 230, '302', 't-ok t-code t-bold', 22, 'middle'))
+        b.append(text(838, 230, '302', 't-ok t-code t-bold', 26, 'middle'))
         b.append(text(600, 420, 'Resting state: every check lands on the original.', 't-muted', 26, 'middle'))
     else:
         b.append('<rect x="900" y="170" width="290" height="150" rx="12" class="box-bad"/>')
         b.append(text(1045, 232, 'install script', 't-head', 28, 'middle'))
-        b.append(text(1045, 270, 'download and run', 't-bad', 22, 'middle'))
+        b.append(text(1045, 270, 'download and run', 't-bad', 26, 'middle'))
         b.append(f'<path d="M785,245 L890,245" class="line-bad" marker-end="url(#{p}-b)"/>')
-        b.append(text(838, 230, '200', 't-bad t-code t-bold', 22, 'middle'))
+        b.append(text(838, 230, '200', 't-bad t-code t-bold', 26, 'middle'))
         b.append(text(600, 420, 'Armed: same link, new content. The skill did not change.', 't-bad', 26, 'middle'))
     svg(name, 1200, 460, '\n'.join(b), p)
 redirect('redirect-rest', False)
@@ -151,14 +151,14 @@ rows = [('Landing page skill', 0.12, '“It just has to look good.”'), ('Datab
 for i, (lab, risk, quote) in enumerate(rows):
     y = 60 + i * 230
     b.append(text(40, y, lab, 't-head', 32))
-    b.append(text(40, y + 44, 'Perceived risk', 't-muted', 22))
+    b.append(text(40, y + 44, 'Perceived risk', 't-muted', 26))
     b.append(f'<rect x="300" y="{y + 24}" width="800" height="30" rx="15" class="box-2"/>')
     b.append(f'<rect x="300" y="{y + 24}" width="{800 * risk:.0f}" height="30" rx="15" class="fill-accent"/>')
-    b.append(text(300, y + 92, quote, 't-muted', 22))
+    b.append(text(300, y + 92, quote, 't-muted', 26))
     b.append(f'<g class="fragment" data-fragment-index="1">')
-    b.append(text(40, y + 140, 'Agent permissions', 't-muted', 22))
+    b.append(text(40, y + 140, 'Agent permissions', 't-muted', 26))
     b.append(f'<rect x="300" y="{y + 120}" width="800" height="30" rx="15" class="fill-bad"/>')
-    b.append(text(1090, y + 143, 'all of yours', 't-head', 20, 'end', 'style="fill:#fff"'))
+    b.append(text(1090, y + 143, 'all of yours', 't-head', 26, 'end', 'style="fill:#fff"'))
     b.append('</g>')
 svg('perceived-risk', 1200, 500, '\n'.join(b), p)
 
@@ -191,29 +191,29 @@ svg('attack-timeline', 1000, 470, '\n'.join(b), p)
 p = 'sp'
 b = []
 b.append('<rect x="20" y="200" width="250" height="110" rx="12" class="box-accent"/>')
-b.append(text(145, 248, 'wshobson/agents', 't-head t-code', 22, 'middle'))
-b.append(text(145, 282, '42,000 stars', 't-muted', 20, 'middle'))
+b.append(text(145, 248, 'wshobson/agents', 't-head t-code', 26, 'middle'))
+b.append(text(145, 282, '42,000 stars', 't-muted', 26, 'middle'))
 cats = ['claudemarketplaces.com', 'skills.sh (install counter)', 'aiskillstore/marketplace', 'bachsh/supermarket', 'claude-skill-registry', '“awesome-skills” mirrors']
 for i, c in enumerate(cats):
     y = 30 + i * 78
     b.append('<g class="fragment" data-fragment-index="1">')
     b.append(f'<path d="M275,255 C340,255 340,{y + 28} 400,{y + 28}" class="line" marker-end="url(#{p}-m)"/>')
     b.append(f'<rect x="405" y="{y}" width="370" height="56" rx="8" class="box"/>')
-    b.append(text(425, y + 36, c, 't-code', 21))
+    b.append(text(425, y + 36, c, 't-code', 26))
     b.append('</g>')
 b.append('<g class="fragment" data-fragment-index="2">')
 b.append(f'<path d="M780,263 L870,170" class="line" marker-end="url(#{p}-m)"/>')
 b.append(f'<path d="M780,263 L870,350" class="line dash" marker-end="url(#{p}-m)"/>')
 b.append('<rect x="875" y="120" width="305" height="96" rx="8" class="box"/>')
-b.append(text(895, 158, 'Checked into projects', 't-head', 22))
-b.append(text(895, 192, 'visible on GitHub', 't-muted', 20))
+b.append(text(895, 158, 'Checked into projects', 't-head', 26))
+b.append(text(895, 192, 'visible on GitHub', 't-muted', 26))
 b.append('<rect x="875" y="300" width="305" height="96" rx="8" class="box dash"/>')
-b.append(text(895, 338, 'Installed in ~/.claude', 't-head', 22))
-b.append(text(895, 372, 'invisible, uncountable', 't-muted', 20))
+b.append(text(895, 338, 'Installed in ~/.claude', 't-head', 26))
+b.append(text(895, 372, 'invisible, uncountable', 't-muted', 26))
 b.append('</g>')
 b.append('<g class="fragment" data-fragment-index="3">')
 b.append('<rect x="405" y="500" width="775" height="60" rx="10" class="box-bad"/>')
-b.append(text(792, 540, 'Every copy still points to the same attacker domain', 't-bad t-bold', 24, 'middle'))
+b.append(text(792, 540, 'Every copy still points to the same attacker domain', 't-bad t-bold', 26, 'middle'))
 b.append('</g>')
 svg('spread', 1200, 580, '\n'.join(b), p)
 
@@ -231,8 +231,8 @@ for i, (lab, total, bad) in enumerate(rows):
     bw = 1100 * bad / maxv
     b.append(f'<rect x="40" y="{y + 24}" width="{tw:.0f}" height="44" rx="6" class="box-2"/>')
     b.append(f'<rect x="40" y="{y + 24}" width="{bw:.0f}" height="44" rx="6" class="fill-bad"/>')
-    b.append(text(40 + max(bw, 0) + 16, y + 56, f'{bad:,} malicious', 't-bad t-bold', 24))
-    b.append(text(40 + tw - 16, y + 104, f'{total:,}{"+" if i else ""} skills', 't-muted', 22, 'end'))
+    b.append(text(40 + max(bw, 0) + 16, y + 56, f'{bad:,} malicious', 't-bad t-bold', 26))
+    b.append(text(40 + tw - 16, y + 104, f'{total:,}{"+" if i else ""} skills', 't-muted', 26, 'end'))
     b.append('</g>')
 svg('koi', 1200, 400, '\n'.join(b), p)
 
@@ -243,11 +243,11 @@ for cx, cy, lab, lx, ly in [(470, 210, 'Scanner A', 300, 90), (730, 210, 'Scanne
     b.append(f'<circle cx="{cx}" cy="{cy}" r="190" class="box-accent" style="fill-opacity:0.6"/>')
     b.append(text(lx, ly, lab, 't-head', 26, 'middle'))
 b.append(text(600, 300, '0.69 %', 't-head', 30, 'middle', 'style="fill:var(--heading)"'))
-b.append(text(600, 330, 'all three', 't-muted', 20, 'middle'))
+b.append(text(600, 330, 'all three', 't-muted', 26, 'middle'))
 b.append('<g class="fragment">')
 b.append(text(1180, 300, '81.9 %', 't-head t-bad', 64, 'end'))
-b.append(text(1180, 346, 'of all findings come', 't-muted', 24, 'end'))
-b.append(text(1180, 378, 'from one scanner only', 't-muted', 24, 'end'))
+b.append(text(1180, 346, 'of all findings come', 't-muted', 26, 'end'))
+b.append(text(1180, 378, 'from one scanner only', 't-muted', 26, 'end'))
 b.append('</g>')
 svg('venn', 1200, 610, '\n'.join(b), p)
 
@@ -256,7 +256,7 @@ p = 'pm'
 b = []
 b.append('<rect x="20" y="20" width="540" height="420" rx="14" class="box-ok"/>')
 b.append(text(290, 80, 'Claude API', 't-head', 34, 'middle'))
-b.append(text(290, 118, 'Skill runs in a container', 't-muted', 22, 'middle'))
+b.append(text(290, 118, 'Skill runs in a container', 't-muted', 26, 'middle'))
 for i in range(7):
     b.append(f'<path d="M{120 + i * 57},160 L{120 + i * 57},330" class="line-ok"/>')
 b.append('<rect x="110" y="155" width="360" height="180" rx="10" class="line-ok"/>')
@@ -265,12 +265,12 @@ b.append(text(290, 395, '“No network access”', 't-ok t-bold', 26, 'middle'))
 b.append('<g class="fragment">')
 b.append('<rect x="640" y="20" width="540" height="420" rx="14" class="box-bad"/>')
 b.append(text(910, 80, 'Claude Code', 't-head', 34, 'middle'))
-b.append(text(910, 118, 'Skill runs on your machine', 't-muted', 22, 'middle'))
+b.append(text(910, 118, 'Skill runs on your machine', 't-muted', 26, 'middle'))
 items = ['your files', '~/.ssh, .env', 'git push', 'cloud CLIs', 'the internet']
 for i, it in enumerate(items):
     y = 170 + i * 40
     b.append(f'<circle cx="760" cy="{y - 8}" r="6" class="fill-bad"/>')
-    b.append(text(780, y, it, 't-code', 24))
+    b.append(text(780, y, it, 't-code', 26))
 b.append(text(910, 395, '“Full network access”', 't-bad t-bold', 26, 'middle'))
 b.append('</g>')
 svg('permissions', 1200, 460, '\n'.join(b), p)
@@ -284,13 +284,13 @@ for i, (h, s2) in enumerate(chain):
     cls = 'box-bad' if i == 3 else 'box'
     b.append(f'<rect x="{x}" y="40" width="250" height="120" rx="12" class="{cls}"/>')
     b.append(text(x + 125, 92, h, 't-head', 28, 'middle'))
-    b.append(text(x + 125, 128, s2, 't-muted', 20, 'middle'))
+    b.append(text(x + 125, 128, s2, 't-muted', 26, 'middle'))
     if i < 3:
         b.append(f'<path d="M{x + 254},100 L{x + 290},100" class="line" marker-end="url(#{p}-m)"/>')
 b.append('<g class="fragment">')
 b.append('<rect x="290" y="190" width="320" height="70" rx="12" class="box-accent dash"/>')
-b.append(text(450, 234, '+ one more marketplace', 't-accent', 24, 'middle'))
-b.append(text(600, 310, 'A longer chain does not become more trustworthy.', 't-muted', 24, 'middle'))
+b.append(text(450, 234, '+ one more marketplace', 't-accent', 26, 'middle'))
+b.append(text(600, 310, 'A longer chain does not become more trustworthy.', 't-muted', 26, 'middle'))
 b.append('</g>')
 b.append('<g class="fragment">')
 b.append('<rect x="20" y="350" width="250" height="100" rx="12" class="box-ok"/>')
@@ -301,7 +301,7 @@ b.append(text(440, 410, 'Your skill', 't-head', 30, 'middle'))
 b.append(f'<path d="M569,400 L605,400" class="line-ok" marker-end="url(#{p}-o)"/>')
 b.append('<rect x="610" y="350" width="250" height="100" rx="12" class="box-ok"/>')
 b.append(text(735, 410, 'Your agent', 't-head', 30, 'middle'))
-b.append(text(900, 410, 'nothing to transfer', 't-ok', 24))
+b.append(text(900, 410, 'nothing to transfer', 't-ok', 26))
 b.append('</g>')
 svg('trust-chain', 1200, 470, '\n'.join(b), p)
 
@@ -311,7 +311,7 @@ b = []
 cx, cy = 600, 260
 b.append(f'<circle cx="{cx}" cy="{cy}" r="95" class="box-bad"/>')
 b.append(text(cx, cy - 4, 'Your agent', 't-head', 28, 'middle'))
-b.append(text(cx, cy + 30, 'signed in as you', 't-muted', 20, 'middle'))
+b.append(text(cx, cy + 30, 'signed in as you', 't-muted', 26, 'middle'))
 import math
 spokes = ['GitHub', 'Cloud console', 'npm token', 'Slack and mail', 'Production DB', 'Your files']
 for i, s2 in enumerate(spokes):
@@ -321,7 +321,7 @@ for i, s2 in enumerate(spokes):
     b.append('<g class="fragment" data-fragment-index="1">')
     b.append(f'<path d="M{x1:.0f},{y1:.0f} L{cx + 250 * math.cos(a):.0f},{cy + 160 * math.sin(a):.0f}" class="line-bad"/>')
     b.append(f'<rect x="{x2 - 110:.0f}" y="{y2 - 28:.0f}" width="220" height="56" rx="28" class="box"/>')
-    b.append(text(round(x2), round(y2 + 9), s2, 't-head', 22, 'middle'))
+    b.append(text(round(x2), round(y2 + 9), s2, 't-head', 26, 'middle'))
     b.append('</g>')
 svg('identity', 1200, 520, '\n'.join(b), p)
 print(sorted(os.listdir(OUT)))
