@@ -231,15 +231,28 @@ Every skill has a section like this. <!-- .element: class="fragment" -->
 
 ---
 
+<!-- .slide: data-view-transition data-transition="none" -->
+
+<span class="kicker">Spot the difference</span>
+
+## Google Stitch lives here
+
+<div class="domains">
+<div class="domain-card ok" data-vt="dom-real"><span class="domain ok">stitch.withgoogle.com</span><span class="muted">Google Stitch</span></div>
+</div>
+
+---
+
+<!-- .slide: data-view-transition data-transition="none" -->
+
 <span class="kicker">Spot the difference</span>
 
 ## One wrong domain
 
-<p><span class="domain ok">stitch.withgoogle.com</span></p>
-<p class="muted">Google Stitch</p>
-
-<p class="fragment"><span class="domain bad">stitch-design[.]ai</span><br><span class="muted">registered by the attackers</span></p>
-
+<div class="domains">
+<div class="domain-card ok small" data-vt="dom-real"><span class="domain ok">stitch.withgoogle.com</span><span class="muted">Google Stitch</span></div>
+<div class="domain-card bad" data-vt="dom-fake"><span class="domain bad">stitch-design[.]ai</span><span class="muted">registered by the attackers</span></div>
+</div>
 ---
 
 <p class="statement">Social engineering.<br><span class="gradient-text">Aimed at a machine.</span></p>
@@ -273,11 +286,50 @@ Not one of them objected. <!-- .element: class="fragment" -->
 
 ---
 
-<span class="kicker">The resting state</span>
+<!-- .slide: data-view-transition data-transition="none" -->
+
+<span class="kicker" data-vt="rd-kicker">The resting state</span>
 
 ## And anyone who checks the link is reassured
 
-<div class="svg" data-svg="redirect-rest"></div>
+<div class="flow">
+<div class="node" data-vt="rd-agent"><strong>Your agent</strong><span>reads the skill</span></div>
+<div class="arrow" data-vt="rd-arrow1"></div>
+<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design[.]ai</strong><span>owned by the attacker</span></div>
+<div class="arrow ok" data-vt="rd-arrow2"><span>302</span></div>
+<div class="node ok" data-vt="rd-target"><strong class="mono">stitch.withgoogle</strong><span>Google’s real docs</span></div>
+</div>
+
+<p class="flow-caption muted" data-vt="rd-caption">Resting state: every check lands on the original.</p>
+
+---
+
+<!-- .slide: data-view-transition data-transition="none" -->
+
+<span class="kicker" data-vt="rd-kicker">Flip the switch</span>
+
+## And anyone who checks the link is reassured
+
+<div class="flow">
+<div class="node" data-vt="rd-agent"><strong>Your agent</strong><span>reads the skill</span></div>
+<div class="arrow" data-vt="rd-arrow1"></div>
+<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design[.]ai</strong><span>owned by the attacker</span></div>
+<div class="arrow bad" data-vt="rd-arrow2"><span>200</span></div>
+<div class="node bad" data-vt="rd-target"><strong>install script</strong><span>download and run</span></div>
+</div>
+
+<p class="flow-caption bad" data-vt="rd-caption">Armed: same link, new content. The skill did not change.</p>
+---
+
+> Once we configured our domain to redirect to the real one, there's no way for either a standard user or an LLM scanner to tell something's off from a static look at the skill alone.
+
+<p class="source">AIR, “The Story of Skills”</p>
+
+---
+
+<p class="statement">Clicking the link proves nothing.</p>
+
+It shows the state of this one moment.<br>And that state belongs to somebody else. <!-- .element: class="fragment" -->
 
 ---
 
@@ -296,26 +348,6 @@ Resting state, still today. Do not open the link in the browser on stage, curl -
 
 ---
 
-<span class="kicker">Flip the switch</span>
-
-## Armed
-
-<div class="svg" data-svg="redirect-armed"></div>
-
----
-
-> Once we configured our domain to redirect to the real one, there's no way for either a standard user or an LLM scanner to tell something's off from a static look at the skill alone.
-
-<p class="source">AIR, “The Story of Skills”</p>
-
----
-
-<p class="statement">Clicking the link proves nothing.</p>
-
-It shows the state of this one moment.<br>And that state belongs to somebody else. <!-- .element: class="fragment" -->
-
----
-
 <span class="kicker">Can scanners learn this?</span>
 
 ## Natural language has no signature
@@ -330,9 +362,17 @@ For every variant a scanner detects, there are many equally effective ones. <!--
 
 ---
 
-<p class="statement">What gets reviewed is the skill.</p>
+<!-- .slide: data-view-transition data-transition="none" -->
 
-<p class="statement fragment"><span class="gradient-text">What gets executed is whatever sits behind the link.</span></p>
+<p class="statement" data-vt="st-review">What gets reviewed is the skill.</p>
+
+---
+
+<!-- .slide: data-view-transition data-transition="none" -->
+
+<p class="statement" data-vt="st-review">What gets reviewed is the skill.</p>
+
+<p class="statement" data-vt="st-exec"><span class="gradient-text">What gets executed is whatever sits behind the link.</span></p>
 
 ---
 

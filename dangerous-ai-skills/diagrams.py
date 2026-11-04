@@ -91,37 +91,6 @@ b.append(text(420, y248 - 4, 'the link to that documentation', 't-code', 26))
 b.append('</g>')
 svg('file-distance', 1200, 540, '\n'.join(b), p)
 
-# ---------- 3./4. Redirect: resting and armed ----------
-def redirect(name, armed):
-    p = 'rd' + ('a' if armed else 'r')
-    b = []
-    # agent
-    b.append('<rect x="20" y="170" width="250" height="150" rx="12" class="box-2"/>')
-    b.append(text(145, 232, 'Your agent', 't-head', 30, 'middle'))
-    b.append(text(145, 270, 'reads the skill', 't-muted', 26, 'middle'))
-    # attacker domain
-    b.append('<rect x="400" y="170" width="380" height="150" rx="12" class="box-accent"/>')
-    b.append(text(590, 232, 'stitch-design[.]ai', 't-head t-code', 30, 'middle'))
-    b.append(text(590, 270, 'owned by the attacker', 't-muted', 26, 'middle'))
-    b.append(f'<path d="M275,245 L390,245" class="line" marker-end="url(#{p}-m)"/>')
-    if not armed:
-        b.append('<rect x="900" y="170" width="290" height="150" rx="12" class="box-ok"/>')
-        b.append(text(1045, 232, 'stitch.withgoogle', 't-head t-code', 26, 'middle'))
-        b.append(text(1045, 270, 'Google’s real docs', 't-ok', 26, 'middle'))
-        b.append(f'<path d="M785,245 L890,245" class="line-ok" marker-end="url(#{p}-o)"/>')
-        b.append(text(838, 230, '302', 't-ok t-code t-bold', 26, 'middle'))
-        b.append(text(600, 420, 'Resting state: every check lands on the original.', 't-muted', 26, 'middle'))
-    else:
-        b.append('<rect x="900" y="170" width="290" height="150" rx="12" class="box-bad"/>')
-        b.append(text(1045, 232, 'install script', 't-head', 28, 'middle'))
-        b.append(text(1045, 270, 'download and run', 't-bad', 26, 'middle'))
-        b.append(f'<path d="M785,245 L890,245" class="line-bad" marker-end="url(#{p}-b)"/>')
-        b.append(text(838, 230, '200', 't-bad t-code t-bold', 26, 'middle'))
-        b.append(text(600, 420, 'Armed: same link, new content. The skill did not change.', 't-bad', 26, 'middle'))
-    svg(name, 1200, 460, '\n'.join(b), p)
-redirect('redirect-rest', False)
-redirect('redirect-armed', True)
-
 # ---------- 5. Review time vs runtime ----------
 p = 'rt'
 b = []

@@ -351,6 +351,32 @@ body,
 .reveal .vt-demo.flipped .card:first-child { min-width: 520px; }
 .reveal .bad-card { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 16%, transparent); }
 
+/* Ablauf aus Kästen und Pfeilen in HTML (für View Transitions, die SVG-Innenleben nicht erfassen) */
+.reveal .flow { display: flex; align-items: center; justify-content: center; gap: 0; margin: 48px 0 24px; }
+.reveal .flow .node { display: flex; flex-direction: column; gap: 6px; min-width: 250px; padding: 26px 22px; text-align: center; background: var(--surface-2); border: 2px solid var(--border); border-radius: 12px; }
+.reveal .flow .node strong { color: var(--heading); font-size: 0.85em; }
+.reveal .flow .node span { color: var(--muted); font-size: 0.68em; }
+.reveal .flow .node .mono { font-family: var(--font-code); font-weight: 600; }
+.reveal .flow .node.accent { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+.reveal .flow .node.ok { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, var(--surface)); }
+.reveal .flow .node.ok span { color: var(--ok); }
+.reveal .flow .node.bad { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 18%, var(--surface)); }
+.reveal .flow .node.bad span { color: var(--danger); }
+.reveal .flow .arrow { position: relative; width: 90px; height: 3px; margin: 0 10px; background: var(--muted); }
+.reveal .flow .arrow::after { content: ''; position: absolute; right: -2px; top: -7px; border: 8px solid transparent; border-left: 12px solid var(--muted); border-right: 0; }
+.reveal .flow .arrow span { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); font-family: var(--font-code); font-weight: 700; font-size: 0.68em; }
+.reveal .flow .arrow.ok { background: var(--ok); } .reveal .flow .arrow.ok::after { border-left-color: var(--ok); } .reveal .flow .arrow.ok span { color: var(--ok); }
+.reveal .flow .arrow.bad { background: var(--danger); } .reveal .flow .arrow.bad::after { border-left-color: var(--danger); } .reveal .flow .arrow.bad span { color: var(--danger); }
+.reveal .flow-caption { font-size: 0.8em; }
+.reveal .flow-caption.bad { color: var(--danger); }
+
+/* Domain-Gegenüberstellung */
+.reveal .domains { display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px; }
+.reveal .domain-card { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.reveal .domain-card .domain { font-size: 1.5em; }
+.reveal .domain-card.small .domain { font-size: 0.95em; }
+.reveal .domain-card.small .muted { font-size: 0.7em; }
+
 /* ---------- Live-Bearbeitung ---------- */
 
 /* Folien sind immer bearbeitbar; beim Tippen nur eine feine Kante, kein Rahmen im Normalfall */
