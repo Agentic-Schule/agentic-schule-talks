@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dangerous AI Skills · Slides and materials · agentic.schule</title>
-    <meta name="description" content="Slides, PDF, checklist, a skill check script, a rewrite prompt and all sources from the talk Dangerous AI Skills by Johannes Hoppe." />
+    <meta name="description" content="Slides, PDF, checklist, a rewrite prompt, settings and all sources from the talk Dangerous AI Skills by Johannes Hoppe." />
     <link rel="icon" href="../../shared/img/logo-icon.svg" />
     <script type="module" src="../../shared/page/page.js"></script>
   </head>
@@ -29,19 +29,11 @@
 
       <h2>Take this home</h2>
 
-      <h3>1. <code>skill-check.sh</code>: look before you install</h3>
-      <p>A short script that reads a skill folder and prints every domain, every phrase that turns foreign text into commands, every install command and every hidden Unicode character. It only reads files.</p>
-      <div class="note"><strong>Read it before you run it.</strong> It is a few dozen lines of bash. That is the whole lesson of the talk.</div>
-      <pre><code>curl -fsSLO https://talks.agentic.schule/dangerous-ai-skills/skill-check.sh
-less skill-check.sh          # read it first
-bash skill-check.sh path/to/skill-folder</code></pre>
-      <p><a href="../skill-check.sh" download>Download skill-check.sh</a></p>
-
-      <h3>2. Prompt: adopt a skill without copying it</h3>
+      <h3>1. Prompt: adopt a skill without copying it</h3>
       <p>Let your agent read a foreign skill as untrusted text, list every link and command in it, and then write a new skill for your project in its own words. Invisible characters do not survive being rephrased.</p>
       <p><a href="../rewrite-prompt.md" download>Download rewrite-prompt.md</a></p>
 
-      <h3>3. Settings: sandbox on, downloads off</h3>
+      <h3>2. Settings: sandbox on, downloads off</h3>
       <p><strong>Gemini CLI.</strong> The sandbox is off by default. Start with <code>gemini --sandbox</code>, or set it in <code>settings.json</code>:</p>
       <pre><code>{
   "tools": { "sandbox": true }
@@ -62,7 +54,7 @@ write_file(.git/)</code></pre>
 }</code></pre>
       <p class="muted">Check the docs of your tool for the current syntax. Links below.</p>
 
-      <h3>4. The five-minute check</h3>
+      <h3>3. The five-minute check</h3>
       <ol class="check">
         <li><strong>Read the <code>SKILL.md</code></strong>, the file the agent reads, not the README of the marketplace.</li>
         <li><strong>Search for addresses.</strong> Does every domain really belong to the vendor? Is the spelling exactly right?</li>
