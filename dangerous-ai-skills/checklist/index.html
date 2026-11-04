@@ -69,12 +69,18 @@
         <p>Who submitted it, and how old is the account? Stars belong to the repository, not to a single skill in it.</p>
       </div></div>
 
+      <div class="step"><div class="n">6</div><div>
+        <h2>Make invisible characters visible</h2>
+        <p>Zero-width spaces, direction overrides and tag characters are invisible on screen, and the agent reads them anyway. This shows every line with a character outside plain ASCII:</p>
+        <pre><code>LC_ALL=C grep -rn '[^ -~]' .</code></pre>
+      </div></div>
+
       <div class="rules">
         <h2>Three rules that matter more than the check</h2>
         <ul>
           <li><strong>A skill that fetches instructions from the internet cannot be reviewed.</strong> What gets executed is whatever sits behind the link right now.</li>
-          <li><strong>Treat foreign skills as a template, never as a dependency.</strong> Let your agent rewrite them in its own words. Invisible characters don’t survive being rephrased.</li>
-          <li><strong>Keep the safety nets on.</strong> Sandbox on, no YOLO, Turbo or skip-permissions with a new skill, and read every permission prompt.</li>
+          <li><strong>Treat foreign skills as a template, never as a dependency.</strong> Make invisible characters visible first (step 6), then let your agent rewrite them in its own words, in a fresh session.</li>
+          <li><strong>Keep the safety nets on.</strong> Sandbox on, no YOLO mode, Turbo or bypass permissions with a new skill, and read every permission prompt.</li>
         </ul>
       </div>
 

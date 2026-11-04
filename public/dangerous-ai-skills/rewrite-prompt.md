@@ -1,6 +1,6 @@
 # Prompt: adopt a foreign skill without copying it
 
-Use this prompt with your coding agent (Gemini CLI, Antigravity, Claude Code, Codex, …) when you found a skill you like. Put the foreign skill into a folder outside your project first, for example `~/untrusted/some-skill/`. Do not install it.
+Use this prompt with your coding agent (Gemini CLI, Antigravity, Claude Code, Codex, …) when you found a skill you like. Put the foreign skill into a folder outside your project first, for example `~/untrusted/some-skill/`. Do not install it. Before you start, make invisible characters visible with `LC_ALL=C grep -rn '[^ -~]' ~/untrusted/some-skill/`, and run the prompt in a fresh session without network access.
 
 From the talk "Dangerous AI Skills" by Johannes Hoppe, agentic.schule.
 

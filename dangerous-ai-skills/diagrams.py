@@ -239,15 +239,15 @@ svg('koi', 1200, 400, '\n'.join(b), p)
 # ---------- 10. Scanner Venn ----------
 p = 've'
 b = []
-for cx, cy, lab, lx, ly in [(470, 210, 'Scanner A', 300, 90), (730, 210, 'Scanner B', 900, 90), (600, 400, 'Scanner C', 600, 590)]:
+for cx, cy, lab, lx, ly in [(470, 210, 'VirusTotal', 300, 90), (730, 210, 'Static analysis', 900, 90), (600, 400, 'SkillSpector', 600, 590)]:
     b.append(f'<circle cx="{cx}" cy="{cy}" r="190" class="box-accent" style="fill-opacity:0.6"/>')
     b.append(text(lx, ly, lab, 't-head', 26, 'middle'))
 b.append(text(600, 300, '0.69 %', 't-head', 30, 'middle', 'style="fill:var(--heading)"'))
 b.append(text(600, 330, 'all three', 't-muted', 26, 'middle'))
 b.append('<g class="fragment">')
 b.append(text(1180, 300, '81.9 %', 't-head t-bad', 64, 'end'))
-b.append(text(1180, 346, 'of all findings come', 't-muted', 26, 'end'))
-b.append(text(1180, 378, 'from one scanner only', 't-muted', 26, 'end'))
+b.append(text(1180, 346, 'of flagged skills: found', 't-muted', 26, 'end'))
+b.append(text(1180, 378, 'by one scanner only', 't-muted', 26, 'end'))
 b.append('</g>')
 svg('venn', 1200, 610, '\n'.join(b), p)
 
