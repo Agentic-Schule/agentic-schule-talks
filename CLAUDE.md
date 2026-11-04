@@ -13,6 +13,8 @@ npm run build   # statischer Build nach dist/
 npm run preview # Build ansehen: http://127.0.0.1:8001/
 ```
 
+Deploy: Jeder Push auf `main` baut und veröffentlicht automatisch über GitHub Actions (`.github/workflows/deploy.yml`, wrangler nach Cloudflare Pages, Projekt `agentic-schule-talks`, Domain `talks.agentic.schule`). Lokal ist dafür nichts nötig. Branches unter `preview/` werden als Preview veröffentlicht.
+
 Keine neuen Pakete ohne Johannes' Zustimmung (siehe globale Regeln). Abhängigkeiten sind exakt gepinnt.
 
 ## Aufbau

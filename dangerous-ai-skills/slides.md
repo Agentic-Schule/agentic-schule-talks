@@ -687,30 +687,49 @@ Not just the machine: the identity. It applies everywhere the agent is already s
 
 ## Where may a skill come from?
 
-<div class="columns">
-<div class="card">
+<p class="statement">Truly trustworthy skills are hard to find.</p>
 
-### Trusted origin ✅
+My personal list: **the Angular team**. <!-- .element: class="fragment" -->
 
-- `github.com/angular/skills`
-- `github.com/anthropics/skills`
+After that it gets thin. <!-- .element: class="fragment" -->
 
-A known organisation with a reputation to lose.
+Note:
+angular/skills is mirrored from the angular/angular monorepo, where the Angular team reviews every change. Two skills, links only to angular.dev and the Tailwind docs. Other vendors have good policies, see next slide, but even they fetch at runtime.
+---
 
-</div>
-<div class="card">
+<span class="kicker">google/skills, CONTRIBUTING.md</span>
 
-### Unknown origin ❌
+> At this time, we are not accepting external pull requests or code contributions. To ensure the technical accuracy, security, and architectural alignment of the guidance provided here, all Agent Skills must undergo a rigorous internal verification and approval process by Google teams.
 
-- Pull request from any account
-- into a collective catalog
-- mirrored by directory sites
+A good policy. But a policy is not a review of every link. <!-- .element: class="fragment" -->
 
-</div>
-</div>
+Note:
+HashiCorp says the same: "Contributions to this repository are currently limited to internal HashiCorp contributors." Angular's skills are mirrored from the angular/angular monorepo, where the Angular team reviews every change.
 
-**Only take skills from vendors whose software you already use.** <!-- .element: class="fragment" -->
+---
 
+<span class="kicker">Even the good ones</span>
+
+## Vendors fetch at runtime, too
+
+```markdown small
+Fetch fresh guidelines before each review:
+https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md
+```
+
+<p class="source">vercel-labs/agent-skills, web-design-guidelines</p>
+
+```bash small
+$ curl -fsSL https://raw.githubusercontent.com/google-gemini/gemini-api-cli/main/scripts/install.sh | bash
+```
+<!-- .element: class="fragment" -->
+
+<p class="source fragment">google-gemini/gemini-skills, gemini-api-cli</p>
+
+Not malicious. But you trust whoever controls that `main` branch, every single run. <!-- .element: class="fragment" -->
+
+Note:
+Same pattern as the attack, only the link belongs to the vendor. That is fine if you trust the vendor like a package manager. Just know that you never reviewed what runs.
 ---
 
 <span class="kicker">Still want a foreign skill?</span>
