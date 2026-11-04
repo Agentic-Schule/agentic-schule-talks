@@ -195,6 +195,34 @@ Skills kommen aus einer festen Quelle mit gepinnter Version.
 
 ---
 
+<!-- .slide: data-view-transition data-transition="none" -->
+
+<span class="kicker">View Transitions</span>
+
+## Elemente wandern zwischen Folien
+
+<div class="vt-demo">
+<div class="card" data-vt="box-a"><strong>Skill</strong></div>
+<div class="card" data-vt="box-b"><strong>Link</strong></div>
+</div>
+
+---
+
+<!-- .slide: data-view-transition data-transition="none" -->
+
+<span class="kicker">View Transitions</span>
+
+## Elemente wandern zwischen Folien
+
+<div class="vt-demo flipped">
+<div class="card bad-card" data-vt="box-b"><strong>Link → Angreifer</strong></div>
+<div class="card" data-vt="box-a"><strong>Skill</strong></div>
+</div>
+
+Beide Folien: `data-view-transition data-transition="none"`, gleiche Elemente: `data-vt="name"`.
+
+---
+
 <!-- .slide: data-state="chapter" class="chapter" -->
 
 <span class="kicker">Kapitel 2</span>

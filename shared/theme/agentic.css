@@ -342,6 +342,15 @@ body,
 .reveal section.end .end-qr .qr { width: 300px; }
 .reveal section.end .url { font-family: var(--font-heading); font-size: 1.2em; font-weight: 700; margin: 12px 0; }
 
+/* ---------- View Transitions (plugins/view-transitions.js) ---------- */
+
+::view-transition-group(*) { animation-duration: 0.6s; animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.35s; }
+.reveal .vt-demo { display: flex; gap: 32px; justify-content: center; }
+.reveal .vt-demo .card { min-width: 280px; text-align: center; }
+.reveal .vt-demo.flipped .card:first-child { min-width: 520px; }
+.reveal .bad-card { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 16%, transparent); }
+
 /* ---------- Live-Bearbeitung ---------- */
 
 /* Folien sind immer bearbeitbar; beim Tippen nur eine feine Kante, kein Rahmen im Normalfall */

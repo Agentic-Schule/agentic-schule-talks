@@ -19,7 +19,7 @@ export const ViewTransitions = {
     deck.on('beforeslidechange', (event) => {
       if (running || deck.isPrintView?.()) return;
       const current = deck.getCurrentSlide();
-      const { indexh, indexv } = event.data;
+      const { indexh, indexv } = event.data ?? event;
       const target = deck.getSlide(indexh, indexv ?? 0);
       if (!target || target === current) return;
       if (!current?.hasAttribute('data-view-transition') || !target.hasAttribute('data-view-transition')) return;

@@ -71,6 +71,12 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 - IDs im SVG (Pfeilspitzen, Verläufe) brauchen ein eindeutiges Präfix pro Datei, weil alle SVGs im selben Dokument liegen.
 - Die index.html des Talks lädt die SVGs per `import.meta.glob` und übergibt sie an `createDeck(slides, { svgs })`.
 
+### View Transitions
+
+- Zwei aufeinanderfolgende Folien mit `<!-- .slide: data-view-transition data-transition="none" -->`. Elemente mit demselben `data-vt="name"` auf beiden Folien verwandeln sich ineinander (Position, Größe, Inhalt), der Rest blendet über.
+- Technik: Browser-API `document.startViewTransition` (`plugins/view-transitions.js`). Ohne Unterstützung und im PDF wechseln die Folien normal. Funktioniert auch mit SVG-Gruppen (`<g data-vt="…">`) in eingebundenen Diagrammen.
+- Sparsam einsetzen: nur, wo die Verwandlung selbst die Aussage ist.
+
 ### Code
 
 - Größe pro Block hinter der Sprache: ```` ```ts big ````. Stufen `tiny`, `small`, `medium`, `big`, `huge`.
@@ -116,6 +122,7 @@ PDF: Deck mit `?print-pdf` in Chrome öffnen und drucken (Hintergrundgrafiken an
 | `code-size.js` | Tasten + / - / 0 |
 | `terminal.js` | Prompt-Markierung als highlight.js-Plugin |
 | `qr.js` | QR-Codes aus `data-qr` |
+| `view-transitions.js` | View Transitions zwischen markierten Folien |
 | `inline-svg.js` | SVG-Diagramme und Bildpfade des Talks einbinden |
 
 Plugins folgen der reveal.js-API `{ id, init(deck) }` und werden in `shared/deck.js` registriert. reveal.js selbst wird nie verändert. Eine Erweiterung, die sich nicht als Plugin oder CSS lösen lässt, vorher mit Johannes besprechen.
