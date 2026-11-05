@@ -924,27 +924,6 @@ Addresses, authority, and every character outside plain ASCII, the place where i
 
 ---
 
-<span class="kicker">Step 4 in practice</span>
-
-## A popular skill, 31.9k stars
-
-```bash
-# scripts/deploy.sh
-elif npx --yes vercel --version &>/dev/null 2>&1; then
-    npm install -g vercel
-# scripts/export-pdf.sh
-npm install playwright &>/dev/null || {
-```
-
-<p class="source">zarazhangrui/frontend-slides, a skill that builds HTML slides</p>
-
-Nothing malicious here. It still installs whatever version is newest today, without asking. <!-- .element: class="fragment" -->
-
-Note:
-frontend-slides, MIT license, 31.9k stars on 5 November 2026, commit 9906a34. deploy.sh, lines 113 to 118: npx --yes skips the confirmation and runs the newest vercel package just to print its version, otherwise it installs vercel globally. export-pdf.sh, line 360: npm install playwright into a temp folder, no version, output hidden. The SKILL.md tells the agent the script "will install automatically if missing". The fix is cheap: a fixed version, a lockfile, and asking first. The third grep on its SKILL.md finds only dashes, arrows, a multiplication sign and one é. Clean.
-
----
-
 <span class="kicker">Use what is already there</span>
 
 ## Don’t click the prompts away
@@ -1062,3 +1041,34 @@ Use marketplaces as a catalog of ideas. <!-- .element: class="fragment" -->
 
 </div>
 </div>
+
+
+---
+
+<!-- .slide: data-state="chapter" class="chapter" -->
+
+<span class="kicker">Backup</span>
+
+## Popular skills, analyzed
+
+Note:
+Reserve slides, not part of the 60 minutes. One skill per slide, one exemplary point of criticism each. Popularity from the skills.sh leaderboard and GitHub stars on 5 November 2026.
+
+---
+
+<span class="kicker">frontend-slides · 31.9k stars</span>
+
+## Installs the newest version, without asking
+
+<pre><code class="bash" data-line-numbers="2|3|5" data-fragment-index="0"># scripts/deploy.sh
+elif npx --yes vercel --version &amp;>/dev/null 2>&amp;1; then
+    npm install -g vercel
+# scripts/export-pdf.sh
+npm install playwright &amp;>/dev/null || {</code></pre>
+
+- `--yes`: no question, the newest `vercel` runs
+- Fallback: global install, no fixed version <!-- .element: class="fragment" data-fragment-index="0" -->
+- Every export: fresh Playwright, output hidden <!-- .element: class="fragment" data-fragment-index="1" -->
+
+Note:
+zarazhangrui/frontend-slides, a skill that builds HTML slides. MIT license, 31.9k stars, commit 9906a34. deploy.sh lines 113 to 118, export-pdf.sh line 360. The SKILL.md tells the agent the script "will install automatically if missing". Nothing malicious here. But if one of these packages is ever compromised, the next export runs it. The fix is cheap: a fixed version, a lockfile, and asking first. The third grep on its SKILL.md finds only dashes, arrows, a multiplication sign and one é.

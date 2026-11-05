@@ -4,6 +4,7 @@
 //   overlap   zwei Geschwister-Elemente überdecken sich. Eine Prüfung über scrollHeight sieht das nicht,
 //             etwa wenn sich Karten in einem Grid gegenseitig verdecken
 //   small     Text kleiner als 22 px (Code: 20 px), gemessen in Folienkoordinaten
+//   logo      Text oder Kasten liegt unter dem Logo unten links
 // Ergebnis: Panel unten rechts (Klick springt zur Folie und markiert die Elemente),
 // console.table und window.layoutCheck. Neu starten mit window.runLayoutCheck(). Absolut positionierte Elemente (Logo, Hervorhebungs-Klone
 // im Code, QR-Codes) und SVG-Innereien werden nicht gegeneinander geprüft.
@@ -76,6 +77,18 @@ function checkSlide(slide, stage, scale) {
           add('overlap', [kids[i], kids[j]], `${Math.round(hit.w / scale)} × ${Math.round(hit.h / scale)} px überdeckt`);
         }
       }
+    }
+  }
+
+  const logo = document.querySelector('.brand-logo');
+  // Auf Titel-, Kapitel- und Schlussfolien ist das Logo ausgeblendet
+  const logoHidden = document.querySelector('.reveal-viewport')?.matches('.title, .chapter, .end');
+  if (logo && isRendered(logo) && !logoHidden) {
+    const lr = logo.getBoundingClientRect();
+    for (const el of elements) {
+      if (el.children.length && !el.matches('pre, li, p, h1, h2, h3, img, table')) continue;
+      const hit = intersection(el.getBoundingClientRect(), lr);
+      if (hit && hit.w / scale > TOLERANCE && hit.h / scale > TOLERANCE) add('logo', [el], 'liegt unter dem Logo');
     }
   }
 
