@@ -95,8 +95,8 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 | D oder Schalter oben rechts | Hell/Dunkel umschalten (Wahl bleibt gespeichert, `?theme=light` erzwingt) |
 | + / - / 0 | Code der aktuellen Folie größer, kleiner, zurück |
 | S | Speaker View | 
-| O oder Esc | Übersicht |
-| B | Bildschirm schwarz |
+| O | Übersicht (Esc schließt sie, öffnet sie aber nicht) |
+| B, V, . | ohne Funktion: kein versehentliches Schwarzschalten, auch nicht über die Blackout-Taste des Clickers |
 | G | zu Folie springen |
 | ? | alle Tasten |
 
