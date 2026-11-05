@@ -39,20 +39,26 @@
       <pre><code>{
   "tools": { "sandbox": true }
 }</code></pre>
-      <p>Avoid <code>--approval-mode=yolo</code> and the <code>--consent</code> flag of <code>gemini skills install</code>, which skips the security prompt.</p>
+      <p>Avoid <code>--approval-mode=yolo</code> and the <code>--consent</code> flag of <code>gemini skills install</code>, which skips the security prompt. On macOS the default sandbox profile still allows outbound network.</p>
 
-      <p><strong>Antigravity.</strong> Keep the Default permission preset (sandbox on) and stay away from Turbo or Always Proceed with a new skill. Rules for the deny list, from Google’s own examples:</p>
+      <p><strong>Antigravity.</strong> In the App, keep the Default permission preset (sandbox on). The CLI starts without the sandbox: use <code>agy --sandbox</code> or <code>"enableTerminalSandbox": true</code>. Stay away from Turbo or Always Proceed with a new skill. Rules for the deny list, from Google’s own examples:</p>
       <pre><code>command(regex:curl .*)
 command(sudo)
 write_file(.git/)</code></pre>
 
-      <p><strong>Claude Code.</strong> In <code>~/.claude/settings.json</code>:</p>
+      <p><strong>Claude Code.</strong> Since v2.1.283 it starts in auto mode, where a classifier decides instead of a prompt and read-only HTTP requests are allowed. For a new skill, use manual mode and the sandbox. In <code>~/.claude/settings.json</code>:</p>
       <pre><code>{
   "sandbox": { "enabled": true },
   "permissions": {
+    "defaultMode": "default",
     "deny": ["Bash(curl *)", "Bash(wget *)"]
   }
 }</code></pre>
+      <p>Also check a skill’s frontmatter for <code>allowed-tools</code>: in Claude Code a skill can pre-approve its own tools. A deny rule does not catch the same program called by path or inside <code>sh -c</code>.</p>
+
+      <p><strong>Codex.</strong> Sandbox on and network off by default. Keep it that way in <code>~/.codex/config.toml</code> and never use <code>--yolo</code> with a new skill:</p>
+      <pre><code>sandbox_mode = "workspace-write"
+approval_policy = "on-request"</code></pre>
       <p class="muted">Check the docs of your tool for the current syntax. Links below.</p>
 
       <h3>3. The five-minute check</h3>

@@ -46,7 +46,7 @@ b.append(text(84, 478, '- https://…/docs/sdk', 't-code t-accent', 26))
 ann = [
     (139, 'Name and description', 'always in the agent’s context', 'line', 'm', ''),
     (307, 'Instructions', 'loaded when the task matches', 'line', 'm', 'fragment'),
-    (458, 'Links', 'fetched while the agent works', 'line-accent', 'a', 'fragment'),
+    (458, 'Links', 'fetched if the agent follows them', 'line-accent', 'a', 'fragment'),
 ]
 for y, head, sub, lcls, mk, frag in ann:
     b.append(f'<g class="{frag}">')

@@ -30,6 +30,6 @@
 <g class="fragment">
 <path d="M548,458 L660,458" class="line-accent" marker-end="url(#an-a)"/>
 <text x="680" y="452" class="t-head t-accent" font-size="30" text-anchor="start" >Links</text>
-<text x="680" y="486" class="t-muted" font-size="26" text-anchor="start" >fetched while the agent works</text>
+<text x="680" y="486" class="t-muted" font-size="26" text-anchor="start" >fetched if the agent follows them</text>
 </g>
 </svg>
