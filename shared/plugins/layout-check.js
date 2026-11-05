@@ -5,6 +5,7 @@
 //             etwa wenn sich Karten in einem Grid gegenseitig verdecken
 //   small     Text kleiner als 22 px (Code: 20 px), gemessen in Folienkoordinaten
 //   logo      Text oder Kasten liegt unter dem Logo unten links
+//   footer    Text oder Kasten überdeckt die Quellen-Fußzeile (plugins/source-footer.js)
 // Ergebnis: Panel unten rechts (Klick springt zur Folie und markiert die Elemente),
 // console.table und window.layoutCheck. Neu starten mit window.runLayoutCheck(). Absolut positionierte Elemente (Logo, Hervorhebungs-Klone
 // im Code, QR-Codes) und SVG-Innereien werden nicht gegeneinander geprüft.
@@ -22,7 +23,7 @@ function isRendered(el) {
 }
 
 function skip(el) {
-  return el.closest('aside.notes, svg *, pre *, .brand-logo, [data-qr] *, .layout-check-panel');
+  return el.closest('aside.notes, svg *, pre *, .brand-logo, .slide-sources, [data-qr] *, .layout-check-panel');
 }
 
 function label(el) {
@@ -90,12 +91,15 @@ function checkSlide(slide, stage, scale) {
   const logo = document.querySelector('.brand-logo');
   // Auf Titel-, Kapitel- und Schlussfolien ist das Logo ausgeblendet
   const logoHidden = document.querySelector('.reveal-viewport')?.matches('.title, .chapter, .end');
-  if (logo && isRendered(logo) && !logoHidden) {
-    const lr = logo.getBoundingClientRect();
+  const footer = document.querySelector('.slide-sources');
+  const blockers = [];
+  if (logo && isRendered(logo) && !logoHidden) blockers.push([logo.getBoundingClientRect(), 'logo', 'liegt unter dem Logo']);
+  if (footer && !footer.hidden && isRendered(footer)) blockers.push([footer.getBoundingClientRect(), 'footer', 'überdeckt die Quellen-Fußzeile']);
+  for (const [rect, kind, detail] of blockers) {
     for (const el of elements) {
       if (el.children.length && !el.matches('pre, li, p, h1, h2, h3, img, table')) continue;
-      const hit = intersection(el.getBoundingClientRect(), lr);
-      if (hit && hit.w / scale > TOLERANCE && hit.h / scale > TOLERANCE) add('logo', [el], 'liegt unter dem Logo');
+      const hit = intersection(el.getBoundingClientRect(), rect);
+      if (hit && hit.w / scale > TOLERANCE && hit.h / scale > TOLERANCE) add(kind, [el], detail);
     }
   }
 

@@ -145,4 +145,5 @@ Plugins folgen der reveal.js-API `{ id, init(deck) }` und werden in `shared/deck
 - Nie „nachgemessen“, „gemessen“, „bewiesen“, „belegt“ oder „geprüft“ über eigene Aussagen.
 - Werkzeug-Beispiele: Claude Code, Codex oder Antigravity.
 - **Jede Folie mit einer Behauptung hat eine sichtbare Quelle** (`<p class="source">`), möglichst das Original: Repo mit Commit, Datei und Zeile, die Publikation mit Datum oder die Marktplatz-Seite. Eigene Meinung und eigene Beispiele werden als solche gekennzeichnet. Die vollständigen Links stehen auf der Materialseite.
+- **Herstellerangaben sind kein Beleg:** Was die Doku, die README oder die SKILL.md eines Tools über dessen Verhalten behauptet, kommt nie als Tatsache auf eine Folie. Verhalten wird selbst getestet (Wegwerf-Container) oder im Quellcode nachgewiesen; gezeigt wird die Beobachtung, mit Testaufbau in den Notizen.
 - **Nichts entschärfen oder anonymisieren:** Domains, IP-Adressen und Befehle stehen so auf den Folien wie im Original (kein `hxxps`, kein `[.]`). Ausnahme: Privatpersonen werden nur mit ihrem GitHub-Login genannt.
