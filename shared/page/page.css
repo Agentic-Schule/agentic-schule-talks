@@ -54,6 +54,7 @@ pre { margin: 0.75rem 0; padding: 14px 16px; overflow-x: auto; background: var(-
 .hero { background: var(--hero); color: #fff; padding: 40px 16px 48px; }
 .hero .inner, main { max-width: 46rem; margin: 0 auto; }
 .hero img.logo { width: 150px; height: auto; display: block; margin-bottom: 28px; }
+.hero img.logo-print { display: none; }
 .hero h1 { color: #fff; font-size: clamp(1.9rem, 6vw, 2.8rem); margin: 0 0 8px; }
 .hero p { margin: 0; opacity: 0.92; font-size: 1.05rem; }
 .hero .meta { margin-top: 14px; font-size: 0.95rem; opacity: 0.85; }
@@ -82,6 +83,8 @@ footer { max-width: 46rem; margin: 0 auto; padding: 24px 16px 48px; color: var(-
   .hero { background: none; color: #000; padding: 0 0 8px; }
   .hero h1, .hero p { color: #000; }
   .no-print { display: none !important; }
+  .hero img.logo-screen { display: none; }
+  .hero img.logo-print { display: block; }
   a { color: #000; text-decoration: none; }
   pre { color: #111; }
 }

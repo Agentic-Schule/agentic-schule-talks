@@ -14,7 +14,7 @@ def markers(p):
 
 def svg(name, w, h, body, p):
     s = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" role="img">\n{markers(p)}\n{body}\n</svg>\n'
-    open(os.path.join(OUT, name + '.svg'), 'w').write(s)
+    open(os.path.join(OUT, name + '.svg'), 'w', encoding='utf-8').write(s)
 
 def esc(t):
     return t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')

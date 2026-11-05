@@ -64,6 +64,8 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     slideNumber: 'c/t',
     showSlideNumber: 'speaker',
     center: true,
+    // Kein Scroll-Modus auf schmalen Bildschirmen: Hero-Folien und Logo sind für die Folienansicht gebaut
+    scrollActivationWidth: 0,
     transition: reduced ? 'none' : 'slide',
     backgroundTransition: reduced ? 'none' : 'fade',
     markdown: {

@@ -120,8 +120,9 @@ Materialseite und Spickzettel: `<talk>/materials/` und `<talk>/checklist/` sind 
 | Datei | Zweck |
 | --- | --- |
 | `theme-toggle.js` | Schalter oben rechts, Taste D, URL-Parameter, gespeicherte Wahl |
-| `live-edit.js` | alle Folien editierbar, Esc, `data-sticky` |
+| `live-edit.js` | alle Folien editierbar, Esc, `data-sticky`; PageUp/PageDown blättern immer, Pfeiltasten bis zum ersten Tippen; aus in der Sprecheransicht und auf Touch-Geräten |
 | `code-size.js` | Tasten + / - / 0 |
+| `sync.js` | gleicht Theme und Code-Größe zwischen Hauptfenster und Sprecheransicht ab (BroadcastChannel) |
 | `terminal.js` | Prompt-Markierung als highlight.js-Plugin |
 | `qr.js` | QR-Codes aus `data-qr` |
 | `view-transitions.js` | View Transitions zwischen markierten Folien |

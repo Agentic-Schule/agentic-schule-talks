@@ -4,7 +4,8 @@
 // Der Name gilt nur auf der aktuellen Folie, weil ein view-transition-name auf der ganzen
 // Seite eindeutig sein muss und reveal.js die Nachbarfolien unsichtbar im DOM hält.
 // Ohne Browser-Unterstützung, im PDF oder bei reduzierter Bewegung (plugins/motion.js)
-// wechseln die Folien ganz normal.
+// wechseln die Folien ganz normal. In den Vorschau-Fenstern der Sprecheransicht (?receiver) ebenfalls,
+// dort käme der verzögerte Folienwechsel sonst nach dem nächsten Befehl der Sprecheransicht an.
 import { reducedMotion } from './motion.js';
 
 function setNames(slide, on) {
@@ -16,7 +17,7 @@ function setNames(slide, on) {
 export const ViewTransitions = {
   id: 'agentic-view-transitions',
   init(deck) {
-    if (!document.startViewTransition || reducedMotion()) return;
+    if (!document.startViewTransition || reducedMotion() || /receiver/i.test(location.search)) return;
     let running = false;
 
     deck.on('beforeslidechange', (event) => {
