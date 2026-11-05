@@ -1074,7 +1074,7 @@ No bad intent. A name nobody owns, an install step nobody tested.
 
 ### Deliberate
 
-Droppers, fake copies, look-alike domains. Hidden on purpose.
+Malicious scripts, droppers, fake copies, look-alike domains. Hidden on purpose.
 
 </div>
 </div>
@@ -1082,7 +1082,7 @@ Droppers, fake copies, look-alike domains. Hidden on purpose.
 For your agent it makes no difference. <!-- .element: class="fragment" -->
 
 Note:
-caveman and extract-design-system are programming and documentation mistakes; I see no sign of bad intent and will hand the npm names over. The other cases hide something on purpose: droppers behind base64, copies under someone else's name, a domain that looks like Vercel's.
+caveman and extract-design-system are programming and documentation mistakes; I see no sign of bad intent and will hand the npm names over. The other cases hide something on purpose: droppers behind base64, copies under someone else's name, a domain that looks like Vercel's. Skills often ship scripts. Plain malicious code in a bundled script is the oldest trick, known from npm and PyPI, and it still works: the agent runs it with your permissions.
 
 ---
 
