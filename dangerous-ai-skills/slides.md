@@ -1087,10 +1087,10 @@ zarazhangrui/frontend-slides, a skill that builds HTML slides. MIT license, 31.9
 | skills-shell/superpowers | 5 | Sep 2026 | 668k |
 <!-- .element: class="compare" -->
 
-Six of them, one identical commit. Not obra’s skills at all. <!-- .element: class="fragment" -->
+Six repos, byte for byte the same files. A copy of someone else’s skills, not obra’s. <!-- .element: class="fragment" -->
 
 Note:
-skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills, magentosh, skills-shell, qu-skills, its-a-skill-issue, bankai-skills. All six at commit becc256, all 133 files byte-identical. The content is a copy of inference-sh/skills (801 stars), 10 commits behind it. The plugin.json still says "name": "inference-sh". Nothing in them comes from obra/superpowers, only the name. Each org has one public repo and no public members. The install counts are nearly identical per skill and look automated; that is my guess, not proven. The copied skills install their CLI with curl -fsSL cli.inference.sh | sh, written without https.
+skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills, magentosh, skills-shell, qu-skills, its-a-skill-issue, bankai-skills. All six have the same latest commit, becc256. A commit ID is a checksum over all files and the whole history, so the same ID means the same 133 files, byte for byte. The content is a copy of inference-sh/skills (801 stars), 10 commits behind it. The plugin.json still says "name": "inference-sh". Nothing in them comes from obra/superpowers, only the name. Each org has one public repo and no public members. The install counts are nearly identical per skill and look automated; that is my guess, not proven. The copied skills install their CLI with curl -fsSL cli.inference.sh | sh, written without https.
 
 ---
 
