@@ -1058,7 +1058,35 @@ Reserve slides, not part of the 60 minutes. Only cases that reached real users a
 
 ---
 
-<span class="kicker">caveman · 117k stars · 73k npm downloads a month</span>
+<span class="kicker">Two kinds of danger</span>
+
+## Careless or deliberate
+
+<div class="columns">
+<div class="card">
+
+### Careless
+
+No bad intent. A name nobody owns, an install step nobody tested.
+
+</div>
+<div class="card">
+
+### Deliberate
+
+Droppers, fake copies, look-alike domains. Hidden on purpose.
+
+</div>
+</div>
+
+For your agent it makes no difference. <!-- .element: class="fragment" -->
+
+Note:
+caveman and extract-design-system are programming and documentation mistakes; I see no sign of bad intent and will hand the npm names over. The other cases hide something on purpose: droppers behind base64, copies under someone else's name, a domain that looks like Vercel's.
+
+---
+
+<span class="kicker">Careless · caveman · 117k stars · 73k npm downloads a month</span>
 
 ## When the binary is missing, npx takes over
 
@@ -1072,18 +1100,31 @@ function resolveMcpCommand(): { command: string; args: string[] } {
 }
 ```
 
-Pick “Not now” in caveman’s setup menu, then follow the README’s MCP step: ✓ installed, with `npx -y caveman-mcp`. <!-- .element: class="fragment" -->
+Install the CLI, run the documented MCP step first: ✓ installed, with `npx -y caveman-mcp`. <!-- .element: class="fragment" -->
 
 `caveman-mcp` was never published on npm. <!-- .element: class="fragment" -->
 
 <p class="source">github.com/juliusbrussee/caveman, commit 2e068f7, packages/cli/src/index.ts, lines 13900 to 13906 · own test: node:24 container, @caveman-ai/cli 4.0.1, 5 November 2026 · npm registry: “Not found”</p>
 
 Note:
-The comment above the function says it plainly: "CAVEMAN_MCP_BIN, `caveman-mcp` on PATH or ~/.caveman/bin, else `npx -y caveman-mcp`. The returned argv is what gets written into each agent's MCP config." My own test on 5 November 2026 in a fresh node:24 container with @caveman-ai/cli 4.0.1 and a stub claude command that logs its arguments: after npm i -g there is no ~/.caveman/bin. caveman claude without a terminal, and with docker -t, downloads nothing and launches anyway ("caveman-proxy not found; wrap will still launch"). With a full pseudo-terminal it shows a menu ("7 signed downloads … Set up / Customize / Details / Not now"); the binaries only come if you pick Set up. caveman tools mcp install claude --server caveman then calls "claude mcp add --scope user caveman -- /usr/local/bin/npx -y caveman-mcp" and prints "✓ Claude Code: caveman_retrieve installed", no warning. Only caveman setup --install puts caveman-mcp into ~/.caveman/bin. Tested only with Claude Code as the target. Not found in the wild: no issue in the caveman repo reports a failing npx caveman-mcp, and GitHub code search finds no committed config with it outside the caveman repo (5 Nov 2026). The npm download numbers of the placeholder will show whether it happens in practice. For caveman-browse the same CLI stops with "binary not found — run caveman setup --install first". Only the main server falls back to npx. mcp/README.md line 15 shows the same npx config to copy. mcp/package.json declares the name caveman-mcp, but it was never published. 73,456 downloads of @caveman-ai/cli from 6 Oct to 4 Nov 2026.
+The comment above the function says it plainly: "CAVEMAN_MCP_BIN, `caveman-mcp` on PATH or ~/.caveman/bin, else `npx -y caveman-mcp`. The returned argv is what gets written into each agent's MCP config." My own test on 5 November 2026 in a fresh node:24 container with @caveman-ai/cli 4.0.1 and a stub claude command that logs its arguments: after npm i -g there is no ~/.caveman/bin. caveman claude without a terminal, and with docker -t, downloads nothing and launches anyway ("caveman-proxy not found; wrap will still launch"). With a full pseudo-terminal, caveman claude shows a setup menu, and even with "Not now" it then downloads the signed runtime (observed). So the gap needs a setup that does not start with an interactive caveman claude: the MCP step right after the install (docs/technical/cli-reference.md, line 141), or a non-interactive shell. caveman tools mcp install claude --server caveman then calls "claude mcp add --scope user caveman -- /usr/local/bin/npx -y caveman-mcp" and prints "✓ Claude Code: caveman_retrieve installed", no warning. Only caveman setup --install puts caveman-mcp into ~/.caveman/bin. Tested only with Claude Code as the target. Not found in the wild: no issue in the caveman repo reports a failing npx caveman-mcp, and GitHub code search finds no committed config with it outside the caveman repo (5 Nov 2026). The npm download numbers of the placeholder will show whether it happens in practice. For caveman-browse the same CLI stops with "binary not found — run caveman setup --install first". Only the main server falls back to npx. mcp/README.md line 15 shows the same npx config to copy. mcp/package.json declares the name caveman-mcp, but it was never published. 73,456 downloads of @caveman-ai/cli from 6 Oct to 4 Nov 2026. No sign of bad intent: mcp/package.json declares the name caveman-mcp, it was simply never published. A programming oversight, not malware.
 
 ---
 
-<span class="kicker">extract-design-system · README</span>
+<span class="kicker">Careless · caveman · recorded in a fresh container</span>
+
+## Watch it happen
+
+<div class="cast" data-cast="casts/caveman-mcp-step.cast"></div>
+
+<p class="source">own recording, node:24 container, @caveman-ai/cli 4.0.1, 5 November 2026 · public/dangerous-ai-skills/casts/caveman-mcp-step.cast</p>
+
+Note:
+A real recording, played back at original speed with pauses shortened: npm install -g @caveman-ai/cli, then caveman tools mcp install claude --server caveman, then the file caveman writes. The claude command in the container is a stub that only logs its arguments; it received "claude mcp add --scope user caveman -- /usr/local/bin/npx -y caveman-mcp". Click the terminal to replay.
+
+---
+
+<span class="kicker">Careless · extract-design-system · README</span>
 
 ## Follow the README, run a package nobody owned
 
@@ -1103,7 +1144,7 @@ The comment above the function says it plainly: "CAVEMAN_MCP_BIN, `caveman-mcp` 
 <p class="source">github.com/arvindrk/extract-design-system, commit 1873741, README.md, lines 171 to 178 · npm registry: “Not found”, 5 November 2026</p>
 
 Note:
-No accident needed here: whoever follows the README runs the missing name. Today that fails, so people notice. An attacker would publish a package that starts the real server as well, so everything works and nobody notices. The correct form is npx -y --package extract-design-system extract-design-system-mcp. The skill itself (skills/extract-design-system/SKILL.md) uses the correct npx extract-design-system. 131,094 installs on skills.sh, but only 912 npm downloads from 6 Oct to 4 Nov 2026, so the MCP path reaches a few hundred people a month.
+No accident needed here: whoever follows the README runs the missing name. Today that fails, so people notice. An attacker would publish a package that starts the real server as well, so everything works and nobody notices. The correct form is npx -y --package extract-design-system extract-design-system-mcp. The skill itself (skills/extract-design-system/SKILL.md) uses the correct npx extract-design-system. 131,094 installs on skills.sh, but only 912 npm downloads from 6 Oct to 4 Nov 2026, so the MCP path reaches a few hundred people a month. No sign of bad intent: a bin name taken for a package name. A documentation mistake, not malware.
 
 ---
 
@@ -1118,7 +1159,7 @@ I published both names as placeholders on 5 November 2026. Version 0.0.1 only pr
 
 ---
 
-<span class="kicker">sundial-org/awesome-openclaw-skills · 674 stars</span>
+<span class="kicker">Deliberate · sundial-org/awesome-openclaw-skills · 674 stars</span>
 
 ## Three scanners: Fail. Still installable.
 
@@ -1140,7 +1181,7 @@ sundial-org/awesome-openclaw-skills, commit b80cde2, skills/bybit-trading/SKILL.
 
 ---
 
-<span class="kicker">LeoYeAI/agent-master-skills · 2,179 stars</span>
+<span class="kicker">Deliberate · LeoYeAI/agent-master-skills · 2,179 stars</span>
 
 ## Mass import, malware included
 
@@ -1157,7 +1198,7 @@ LeoYeAI/agent-master-skills, commit 9d2199c, skills/linkedin-job-application/SKI
 
 ---
 
-<span class="kicker">roin-orca/skills · “find-skills”</span>
+<span class="kicker">Deliberate · roin-orca/skills · “find-skills”</span>
 
 ## An update check that phones home
 
@@ -1177,7 +1218,7 @@ roin-orca/skills, commit 44cd96f, skills/find-skills/SKILL.md lines 6 to 11. It 
 
 ---
 
-<span class="kicker">“superpowers” on skills.sh</span>
+<span class="kicker">Deliberate · “superpowers” on skills.sh</span>
 
 ## You want the original, you get a copy
 
@@ -1201,7 +1242,7 @@ skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills,
 
 ---
 
-<span class="kicker">designed-by-ai/skills · 1.24M installs · 26 stars</span>
+<span class="kicker">Deliberate · designed-by-ai/skills · 1.24M installs · 26 stars</span>
 
 ## A vendor skill without its name
 
@@ -1218,7 +1259,7 @@ Note:
 designed-by-ai/skills commit 03c20ae against sleekdotdesign/agent-skills fb90438: diff -r shows exactly this one line in skills/design-mobile-apps/SKILL.md, line 2. Same commit message and timestamp, different SHA. The README still says npx skills add sleekdotdesign/agent-skills. Today the content is harmless. But whoever owns the copy can change it any time, and the generic name ranks for every search.
 
 ---
-<span class="kicker">Island · AgentBaiting · July 2026</span>
+<span class="kicker">Deliberate · Island · AgentBaiting · July 2026</span>
 
 ## Every link in the README, one ZIP
 
@@ -1236,7 +1277,7 @@ Note:
 The ZIP sits in src/test/java and is 517,076 bytes; I did not download it. Island's list (agentbaiting/malicious-repositories-and-zip-hashes-2026-07.csv) has 7,600 unique repository URLs and names this repo. Independent trace: a VirusTotal sandbox run for the same hash is listed in github.com/joshnck/luaJit_malware_report (report/vt-c2-timeline-hunt.md). Island also writes: "In our testing, Claude Code, Gemini, and ChatGPT all surfaced malicious campaign repositories without ever being shown a link." That is Island's test only, with screenshots and the prompts, and in other runs Claude refused. Their number "800+ skills and MCP servers" cannot be reproduced from the published list.
 
 ---
-<span class="kicker">Miasma worm · June 2026 · still online</span>
+<span class="kicker">Deliberate · Miasma worm · June 2026 · still online</span>
 
 ## “Cloning the repo is safe. Opening it is not.”
 

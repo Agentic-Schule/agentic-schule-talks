@@ -120,6 +120,7 @@ Materialseite und Spickzettel: `<talk>/materials/` und `<talk>/checklist/` sind 
 | `theme-toggle.js` | Schalter oben rechts, Taste D, URL-Parameter, gespeicherte Wahl |
 | `live-edit.js` | alle Folien editierbar, Esc, Änderungen bis zum Neuladen; PageUp/PageDown blättern immer, Pfeiltasten bis zum ersten Tippen; aus in der Sprecheransicht und auf Touch-Geräten |
 | `code-size.js` | Tasten + / - / 0 |
+| `cast-player.js` | spielt Terminal-Aufnahmen (asciicast v2) aus `public/<talk>/casts/` ab: `<div class="cast" data-cast="casts/name.cast"></div>`, startet mit der Folie, Klick spielt neu, im PDF der Endzustand. Aufnahmen entstehen echt im Wegwerf-Container |
 | `sync.js` | gleicht Theme und Code-Größe zwischen Hauptfenster und Sprecheransicht ab (BroadcastChannel) |
 | `terminal.js` | Prompt-Markierung als highlight.js-Plugin |
 | `qr.js` | QR-Codes aus `data-qr` |

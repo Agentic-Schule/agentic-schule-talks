@@ -28,6 +28,7 @@ import { ViewTransitions } from './plugins/view-transitions.js';
 import { applyMotionPreference } from './plugins/motion.js';
 import { LayoutCheck } from './plugins/layout-check.js';
 import { SourceFooter } from './plugins/source-footer.js';
+import { CastPlayer } from './plugins/cast-player.js';
 
 export { svgMap, assetMap } from './plugins/inline-svg.js';
 
@@ -94,7 +95,7 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     // PDF: eine Seite pro Folie mit allen Fragmenten, Seitenzahlen unten rechts
     pdfSeparateFragments: false,
     pdfMaxPagesPerSlide: 1,
-    plugins: [Markdown, Highlight, Notes, Zoom, Search, ThemeToggle, LiveEdit, CodeSize, QrCodes, ViewTransitions, LayoutCheck, SourceFooter],
+    plugins: [Markdown, Highlight, Notes, Zoom, Search, ThemeToggle, LiveEdit, CodeSize, QrCodes, ViewTransitions, LayoutCheck, SourceFooter, CastPlayer],
     ...options,
   });
 
