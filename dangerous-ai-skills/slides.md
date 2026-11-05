@@ -452,7 +452,7 @@ Around Stitch and coding agents: endless “build your landing page in ten minut
 
 - The script collected the **email address** of the victim
 - and “sent it home” <!-- .element: class="fragment" -->
-- Several **tens of thousands** of agents, including corporate accounts <!-- .element: class="fragment" -->
+- **26,000** agents, including corporate accounts <!-- .element: class="fragment" -->
 
 <p class="source">Numbers are self-reported by AIR.</p>
 
@@ -482,7 +482,7 @@ Around Stitch and coding agents: endless “build your landing page in ten minut
 
 <p class="statement">The skill is still there.</p>
 
-Same file, same two links, six months after the merge. <!-- .element: class="fragment" -->
+Same instructions, same two links, six months after the merge. <!-- .element: class="fragment" -->
 
 The repository now has more than **42,000 stars**. <!-- .element: class="fragment" -->
 
@@ -715,7 +715,7 @@ Nobody stopped this one. <!-- .element: class="fragment" -->
 </div>
 
 Note:
-Observed on GitHub and LobeHub on 4 Nov 2026. Both accounts were created on 23 April 2026, 11:43 and 11:48 UTC; both design-skill repos are deleted now. I don't know whether this variant is part of the AIR experiment.
+Observed on GitHub and LobeHub on 4 Nov 2026. Both accounts were created on 23 April 2026, 11:43 and 11:48 UTC; both design-skill repos are deleted now. I don't know whether this variant is part of the AIR experiment. On 5 Nov 2026 the whois of stitch-designer.ai said "Domain not found": the variant links to a domain anyone can register today.
 ---
 
 <span class="kicker">Gemini CLI, install warning</span>
@@ -1071,7 +1071,7 @@ npm install playwright &amp;>/dev/null || {</code></pre>
 - Every export: fresh Playwright, output hidden <!-- .element: class="fragment" data-fragment-index="1" -->
 
 Note:
-zarazhangrui/frontend-slides, a skill that builds HTML slides. MIT license, 31.9k stars, commit 9906a34. deploy.sh lines 113 to 118, export-pdf.sh line 360. The SKILL.md tells the agent the script "will install automatically if missing". Nothing malicious here. But if one of these packages is ever compromised, the next export runs it. The fix is cheap: a fixed version, a lockfile, and asking first. The third grep on its SKILL.md finds only dashes, arrows, a multiplication sign and one é.
+zarazhangrui/frontend-slides, a skill that builds HTML slides. MIT license, 31.9k stars, commit 9906a34. deploy.sh lines 113 to 118, export-pdf.sh line 360. The SKILL.md tells the agent the script "will install automatically if missing". Nothing malicious here. But if one of these packages is ever compromised, the next export runs it. The fix is cheap: a fixed version, a lockfile, and asking first. The third grep on its SKILL.md finds only dashes, arrows, multiplication signs, two warning signs and one é.
 
 ---
 
@@ -1093,7 +1093,7 @@ zarazhangrui/frontend-slides, a skill that builds HTML slides. MIT license, 31.9
 Six repos, byte for byte the same files. Inside: a copy of inference.sh’s skills. <!-- .element: class="fragment" -->
 
 Note:
-skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills, magentosh, skills-shell, qu-skills, its-a-skill-issue, bankai-skills. All six have the same latest commit, becc256. A commit ID is a checksum over all files and the whole history, so the same ID means the same 133 files, byte for byte. The content is a copy of inference-sh/skills (801 stars), 10 commits behind it. The plugin.json still says "name": "inference-sh". Nothing in them comes from obra/superpowers, only the name. Each org has one public repo and no public members. The install counts are nearly identical per skill and look automated; that is my guess. The copied skills install their CLI with curl -fsSL cli.inference.sh | sh, written without https.
+skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills, magentosh, skills-shell, qu-skills, its-a-skill-issue, bankai-skills. All six have the same latest commit, becc256. A commit ID is a checksum over all files and the whole history, so the same ID means the same 133 files, byte for byte. The content is a copy of inference-sh/skills (801 stars), 10 commits behind it. The plugin.json still says "name": "inference-sh". Nothing in them comes from obra/superpowers, only the name. Each org has one public repo and no public members. The install counts are nearly identical per skill and look automated; that is my guess. 75 of the copied skills point to install instructions on the main branch of inference-sh/skills, which say curl -fsSL cli.inference.sh | sh, written without https.
 
 ---
 
@@ -1104,16 +1104,16 @@ skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills,
 > address Socket (honest-disclosure/anti-astroturf reframe) + Snyk W011
 
 ```diff wrap
-- market without getting called out or banned.
-- "promote on reddit without getting banned"
-- Don't reuse a sentence shape across drafts — repetition is how spam gets detected.
+- market without getting called out or banned. …
+- … "promote on reddit without getting banned" …
+- … repetition is how spam gets detected.
 ```
 <!-- .element: class="fragment" -->
 
-The method stayed. The wording changed for Socket and Snyk. <!-- .element: class="fragment" -->
+Softer wording, a new disclosure rule. Socket passes now, Snyk still warns. <!-- .element: class="fragment" -->
 
 Note:
-Commit message of doany-skills/skills 6875ced8 from 14 July 2026, and lines removed by it. The rewritten skill was copied unchanged into flowkit-labs/skills, the version with 1.25 million installs. It now tells the agent to write as an "experienced peer who has actually used the thing" (line 72), example reply: "I ran into this exact thing — what fixed it for me was…" (line 75). Scanners check wording. Wording can be changed for them.
+Commit message of doany-skills/skills 6875ced8 from 14 July 2026, and lines removed by it. The rewritten skill was copied unchanged into flowkit-labs/skills, the version with 1.25 million installs. It now tells the agent to write as an "experienced peer who has actually used the thing" (line 72), example reply: "I ran into this exact thing — what fixed it for me was…" (line 75). The rewrite also added real rules: disclose your affiliation (lines 83 and 97), no astroturfing (line 103), and "vary the wording — repetitive replies read as spam" (line 115). skills.sh on 5 Nov 2026: Gen Agent Trust Hub Pass, Socket Pass, Snyk Warn (W011). Scanners check wording, and wording can be changed for them.
 
 ---
 
@@ -1135,7 +1135,7 @@ designed-by-ai/skills commit 03c20ae against sleekdotdesign/agent-skills fb90438
 
 <span class="kicker">find-skills · #1 on skills.sh, 4.2M installs</span>
 
-## The number one skill says: skip the question
+## The number one skill skips the CLI’s question
 
 ```bash
 npx skills add <owner/repo@skill> -g -y
@@ -1146,7 +1146,7 @@ npx skills add <owner/repo@skill> -g -y
 In the CLI, `-y` skips “Proceed with installation?”, the only stop after the security rating. <!-- .element: class="fragment" -->
 
 Note:
-vercel-labs/skills, commit cabe072, skills/find-skills/SKILL.md lines 100 and 103. In src/add.ts the security risk assessment is shown, a failed audit "never blocks installation" (line 2777), and the only confirmation is behind if (!options.yes) at line 2799. With -y, a skill rated critical installs without a stop, globally, for every agent.
+vercel-labs/skills, commit cabe072, skills/find-skills/SKILL.md lines 100 and 103. In src/add.ts the security risk assessment is only displayed (line 2792), no rating blocks, and even a failed audit fetch "never blocks installation" (line 2777). The only confirmation is behind if (!options.yes) at line 2799. With -y, a skill rated critical installs without a stop, globally, to every detected agent. To be fair: SKILL.md line 97 says to install only "if the user wants to proceed", so the user is asked in chat, without seeing the rating.
 
 ---
 
@@ -1212,10 +1212,10 @@ npx -y skills add firebase/agent-skills --agent <AGENT_NAME> --skill "<SKILL_NAM
 ```
 <!-- .element: class="fragment" -->
 
-You installed one skill. It installs the rest, globally, without asking. <!-- .element: class="fragment" -->
+You installed one skill. It installs the rest, without asking. <!-- .element: class="fragment" -->
 
 Note:
-firebase/agent-skills commit b76be96, skills/firebase-basics/SKILL.md lines 24 to 26, and references/refresh/other-agents.md line 55; line 66 updates them the same way. The repo contains npx -y firebase-tools@latest 134 times, also as MCP server configuration. The repo has 14 skills; firebase-basics installs the full suite.
+firebase/agent-skills commit b76be96, skills/firebase-basics/SKILL.md lines 24 to 26, and references/refresh/other-agents.md lines 37 to 56: at the level where Firebase skills already are, globally if there are none yet (line 55). Line 66 updates them the same way. The repo contains npx -y firebase-tools@latest more than 130 times, also as MCP server configuration. The repo has 14 skills; firebase-basics installs the full suite.
 
 ---
 
