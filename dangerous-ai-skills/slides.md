@@ -924,6 +924,27 @@ Addresses, authority, and every character outside plain ASCII, the place where i
 
 ---
 
+<span class="kicker">Step 4 in practice</span>
+
+## A popular skill, 31.9k stars
+
+```bash
+# scripts/deploy.sh
+elif npx --yes vercel --version &>/dev/null 2>&1; then
+    npm install -g vercel
+# scripts/export-pdf.sh
+npm install playwright &>/dev/null || {
+```
+
+<p class="source">zarazhangrui/frontend-slides, a skill that builds HTML slides</p>
+
+Nothing malicious here. It still installs whatever version is newest today, without asking. <!-- .element: class="fragment" -->
+
+Note:
+frontend-slides, MIT license, 31.9k stars on 5 November 2026, commit 9906a34. deploy.sh, lines 113 to 118: npx --yes skips the confirmation and runs the newest vercel package just to print its version, otherwise it installs vercel globally. export-pdf.sh, line 360: npm install playwright into a temp folder, no version, output hidden. The SKILL.md tells the agent the script "will install automatically if missing". The fix is cheap: a fixed version, a lockfile, and asking first. The third grep on its SKILL.md finds only dashes, arrows, a multiplication sign and one é. Clean.
+
+---
+
 <span class="kicker">Use what is already there</span>
 
 ## Don’t click the prompts away
