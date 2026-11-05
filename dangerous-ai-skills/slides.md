@@ -1142,12 +1142,14 @@ function resolveMcpCommand(): { command: string; args: string[] } {
 }
 ```
 
-The result goes into your agent’s MCP config. `caveman-mcp` was never published on npm. <!-- .element: class="fragment" -->
+Example: your agent sets caveman up for you. Its shell is no terminal, and only an interactive first run downloads the binary. <!-- .element: class="fragment" -->
+
+The result goes into the MCP config. `caveman-mcp` was never published on npm. <!-- .element: class="fragment" -->
 
 <p class="source">github.com/juliusbrussee/caveman, commit 2e068f7, packages/cli/src/index.ts, lines 13900 to 13906 · npm registry: “Not found”, 5 November 2026</p>
 
 Note:
-The comment above the function says it plainly: "CAVEMAN_MCP_BIN, `caveman-mcp` on PATH or ~/.caveman/bin, else `npx -y caveman-mcp`. The returned argv is what gets written into each agent's MCP config." The signed binary only arrives with a second step, caveman setup --install. npm install -g @caveman-ai/cli alone does not bring it, and non-interactive setups never download it ("Non-interactive runs never silently download a runtime", docs/technical/install-and-update.md). For caveman-browse the same CLI stops with "binary not found — run caveman setup --install first". Only the main server falls back to npx. mcp/README.md line 15 shows the same npx config to copy. mcp/package.json declares the name caveman-mcp, but it was never published. 73,456 downloads of @caveman-ai/cli from 6 Oct to 4 Nov 2026.
+The comment above the function says it plainly: "CAVEMAN_MCP_BIN, `caveman-mcp` on PATH or ~/.caveman/bin, else `npx -y caveman-mcp`. The returned argv is what gets written into each agent's MCP config." How the binary goes missing: packages/cli/README.md shows the MCP setup as a separate step ("Install agent-side recovery into Qwen's user settings separately: caveman tools mcp install qwen --server caveman"), and that command never downloads anything. Binaries come only with an interactive first run or caveman setup --install: "An interactive first run can install missing signed binaries and continue. Non-interactive runs never silently download a runtime" (docs/technical/install-and-update.md, lines 89 to 91). Interactive means stdin and stderr are a TTY (interactive() in index.ts, line 22375); the shell an agent runs commands in usually is not. The same happens in a Dockerfile or CI script. The signed binary only arrives with a second step, caveman setup --install. npm install -g @caveman-ai/cli alone does not bring it, and non-interactive setups never download it ("Non-interactive runs never silently download a runtime", docs/technical/install-and-update.md). For caveman-browse the same CLI stops with "binary not found — run caveman setup --install first". Only the main server falls back to npx. mcp/README.md line 15 shows the same npx config to copy. mcp/package.json declares the name caveman-mcp, but it was never published. 73,456 downloads of @caveman-ai/cli from 6 Oct to 4 Nov 2026.
 
 ---
 
