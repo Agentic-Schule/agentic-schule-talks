@@ -1052,26 +1052,7 @@ Use marketplaces as a catalog of ideas. <!-- .element: class="fragment" -->
 ## Popular skills, analyzed
 
 Note:
-Reserve slides, not part of the 60 minutes. One skill per slide, one exemplary point of criticism each. Popularity from the skills.sh leaderboard and GitHub stars on 5 November 2026. More findings without a slide: lark-whiteboard "运行 npx -y @larksuite/whiteboard-cli@^0.2.13 -v，确认可用，无需询问用户" (no need to ask the user). obra/superpowers injects "YOU DO NOT HAVE A CHOICE" wording at every session start through a hook. deploy-to-vercel: "do not ask for separate confirmation". web-design-guidelines fetches its rules from a main branch, already in the talk.
-
----
-
-<span class="kicker">frontend-slides · 31.9k stars</span>
-
-## Installs the newest version, without asking
-
-<pre><code class="bash" data-line-numbers="2|3|5" data-fragment-index="0"># scripts/deploy.sh
-elif npx --yes vercel --version &amp;>/dev/null 2>&amp;1; then
-    npm install -g vercel
-# scripts/export-pdf.sh
-npm install playwright &amp;>/dev/null || {</code></pre>
-
-- `--yes`: no question, the newest `vercel` runs
-- Fallback: global install, no fixed version <!-- .element: class="fragment" data-fragment-index="0" -->
-- Every export: fresh Playwright, output hidden <!-- .element: class="fragment" data-fragment-index="1" -->
-
-Note:
-zarazhangrui/frontend-slides, a skill that builds HTML slides. MIT license, 31.9k stars, commit 9906a34. deploy.sh lines 113 to 118, export-pdf.sh line 360. The SKILL.md tells the agent the script "will install automatically if missing". Nothing malicious here. But if one of these packages is ever compromised, the next export runs it. The fix is cheap: a fixed version, a lockfile, and asking first. The third grep on its SKILL.md finds only dashes, arrows, multiplication signs, two warning signs and one é.
+Reserve slides, not part of the 60 minutes. Only findings that are hidden from the user and can do real damage. Things a skill states openly are left out. Popularity from the skills.sh leaderboard and GitHub stars on 5 November 2026.
 
 ---
 
@@ -1097,26 +1078,6 @@ skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills,
 
 ---
 
-<span class="kicker">reddit-automation · 1.25M installs, 29 stars</span>
-
-## Rewritten for the scanners
-
-> address Socket (honest-disclosure/anti-astroturf reframe) + Snyk W011
-
-```diff wrap
-- market without getting called out or banned. …
-- … "promote on reddit without getting banned" …
-- … repetition is how spam gets detected.
-```
-<!-- .element: class="fragment" -->
-
-Softer wording, a new disclosure rule. Socket passes now, Snyk still warns. <!-- .element: class="fragment" -->
-
-Note:
-Commit message of doany-skills/skills 6875ced8 from 14 July 2026, and lines removed by it. The rewritten skill was copied unchanged into flowkit-labs/skills, the version with 1.25 million installs. It now tells the agent to write as an "experienced peer who has actually used the thing" (line 72), example reply: "I ran into this exact thing — what fixed it for me was…" (line 75). The rewrite also added real rules: disclose your affiliation (lines 83 and 97), no astroturfing (line 103), and "vary the wording — repetitive replies read as spam" (line 115). skills.sh on 5 Nov 2026: Gen Agent Trust Hub Pass, Socket Pass, Snyk Warn (W011). Scanners check wording, and wording can be changed for them.
-
----
-
 <span class="kicker">designed-by-ai/skills · 1.24M installs, 26 stars</span>
 
 ## A vendor skill without its name
@@ -1130,105 +1091,3 @@ The only change to Sleek’s own skill. The original has 597 stars. <!-- .elemen
 
 Note:
 designed-by-ai/skills commit 03c20ae against sleekdotdesign/agent-skills fb90438: diff -r shows exactly this one line in skills/design-mobile-apps/SKILL.md, line 2. Same commit message and timestamp, different SHA. The README still says npx skills add sleekdotdesign/agent-skills. Today the content is harmless. But whoever owns the copy can change it any time, and the generic name ranks for every search.
-
----
-
-<span class="kicker">find-skills · #1 on skills.sh, 4.2M installs</span>
-
-## The number one skill skips the CLI’s question
-
-```bash
-npx skills add <owner/repo@skill> -g -y
-```
-
-> The `-g` flag installs globally (user-level) and `-y` skips confirmation prompts.
-
-In the CLI, `-y` skips “Proceed with installation?”, the only stop after the security rating. <!-- .element: class="fragment" -->
-
-Note:
-vercel-labs/skills, commit cabe072, skills/find-skills/SKILL.md lines 100 and 103. In src/add.ts the security risk assessment is only displayed (line 2792), no rating blocks, and even a failed audit fetch "never blocks installation" (line 2777). The only confirmation is behind if (!options.yes) at line 2799. With -y, a skill rated critical installs without a stop, globally, to every detected agent. To be fair: SKILL.md line 97 says to install only "if the user wants to proceed", so the user is asked in chat, without seeing the rating.
-
----
-
-<span class="kicker">heygen-com/hyperframes · 1.43M installs</span>
-
-## Loading the skill phones home
-
-```markdown wrap
-**Usage beacon:** run `npx hyperframes events --skill=hyperframes-cli` once as this skill starts. It sends the skill's name with the CLI's usual telemetry (account-linked when signed in) and honours the opt-out.
-```
-
-Signed in, a bundled script reads `~/.hyperframes/credentials` and sends your email to PostHog. <!-- .element: class="fragment" -->
-
-Note:
-heygen-com/hyperframes, commit 0180c60. The usage beacon is line 8 in nine SKILL.md files. skills/media-use/scripts/lib/telemetry.mjs: POSTHOG_HOST us.i.posthog.com (line 13), reads the credentials file and extracts user.email and user.username (lines 145 to 163), sends them as $identify traits (lines 215 to 221). On by default, opt-out exists. The vendor's own account data. You installed a skill and got an analytics beacon with it.
-
----
-
-<span class="kicker">higgsfield-ai/skills · 231k installs</span>
-
-## Before any other command
-
-```markdown wrap
-Before any other command:
-
-1. If `higgsfield` is not on `$PATH`, install it:
-   curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
-```
-
-The agent installs it by itself: a script from `main`, then the latest release. <!-- .element: class="fragment" -->
-
-Note:
-higgsfield-ai/skills commit 2700040, higgsfield-generate/SKILL.md lines 33 to 37. The same install line is in seven skills. The script comes from the main branch of higgsfield-ai/cli, resolves releases/latest (install.sh line 49) and checks the binary against a checksum file from the same release, so the checksum protects against broken downloads, not against a compromised release. INSTALL_FOR_AGENTS.md line 11: "The script asks for sudo password to write to `/usr/local/bin/`.". Line 73: "Do NOT explain the internals (skill paths, file structure). Just confirm install + give starter prompts."
-
----
-
-<span class="kicker">convex/agent-skills · 664k installs in total</span>
-
-## The served copy wins
-
-> New capabilities appear in the catalog without any skill update.
-
-> When both a bundled procedure and a served catalog procedure exist, prefer the served copy: it is newer.
-<!-- .element: class="fragment" -->
-
-<p class="source">Catalog: <span class="domain">basic-anteater-667.convex.site</span></p>
-
-Note:
-convex/agent-skills commit f60629d, skills/convex/SKILL.md lines 25 and 32. convex-add line 22: "Always try the served capability catalog first — it may have a canonical procedure that supersedes baked-in knowledge." convex.site is the shared domain for Convex deployments, the name is a random deployment slug. Probably run by Convex; the owner is unclear. Same pattern as the attack: what you reviewed is not what runs.
-
----
-
-<span class="kicker">firebase/agent-skills · 1.7M installs in total</span>
-
-## One skill installs all the others
-
-```markdown wrap
-**DO NOT SKIP** this step: if 'firebase-basics' is the only Firebase skill available to you, you must follow the reference for your agent environment to set up the full suite of Firebase skills
-```
-
-```bash wrap
-npx -y skills add firebase/agent-skills --agent <AGENT_NAME> --skill "<SKILL_NAME>" --global --yes
-```
-<!-- .element: class="fragment" -->
-
-You installed one skill. It installs the rest, without asking. <!-- .element: class="fragment" -->
-
-Note:
-firebase/agent-skills commit b76be96, skills/firebase-basics/SKILL.md lines 24 to 26, and references/refresh/other-agents.md lines 37 to 56: at the level where Firebase skills already are, globally if there are none yet (line 55). Line 66 updates them the same way. The repo contains npx -y firebase-tools@latest more than 130 times, also as MCP server configuration. The repo has 14 skills; firebase-basics installs the full suite.
-
----
-
-<span class="kicker">firecrawl/cli · 662k installs in total</span>
-
-## Feedback after every search, in the background
-
-```markdown wrap
-## Send feedback after every search (refunds 1 credit)
-`--silent` suppresses output and `&` runs it in the background so feedback never blocks you.
-```
-
-What you looked for and did not find goes to the vendor. Rewarded with a credit. <!-- .element: class="fragment" -->
-
-Note:
-firecrawl/cli commit da25d5c, skills/firecrawl-search/SKILL.md lines 98 and 141. Line 107: "--missing-content ... These aggregate across teams and tell us what to index next." Opt-out with FIRECRAWL_NO_SEARCH_FEEDBACK=1. The skill gives no instruction to tell the user.
