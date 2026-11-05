@@ -170,6 +170,9 @@ html.print-pdf .reveal pre > code::after { animation: none; }
 .reveal pre code.zoom.has-highlights tr.highlight-line td { padding: 0.35em 0; }
 .reveal pre code.zoom.has-highlights tr.highlight-line .hljs-ln-code { color: var(--heading); }
 .reveal pre code.zoom.has-highlights tr:not(.highlight-line) { opacity: 0.45; }
+/* Jeder Schritt ist eine Kopie über dem Original (reveal.js): nur den aktuellen zeigen, sonst schaut der längere Rest darunter hervor */
+.reveal pre:has(> code.zoom.fragment.visible) > code.zoom:first-child { visibility: hidden; }
+.reveal pre > code.zoom.fragment.visible:not(.current-fragment) { visibility: hidden; }
 
 /* Im PDF den ganzen Text zeigen, nicht nur die herangezoomte Zeile */
 html.print-pdf .reveal pre code.zoom.has-highlights tr { display: table-row; font-size: 1em; opacity: 1; }
