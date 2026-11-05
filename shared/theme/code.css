@@ -174,3 +174,6 @@ html.print-pdf .reveal pre > code::after { animation: none; }
 /* Im PDF den ganzen Text zeigen, nicht nur die herangezoomte Zeile */
 html.print-pdf .reveal pre code.zoom.has-highlights tr { display: table-row; font-size: 1em; opacity: 1; }
 html.print-pdf .reveal pre code.zoom.has-highlights tr td { font-size: 0.75em; padding: 0; }
+
+/* Reduzierte Bewegung (plugins/motion.js): Cursor blinkt nicht */
+html.reduced-motion .reveal pre > code::after { animation: none; }

@@ -74,7 +74,7 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 ### View Transitions
 
 - Zwei aufeinanderfolgende Folien mit `<!-- .slide: data-view-transition data-transition="none" -->`. Elemente mit demselben `data-vt="name"` auf beiden Folien verwandeln sich ineinander (Position, Größe, Inhalt), der Rest blendet über.
-- Technik: Browser-API `document.startViewTransition` (`plugins/view-transitions.js`). Ohne Unterstützung und im PDF wechseln die Folien normal.
+- Technik: Browser-API `document.startViewTransition` (`plugins/view-transitions.js`). Ohne Unterstützung, im PDF und bei reduzierter Bewegung (`plugins/motion.js`) wechseln die Folien normal. Ist auf dem Vortragsrechner „Bewegung reduzieren“ an, das Deck mit `?motion=full` öffnen.
 - Sparsam einsetzen: nur, wo die Verwandlung selbst die Aussage ist.
 
 ### Code
@@ -125,6 +125,8 @@ Materialseite und Spickzettel: `<talk>/materials/` und `<talk>/checklist/` sind 
 | `terminal.js` | Prompt-Markierung als highlight.js-Plugin |
 | `qr.js` | QR-Codes aus `data-qr` |
 | `view-transitions.js` | View Transitions zwischen markierten Folien |
+| `motion.js` | Reduzierte Bewegung nach Systemeinstellung, `?motion=full` oder `?motion=reduced` überstimmt sie |
+| `layout-check.js` | Mit `?check`: meldet Überlauf, abgeschnittene Kästen, Überdeckungen und zu kleine Schrift |
 | `inline-svg.js` | SVG-Diagramme und Bildpfade des Talks einbinden |
 
 Plugins folgen der reveal.js-API `{ id, init(deck) }` und werden in `shared/deck.js` registriert. reveal.js selbst wird nie verändert. Eine Erweiterung, die sich nicht als Plugin oder CSS lösen lässt, vorher mit Johannes besprechen.
@@ -132,6 +134,7 @@ Plugins folgen der reveal.js-API `{ id, init(deck) }` und werden in `shared/deck
 ## Lesbarkeit und Offline
 
 - **Maßstab ist die letzte Reihe bei einem schlechten Beamer.** Die Folie ist 1280×720 groß. Nichts wird kleiner als etwa 22 px dargestellt: Fließtext 34 px, Code mindestens `small` (20 px), im Talk keine Stufe `tiny`. SVG-Texte mindestens `font-size="26"`, weil das SVG etwas verkleinert dargestellt wird.
+- **Nach jeder Änderung den Layout-Check laufen lassen:** Deck mit `?check` öffnen. Er geht alle Folien mit allen Fragmenten durch und listet unten rechts, was über die Folie ragt, abgeschnitten wird, sich überdeckt oder kleiner als 22 px (Code 20 px) ist. Ziel sind null Befunde. Ein Klick auf einen Befund springt zur Folie und markiert die Elemente.
 - Lange Texte (Prompts, Skills, Logs) nie als Textwand zeigen. Stattdessen Zeile für Zeile mit ```` ```markdown wrap zoom [27: 1|3|5] ```` oder ein kurzer Auszug.
 - **Alles muss offline laufen.** Bilder, Schriften und Grafiken liegen im Repo (`<talk>/img/`, `@fontsource`), nichts wird gehotlinkt. Bilder im Markdown mit `src="img/datei.webp"`, die index.html des Talks löst sie über `import.meta.glob` auf. Externe Links stehen nur als Text oder Link auf der Folie, nie als Bildquelle.
 

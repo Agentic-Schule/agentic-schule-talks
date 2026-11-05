@@ -3,7 +3,10 @@
 // Elemente, die sich verwandeln sollen, tragen auf beiden Folien dasselbe data-vt="name".
 // Der Name gilt nur auf der aktuellen Folie, weil ein view-transition-name auf der ganzen
 // Seite eindeutig sein muss und reveal.js die Nachbarfolien unsichtbar im DOM hält.
-// Ohne Browser-Unterstützung (oder im PDF) wechseln die Folien ganz normal.
+// Ohne Browser-Unterstützung, im PDF oder bei reduzierter Bewegung (plugins/motion.js)
+// wechseln die Folien ganz normal.
+import { reducedMotion } from './motion.js';
+
 function setNames(slide, on) {
   slide?.querySelectorAll('[data-vt]').forEach((el) => {
     el.style.viewTransitionName = on ? `vt-${el.dataset.vt}` : '';
@@ -13,7 +16,7 @@ function setNames(slide, on) {
 export const ViewTransitions = {
   id: 'agentic-view-transitions',
   init(deck) {
-    if (!document.startViewTransition) return;
+    if (!document.startViewTransition || reducedMotion()) return;
     let running = false;
 
     deck.on('beforeslidechange', (event) => {

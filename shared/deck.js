@@ -25,6 +25,8 @@ import { terminalPrompts } from './plugins/terminal.js';
 import { inlineSvgs, resolveAssets } from './plugins/inline-svg.js';
 import { QrCodes } from './plugins/qr.js';
 import { ViewTransitions } from './plugins/view-transitions.js';
+import { applyMotionPreference } from './plugins/motion.js';
+import { LayoutCheck } from './plugins/layout-check.js';
 
 export { svgMap, assetMap } from './plugins/inline-svg.js';
 
@@ -36,6 +38,7 @@ export { svgMap, assetMap } from './plugins/inline-svg.js';
  */
 export function createDeck(markdown, { svgs, assets, ...options } = {}) {
   applyInitialTheme();
+  const reduced = applyMotionPreference();
 
   const slides = document.querySelector('.reveal .slides');
   const section = document.createElement('section');
@@ -61,8 +64,8 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     slideNumber: 'c/t',
     showSlideNumber: 'speaker',
     center: true,
-    transition: 'slide',
-    backgroundTransition: 'fade',
+    transition: reduced ? 'none' : 'slide',
+    backgroundTransition: reduced ? 'none' : 'fade',
     markdown: {
       separator: '\\r?\\n---\\r?\\n',
       verticalSeparator: '\\r?\\n--\\r?\\n',
@@ -74,7 +77,7 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     // PDF: eine Seite pro Folie mit allen Fragmenten, Seitenzahlen unten rechts
     pdfSeparateFragments: false,
     pdfMaxPagesPerSlide: 1,
-    plugins: [Markdown, Highlight, Notes, Zoom, Search, ThemeToggle, LiveEdit, CodeSize, QrCodes, ViewTransitions],
+    plugins: [Markdown, Highlight, Notes, Zoom, Search, ThemeToggle, LiveEdit, CodeSize, QrCodes, ViewTransitions, LayoutCheck],
     ...options,
   });
 
