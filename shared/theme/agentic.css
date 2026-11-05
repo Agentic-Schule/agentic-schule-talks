@@ -299,7 +299,8 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { o
 .reveal .bad { color: var(--danger); }
 
 /* Zitat mit Quelle: > Zitat … dann <p class="source">Quelle</p> */
-.reveal .source { font-size: 0.65em; color: var(--muted); margin-top: 8px; }
+.reveal .source { font-size: 0.65em; color: var(--muted); margin: 8px auto 0; max-width: 960px; line-height: 1.3; }
+/* max-width hält die Quellenzeile frei vom Logo unten links */
 
 /* Domain-Vergleich und ähnliche Gegenüberstellungen */
 .reveal .domain { white-space: nowrap; font-family: var(--font-code); font-size: 1.15em; font-weight: 500; padding: 0.25em 0.6em; border-radius: 8px; display: inline-block; }
