@@ -51,6 +51,13 @@ function checkSlide(slide, stage, scale) {
       if (out > TOLERANCE) add('overflow', [el], `${Math.round(out)} px über den Folienrand`);
     }
 
+    // Code mit Zeilennummern liegt in einer Tabelle, die breiter als der Rahmen werden kann
+    if (el.tagName === 'PRE') {
+      const code = el.querySelector('code');
+      const over = code ? code.scrollWidth - el.clientWidth : 0;
+      if (over > TOLERANCE) add('clipped', [el], `Code ${over} px breiter als der Rahmen`);
+    }
+
     const clips = /(hidden|auto|scroll|clip)/.test(style.overflowX + style.overflowY);
     if (clips && el.tagName !== 'svg') {
       const dx = el.scrollWidth - el.clientWidth;

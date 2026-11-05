@@ -1128,6 +1128,64 @@ Reserve slides, not part of the 60 minutes. Only findings that are hidden from t
 
 ---
 
+<span class="kicker">caveman · 117k stars, 73k npm downloads a month</span>
+
+## When the binary is missing, npx takes over
+
+```ts small [5]
+function resolveMcpCommand(): { command: string; args: string[] } {
+  const bin = cavemanBin("caveman-mcp", "CAVEMAN_MCP_BIN");
+  if (bin !== "caveman-mcp" || which(bin)) return mcpServerLaunch(bin, []);
+  const npx = which("npx");
+  if (npx) return mcpServerLaunch(npx, ["-y", "caveman-mcp"]);
+  return { command: "caveman-mcp", args: [] };
+}
+```
+
+The result goes into your agent’s MCP config. `caveman-mcp` was never published on npm. <!-- .element: class="fragment" -->
+
+<p class="source">github.com/juliusbrussee/caveman, commit 2e068f7, packages/cli/src/index.ts, lines 13900 to 13906 · npm registry: “Not found”, 5 November 2026</p>
+
+Note:
+The comment above the function says it plainly: "CAVEMAN_MCP_BIN, `caveman-mcp` on PATH or ~/.caveman/bin, else `npx -y caveman-mcp`. The returned argv is what gets written into each agent's MCP config." The signed binary only arrives with a second step, caveman setup --install. npm install -g @caveman-ai/cli alone does not bring it, and non-interactive setups never download it ("Non-interactive runs never silently download a runtime", docs/technical/install-and-update.md). For caveman-browse the same CLI stops with "binary not found — run caveman setup --install first". Only the main server falls back to npx. mcp/README.md line 15 shows the same npx config to copy. mcp/package.json declares the name caveman-mcp, but it was never published. 73,456 downloads of @caveman-ai/cli from 6 Oct to 4 Nov 2026.
+
+---
+
+<span class="kicker">extract-design-system · README, Cursor and Claude Desktop</span>
+
+## Follow the README, run a package nobody owned
+
+```json [5]
+{
+  "mcpServers": {
+    "extract-design-system": {
+      "command": "npx",
+      "args": ["-y", "extract-design-system-mcp"]
+    }
+  }
+}
+```
+
+Only a command inside the package `extract-design-system`. No package had this name. <!-- .element: class="fragment" -->
+
+<p class="source">github.com/arvindrk/extract-design-system, commit 1873741, README.md, lines 171 to 178 · npm registry: “Not found”, 5 November 2026</p>
+
+Note:
+No accident needed here: whoever follows the README runs the missing name. Today that fails, so people notice. An attacker would publish a package that starts the real server as well, so everything works and nobody notices. The correct form is npx -y --package extract-design-system extract-design-system-mcp. The skill itself (skills/extract-design-system/SKILL.md) uses the correct npx extract-design-system. 131,094 installs on skills.sh, but only 912 npm downloads from 6 Oct to 4 Nov 2026, so the MCP path reaches a few hundred people a month.
+
+---
+
+<p class="statement">Both names were free. Until 5 November 2026.</p>
+
+<p class="statement fragment"><span class="gradient-text">Now they are mine. Do you trust me?</span></p>
+
+<p class="source">npmjs.com/package/caveman-mcp · npmjs.com/package/extract-design-system-mcp, version 0.0.1 by johanneshoppe</p>
+
+Note:
+I published both names as placeholders on 5 November 2026. Version 0.0.1 only prints a warning with the fix and exits with code 1, no install scripts, no dependencies, no network access. Anyone can read it on npm. But that is the point: whoever runs npx -y caveman-mcp now trusts me, not the caveman project. Nobody checks who owns a name today. After the talk the names go to the maintainers or to npm's security team.
+
+---
+
 <span class="kicker">sundial-org/awesome-openclaw-skills · 674 stars</span>
 
 ## Three scanners: Fail. Still installable.
