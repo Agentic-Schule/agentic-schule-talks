@@ -1359,3 +1359,77 @@ Google Cloud blog, "Beyond source code: The files AI coding agents trust — and
 
 Note:
 Island, "AgentBaiting: How 800+ Fake AI Skills and MCP Servers Delivered Malware", 20 July 2026. Copied projects, lookalike accounts and fake stars. Example: a copy of awesome-claude-skills whose README offered a ZIP with the SmartLoader malware, which installs the StealC infostealer. The agent itself becomes the distribution channel.
+
+---
+
+<span class="kicker">Cursor, security notice · 29 October 2026</span>
+
+## A trojanized Claude Code extension
+
+> a maliciously modified version of Anthropic’s Claude Code extension was made available in the Cursor VS Code Extension Marketplace. The extension runs malicious code that attempts to install a persistent SSH backdoor.
+
+Online from about 2:27am to 1:35pm PT. Not a skill, but the same supply chain. <!-- .element: class="fragment" -->
+
+<p class="source">cursor.com/blog/claude-code-extension-security-notice · opensourcemalware.com, analysis of 30 October 2026</p>
+
+Note:
+Cursor's own notice: it collected host and user information and tried to add an attacker-controlled SSH key to authorized_keys and open a reverse SSH tunnel. "Outside of highly unusual circumstances where Cursor was started with administrator privileges, due to errors in the malicious code, this step would fail." OpenSourceMalware: "The unpacked extension is exactly like the normal version", only extension.js differs. The added key was labelled "svc-telemetry".
+
+---
+
+<span class="kicker">SafeDep, Miasma worm · June 2026</span>
+
+## “Cloning the repo is safe. Opening it is not.”
+
+> It planted a 4.3 MB payload runner and wired it to execute automatically through five developer tools: Claude Code, Gemini CLI, Cursor, VS Code, and the npm test script.
+
+123 repositories with the same hook. <!-- .element: class="fragment" -->
+
+<p class="source">safedep.io/miasma-worm-ai-coding-agent-config-injection</p>
+
+Note:
+The trick: a SessionStart hook in .claude/settings.json and .gemini/settings.json runs "node .github/setup.js" as soon as an agent session opens in the project. The commit was titled "chore: update dependencies [skip ci]" and added no dependencies. "GitHub code search indexed 123 repositories across dozens of accounts carrying both .claude/settings.json and .gemini/settings.json with the node .github/setup.js hook". Not a skill, but the same idea: a text file your agent trusts.
+
+---
+
+<span class="kicker">Trail of Bits · June 2026</span>
+
+## Every scanner, bypassed in under an hour
+
+> We recently bypassed ClawHub’s malicious skill detector, Cisco’s agent skill scanner, and all three of the scanners integrated into skills.sh. These were not advanced attacks: it took us less than an hour to conceive and implement three of the four malicious skills
+
+<p class="source">blog.trailofbits.com/2026/06/03/the-sorry-state-of-skill-distribution · github.com/trailofbits/overtly-malicious-skills</p>
+
+Note:
+"The sorry state of skill distribution", 3 June 2026. The tricks were standard: lots of newlines to push the payload out of view, a payload inside a .docx, poisoned Python bytecode (.pyc), and for the fourth skill a prompt injection that took a few hours of trial and error. The proof-of-concept skills are public. Fits Part 4: scanners do not protect you.
+
+---
+
+<span class="kicker">Embrace The Red · February 2026</span>
+
+## A backdoor that survives human review
+
+> […] shows how one can backdoor a real Skill from OpenAI with invisible Unicode Tag codepoints that certain models, like Gemini, Claude, Grok are known to interpret as instructions.
+
+That is what the third grep is for. <!-- .element: class="fragment" -->
+
+<p class="source">embracethered.com/blog/posts/2026/scary-agent-skills, “Scary Agent Skills: Hidden Unicode Instructions in Skills”</p>
+
+Note:
+wunderwuzzi, Embrace The Red: "So, I figured to demo a Skills supply chain backdoor that survives human review." A proof of concept, not found in the wild. The rendered file looks unchanged; the model reads the hidden instructions. LC_ALL=C grep -rn '[^ -~]' . shows every line with such characters.
+
+---
+
+<span class="kicker">Cisco AI Defense · January 2026</span>
+
+## Number one, and functionally malware
+
+> The skill we invoked is functionally malware. […] The network call is silent, meaning that the execution happens without user awareness
+
+> the vulnerable tool referenced earlier (“What Would Elon Do?”) was inflated to rank as the #1 skill in the skill repository.
+<!-- .element: class="fragment" -->
+
+<p class="source">blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare, 28 January 2026</p>
+
+Note:
+Cisco AI Defense, "Personal AI Agents like OpenClaw Are a Security Nightmare". The skill told the agent to send data with curl to a server controlled by the skill author, and used prompt injection to make it do so without asking. Popularity was manufactured. Same lesson as the superpowers copies: rank is not trust.
