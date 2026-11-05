@@ -8,45 +8,9 @@
 // - Geänderte Codeblöcke werden beim Verlassen der Folie neu eingefärbt.
 //   Blöcke mit Zeilen-Highlights ([1-3|5]) bleiben gesperrt, weil ihre Tabellenstruktur
 //   beim Tippen zerbricht.
-// - Änderungen sind flüchtig, ein Neuladen stellt die Folie wieder her. Ausnahme:
-//   Elemente mit data-sticky="name" merken sich ihren Inhalt (localStorage, je Deck),
-//   gedacht für Eventname und Datum auf der Titelfolie. ?reset-edits löscht alles Gemerkte.
+// - Änderungen sind flüchtig, ein Neuladen stellt die Folie wieder her.
 // - Aus in der Sprecheransicht (Vorschau-Fenster mit ?receiver) und auf Touch-Geräten,
 //   dort würde ein Tippen auf die Folie die Bildschirmtastatur öffnen.
-const prefix = () => `agentic-talks:${location.pathname}:`;
-
-function storage() {
-  try {
-    return localStorage;
-  } catch {
-    return null;
-  }
-}
-
-function restoreSticky(root) {
-  const store = storage();
-  if (!store) return;
-  if (new URLSearchParams(location.search).has('reset-edits')) {
-    Object.keys(store)
-      .filter((key) => key.startsWith(prefix()))
-      .forEach((key) => store.removeItem(key));
-  }
-  root.querySelectorAll('[data-sticky]').forEach((el) => {
-    const key = prefix() + el.dataset.sticky;
-    const saved = store.getItem(key);
-    if (saved !== null) el.innerHTML = saved;
-  });
-}
-
-// input feuert an der bearbeiteten Folie, nicht am Element darin: über den Cursor zuordnen
-function saveSticky() {
-  const store = storage();
-  const node = window.getSelection()?.anchorNode;
-  const el = node && (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement);
-  const sticky = el?.closest('[data-sticky]');
-  if (store && sticky) store.setItem(prefix() + sticky.dataset.sticky, sticky.innerHTML);
-}
-
 const ALWAYS_NAVIGATE = new Set(['PageDown', 'PageUp']);
 const NAVIGATE_UNTIL_TYPED = new Set(['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown']);
 
@@ -86,7 +50,6 @@ export const LiveEdit = {
     deck.on('ready', () => {
       const root = deck.getRevealElement();
       makeEditable(root);
-      restoreSticky(root);
       root.addEventListener('focusin', () => {
         typed = false;
       });
@@ -94,7 +57,6 @@ export const LiveEdit = {
         typed = true;
         const code = codeAtCaret();
         if (code) dirty.add(code);
-        saveSticky();
       });
       // Enter im Code fügt einen echten Zeilenumbruch ein statt <div>/<br>,
       // sonst verschwinden neue Zeilen beim Neu-Einfärben

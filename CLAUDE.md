@@ -47,7 +47,7 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 
 | Typ | Kopf der Folie |
 | --- | --- |
-| Titel | `<!-- .slide: data-state="title" class="title" -->`, dazu `<span class="title-logo"></span>`, `# Titel`, `## Untertitel`, `<p class="speaker">`, `<p class="event" data-sticky="event">` |
+| Titel | `<!-- .slide: data-state="title" class="title" -->`, dazu `<span class="title-logo"></span>`, `# Titel`, `## Untertitel`, `<p class="speaker">`, `<p class="event">` |
 | Kapitel | `<!-- .slide: data-state="chapter" class="chapter" -->` |
 | Schluss | `<!-- .slide: data-state="end" class="end" -->` |
 
@@ -100,8 +100,6 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 | G | zu Folie springen |
 | ? | alle Tasten |
 
-`data-sticky="name"` merkt sich bearbeiteten Inhalt im Browser (localStorage, je Deck). `?reset-edits` in der URL löscht alles Gemerkte.
-
 PDF: Deck mit `?print-pdf&theme=light` in Chrome öffnen und als PDF drucken (Seitengröße 1280×720, Hintergrundgrafiken an), eine Seite pro Folie mit allen Fragmenten. Fertige PDFs liegen unter `public/<talk>/` und werden mit dem Build ausgeliefert, etwa `public/dangerous-ai-skills/dangerous-ai-skills.pdf`. Nach jeder inhaltlichen Änderung neu erzeugen. Für den Beamer im Zweifel `?theme=light`.
 
 Materialseite und Spickzettel: `<talk>/materials/` und `<talk>/checklist/` sind normale Webseiten mit `shared/page/page.css`, Downloads liegen in `public/<talk>/`. Vite baut jede Unterseite `<talk>/<seite>/index.html` mit.
@@ -120,7 +118,7 @@ Materialseite und Spickzettel: `<talk>/materials/` und `<talk>/checklist/` sind 
 | Datei | Zweck |
 | --- | --- |
 | `theme-toggle.js` | Schalter oben rechts, Taste D, URL-Parameter, gespeicherte Wahl |
-| `live-edit.js` | alle Folien editierbar, Esc, `data-sticky`; PageUp/PageDown blättern immer, Pfeiltasten bis zum ersten Tippen; aus in der Sprecheransicht und auf Touch-Geräten |
+| `live-edit.js` | alle Folien editierbar, Esc, Änderungen bis zum Neuladen; PageUp/PageDown blättern immer, Pfeiltasten bis zum ersten Tippen; aus in der Sprecheransicht und auf Touch-Geräten |
 | `code-size.js` | Tasten + / - / 0 |
 | `sync.js` | gleicht Theme und Code-Größe zwischen Hauptfenster und Sprecheransicht ab (BroadcastChannel) |
 | `terminal.js` | Prompt-Markierung als highlight.js-Plugin |

@@ -7,10 +7,7 @@
 ## Das Vorführ-Deck für alle agentic.schule-Talks
 
 <p class="speaker">Johannes Hoppe</p>
-<p class="event" data-sticky="event">Hier klicken und den Eventnamen eintippen</p>
-
-Note:
-Die Eventzeile merkt sich, was du eintippst. Mit ?reset-edits in der URL ist alles Gemerkte wieder weg.
+<p class="event">Hier klicken und den Eventnamen eintippen</p>
 
 ---
 

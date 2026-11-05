@@ -7,7 +7,7 @@
 ## How Attackers Hijack Your Coding Agent
 
 <p class="speaker">Johannes Hoppe</p>
-<p class="event" data-sticky="event">DevFest Nuremberg 2026</p>
+<p class="event">DevFest Nuremberg 2026</p>
 
 <div class="title-qr"><div class="qr" data-qr="https://agentic.schule/skills-talk"></div><span>Slides &amp; materials<br><strong>agentic.schule/skills-talk</strong></span></div>
 
