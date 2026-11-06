@@ -31,20 +31,20 @@
       <h2>Take this home</h2>
 
       <h3>1. Prompt: adopt a skill without copying it</h3>
-      <p>Let your agent read a foreign skill as untrusted text, list every link and command in it, and then write a new skill for your project in its own words. First make invisible characters visible, then let your agent rewrite the skill in a fresh session.</p>
+      <p>Let your agent read a foreign skill as untrusted text, list every link and command in it, and then write a new skill for your project in its own words. First find hidden characters, then let your agent rewrite the skill in a fresh session.</p>
       <p class="file-link"><a class="view" href="../rewrite-prompt.md">View the rewrite prompt</a><a class="download-icon" href="../rewrite-prompt.md" download aria-label="Download rewrite-prompt.md" title="Download rewrite-prompt.md"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a></p>
 
       <h3>2. Settings: sandbox on, downloads off</h3>
-      <p><strong>Gemini CLI.</strong> The sandbox is off by default. Start with <code>gemini --sandbox</code>, or set it in <code>settings.json</code>:</p>
+      <p><strong>Antigravity.</strong> In the App, keep the Default permission preset (sandbox on). The CLI starts without the sandbox: use <code>agy --sandbox</code> or <code>"enableTerminalSandbox": true</code>. Stay away from Turbo (App) and <code>--dangerously-skip-permissions</code> (CLI) with a new skill. Plugins install from any GitHub URL with <code>agy plugin install</code>; read them before you do. Rules for the deny list, from Google’s own examples:</p>
+      <pre><code>command(regex:curl .*)
+command(sudo)
+write_file(.git/)</code></pre>
+
+      <p><strong>Gemini CLI</strong> (since 18 June 2026 for Gemini Code Assist Standard/Enterprise). The sandbox is off by default. Start with <code>gemini --sandbox</code>, or set it in <code>settings.json</code>:</p>
       <pre><code>{
   "tools": { "sandbox": true }
 }</code></pre>
       <p>Avoid <code>--approval-mode=yolo</code> and the <code>--consent</code> flag of <code>gemini skills install</code>, which skips the security prompt. On macOS the default sandbox profile still allows outbound network.</p>
-
-      <p><strong>Antigravity.</strong> In the App, keep the Default permission preset (sandbox on). The CLI starts without the sandbox: use <code>agy --sandbox</code> or <code>"enableTerminalSandbox": true</code>. Stay away from Turbo or Always Proceed with a new skill. Rules for the deny list, from Google’s own examples:</p>
-      <pre><code>command(regex:curl .*)
-command(sudo)
-write_file(.git/)</code></pre>
 
       <p><strong>Claude Code.</strong> Since v2.1.283 it starts in auto mode, where a classifier decides instead of a prompt and read-only HTTP requests are allowed. For a new skill, use manual mode and the sandbox. In <code>~/.claude/settings.json</code>:</p>
       <pre><code>{
@@ -68,7 +68,7 @@ approval_policy = "on-request"</code></pre>
         <li><strong>Search for authority.</strong> “ground truth”, “authoritative”, “always follow the instructions at”.</li>
         <li><strong>Look into the scripts</strong> and everything the skill wants to install.</li>
         <li><strong>Origin over popularity.</strong> Who submitted it, and how old is the account?</li>
-        <li><strong>Make invisible characters visible:</strong> <code>LC_ALL=C grep -rn '[^ -~]' .</code></li>
+        <li><strong>Find hidden characters:</strong> <code>LC_ALL=C grep -rn '[^ -~]' .</code></li>
       </ol>
       <p>A skill that fetches instructions from the internet cannot be reviewed. Treat foreign skills as a template, never as a dependency.</p>
 
@@ -119,14 +119,14 @@ approval_policy = "on-request"</code></pre>
         <li>SafeDep: <a href="https://safedep.io/miasma-worm-ai-coding-agent-config-injection/">Miasma worm</a> (June 2026)</li>
         <li>Embrace The Red: <a href="https://embracethered.com/blog/posts/2026/scary-agent-skills/">Scary Agent Skills: Hidden Unicode Instructions in Skills</a> (February 2026)</li>
         <li>npm names that did not exist: <a href="https://github.com/juliusbrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/packages/cli/src/index.ts#L13904">caveman</a>, <a href="https://github.com/arvindrk/extract-design-system/blob/1873741ba8dea755e35e6e15134f7918cd58e036/README.md?plain=1#L175">extract-design-system</a>, <a href="https://github.com/davila7/claude-code-templates/blob/5cc17cf267132cc690dee82239b80a99ec82e4f8/cli-tool/components/mcps/web-data/browseract.json#L6">claude-code-templates</a>, <a href="https://github.com/thedaviddias/Front-End-Checklist/blob/e8d14d049010e2ce25afcd5e8609dfcbbe63e47e/packages/cli/SKILL.md?plain=1#L12">Front-End-Checklist</a>; now placeholders: <a href="https://www.npmjs.com/package/caveman-mcp">caveman-mcp</a>, <a href="https://www.npmjs.com/package/extract-design-system-mcp">extract-design-system-mcp</a>, <a href="https://www.npmjs.com/package/browseract-mcp">browseract-mcp</a>, <a href="https://www.npmjs.com/package/@frontendchecklist/cli">@frontendchecklist/cli</a></li>
-        <li>PyPI names that did not exist: <a href="https://github.com/openclaw/openclaw/blob/957f71e3566d2412ea2aa508fa600449e0b07c4d/docs/cli/mcp/registry.md?plain=1#L113">OpenClaw</a>, <a href="https://github.com/lastmile-ai/mcp-agent/blob/f62d849350816588b1c6294e7914bbe4d8b84072/src/mcp_agent/cli/commands/server.py#L170-L181">mcp-agent</a>; placeholders for <code>context7-mcp</code>, <code>mcp-server-azure</code>, <code>-arxiv</code> and <code>-discord</code>, quarantined by PyPI after it suspended my account on 6 November 2026</li>
+        <li>PyPI names that did not exist: <a href="https://github.com/openclaw/openclaw/blob/957f71e3566d2412ea2aa508fa600449e0b07c4d/docs/cli/mcp/registry.md?plain=1#L113">OpenClaw</a>, <a href="https://github.com/lastmile-ai/mcp-agent/blob/f62d849350816588b1c6294e7914bbe4d8b84072/src/mcp_agent/cli/commands/server.py#L170-L181">mcp-agent</a>; secured <code>context7-mcp</code>, <code>mcp-server-azure</code>, <code>-arxiv</code> and <code>-discord</code>; PyPI quarantined them without files after it suspended my account on 6 November 2026</li>
         <li>Popularity: the <a href="https://skills.sh/">skills.sh leaderboard</a></li>
       </ul>
       <h3>Vendor documentation</h3>
       <ul class="list sources">
         <li><a href="https://agentskills.io">agentskills.io</a>, the open Agent Skills format</li>
+        <li>Antigravity: <a href="https://antigravity.google/docs/skills">skills</a>, <a href="https://antigravity.google/docs/plugins?tab=cli">plugins</a>, <a href="https://antigravity.google/docs/marketplace/">marketplace</a>, <a href="https://antigravity.google/docs/sandbox">sandbox</a>, <a href="https://antigravity.google/docs/permissions">permissions</a></li>
         <li>Gemini CLI: <a href="https://geminicli.com/docs/cli/skills/">Agent Skills</a>, <a href="https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/sandbox.md">sandbox</a>, <a href="https://github.com/google-gemini/gemini-cli/blob/main/docs/extensions/releasing.md">extension gallery</a></li>
-        <li>Antigravity: <a href="https://antigravity.google/docs/skills">skills</a>, <a href="https://antigravity.google/docs/sandbox">sandbox</a>, <a href="https://antigravity.google/docs/permissions">permissions</a></li>
         <li>Claude: <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview">Agent Skills</a>, <a href="https://code.claude.com/docs/en/discover-plugins">plugins</a>, <a href="https://code.claude.com/docs/en/security">security</a>, <a href="https://code.claude.com/docs/en/sandboxing">sandboxing</a></li>
         <li><a href="https://docs.docker.com/ai/sandboxes/">Docker Sandboxes</a></li>
         <li>Curated by the vendor: <a href="https://github.com/angular/skills">angular/skills</a>, <a href="https://github.com/google/skills">google/skills</a></li>
