@@ -1584,16 +1584,32 @@ Note:
 
 ---
 
-<span class="kicker">Deliberate copies · designed-by-ai/skills · 1.24M installs · 26 stars</span>
+<span class="kicker">Deliberate copies · skills.sh</span>
 
-## A vendor skill without its name
+## Copy a vendor’s skill, drop the brand
 
-```diff
-- name: sleek-design-mobile-apps
-+ name: design-mobile-apps
-```
+<div class="columns even">
+<div class="card">
 
-<p class="fragment">The only change to Sleek’s own skill. The original has 597 stars.</p>
+### The original
+
+<span class="muted small-note">by Sleek, the vendor</span><br>
+<code>sleek-design-mobile-apps</code><br>
+597 stars
+
+</div>
+<div class="card">
+
+### The copy
+
+<span class="muted small-note">designed-by-ai/skills</span><br>
+<code>design-mobile-apps</code><br>
+26 stars · <strong class="bad">1.24M installs</strong>
+
+</div>
+</div>
+
+<p class="fragment">One line changed: the name. The generic one comes first in the search.</p>
 
 <p class="fragment">Harmless today. The owner of the copy can change it any time.</p>
 
@@ -1627,7 +1643,7 @@ Note:
 ---
 <span class="kicker">Deliberate · Miasma worm · June 2026 · still online</span>
 
-## “Cloning the repo is safe. Opening it is not.”
+## A “README” commit that arms every agent
 
 ```text
 Update README.md [skip ci]        unsigned, dated 2020
@@ -1639,11 +1655,13 @@ added     .github/setup.js
 modified  package.json            "test": "node .github/setup.js"
 ```
 
-<p class="fragment">Five of these files tell a different tool to run <code>.github/setup.js</code>.</p>
+<p class="fragment">The message says README. Five files say: run <code>.github/setup.js</code>.</p>
+
+<p class="fragment"><strong>Trust the folder once, and your agent runs it every time.</strong></p>
 
 <p class="source">github.com/A-Mitch/spotify-codes-simulation, commit 855614e · safedep.io/miasma-worm-ai-coding-agent-config-injection, 5 June 2026 · github.com/icflorescu/mantine-datatable, discussion #813</p>
 
 Note:
-**Say:** Miasma: one commit adds config files for Claude, Gemini, Cursor and VS Code, and five of them run the same script. Cloning is safe, opening is not.
+**Say:** Miasma, a worm: one backdated commit called "Update README" adds config files for Claude Code, Gemini CLI, Cursor and VS Code. They are not documentation, they are instructions: a session-start hook, an always-on rule, a task on folder open. Trust the folder once, and your agent runs the script every time you start it.
 
-**Sources:** The commit is still on GitHub, unsigned and backdated to 17 August 2020. The .claude/settings.json and .gemini/settings.json add a SessionStart hook with "command": "node .github/setup.js" (for example wormholes-org/wormholes-client, .claude/settings.json lines 3 to 9). Both agents load project settings only after you trust the folder (Gemini CLI folderTrust, Claude Code trust dialog). .vscode/tasks.json uses "runOn": "folderOpen"; VS Code runs it only in a trusted workspace with automatic tasks allowed. .cursor/rules/setup.mdc is an alwaysApply rule that tells the agent to run the script. package.json runs it on npm test. The title quote is SafeDep's. The wave against icflorescu/mantine-datatable was disclosed by the owner's family on 4 June 2026 (discussion #813, "chore: update dependencies [skip ci]", "this repository and 4 others"); those commits were later purged. SafeDep's list from June has 123 repositories; the number changes as repos get cleaned or hit again.
+**Sources:** The commit is still on GitHub, unsigned and backdated to 17 August 2020. The .claude/settings.json and .gemini/settings.json add a SessionStart hook with "command": "node .github/setup.js" (for example wormholes-org/wormholes-client, .claude/settings.json lines 3 to 9). Both agents load project settings only after you trust the folder (Gemini CLI folderTrust, Claude Code trust dialog). .vscode/tasks.json uses "runOn": "folderOpen"; VS Code runs it only in a trusted workspace with automatic tasks allowed. .cursor/rules/setup.mdc is an alwaysApply rule that tells the agent to run the script. package.json runs it on npm test. The wave against icflorescu/mantine-datatable was disclosed by the owner's family on 4 June 2026 (discussion #813, "chore: update dependencies [skip ci]", "this repository and 4 others"); those commits were later purged. SafeDep's list from June has 123 repositories; the number changes as repos get cleaned or hit again.
