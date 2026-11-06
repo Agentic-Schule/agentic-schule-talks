@@ -92,15 +92,16 @@ The specification: "A skill is a directory containing, at minimum, a SKILL.md fi
 | **Claude Code** | 20 fields, among them `allowed-tools`, `hooks`, `model`, `context` |
 | **Codex** | `name`, `description`, `metadata.short-description` |
 | **Gemini CLI** | `name`, `description` |
+| **Antigravity** | `description`, optional `name` (documented, closed source) |
 
 </div>
 
 <p class="fragment">The same file can do more in one agent than in another.</p>
 
-<p class="source">agentskills.io/specification · code.claude.com/docs/en/skills · gemini-cli packages/core/src/skills/skillLoader.ts (3fd7d26) · codex codex-rs/skills/src/parser.rs (2c502d8) · 6 November 2026</p>
+<p class="source">agentskills.io/specification · code.claude.com/docs/en/skills · gemini-cli packages/core/src/skills/skillLoader.ts (3fd7d26) · codex codex-rs/skills/src/parser.rs (2c502d8) · antigravity.google/docs/skills · 6 November 2026</p>
 
 Note:
-Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses name, description and metadata.short-description (parser.rs). The same file can mean more in one agent than in another.
+Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses name, description and metadata.short-description (parser.rs). Antigravity is closed source; its docs list only name ("optional", "Defaults to the folder name if not provided") and description ("required"). The same file can mean more in one agent than in another.
 
 ---
 
