@@ -54,7 +54,6 @@
       <div class="step"><div class="n">2</div><div>
         <h2>Search for addresses</h2>
         <p>Does every domain really belong to the vendor? Is the spelling exactly right? Every URL is a place where something different may sit tomorrow.</p>
-        <pre><code>grep -rn "https\?://" .</code></pre>
       </div></div>
 
       <div class="step"><div class="n">3</div><div>
@@ -67,17 +66,11 @@
         <p>Who submitted it, and how old is the account? Stars belong to the repository, not to a single skill in it.</p>
       </div></div>
 
-      <div class="step"><div class="n">5</div><div>
-        <h2>Find hidden characters</h2>
-        <p>Zero-width spaces, direction overrides and tag characters are invisible on screen, and many models read them anyway. This shows every line with a character outside plain ASCII (tabs and umlauts show up too):</p>
-        <pre><code>LC_ALL=C grep -rn '[^[:print:][:space:]]' .</code></pre>
-      </div></div>
-
       <div class="rules">
         <h2>Three rules that matter more than the check</h2>
         <ul>
           <li><strong>A skill that fetches instructions from the internet cannot be reviewed once and for all.</strong> What gets executed is whatever sits behind the link right now.</li>
-          <li><strong>Treat untrusted skills as inspiration, never as a dependency.</strong> Find hidden characters first (step 5), then let your agent rewrite them in its own words, in a fresh session.</li>
+          <li><strong>Treat untrusted skills as inspiration, never as a dependency.</strong> Let your agent rewrite them in its own words, in a fresh session without web access, then read the result.</li>
           <li><strong>Keep the safety nets on.</strong> Know which mode your agent starts in (Claude Code: auto mode). Sandbox on, no Turbo, <code>--dangerously-skip-permissions</code>, bypass permissions or <code>--yolo</code> with a new skill, and read every permission prompt. In Claude Code, check <code>allowed-tools</code> in the frontmatter.</li>
         </ul>
       </div>

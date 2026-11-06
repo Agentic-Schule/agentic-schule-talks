@@ -86,16 +86,24 @@ Note:
 
 ## More than name and description
 
-<div class="compare">
+<div class="columns market">
+<div>
 
-| | Frontmatter fields the agent reads |
-| --- | --- |
-| **Agent Skills spec** | `name`, `description` · optional: `license`, `compatibility`, `metadata`, `allowed-tools` |
-| **Claude Code** | 20 fields, among them `allowed-tools`, `hooks`, `model`, `context` |
-| **Codex** | `description`, optional `name`, `metadata.short-description` |
-| **Antigravity** | `description`, optional `name` (documented, closed source) |
-| **Gemini CLI** (enterprise) | `name`, `description` |
+### Every agent reads
 
+- <code>name</code>
+- <code>description</code>
+
+</div>
+<div>
+
+### Claude Code also reads
+
+- <code>allowed-tools</code> <span class="muted">tools without asking</span>
+- <code>hooks</code> <span class="muted">shell commands</span>
+- <code>model</code>, <code>context</code> <span class="muted">… and 16 more</span>
+
+</div>
 </div>
 
 <p class="fragment">The same file can do more in one agent than in another.</p>
@@ -105,7 +113,7 @@ Note:
 Note:
 **Say:** The frontmatter differs per agent. Claude Code reads 20 fields, including hooks and allowed-tools. Codex and Antigravity read only a few. The same file can do more in one agent than in another.
 
-**Sources:** Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses description (required), name (optional, falls back to a default) and metadata.short-description (parser.rs). Since 18 June 2026, Gemini CLI is reserved for Gemini Code Assist Standard/Enterprise. Free and Google AI Pro/Ultra users moved to Antigravity CLI (gemini-cli README). Antigravity is closed source; its docs list only name ("optional", "Defaults to the folder name if not provided") and description ("required"). The same file can do more in one agent than in another.
+**Sources:** Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses description (required), name (optional, falls back to a default) and metadata.short-description (parser.rs). Since 18 June 2026, Gemini CLI is reserved for Gemini Code Assist Standard/Enterprise. Free and Google AI Pro/Ultra users moved to Antigravity CLI (gemini-cli README). Antigravity is closed source; its docs list only name ("optional", "Defaults to the folder name if not provided") and description ("required"). On the slide, "Every agent reads" means: every agent here parses name and description; Codex and Antigravity treat name as optional. The same file can do more in one agent than in another.
 
 ---
 
@@ -1059,7 +1067,7 @@ A skill is prose. Write it yourself, or let your agent write it. <!-- .element: 
 <p class="source">Snyk Agent Scan, issue code W021</p>
 
 Note:
-**Say:** You see a harmless sentence, the model reads more. The rewrite step reveals them.
+**Say:** You see a harmless sentence, the model reads more. You cannot review what you cannot see. That is why you rewrite instead of review.
 
 **Sources:** Quote from Snyk Agent Scan, finding W021. Embrace The Red names "certain models, like Gemini, Claude, Grok"; I found no source for GPT or Codex. Unicode tag characters can encode a whole hidden message. Zero-width characters, direction overrides, tag characters.
 
@@ -1071,8 +1079,7 @@ Note:
 
 <ol>
 <li class="fragment"><strong>Start with an empty file</strong>, carry the ideas across</li>
-<li class="fragment"><strong>Reveal hidden characters</strong></li>
-<li class="fragment"><strong>Let the agent rewrite it</strong>: fresh session, no web access</li>
+<li class="fragment"><strong>Let the agent rewrite it</strong>: fresh session, no web access, then read the result</li>
 <li class="fragment"><strong>Same for code</strong>: have it rewritten</li>
 </ol>
 
@@ -1110,7 +1117,7 @@ Use marketplaces as a catalog of ideas. <!-- .element: class="fragment" -->
 <li class="fragment">Stars and downloads are not a security signal.</li>
 <li class="fragment">Without a sandbox, the agent acts with your permissions.</li>
 <li class="fragment"><strong>Write your skills yourself</strong>, or use only skills from teams you really trust.</li>
-<li class="fragment">Never copy a skill. Reveal hidden characters, then let your agent rewrite it.</li>
+<li class="fragment">Never copy a skill. Let your agent rewrite it.</li>
 </ul>
 
 Note:

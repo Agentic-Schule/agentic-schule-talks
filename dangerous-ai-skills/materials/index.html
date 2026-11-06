@@ -31,7 +31,7 @@
       <h2>Take this home</h2>
 
       <h3>1. Prompt: adopt a skill without copying it</h3>
-      <p>Let your agent read the skill as untrusted text, list every link and command in it, and then write a new skill for your project in its own words. First find hidden characters, then let your agent rewrite the skill in a fresh session.</p>
+      <p>Let your agent read the skill as untrusted text, list every link and command in it, and then write a new skill for your project in its own words. Run it in a fresh session without web access and read the result.</p>
       <p class="file-link"><a class="view" href="../rewrite-prompt.md">View the rewrite prompt</a><a class="download-icon" href="../rewrite-prompt.md" download aria-label="Download rewrite-prompt.md" title="Download rewrite-prompt.md"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></a></p>
 
       <h3>2. Settings: sandbox on, no unattended network access</h3>
@@ -64,7 +64,6 @@ approval_policy = "on-request"</code></pre>
         <li><strong>Search for addresses.</strong> Does every domain really belong to the vendor? Is the spelling exactly right?</li>
         <li><strong>Look into the scripts</strong> and everything the skill wants to install.</li>
         <li><strong>Origin over popularity.</strong> Who submitted it, and how old is the account?</li>
-        <li><strong>Find hidden characters:</strong> <code>LC_ALL=C grep -rn '[^[:print:][:space:]]' .</code></li>
       </ol>
       <p>A skill that fetches instructions from the internet cannot be reviewed. Treat untrusted skills as inspiration, never as a dependency.</p>
 
