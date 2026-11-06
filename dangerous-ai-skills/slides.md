@@ -793,12 +793,13 @@ So let's look. State on 4 November 2026.
 ---
 <span class="kicker">skills.sh · “Made with care by Vercel”</span>
 
-<div class="shots stack">
-<figure><img src="img/market-skillssh.webp" alt="skills.sh listing of brand-landingpage from wshobson/agents with 39.8K installs, 42.2K GitHub stars, first seen May 2, 2026, and the install command npx skills add"><figcaption><strong>39.8K installs</strong> · one-line install command</figcaption></figure>
-<figure><img src="img/market-skillssh-audit.webp" alt="skills.sh security audit page for brand-landingpage by Gen Agent Trust Hub: risk level critical, flags for external downloads, remote code execution, command execution and indirect prompt injection"><figcaption><span class="bad"><strong>“CRITICAL … DO NOT USE”</strong></span> since 15 September · still installable</figcaption></figure>
-</div>
+<div class="shot"><img src="img/market-skillssh-audit.webp" alt="skills.sh security audit page for brand-landingpage by Gen Agent Trust Hub: risk level critical, flags for external downloads, remote code execution, command execution and indirect prompt injection"></div>
 
-<p class="source">skills.sh/wshobson/agents/brand-landingpage and …/security/agent-trust-hub, 4 November 2026</p>
+<p class="caption"><span class="bad"><strong>“CRITICAL … DO NOT USE”</strong></span> since 15 September · still installable</p>
+
+<p class="caption fragment"><strong>If you care, why is it still there at all?</strong></p>
+
+<p class="source">skills.sh/wshobson/agents/brand-landingpage/security/agent-trust-hub, 4 November 2026 · 39.8K installs on the listing</p>
 
 Note:
 **Say:** skills.sh's own audit says critical, do not use, since September. And the install command is still there.
@@ -808,27 +809,36 @@ Note:
 ---
 <span class="kicker">The same skill elsewhere</span>
 
-<div class="shots stack narrow">
-<figure><img src="img/market-skillselion.webp" alt="Skillselion listing of the Brand Landingpage Skill with 39.7k installs"><figcaption><strong>Skillselion</strong> · <span class="ok">“3 / 3 scanners passed”</span></figcaption></figure>
-<figure><img src="img/market-agentskillsh.webp" alt="agentskill.sh listing of brand-landingpage with a secured badge, quality 92 and security 93"><figcaption><strong>agentskill.sh</strong> · <span class="ok">“secured” · Security 93</span></figcaption></figure>
-</div>
+<div class="shot"><img src="img/market-skillselion.webp" alt="Skillselion listing of the Brand Landingpage Skill with 39.7k installs"></div>
 
-<p class="caption fragment">Same skill, opposite verdicts.</p>
+<p class="caption"><strong>Skillselion</strong> · <span class="ok">“3 / 3 scanners passed”</span></p>
 
-<p class="source">skillselion.com · agentskill.sh, 4 November 2026 · further listings on the materials page</p>
+<p class="source">skillselion.com, 4 November 2026</p>
 
 ---
 
-<span class="kicker">One skill under an attacker’s control: brand-landingpage</span>
+<span class="kicker">The same skill elsewhere</span>
 
-<p class="statement xl">15 places.</p>
+<div class="shot"><img src="img/market-agentskillsh.webp" alt="agentskill.sh listing of brand-landingpage with a secured badge, quality 92 and security 93"></div>
 
-<p class="fragment">Plus <strong>60 <code>SKILL.md</code> copies in 51 GitHub repositories</strong>.</p>
+<p class="caption"><strong>agentskill.sh</strong> · <span class="ok">“secured” · Security 93</span></p>
+
+<p class="caption fragment"><strong>Same skill, opposite verdicts.</strong></p>
+
+<p class="source">agentskill.sh, 4 November 2026 · further listings on the materials page</p>
+
+---
+
+<span class="kicker">brand-landingpage · one skill under an attacker’s control</span>
+
+<p class="statement xl">And many more.</p>
+
+<p class="fragment">Plus <strong>copies of the <code>SKILL.md</code> all over GitHub</strong>.</p>
 
 <p class="source">All listings with links on the materials page · GitHub code search for “stitch-design.ai”, 6 November 2026</p>
 
 Note:
-**Say:** One skill, fifteen places that list it, plus sixty copies of the file on GitHub. All links are on the materials page.
+**Say:** And many more places list it, plus copies of the file all over GitHub. All links are on the materials page.
 
 **Sources:** GitHub code search for "stitch-design.ai" on 6 November 2026: 89 hits in 66 repositories. 60 of them are SKILL.md files in 51 repositories; the rest are blocklists, advisories and articles that warn about the domain. The 15: skills.sh (Vercel), Claude Marketplaces, SkillsMP, Claude Market, Skillselion, OpenDesign, @skills, claude-plugins.dev, Skillstore, agentskill.sh, Skills.lc, Awesome Skills, Vibe Index, Build with Claude, Claude Skills Registry, as of 4 November 2026. Build with Claude returns 404 since then.
 
