@@ -91,8 +91,18 @@ function setup(el, deck) {
   let cast = null;
   let timer = null;
 
-  const show = (upto) => {
-    screen.innerHTML = render(cast.events.slice(0, upto).map((e) => e[1]).join(''));
+  const show = (upto, tailOnly = false) => {
+    let html = render(cast.events.slice(0, upto).map((e) => e[1]).join(''));
+    // Im Druck gilt keine Scroll-Position: nur die letzten Zeilen, die ins Terminal passen
+    if (tailOnly) {
+      // Vor dem Layout der Druckansicht ist clientHeight noch 0, dann gilt die Höhe aus code.css
+      const style = getComputedStyle(screen);
+      const lineHeight = parseFloat(style.lineHeight) || 26;
+      const height = screen.clientHeight || parseFloat(style.height) || 348;
+      const fit = Math.max(1, Math.floor((height - 24) / lineHeight));
+      html = html.split('\n').slice(-fit).join('\n');
+    }
+    screen.innerHTML = html;
     screen.scrollTop = screen.scrollHeight;
   };
   const stop = () => { clearTimeout(timer); timer = null; };
@@ -115,7 +125,8 @@ function setup(el, deck) {
     .then((text) => {
       cast = parseCast(text);
       const printing = /print-pdf/.test(location.search);
-      if (printing || !el.closest('section')?.classList.contains('present')) show(printing ? cast.events.length : 0);
+      if (printing) show(cast.events.length, true);
+      else if (!el.closest('section')?.classList.contains('present')) show(0);
       if (!printing && el.closest('section')?.classList.contains('present')) play();
     });
 
