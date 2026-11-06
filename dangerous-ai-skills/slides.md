@@ -852,6 +852,15 @@ Almost nobody removed it. <!-- .element: class="fragment" -->
 
 ---
 
+<p class="statement">OK, and what about plugins?</p>
+
+<p class="fragment">A plugin bundles skills, MCP servers, subagents, rules and lifecycle hooks.</p>
+
+Note:
+**Say:** Skills rarely travel alone. brand-landingpage itself came as a plugin: plugins/brand-landingpage/skills/brand-landingpage/SKILL.md in wshobson/agents. Plugins are how skills reach Antigravity users, and a hook in a plugin runs code without the agent following any instruction.
+
+---
+
 <span class="kicker">Antigravity · plugins</span>
 
 ## Install from any GitHub URL
@@ -860,7 +869,7 @@ Almost nobody removed it. <!-- .element: class="fragment" -->
 $ agy plugin install https://github.com/<owner>/<repo>
 ```
 
-<p class="fragment">Plugins are how skills reach Antigravity users. A plugin bundles skills, MCP servers, subagents, rules and lifecycle hooks. The plugin docs contain no security warning.</p>
+<p class="fragment">The plugin docs contain no security warning.</p>
 
 <p class="source">antigravity.google/docs/plugins · antigravity.google/docs/marketplace, 6 November 2026</p>
 
@@ -1044,7 +1053,7 @@ Same pattern as the attack, only the link belongs to the vendor. Every run loads
 
 ---
 
-<p class="statement">Not malicious.<br><span class="gradient-text">But you trust whoever controls the repo.</span></p>
+<p class="statement">Not malicious.<br><span class="gradient-text">But you trust the repo owner.</span></p>
 
 On every run. <!-- .element: class="fragment" -->
 
@@ -1061,7 +1070,7 @@ A skill that fetches instructions from the internet cannot be reviewed once and 
 <li class="fragment"><strong>Read the <code>SKILL.md</code></strong>, not the README</li>
 <li class="fragment"><strong>Search for addresses</strong>: does every domain belong to the vendor?</li>
 <li class="fragment"><strong>Look into the scripts</strong> and everything it wants to install</li>
-<li class="fragment"><strong>Origin over popularity</strong>: who submitted it, how old is the account?</li>
+<li class="fragment"><strong>Origin over popularity</strong>: who submitted it?</li>
 </ol>
 
 ---
@@ -1096,7 +1105,7 @@ Note:
 ---
 
 
-<p class="statement">Treat untrusted skills as inspiration.<br><span class="gradient-text">Never as a dependency.</span></p>
+<p class="statement">Treat untrusted skills as inspiration.</p>
 
 A skill is prose. Write it yourself, or let your agent write it. <!-- .element: class="fragment" -->
 

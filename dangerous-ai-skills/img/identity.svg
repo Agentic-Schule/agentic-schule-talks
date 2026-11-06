@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img">
 <defs><marker id="id-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-muted"/></marker><marker id="id-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-accent"/></marker><marker id="id-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-bad"/></marker><marker id="id-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrow-ok"/></marker><linearGradient id="id-hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="stop-1"/><stop offset="1" class="stop-2"/></linearGradient></defs>
-<circle cx="600" cy="260" r="95" class="box-bad"/>
+<circle cx="600" cy="260" r="120" class="box-bad"/>
 <text x="600" y="256" class="t-head" font-size="28" text-anchor="middle" >Your agent</text>
-<text x="600" y="290" class="t-muted" font-size="26" text-anchor="middle" >signed in as you</text>
+<text x="600" y="288" class="t-muted" font-size="22" text-anchor="middle" >signed in as you</text>
 <g class="fragment" data-fragment-index="1">
-<path d="M600,160 L600,100" class="line-bad"/>
-<rect x="490" y="17" width="220" height="56" rx="28" class="box"/>
-<text x="600" y="54" class="t-head" font-size="26" text-anchor="middle" >GitHub</text>
+<path d="M600,135 L600,100" class="line-bad"/>
+<rect x="475" y="17" width="250" height="56" rx="28" class="box"/>
+<text x="600" y="53" class="t-head" font-size="24" text-anchor="middle" >GitHub</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<path d="M687,210 L817,180" class="line-bad"/>
-<rect x="776" y="124" width="220" height="56" rx="28" class="box"/>
-<text x="886" y="162" class="t-head" font-size="26" text-anchor="middle" >Cloud console</text>
+<path d="M708,198 L817,180" class="line-bad"/>
+<rect x="761" y="124" width="250" height="56" rx="28" class="box"/>
+<text x="886" y="160" class="t-head" font-size="24" text-anchor="middle" >Cloud console</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<path d="M687,310 L817,340" class="line-bad"/>
-<rect x="776" y="339" width="220" height="56" rx="28" class="box"/>
-<text x="886" y="376" class="t-head" font-size="26" text-anchor="middle" >npm token</text>
+<path d="M708,322 L817,340" class="line-bad"/>
+<rect x="761" y="339" width="250" height="56" rx="28" class="box"/>
+<text x="886" y="375" class="t-head" font-size="24" text-anchor="middle" >npm token</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<path d="M600,360 L600,420" class="line-bad"/>
-<rect x="490" y="447" width="220" height="56" rx="28" class="box"/>
-<text x="600" y="484" class="t-head" font-size="26" text-anchor="middle" >Slack and mail</text>
+<path d="M600,385 L600,420" class="line-bad"/>
+<rect x="475" y="447" width="250" height="56" rx="28" class="box"/>
+<text x="600" y="483" class="t-head" font-size="24" text-anchor="middle" >Slack and mail</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<path d="M513,310 L383,340" class="line-bad"/>
-<rect x="204" y="340" width="220" height="56" rx="28" class="box"/>
-<text x="314" y="377" class="t-head" font-size="26" text-anchor="middle" >Production DB</text>
+<path d="M492,323 L383,340" class="line-bad"/>
+<rect x="189" y="340" width="250" height="56" rx="28" class="box"/>
+<text x="314" y="376" class="t-head" font-size="24" text-anchor="middle" >Production DB</text>
 </g>
 <g class="fragment" data-fragment-index="1">
-<path d="M513,210 L383,180" class="line-bad"/>
-<rect x="204" y="124" width="220" height="56" rx="28" class="box"/>
-<text x="314" y="161" class="t-head" font-size="26" text-anchor="middle" >Your files</text>
+<path d="M492,198 L383,180" class="line-bad"/>
+<rect x="189" y="124" width="250" height="56" rx="28" class="box"/>
+<text x="314" y="160" class="t-head" font-size="24" text-anchor="middle" >Your files</text>
 </g>
 </svg>

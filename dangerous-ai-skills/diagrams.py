@@ -235,19 +235,19 @@ svg('trust-chain', 1200, 470, '\n'.join(b), p)
 p = 'id'
 b = []
 cx, cy = 600, 260
-b.append(f'<circle cx="{cx}" cy="{cy}" r="95" class="box-bad"/>')
+b.append(f'<circle cx="{cx}" cy="{cy}" r="120" class="box-bad"/>')
 b.append(text(cx, cy - 4, 'Your agent', 't-head', 28, 'middle'))
-b.append(text(cx, cy + 30, 'signed in as you', 't-muted', 26, 'middle'))
+b.append(text(cx, cy + 28, 'signed in as you', 't-muted', 22, 'middle'))
 import math
 spokes = ['GitHub', 'Cloud console', 'npm token', 'Slack and mail', 'Production DB', 'Your files']
 for i, s2 in enumerate(spokes):
     a = -math.pi / 2 + i * 2 * math.pi / len(spokes)
-    x1, y1 = cx + 100 * math.cos(a), cy + 100 * math.sin(a)
+    x1, y1 = cx + 125 * math.cos(a), cy + 125 * math.sin(a)
     x2, y2 = cx + 330 * math.cos(a), cy + 215 * math.sin(a)
     b.append('<g class="fragment" data-fragment-index="1">')
     b.append(f'<path d="M{x1:.0f},{y1:.0f} L{cx + 250 * math.cos(a):.0f},{cy + 160 * math.sin(a):.0f}" class="line-bad"/>')
-    b.append(f'<rect x="{x2 - 110:.0f}" y="{y2 - 28:.0f}" width="220" height="56" rx="28" class="box"/>')
-    b.append(text(round(x2), round(y2 + 9), s2, 't-head', 26, 'middle'))
+    b.append(f'<rect x="{x2 - 125:.0f}" y="{y2 - 28:.0f}" width="250" height="56" rx="28" class="box"/>')
+    b.append(text(round(x2), round(y2 + 8), s2, 't-head', 24, 'middle'))
     b.append('</g>')
 svg('identity', 1200, 520, '\n'.join(b), p)
 print(sorted(os.listdir(OUT)))
