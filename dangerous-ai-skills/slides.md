@@ -233,7 +233,7 @@ Note:
 - “you’ll find the current steps here”
 - …
 
-Even if it learns every phrasing, this could also be legitimate content. <!-- .element: class="fragment" -->
+Even if it learns every phrasing and follows every link, it cannot know what a link will return in the future. Nobody can. <!-- .element: class="fragment" -->
 
 <p class="source">The first phrase is from the skill, line 31 (commit 7e2fb55). The others are my own variants.</p>
 
