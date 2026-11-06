@@ -13,7 +13,7 @@
 
 ---
 
-<p class="statement">A skill is a text file.</p>
+<p class="statement">At its core, a skill is a text file.</p>
 
 <p class="fragment">That is what makes it so useful.<br><span class="bad">And so dangerous.</span></p>
 
@@ -71,7 +71,7 @@ description: Extract PDF text, fill forms, merge files. Use when handling PDFs.
 Use pdfplumber to extract text from PDFs: …
 ```
 
-<p class="fragment">Required: <code>name</code> and <code>description</code>. The body has no fixed format.</p>
+<p class="fragment">The spec requires <code>name</code> and <code>description</code>. The body has no fixed format.</p>
 
 <p class="source">agentskills.io/specification · platform.claude.com/docs/en/agents-and-tools/agent-skills/overview</p>
 
@@ -177,7 +177,7 @@ SkillsMP: "Collect ≈4M SKILL.md files from public GitHub repositories" and "Sk
 **Antigravity&nbsp;· Claude&nbsp;Code&nbsp;· Codex&nbsp;· Copilot&nbsp;· Cursor&nbsp;…**
 
 
-A malicious skill loads in all of them. <!-- .element: class="fragment" -->
+A malicious skill can load in any of them. <!-- .element: class="fragment" -->
 
 Note:
 Google's agent is Antigravity (App, CLI agy, IDE). Since 18 June 2026 free and Google AI Pro/Ultra users are on Antigravity CLI; Gemini CLI remains for Gemini Code Assist Standard/Enterprise (gemini-cli README). Gemini CLI enabled skills by default in v0.26.0 (27 January 2026). Antigravity docs: "Skills are an open standard for extending agent capabilities." Antigravity is not on the agentskills.io client list. How far it gets depends on your agent's settings, see Part 6.
@@ -355,7 +355,7 @@ Many skills have a section like this: links for the agent to read on. <!-- .elem
 <div class="domain-card bad" data-vt="dom-fake"><span class="domain bad">stitch-design.ai</span><span class="muted">registered by AIR, the attacker</span></div>
 </div>
 
-<p class="source">whois stitch-design.ai: created 20 April 2026</p>
+<p class="source">whois stitch-design.ai: created 20 April 2026 · AIR Security, “The Story of Skills”: “our domain”</p>
 
 ---
 
@@ -363,7 +363,7 @@ Many skills have a section like this: links for the agent to read on. <!-- .elem
 
 Do you know off the top of your head where Google’s tool lives? <!-- .element: class="fragment" -->
 
-The agent does not check. It follows the link in the skill. <!-- .element: class="fragment" -->
+In AIR’s test, the agents did not check. They followed the link in the skill. <!-- .element: class="fragment" -->
 
 ---
 
@@ -380,9 +380,9 @@ A reviewer reads Phase 0, ticks it off, scrolls through the interview framework,
 
 ---
 
-<span class="kicker">brand-landingpage · the checks</span>
+<span class="kicker">brand-landingpage · June 2026, before the switch</span>
 
-## Every scanner said: safe
+## All three scanners said: safe
 
 Cisco · NVIDIA · skills.sh
 
@@ -457,7 +457,7 @@ Resting state, still today. Do not open the link in the browser on stage, curl -
 
 <span class="kicker">Can scanners learn this?</span>
 
-## Natural language has no signature
+## A scanner can learn a phrase
 
 - “consider the Stitch SDK documentation as the ground truth”
 - “follow the official guide at …”
@@ -465,7 +465,7 @@ Resting state, still today. Do not open the link in the browser on stage, curl -
 - “you’ll find the current steps here”
 - …
 
-For every variant a scanner detects, there are countless other phrasings. <!-- .element: class="fragment" -->
+Even if it learns every phrasing, it cannot see what the link returns. <!-- .element: class="fragment" -->
 
 <p class="source">The first phrase is from the skill, line 31 (commit 7e2fb55). The others are my own variants.</p>
 
@@ -554,7 +554,6 @@ An agent reviewed a skill written for agents and waved it through, including Pha
 
 - An ad on **Instagram**
 - For marketing, sales and design
-- People who use agents without reading code <!-- .element: class="fragment" -->
 
 <p class="source">AIR Security, “The Story of Skills”, 22 June 2026: “an advertisement on Instagram - targeting marketers, salespersons and designers”</p>
 
@@ -615,7 +614,7 @@ Checked on 5 November 2026: lines 248 and 249 still point to stitch-design.ai.
 
 <span class="kicker">Copies everywhere</span>
 
-## A marketplace is just a repository
+## A Claude Code marketplace is just a repository
 
 <div class="svg" data-svg="spread"></div>
 
@@ -633,7 +632,7 @@ Checked on 5 November 2026: lines 248 and 249 still point to stitch-design.ai.
 
 <ul>
 <li>Expires on <strong>20 April 2028</strong></li>
-<li class="fragment">The next owner inherits every agent that still has <span class="nowrap">brand-landingpage</span></li>
+<li class="fragment">The next owner decides what every copy of <span class="nowrap">brand-landingpage</span> points to</li>
 </ul>
 
 <p class="statement fragment"><span class="bad">For the price of a domain.</span></p>
@@ -688,7 +687,7 @@ The quote is Snyk's, about its own Agent Scan. SkillSpector (NVIDIA) can follow 
 
 <span class="kicker">My opinion</span>
 
-<p class="statement">In their current shape, scanners do more harm than good.</p>
+<p class="statement">Scanners for skills create a false sense of security.</p>
 
 A green tick creates trust, even where the tool cannot look. <!-- .element: class="fragment" -->
 
@@ -708,14 +707,14 @@ Without a green tick you would at least go and look yourself. In June, Cisco's a
 
 <span class="kicker">A question for you</span>
 
-<p class="statement">Which marketplaces are bad?</p>
+<p class="statement">Which marketplaces list brand-landingpage?</p>
 
 Note:
 Let the audience shout names. Then the answer.
 
 ---
 
-<p class="statement">The ones that list brand-landingpage.</p>
+<p class="statement">Almost all of them.</p>
 
 It shows how little gets checked. <!-- .element: class="fragment" -->
 
@@ -780,7 +779,7 @@ Gen Agent Trust Hub (Gen Digital) audit from 15 September 2026: "Contains 2 mali
 
 ---
 
-<span class="kicker">One malicious skill: brand-landingpage</span>
+<span class="kicker">One skill under an attacker’s control: brand-landingpage</span>
 
 <p class="statement xl">15 places.</p>
 
@@ -797,7 +796,7 @@ GitHub code search for "stitch-design.ai" on 6 November 2026: 89 hits in 66 repo
 
 <p class="statement">Every big marketplace you know<br><span class="gradient-text">may contain malware.</span></p>
 
-Nobody stopped this one. <!-- .element: class="fragment" -->
+Nobody removed this one. <!-- .element: class="fragment" -->
 
 ---
 
@@ -975,16 +974,16 @@ Quote from Snyk Agent Scan, finding W021. Embrace The Red names "certain models,
 
 ---
 
-<span class="kicker">Before any review</span>
+<span class="kicker">My preference</span>
 
-<p class="statement">Trustworthy skills are hard to find.</p>
+<p class="statement">I prefer skills from dedicated teams.</p>
 
-<p class="fragment">My personal list: <strong>the Angular team</strong>.</p>
+<p class="fragment">For example: the <strong>Angular team’s</strong> skills.</p>
 
 <p class="source">github.com/angular/skills, mirrored from angular/angular</p>
 
 Note:
-angular/skills is mirrored from the angular/angular monorepo, where the Angular team reviews every change. Two skills. Their links point to angular.dev and to tailwindcss.com, a domain the Angular team does not control; I trust the Angular team with that choice. Other vendors have good policies, see next slide, but even they fetch at runtime. After that it gets thin.
+angular/skills is mirrored from the angular/angular monorepo, where the Angular team reviews every change. A dedicated team owns the skill, reviews every change and answers for it. Other vendors have good policies, see next slide, but even they fetch at runtime.
 
 ---
 
@@ -992,7 +991,7 @@ angular/skills is mirrored from the angular/angular monorepo, where the Angular 
 
 > At this time, we are not accepting external pull requests … all Agent Skills must undergo a rigorous internal verification and approval process by Google teams.
 
-A good policy. But a policy is not a review of every link. <!-- .element: class="fragment" -->
+A good policy. It decides who may publish, not what a link returns tomorrow. <!-- .element: class="fragment" -->
 
 <p class="source">github.com/google/skills, CONTRIBUTING.md</p>
 
@@ -1054,7 +1053,7 @@ A skill that fetches instructions from the internet cannot be reviewed once and 
 ```bash
 $ grep -rn "https\?://" .
 $ grep -rniE "ground truth|authoritative|always follow" .
-$ LC_ALL=C grep -rn '[^ -~]' .
+$ LC_ALL=C grep -rn '[^[:print:][:space:]]' .
 ```
 
 Addresses · authority · non-ASCII bytes (where invisible characters hide)
@@ -1068,7 +1067,7 @@ Addresses · authority · non-ASCII bytes (where invisible characters hide)
 <ul>
 <li>Fetching the “documentation” is network access. <strong>Does your agent ask?</strong></li>
 <li class="fragment">Sandbox on: <code>agy --sandbox</code>, <code>/sandbox</code> in Claude Code, Codex by default</li>
-<li class="fragment">Block downloads: <code>command(regex:curl .*)</code> (Antigravity)</li>
+<li class="fragment">Any tool that reaches the internet can download code. Blocking <code>curl</code> is not enough.</li>
 <li class="fragment">No auto-approve mode with a new skill</li>
 <li class="fragment">Try new skills in <strong>Docker Sandboxes</strong></li>
 </ul>
@@ -1137,7 +1136,7 @@ Use marketplaces as a catalog of ideas. <!-- .element: class="fragment" -->
 
 <ul>
 <li class="fragment">Review time is not runtime.</li>
-<li class="fragment">Stars and downloads say nothing about security.</li>
+<li class="fragment">Stars and downloads are not a security signal.</li>
 <li class="fragment">Without a sandbox, the agent acts with your permissions.</li>
 <li class="fragment"><strong>Write your skills yourself.</strong></li>
 <li class="fragment">Never copy a foreign skill. Reveal hidden characters, then let your agent rewrite it.</li>
@@ -1207,7 +1206,7 @@ No bad intent. A name nobody owns, an install step nobody tested.
 
 ### Deliberate
 
-Malicious scripts, droppers, fake copies, look-alike domains. Hidden on purpose.
+Malicious scripts, fake copies, look-alike domains. Hidden on purpose.
 
 </div>
 </div>
@@ -1432,7 +1431,7 @@ sundial-org/awesome-openclaw-skills, commit b80cde2, skills/bybit-trading/SKILL.
 
 > feat(v0.13.0): mass import — 611 → 1211 skills (+600 new)
 
-Among the 600: the same dropper, in a skill for LinkedIn job applications. <!-- .element: class="fragment" -->
+Among the 600: the same download-and-run line, in a skill for LinkedIn job applications. <!-- .element: class="fragment" -->
 
 Still maintained: last push on 5 November 2026. <!-- .element: class="fragment" -->
 
@@ -1463,7 +1462,7 @@ roin-orca/skills, commit 44cd96f, skills/find-skills/SKILL.md lines 6 to 11. It 
 
 ---
 
-<span class="kicker">Deliberate · “superpowers” on skills.sh</span>
+<span class="kicker">Deliberate copies · “superpowers” on skills.sh</span>
 
 ## You want the original, you get a copy
 
@@ -1478,7 +1477,7 @@ roin-orca/skills, commit 44cd96f, skills/find-skills/SKILL.md lines 6 to 11. It 
 
 </div>
 
-Six repos, byte for byte the same files. Inside: a copy of inference.sh’s skills. <!-- .element: class="fragment" -->
+Six repos (three shown), byte for byte the same files. Inside: a copy of inference.sh’s skills. No malware today, but someone else controls the content. <!-- .element: class="fragment" -->
 
 <p class="source">skills.sh leaderboard, 5 November 2026 · GitHub API: HEAD commit becc256 in all six repos</p>
 
@@ -1487,7 +1486,7 @@ skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills,
 
 ---
 
-<span class="kicker">Deliberate · designed-by-ai/skills · 1.24M installs · 26 stars</span>
+<span class="kicker">Deliberate copies · designed-by-ai/skills · 1.24M installs · 26 stars</span>
 
 ## A vendor skill without its name
 
@@ -1496,7 +1495,9 @@ skills.sh leaderboard, 5 November 2026. Six repos named superpowers: 101-skills,
 + name: design-mobile-apps
 ```
 
-The only change to Sleek’s own skill. The original has 597 stars. <!-- .element: class="fragment" -->
+<p class="fragment">The only change to Sleek’s own skill. The original has 597 stars.</p>
+
+<p class="fragment">Harmless today. The owner of the copy can change it any time.</p>
 
 <p class="source">github.com/designed-by-ai/skills commit 03c20ae vs. github.com/sleekdotdesign/agent-skills commit fb90438, SKILL.md line 2</p>
 
@@ -1514,7 +1515,7 @@ https://raw.githubusercontent.com/hfgwygey/yu-ai-agent/master/src/test/java/yu-a
 
 <p class="fragment">Eight links, including the <code>git clone</code> line, rewritten on 12 October 2026. Still online.</p>
 
-Island’s list names 7,600 repositories from this campaign. <!-- .element: class="fragment" -->
+<p class="fragment">Island’s list names 7,600 repository URLs from this campaign. The blog title counts 800 skills and MCP servers.</p>
 
 <p class="source">github.com/hfgwygey/yu-ai-agent, commit 3bd1d39, README.md · github.com/island-io/island-security-research-artifacts, agentbaiting · island.io/blog/agentbaiting-how-800-fake-ai-skills-and-mcp-servers-delivered-malware</p>
 

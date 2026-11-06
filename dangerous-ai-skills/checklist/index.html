@@ -76,7 +76,7 @@
       <div class="step"><div class="n">6</div><div>
         <h2>Find hidden characters</h2>
         <p>Zero-width spaces, direction overrides and tag characters are invisible on screen, and many models read them anyway. This shows every line with a character outside plain ASCII (tabs and umlauts show up too):</p>
-        <pre><code>LC_ALL=C grep -rn '[^ -~]' .</code></pre>
+        <pre><code>LC_ALL=C grep -rn '[^[:print:][:space:]]' .</code></pre>
       </div></div>
 
       <div class="rules">
