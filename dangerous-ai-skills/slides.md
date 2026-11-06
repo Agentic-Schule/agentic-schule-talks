@@ -35,173 +35,6 @@ If most hands go down at the third question, that gap is what this talk is about
 
 ---
 
-<!-- .slide: class="about-slide" data-background-image="img/about-bg.webp" data-background-size="cover" data-background-position="right center" -->
-
-<div class="about">
-<div class="about-text">
-
-<h2 class="about-name">Johannes<br>Hoppe</h2>
-
-- Trainer and consultant
-- Google Developer Expert
-- Angular since the very beginning
-- Agentic development with Claude Code, GitHub Copilot and more
-
-<p class="muted">Workshops at <strong>agentic.schule</strong> and <strong>angular.schule</strong></p>
-
-</div>
-</div>
-
----
-
-<span class="kicker">Skills in 60 seconds</span>
-
-## What is a skill?
-
-<p class="lead">A Markdown file with YAML frontmatter: <code>SKILL.md</code></p>
-
-```markdown small wrap
---- 
-name: pdf-processing
-description: Extract PDF text, fill forms, merge files. Use when handling PDFs.
---- 
-
-# PDF Processing
-
-Use pdfplumber to extract text from PDFs: …
-```
-
-<p class="fragment">The open Agent Skills specification requires <code>name</code> and <code>description</code>. The body has no fixed format.</p>
-
-<p class="source">agentskills.io/specification · platform.claude.com/docs/en/agents-and-tools/agent-skills/overview</p>
-
-Note:
-**Say:** A skill is a folder with a SKILL.md: a bit of YAML on top, then Markdown. Only name and description are required. The rest is free text.
-
-**Sources:** The specification: "A skill is a directory containing, at minimum, a SKILL.md file" and "The SKILL.md file must contain YAML frontmatter followed by Markdown content." About the body: "There are no format restrictions." Next to SKILL.md the folder may hold scripts/, references/ and assets/. The frontmatter example is the one from the specification, the body is from Anthropic's Agent Skills overview.
-
----
-
-<span class="kicker">Skills in 60 seconds</span>
-
-## More than name and description
-
-<div class="columns market">
-<div>
-
-### Every agent reads
-
-- <code>name</code>
-- <code>description</code>
-
-</div>
-<div>
-
-### Claude Code also reads
-
-- <code>allowed-tools</code> <span class="muted">tools without asking</span>
-- <code>hooks</code> <span class="muted">shell commands</span>
-- <code>model</code>, <code>context</code> <span class="muted">… and 16 more</span>
-
-</div>
-</div>
-
-<p class="fragment">The same file can do more in one agent than in another.</p>
-
-<p class="source">agentskills.io/specification · code.claude.com/docs/en/skills · gemini-cli packages/core/src/skills/skillLoader.ts (3fd7d26) · codex codex-rs/skills/src/parser.rs (2c502d8) · antigravity.google/docs/skills · 6 November 2026</p>
-
-Note:
-**Say:** The frontmatter differs per agent. Claude Code reads 20 fields, including hooks and allowed-tools. Codex and Antigravity read only a few. The same file can do more in one agent than in another.
-
-**Sources:** Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses description (required), name (optional, falls back to a default) and metadata.short-description (parser.rs). Since 18 June 2026, Gemini CLI is reserved for Gemini Code Assist Standard/Enterprise. Free and Google AI Pro/Ultra users moved to Antigravity CLI (gemini-cli README). Antigravity is closed source; its docs list only name ("optional", "Defaults to the folder name if not provided") and description ("required"). On the slide, "Every agent reads" means: every agent here parses name and description; Codex and Antigravity treat name as optional. The same file can do more in one agent than in another.
-
----
-
-<span class="kicker">Skills in 60 seconds</span>
-
-## How the agent loads it
-
-<div class="svg" data-svg="skill-anatomy"></div>
-
-<p class="source">agentskills.io/specification, “Progressive disclosure”</p>
-
-Note:
-**Say:** At startup the agent sees only name and description. The body loads when the skill is used. A link loads only when the agent follows it, and that is where this talk goes.
-
-**Sources:** Specification: metadata (~100 tokens) "loaded at startup for all skills", the full SKILL.md body "loaded when the skill is activated", files in scripts/, references/ or assets/ "loaded only when required". A link in the body is the same: the agent only fetches it when it follows it. That is where this talk goes.
-
----
-
-<span class="kicker">Skills in 60 seconds</span>
-
-## Where do skills come from?
-
-<ul>
-<li>You write them yourself</li>
-<li>Vendors publish them, e.g. <code>angular/skills</code>, <code>anthropics/skills</code></li>
-<li class="fragment"><strong>Marketplaces</strong>: catalogs of skills from anyone</li>
-</ul>
-
-One command, and the skill is installed. <!-- .element: class="fragment" -->
-
-<p class="source">github.com/angular/skills · github.com/anthropics/skills</p>
-
-
----
-
-<span class="kicker">Skills in 60 seconds</span>
-
-## Popular marketplaces open to anyone
-
-<div class="columns market">
-<div>
-
-### Indexed from GitHub
-
-- SkillsMP
-- skills.sh
-- claude-plugins.dev
-
-</div>
-<div>
-
-### Submitted by anyone
-
-- ClawHub
-- agentskill.sh
-
-</div>
-</div>
-
-<p class="source">skillsmp.com/about · skills.sh/docs/faq · claude-plugins.dev/skills · docs.openclaw.ai/clawhub · agentskill.sh/submit · 6 November 2026</p>
-
-Note:
-**Say:** Two ways in: catalogs that index everything public on GitHub, and catalogs where anyone can submit. None of them describes a human review of every file before listing. The vendors' own curated catalogs are not on this slide.
-
-**Sources:** SkillsMP: "Collect ≈4M SKILL.md files from public GitHub repositories" and "Skills are sourced from public GitHub repositories. Always review code before installation." Independent, not affiliated with Anthropic or OpenAI. Not on the slide, curated by the vendors: OpenAI's Plugins Directory is shared by ChatGPT and Codex, public submissions go through a flow with "required permissions, review materials, MCP checks, and test case requirements" (learn.chatgpt.com/docs/plugins). Google's Antigravity Marketplace: see below. Anthropic's official marketplace claude-plugins-official holds "Plugins Anthropic maintains, plus plugins from partners and other authors" and takes no submissions through the portal; Claude Code adds it on the first interactive start; browsable as Claude Marketplace on claude.com/marketplace. Curated does not mean verified: Anthropic's install warning reads "Anthropic does not control what MCP servers, files, or other software are included in plugins and cannot verify that they will work as intended or that they won't change." skills.sh FAQ: "Skills appear on the leaderboard automatically through anonymous telemetry when users run npx skills add <owner/repo>." and "Skills are hosted in GitHub repositories." Claude Marketplaces: "Crawlers sweep skills.sh, GitHub, and the MCP registries on a schedule". claudemarketplaces.com: "This is an independent, community-run directory and is not officially affiliated with Anthropic or Claude." claude-plugins.dev: "All public skills on GitHub are auto-indexed". Antigravity Marketplace: "Fill out this interest form to submit your validated plugin to the Antigravity Marketplace." and agy plugin install "Clone and stage a plugin directly from a GitHub repository URL". A review process is not described. Skills reach Antigravity users as part of plugins. ClawHub, the registry for OpenClaw: "anyone can upload, but publishing requires a GitHub account old enough to pass the upload gate." agentskill.sh: "Import from a GitHub repository or paste a direct link to any SKILL.md file." Reviews: Skillstore runs an automated audit before listing, ClawHub automated checks plus moderators on reports, Claude Marketplaces says an editor reviews new and borderline listings. None of them describes a human review of every file before listing. Install counts on skills.sh only count npx skills add runs. The slide shows a selection. claudemarketplaces.com is not on it because of that editor review. Also open: Skillstore and Anthropic's community marketplace claude-community ("Third-party plugins that their authors submitted to Anthropic"). Antigravity plugins in detail: Part 5.
-
----
-
-<span class="kicker">Skills in 60 seconds</span>
-
-## One format, many agents
-
-> The Agent Skills format was originally developed by Anthropic, released as an open standard, and has been adopted by a growing number of agent products.
-
-<p class="source">agentskills.io</p>
-
-**Antigravity&nbsp;· Claude&nbsp;Code&nbsp;· Codex&nbsp;· Copilot&nbsp;· Cursor&nbsp;…**
-
-
-A malicious skill can load in any of them. <!-- .element: class="fragment" -->
-
-Note:
-**Say:** Anthropic started the format, now it is an open standard. Antigravity, Claude Code, Codex, Copilot and Cursor all read it. A malicious skill can load in any of them.
-
-**Sources:** Google's agent is Antigravity (App, CLI agy, IDE). Since 18 June 2026 free and Google AI Pro/Ultra users are on Antigravity CLI; Gemini CLI remains for Gemini Code Assist Standard/Enterprise (gemini-cli README). Gemini CLI enabled skills by default in v0.26.0 (27 January 2026). Antigravity docs: "Skills are an open standard for extending agent capabilities." Antigravity is not on the agentskills.io client list. How far it gets depends on your agent's settings, see Part 6.
-
----
-
 <!-- .slide: data-state="chapter" class="chapter" -->
 
 <span class="kicker">Part 1</span>
@@ -486,6 +319,183 @@ Even if it learns every phrasing, it cannot see what the link returns. <!-- .ele
 <p class="statement" data-vt="st-exec"><span class="gradient-text">What gets executed is whatever sits behind the link.</span></p>
 
 <p class="fragment">Security researchers call this a <strong>rug pull</strong>.</p>
+
+---
+
+<!-- .slide: class="about-slide" data-background-image="img/about-bg.webp" data-background-size="cover" data-background-position="right center" -->
+
+<div class="about">
+<div class="about-text">
+
+<h2 class="about-name">Johannes<br>Hoppe</h2>
+
+- Trainer and consultant
+- Google Developer Expert
+- Angular since the very beginning
+- Agentic development with Claude Code, GitHub Copilot and more
+
+<p class="muted">Workshops at <strong>agentic.schule</strong> and <strong>angular.schule</strong></p>
+
+</div>
+</div>
+
+---
+<!-- .slide: data-state="chapter" class="chapter" -->
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## OK, but let’s step back.
+
+Note:
+**Say:** Before we look at how this skill reached so many agents: what exactly is a skill, and where do people get them?
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## What is a skill?
+
+<p class="lead">A Markdown file with YAML frontmatter: <code>SKILL.md</code></p>
+
+```markdown small wrap
+--- 
+name: pdf-processing
+description: Extract PDF text, fill forms, merge files. Use when handling PDFs.
+--- 
+
+# PDF Processing
+
+Use pdfplumber to extract text from PDFs: …
+```
+
+<p class="fragment">The open Agent Skills specification requires <code>name</code> and <code>description</code>. The body has no fixed format.</p>
+
+<p class="source">agentskills.io/specification · platform.claude.com/docs/en/agents-and-tools/agent-skills/overview</p>
+
+Note:
+**Say:** A skill is a folder with a SKILL.md: a bit of YAML on top, then Markdown. Only name and description are required. The rest is free text.
+
+**Sources:** The specification: "A skill is a directory containing, at minimum, a SKILL.md file" and "The SKILL.md file must contain YAML frontmatter followed by Markdown content." About the body: "There are no format restrictions." Next to SKILL.md the folder may hold scripts/, references/ and assets/. The frontmatter example is the one from the specification, the body is from Anthropic's Agent Skills overview.
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## More than name and description
+
+<div class="columns market">
+<div>
+
+### Every agent reads
+
+- <code>name</code>
+- <code>description</code>
+
+</div>
+<div>
+
+### Claude Code also reads
+
+- <code>allowed-tools</code> <span class="muted">tools without asking</span>
+- <code>hooks</code> <span class="muted">shell commands</span>
+- <code>model</code>, <code>context</code> <span class="muted">… and 16 more</span>
+
+</div>
+</div>
+
+<p class="fragment">The same file can do more in one agent than in another.</p>
+
+<p class="source">agentskills.io/specification · code.claude.com/docs/en/skills · gemini-cli packages/core/src/skills/skillLoader.ts (3fd7d26) · codex codex-rs/skills/src/parser.rs (2c502d8) · antigravity.google/docs/skills · 6 November 2026</p>
+
+Note:
+**Say:** The frontmatter differs per agent. Claude Code reads 20 fields, including hooks and allowed-tools. Codex and Antigravity read only a few. The same file can do more in one agent than in another.
+
+**Sources:** Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses description (required), name (optional, falls back to a default) and metadata.short-description (parser.rs). Since 18 June 2026, Gemini CLI is reserved for Gemini Code Assist Standard/Enterprise. Free and Google AI Pro/Ultra users moved to Antigravity CLI (gemini-cli README). Antigravity is closed source; its docs list only name ("optional", "Defaults to the folder name if not provided") and description ("required"). On the slide, "Every agent reads" means: every agent here parses name and description; Codex and Antigravity treat name as optional. The same file can do more in one agent than in another.
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## How the agent loads it
+
+<div class="svg" data-svg="skill-anatomy"></div>
+
+<p class="source">agentskills.io/specification, “Progressive disclosure”</p>
+
+Note:
+**Say:** At startup the agent sees only name and description. The body loads when the skill is used. A link loads only when the agent follows it, and that is where this talk goes.
+
+**Sources:** Specification: metadata (~100 tokens) "loaded at startup for all skills", the full SKILL.md body "loaded when the skill is activated", files in scripts/, references/ or assets/ "loaded only when required". A link in the body is the same: the agent only fetches it when it follows it. That is the step brand-landingpage used.
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## Where do skills come from?
+
+<ul>
+<li>You write them yourself</li>
+<li>Vendors publish them, e.g. <code>angular/skills</code>, <code>anthropics/skills</code></li>
+<li class="fragment"><strong>Marketplaces</strong>: catalogs of skills from anyone</li>
+</ul>
+
+One command, and the skill is installed. <!-- .element: class="fragment" -->
+
+<p class="source">github.com/angular/skills · github.com/anthropics/skills</p>
+
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## Popular marketplaces open to anyone
+
+<div class="columns market">
+<div>
+
+### Indexed from GitHub
+
+- SkillsMP
+- skills.sh
+- claude-plugins.dev
+
+</div>
+<div>
+
+### Submitted by anyone
+
+- ClawHub
+- agentskill.sh
+
+</div>
+</div>
+
+<p class="source">skillsmp.com/about · skills.sh/docs/faq · claude-plugins.dev/skills · docs.openclaw.ai/clawhub · agentskill.sh/submit · 6 November 2026</p>
+
+Note:
+**Say:** Two ways in: catalogs that index everything public on GitHub, and catalogs where anyone can submit. None of them describes a human review of every file before listing. The vendors' own curated catalogs are not on this slide.
+
+**Sources:** SkillsMP: "Collect ≈4M SKILL.md files from public GitHub repositories" and "Skills are sourced from public GitHub repositories. Always review code before installation." Independent, not affiliated with Anthropic or OpenAI. Not on the slide, curated by the vendors: OpenAI's Plugins Directory is shared by ChatGPT and Codex, public submissions go through a flow with "required permissions, review materials, MCP checks, and test case requirements" (learn.chatgpt.com/docs/plugins). Google's Antigravity Marketplace: see below. Anthropic's official marketplace claude-plugins-official holds "Plugins Anthropic maintains, plus plugins from partners and other authors" and takes no submissions through the portal; Claude Code adds it on the first interactive start; browsable as Claude Marketplace on claude.com/marketplace. Curated does not mean verified: Anthropic's install warning reads "Anthropic does not control what MCP servers, files, or other software are included in plugins and cannot verify that they will work as intended or that they won't change." skills.sh FAQ: "Skills appear on the leaderboard automatically through anonymous telemetry when users run npx skills add <owner/repo>." and "Skills are hosted in GitHub repositories." Claude Marketplaces: "Crawlers sweep skills.sh, GitHub, and the MCP registries on a schedule". claudemarketplaces.com: "This is an independent, community-run directory and is not officially affiliated with Anthropic or Claude." claude-plugins.dev: "All public skills on GitHub are auto-indexed". Antigravity Marketplace: "Fill out this interest form to submit your validated plugin to the Antigravity Marketplace." and agy plugin install "Clone and stage a plugin directly from a GitHub repository URL". A review process is not described. Skills reach Antigravity users as part of plugins. ClawHub, the registry for OpenClaw: "anyone can upload, but publishing requires a GitHub account old enough to pass the upload gate." agentskill.sh: "Import from a GitHub repository or paste a direct link to any SKILL.md file." Reviews: Skillstore runs an automated audit before listing, ClawHub automated checks plus moderators on reports, Claude Marketplaces says an editor reviews new and borderline listings. None of them describes a human review of every file before listing. Install counts on skills.sh only count npx skills add runs. The slide shows a selection. claudemarketplaces.com is not on it because of that editor review. Also open: Skillstore and Anthropic's community marketplace claude-community ("Third-party plugins that their authors submitted to Anthropic"). Antigravity plugins in detail: Part 5.
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## One format, many agents
+
+> The Agent Skills format was originally developed by Anthropic, released as an open standard, and has been adopted by a growing number of agent products.
+
+<p class="source">agentskills.io</p>
+
+**Antigravity&nbsp;· Claude&nbsp;Code&nbsp;· Codex&nbsp;· Copilot&nbsp;· Cursor&nbsp;…**
+
+
+A malicious skill can load in any of them. <!-- .element: class="fragment" -->
+
+Note:
+**Say:** Anthropic started the format, now it is an open standard. Antigravity, Claude Code, Codex, Copilot and Cursor all read it. A malicious skill can load in any of them.
+
+**Sources:** Google's agent is Antigravity (App, CLI agy, IDE). Since 18 June 2026 free and Google AI Pro/Ultra users are on Antigravity CLI; Gemini CLI remains for Gemini Code Assist Standard/Enterprise (gemini-cli README). Gemini CLI enabled skills by default in v0.26.0 (27 January 2026). Antigravity docs: "Skills are an open standard for extending agent capabilities." Antigravity is not on the agentskills.io client list. How far it gets depends on your agent's settings, see Part 6.
 
 ---
 
