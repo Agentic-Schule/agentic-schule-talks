@@ -171,12 +171,15 @@ html.print-pdf .reveal pre > code::after { animation: none; }
 .reveal pre code.zoom.has-highlights tr.highlight-line .hljs-ln-code { color: var(--heading); }
 .reveal pre code.zoom.has-highlights tr:not(.highlight-line) { opacity: 0.45; }
 /* Jeder Schritt ist eine Kopie über dem Original (reveal.js): nur den aktuellen zeigen, sonst schaut der längere Rest darunter hervor */
-.reveal pre:has(> code.zoom.fragment.visible) > code.zoom:first-child { visibility: hidden; }
-.reveal pre > code.zoom.fragment.visible:not(.current-fragment) { visibility: hidden; }
+html:not(.print-pdf) .reveal pre:has(> code.zoom.fragment.visible) > code.zoom:first-child { visibility: hidden; }
+html:not(.print-pdf) .reveal pre > code.zoom.fragment.visible:not(.current-fragment) { visibility: hidden; }
+/* Im PDF nur das Original zeigen, die Zoom-Schritte liegen sonst deckungsgleich darüber */
+html.print-pdf .reveal pre > code.zoom.fragment { display: none; }
 
 /* Im PDF den ganzen Text zeigen, nicht nur die herangezoomte Zeile */
 html.print-pdf .reveal pre code.zoom.has-highlights tr { display: table-row; font-size: 1em; opacity: 1; }
-html.print-pdf .reveal pre code.zoom.has-highlights tr td { font-size: 0.75em; padding: 0; }
+html.print-pdf .reveal pre code.zoom.has-highlights tr td { font-size: 0.68em; padding: 0; }
+html.print-pdf .reveal pre code.zoom { max-height: none; }
 
 /* Reduzierte Bewegung (plugins/motion.js): Cursor blinkt nicht */
 html.reduced-motion .reveal pre > code::after { animation: none; }

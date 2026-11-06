@@ -100,7 +100,7 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 | G | zu Folie springen |
 | ? | alle Tasten |
 
-PDF: Deck mit `?print-pdf&theme=light` in Chrome öffnen und als PDF drucken (Seitengröße 1280×720, Hintergrundgrafiken an), eine Seite pro Folie mit allen Fragmenten. Fertige PDFs liegen unter `public/<talk>/` und werden mit dem Build ausgeliefert, etwa `public/dangerous-ai-skills/dangerous-ai-skills.pdf`. Nach jeder inhaltlichen Änderung neu erzeugen. Für den Beamer im Zweifel `?theme=light`.
+PDF: Deck mit `?print-pdf&theme=light` in Chrome öffnen und als PDF drucken (Seitengröße 1280×720, Hintergrundgrafiken an), eine Seite pro Folie mit allen Fragmenten. Fertige PDFs liegen unter `public/<talk>/` und werden mit dem Build ausgeliefert, etwa `public/dangerous-ai-skills/dangerous-ai-skills.pdf`. Nach jeder inhaltlichen Änderung neu erzeugen. Für den Beamer im Zweifel `?theme=light`. Die Checkliste (`checklist/`) als A4 mit Druck-Medientyp und Skalierung 0,95 drucken, damit sie auf eine Seite passt; Ergebnis nach `public/dangerous-ai-skills/checklist.pdf`.
 
 Materialseite und Spickzettel: `<talk>/materials/` und `<talk>/checklist/` sind normale Webseiten mit `shared/page/page.css`, Downloads liegen in `public/<talk>/`. Vite baut jede Unterseite `<talk>/<seite>/index.html` mit.
 

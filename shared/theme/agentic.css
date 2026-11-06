@@ -226,6 +226,8 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { o
   background-clip: text;
   color: transparent;
 }
+/* Chrome zeichnet beim Drucken Haarlinien um Verlaufstext: im PDF einfarbig */
+html.print-pdf .reveal .gradient-text { background: none; color: var(--accent); }
 .reveal .left { text-align: left; }
 
 /* Zweispaltig: <div class="columns"><div>…</div><div>…</div></div> */
