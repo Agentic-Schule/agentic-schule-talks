@@ -94,6 +94,16 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     ...options,
   });
 
+  // Titelfolie: QR-Code in die untere rechte Bildschirmecke, gegenüber dem Logo unten links.
+  // Im PDF bleibt er auf der Folie.
+  deck.on('ready', () => {
+    if (/print-pdf/.test(window.location.search)) return;
+    const qr = document.querySelector('.reveal .slides section.title .title-qr');
+    if (!qr) return;
+    qr.classList.add('title-qr-corner');
+    document.querySelector('.reveal').append(qr);
+  });
+
   deck.initialize();
   return deck;
 }

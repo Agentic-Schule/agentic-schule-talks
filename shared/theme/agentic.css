@@ -393,6 +393,10 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .progress span 
 .reveal section.title .title-qr { position: absolute; right: 0; bottom: -40px; display: flex; align-items: center; gap: 16px; text-align: left; font-size: 0.65em; line-height: 1.3; }
 .reveal section.title .title-qr .qr { width: 120px; }
 .reveal section.title .title-qr strong { color: #ffffff; }
+.reveal > .title-qr-corner { position: absolute; right: 28px; bottom: 22px; z-index: 30; display: flex; flex-direction: row-reverse; align-items: center; gap: 16px; text-align: right; font-size: 18px; line-height: 1.3; color: #ffffff; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.reveal > .title-qr-corner .qr { width: 112px; }
+.reveal > .title-qr-corner strong { color: #ffffff; }
+html:not(.print-pdf) .reveal-viewport.title .reveal:not(.overview) > .title-qr-corner { opacity: 1; pointer-events: auto; }
 /* Endfolie: links groß der Dank und die Kanäle, rechts der QR-Code zu den Materialien (Breiten im goldenen Schnitt) */
 .reveal section.end .end-grid { display: grid; grid-template-columns: 1.618fr 1fr; gap: 48px; align-items: center; margin: 0 96px; text-align: left; }
 .reveal section.end .end-title { margin: 0 0 48px; font-size: 128px; line-height: 0.92; letter-spacing: -0.04em; }
