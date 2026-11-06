@@ -1150,22 +1150,34 @@ Note:
 
 <span class="kicker">The end of the AIR report</span>
 
-## “That’s why we built AIR Marketplace”
+## The whole story was a marketing stunt
 
-<div class="svg" data-svg="trust-chain"></div>
+> That’s why we built AIR Marketplace.
+
+<p class="fragment"><strong>Yet another marketplace.</strong></p>
 
 <p class="source">AIR Security, “The Story of Skills”, 22 June 2026, last section</p>
+
+Note:
+**Say:** And how does the AIR report end? With an ad. The whole story leads to their own product: one more marketplace.
 
 
 ---
 
 <span class="kicker">One more marketplace to fix marketplaces</span>
 
+<div class="meme-pair">
 <figure class="meme">
 <video src="img/irony.mp4" data-autoplay loop muted playsinline></video>
 <img class="meme-print" src="img/irony-poster.webp" alt="Jacksepticeye irons his own face">
 <figcaption>The irony!</figcaption>
 </figure>
+<figure class="meme">
+<video src="img/irony.mp4" data-autoplay loop muted playsinline></video>
+<img class="meme-print" src="img/irony-poster.webp" alt="Jacksepticeye irons his own face">
+<figcaption>The irony!</figcaption>
+</figure>
+</div>
 
 <p class="source">Clip: jacksepticeye, “KISS ME JACK! | Reading Your Comments #55”, YouTube</p>
 
@@ -1316,9 +1328,9 @@ Note:
 
 <div class="cast" data-cast="casts/caveman-mcp-step.cast"></div>
 
-<p class="fragment">The message at the end is mine. <strong>Luckily I registered the npm package.</strong></p>
+<p class="fragment">The message at the end is mine.<br><strong>Luckily I registered the npm package.</strong></p>
 
-<p class="source">own recording, node:24 container, @caveman-ai/cli 4.0.1, 5 November 2026 · last command: npx -y caveman-mcp, fresh node:24 container, 6 November 2026</p>
+<p class="source">own recording, fresh node:24 containers, @caveman-ai/cli 4.0.1, 5–6 November 2026</p>
 
 Note:
 **Say:** A real recording in a fresh container: install the CLI, run the documented MCP step, and look at what lands in the config. Then the agent would run npx -y caveman-mcp. What you see now is my warning, because I registered the name.

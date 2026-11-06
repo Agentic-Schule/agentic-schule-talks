@@ -201,24 +201,6 @@ b.append(text(910, 395, '“Full network access”', 't-bad t-bold', 26, 'middle
 b.append('</g>')
 svg('permissions', 1200, 460, '\n'.join(b), p)
 
-# ---------- 12. Trust chain ----------
-p = 'tc'
-b = []
-chain = [('A stranger', 'one pull request'), ('A catalog', 'stars, install counts'), ('Your project', 'skills folder'), ('Your agent', 'your permissions')]
-for i, (h, s2) in enumerate(chain):
-    x = 20 + i * 295
-    cls = 'box-bad' if i == 3 else 'box'
-    b.append(f'<rect x="{x}" y="40" width="250" height="120" rx="12" class="{cls}"/>')
-    b.append(text(x + 125, 92, h, 't-head', 28, 'middle'))
-    b.append(text(x + 125, 128, s2, 't-muted', 22, 'middle'))
-    if i < 3:
-        b.append(f'<path d="M{x + 254},100 L{x + 290},100" class="line" marker-end="url(#{p}-m)"/>')
-b.append('<g class="fragment">')
-b.append('<rect x="290" y="190" width="320" height="70" rx="12" class="box-accent dash"/>')
-b.append(text(450, 234, '+ one more marketplace', 't-accent', 26, 'middle'))
-b.append('</g>')
-svg('trust-chain', 1200, 280, '\n'.join(b), p)
-
 # ---------- 13. Agent identity ----------
 p = 'id'
 b = []

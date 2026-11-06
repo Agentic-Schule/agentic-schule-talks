@@ -550,4 +550,10 @@ html.reduced-motion .reveal pre code { transition: none; }
 html.print-pdf .reveal .meme video { display: none; }
 html.print-pdf .reveal .meme .meme-print { display: block; height: 520px; width: auto; border-radius: 12px; margin: 0; border: 0; }
 .reveal .shots.stack ~ p.caption { width: fit-content; margin-left: auto; margin-right: auto; }
+/* Text unter einer Aufnahme reicht nur so weit wie sein Inhalt, damit der Block nicht unter das Logo läuft. */
+.reveal .slides > section > .cast ~ p:not(.source) { width: fit-content; }
+/* Zwei Memes nebeneinander: doppelte Ironie. */
+.reveal .meme-pair { display: flex; gap: 32px; justify-content: center; }
+.reveal .meme-pair .meme { margin: 0; }
+.reveal .meme-pair .meme video, html.print-pdf .reveal .meme-pair .meme .meme-print { height: 460px; }
 .reveal .statement.ok code { color: inherit; background: color-mix(in srgb, var(--ok) 14%, transparent); }
