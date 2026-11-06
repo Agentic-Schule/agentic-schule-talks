@@ -321,6 +321,16 @@ Even if it learns every phrasing, it cannot see what the link returns. <!-- .ele
 <p class="fragment">Security researchers call this a <strong>rug pull</strong>.</p>
 
 ---
+<!-- .slide: data-state="chapter" class="chapter" -->
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## OK, but let’s step back.
+
+Note:
+**Say:** Before we look at how this skill reached so many agents: what exactly is a skill, and where do people get them?
+
+---
 
 <!-- .slide: class="about-slide" data-background-image="img/about-bg.webp" data-background-size="cover" data-background-position="right center" -->
 
@@ -338,16 +348,6 @@ Even if it learns every phrasing, it cannot see what the link returns. <!-- .ele
 
 </div>
 </div>
-
----
-<!-- .slide: data-state="chapter" class="chapter" -->
-
-<span class="kicker">Skills in 60 seconds</span>
-
-## OK, but let’s step back.
-
-Note:
-**Say:** Before we look at how this skill reached so many agents: what exactly is a skill, and where do people get them?
 
 ---
 
