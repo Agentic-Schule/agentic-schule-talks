@@ -141,32 +141,22 @@ svg('attack-timeline', 1000, 470, '\n'.join(b), p)
 # ---------- 8. Spread ----------
 p = 'sp'
 b = []
-b.append('<rect x="20" y="200" width="250" height="110" rx="12" class="box-accent"/>')
-b.append(text(145, 248, 'wshobson/agents', 't-head t-code', 26, 'middle'))
-b.append(text(145, 282, '42,000 stars', 't-muted', 26, 'middle'))
+b.append('<rect x="0" y="200" width="290" height="110" rx="12" class="box-accent"/>')
+b.append(text(145, 248, 'wshobson/agents', 't-head t-code', 24, 'middle'))
+b.append(text(145, 282, '42,000 stars', 't-muted', 24, 'middle'))
 cats = ['claudemarketplaces.com', 'skills.sh (install counter)', 'aiskillstore/marketplace', 'bachsh/supermarket', 'claude-skill-registry', '“awesome-skills” mirrors']
 for i, c in enumerate(cats):
     y = 30 + i * 78
     b.append('<g class="fragment" data-fragment-index="1">')
-    b.append(f'<path d="M275,255 C340,255 340,{y + 28} 400,{y + 28}" class="line" marker-end="url(#{p}-m)"/>')
-    b.append(f'<rect x="405" y="{y}" width="370" height="56" rx="8" class="box"/>')
-    b.append(text(425, y + 36, c, 't-code', 26))
+    b.append(f'<path d="M295,255 C350,255 350,{y + 28} 400,{y + 28}" class="line" marker-end="url(#{p}-m)"/>')
+    b.append(f'<rect x="405" y="{y}" width="470" height="56" rx="8" class="box"/>')
+    b.append(text(425, y + 36, c, 't-code', 22))
     b.append('</g>')
 b.append('<g class="fragment" data-fragment-index="2">')
-b.append(f'<path d="M780,263 L870,170" class="line" marker-end="url(#{p}-m)"/>')
-b.append(f'<path d="M780,263 L870,350" class="line dash" marker-end="url(#{p}-m)"/>')
-b.append('<rect x="875" y="120" width="305" height="96" rx="8" class="box"/>')
-b.append(text(895, 158, 'Checked into projects', 't-head', 26))
-b.append(text(895, 192, 'visible on GitHub', 't-muted', 26))
-b.append('<rect x="875" y="300" width="305" height="96" rx="8" class="box dash"/>')
-b.append(text(895, 338, 'Installed in ~/.claude', 't-head', 26))
-b.append(text(895, 372, 'invisible, uncountable', 't-muted', 26))
+b.append('<rect x="0" y="500" width="875" height="60" rx="10" class="box-bad"/>')
+b.append(text(437, 540, 'Every copy still points to the same attacker domain', 't-bad t-bold', 24, 'middle'))
 b.append('</g>')
-b.append('<g class="fragment" data-fragment-index="3">')
-b.append('<rect x="405" y="500" width="775" height="60" rx="10" class="box-bad"/>')
-b.append(text(792, 540, 'Every copy still points to the same attacker domain', 't-bad t-bold', 26, 'middle'))
-b.append('</g>')
-svg('spread', 1200, 580, '\n'.join(b), p)
+svg('spread', 880, 580, '\n'.join(b), p)
 
 # ---------- 9. Koi numbers ----------
 p = 'ko'

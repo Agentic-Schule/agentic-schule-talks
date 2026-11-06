@@ -29,7 +29,7 @@ export function svgMap(globResult) {
 // Bilder des Talks (img/*.webp, *.png, *.jpg) über Vite auflösen, damit sie auch im Build stimmen.
 // Im Markdown einfach src="img/name.webp" schreiben.
 export function resolveAssets(markdown, assets = {}) {
-  return markdown.replace(/(["(])img\/([\w.-]+\.(?:webp|png|jpe?g|gif|avif))/g, (match, quote, file) =>
+  return markdown.replace(/(["(])img\/([\w.-]+\.(?:webp|png|jpe?g|gif|avif|mp4))/g, (match, quote, file) =>
     assets[file] ? `${quote}${assets[file]}` : match,
   );
 }

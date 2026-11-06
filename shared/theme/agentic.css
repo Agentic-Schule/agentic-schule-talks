@@ -542,3 +542,8 @@ html.reduced-motion .reveal pre code { transition: none; }
 .reveal .lead { font-family: var(--font-heading); font-size: 1.2em; font-weight: 600; line-height: 1.2; color: var(--heading); margin-top: 0; }
 /* Ergänzung in kleinerer, gedämpfter Schrift unter einem Absatz */
 .reveal .small-note { font-size: 0.75em; color: var(--muted); margin-top: 0.4em; }
+
+/* Meme-Folie: Clip ohne Ton, Unterschrift im Bild wie beim Original-GIF */
+.reveal .meme { position: relative; width: fit-content; margin: 0 auto; }
+.reveal .meme video { display: block; height: 520px; width: auto; border-radius: 12px; }
+.reveal .meme figcaption { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; font-family: var(--font-heading); font-weight: 800; font-size: 64px; letter-spacing: 0.01em; text-transform: uppercase; color: #ffffff; text-shadow: 0 0 6px #000, 0 2px 0 #000, 2px 0 0 #000, -2px 0 0 #000, 0 -2px 0 #000; }
