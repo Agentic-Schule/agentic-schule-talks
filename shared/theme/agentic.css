@@ -387,6 +387,7 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .progress span 
 .reveal section.chapter :is(.kicker, h2) { margin-left: 96px; margin-right: 96px; }
 .reveal section.chapter .kicker { margin-bottom: 20px; font-size: 0.75em; }
 .reveal section.chapter h2 { font-size: 3em; line-height: 0.96; letter-spacing: -0.04em; max-width: 11em; }
+.reveal .slides > section.chapter > p.chapter-sub { margin: 28px 96px 0; max-width: none; text-align: left; font-size: 1.1em; font-weight: 500; }
 
 /* QR-Code (SVG aus img/, immer schwarz auf weiß mit Ruhezone) */
 .reveal .qr svg { display: block; width: 100%; height: auto; border-radius: 10px; }

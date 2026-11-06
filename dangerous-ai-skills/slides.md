@@ -39,7 +39,9 @@ If most hands go down at the third question, that gap is what this talk is about
 
 <span class="kicker">Part 1</span>
 
-## The trick
+## I have a challenge for you
+
+<p class="chapter-sub">Find the attack.</p>
 
 ---
 
