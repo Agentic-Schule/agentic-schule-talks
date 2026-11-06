@@ -1277,6 +1277,12 @@ Note:
 
 ---
 
+<p class="statement">There is dangerous slop everywhere.</p>
+
+<p class="fragment">Let me show you some examples.</p>
+
+---
+
 <span class="kicker">Careless · caveman · 118k stars · 73k npm downloads a month</span>
 
 ## When the binary is missing, npx takes over
@@ -1310,12 +1316,14 @@ Note:
 
 <div class="cast" data-cast="casts/caveman-mcp-step.cast"></div>
 
-<p class="source">own recording, node:24 container, @caveman-ai/cli 4.0.1, 5 November 2026 · public/dangerous-ai-skills/casts/caveman-mcp-step.cast</p>
+<p class="fragment">The message at the end is mine. <strong>Luckily I registered the npm package.</strong></p>
+
+<p class="source">own recording, node:24 container, @caveman-ai/cli 4.0.1, 5 November 2026 · last command: npx -y caveman-mcp, fresh node:24 container, 6 November 2026</p>
 
 Note:
-**Say:** A real recording in a fresh container: install the CLI, run the documented MCP step, and look at what lands in the config.
+**Say:** A real recording in a fresh container: install the CLI, run the documented MCP step, and look at what lands in the config. Then the agent would run npx -y caveman-mcp. What you see now is my warning, because I registered the name.
 
-**Sources:** A real recording, played back at original speed with pauses shortened: npm install -g @caveman-ai/cli, then caveman tools mcp install claude --server caveman, then the file caveman writes. The claude command in the container is a stub that only logs its arguments; it received "claude mcp add --scope user caveman -- /usr/local/bin/npx -y caveman-mcp". Click the terminal to replay.
+**Sources:** A real recording, played back at original speed with pauses shortened: npm install -g @caveman-ai/cli, then caveman tools mcp install claude --server caveman, then the file caveman writes. The claude command in the container is a stub that only logs its arguments; it received "claude mcp add --scope user caveman -- /usr/local/bin/npx -y caveman-mcp". The last command, npx -y caveman-mcp, ran on 6 November 2026 in a second fresh node:24 container and is appended to the recording; it prints the placeholder warning and exits with code 1. Click the terminal to replay.
 
 ---
 
