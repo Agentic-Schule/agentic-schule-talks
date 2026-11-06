@@ -1174,7 +1174,7 @@ Reserve slides, not part of the 60 minutes. Cases whose instructions were public
 
 ### Careless
 
-No bad intent. A package name nobody registered, a fallback that runs it.
+No bad intent. A package name someone forgot to register. Or plain AI slop.
 
 </div>
 <div class="card">
