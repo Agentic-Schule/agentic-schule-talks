@@ -1163,7 +1163,7 @@ I published both names as placeholders on 5 November 2026. Version 0.0.1 only pr
 
 <span class="kicker">Placeholders · 5 and 6 November 2026</span>
 
-## Secured during this talk
+## Secured during my research
 
 <div class="columns secured">
 <div class="card">
