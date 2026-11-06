@@ -137,7 +137,7 @@ Authors: Niv Hoffman and Or Nevo. Google Stitch is Google's real design tool.
 
 ---
 
-<span class="kicker">Phase 0, lines 27 to 36</span>
+<span class="kicker">brand-landingpage · Phase 0, lines 27 to 36</span>
 
 ## Can you spot the attack?
 
@@ -167,7 +167,7 @@ No `curl`. No script. No suspicious line. <!-- .element: class="fragment" -->
 
 ---
 
-<span class="kicker">Phase 0</span>
+<span class="kicker">brand-landingpage · Phase 0</span>
 
 ## Four harmless instructions
 
@@ -180,7 +180,7 @@ No `curl`. No script. No suspicious line. <!-- .element: class="fragment" -->
 
 ---
 
-<span class="kicker">Phase 0</span>
+<span class="kicker">brand-landingpage · Phase 0</span>
 
 ## Two more phrases
 
@@ -213,7 +213,7 @@ It is exactly the guide you would write for a young SDK. <!-- .element: class="f
 
 ---
 
-<span class="kicker">The end of the file</span>
+<span class="kicker">brand-landingpage · the end of the file</span>
 
 ## Where the documentation lives
 
@@ -267,7 +267,7 @@ Neither does the agent. <!-- .element: class="fragment" -->
 
 ---
 
-<span class="kicker">258 lines</span>
+<span class="kicker">brand-landingpage · 258 lines</span>
 
 ## Line 31 and line 248
 
@@ -280,7 +280,7 @@ A reviewer reads Phase 0, ticks it off, scrolls through the interview framework,
 
 ---
 
-<span class="kicker">The checks</span>
+<span class="kicker">brand-landingpage · the checks</span>
 
 ## Every scanner said: safe
 
@@ -395,7 +395,7 @@ Security researchers call this a **rug pull**. <!-- .element: class="fragment" -
 
 <span class="kicker">Part 2</span>
 
-## How the skill reached people
+## How brand-landingpage reached people
 
 ---
 
@@ -412,7 +412,7 @@ Almost everyone needs one, the payoff looks big, the risk looks like zero. That 
 
 ---
 
-<span class="kicker">The marketplace</span>
+<span class="kicker">brand-landingpage · the marketplace</span>
 
 ## Pull request #509
 
@@ -428,7 +428,7 @@ The repo calls itself a "multi-harness agentic plugin marketplace" for Claude Co
 
 ---
 
-<span class="kicker">The review</span>
+<span class="kicker">brand-landingpage · the review</span>
 
 ## The review praised it
 
@@ -461,7 +461,7 @@ Around Stitch and coding agents: endless "build your landing page in ten minutes
 
 ---
 
-<span class="kicker">The payload</span>
+<span class="kicker">brand-landingpage · the payload</span>
 
 ## Harmless, on purpose
 
@@ -496,7 +496,7 @@ Around Stitch and coding agents: endless "build your landing page in ten minutes
 
 ---
 
-<p class="statement">The skill is still there.</p>
+<p class="statement">brand-landingpage is still there.</p>
 
 Same instructions, same two links, six months after the merge. <!-- .element: class="fragment" -->
 
@@ -528,7 +528,7 @@ State on the day the slides were finished (November 2026): line 248 still points
 ## Who owns the domain next?
 
 - Expires on **20 April 2028**
-- The next owner inherits every agent that still has the skill <!-- .element: class="fragment" -->
+- The next owner inherits every agent that still has brand-landingpage <!-- .element: class="fragment" -->
 
 <p class="statement fragment"><span class="bad">For the price of a domain.</span></p>
 
@@ -606,7 +606,7 @@ Let the audience shout names. Then the answer.
 
 ---
 
-<p class="statement">The ones that list this skill.</p>
+<p class="statement">The ones that list brand-landingpage.</p>
 
 It shows that anything gets in. <!-- .element: class="fragment" -->
 
@@ -671,7 +671,7 @@ Gen Agent Trust Hub audit from Sep 15, 2026: "Contains 2 malicious URL(s) - DO N
 
 ---
 
-<span class="kicker">One malicious skill</span>
+<span class="kicker">One malicious skill: brand-landingpage</span>
 
 <p class="statement">15 places.</p>
 
@@ -692,7 +692,7 @@ Nobody stopped this one. <!-- .element: class="fragment" -->
 
 ---
 
-<span class="kicker">It gets worse</span>
+<span class="kicker">brand-landingpage · it gets worse</span>
 
 ## A second copy, a second domain
 

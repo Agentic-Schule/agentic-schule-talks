@@ -242,7 +242,7 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { o
 /* Beweis-Screenshot einer Codezeile: etwas niedriger als eine Vollbildaufnahme, damit Bildunterschrift und Quelle Platz haben */
 .reveal .shot.proof img { max-height: 400px; width: auto; max-width: 100%; }
 /* Liste gesicherter Paketnamen: Name groß, Herkunft klein darunter */
-.reveal .secured ul { margin: 0; padding: 0; list-style: none; font-size: 0.82em; }
+.reveal .secured ul { margin: 0; padding: 0; list-style: none; font-size: 0.76em; }
 .reveal .secured li { margin: 0 0 0.3em; line-height: 1.2; }
 .reveal .secured small { font-size: 0.9em; color: var(--muted); }
 .reveal .small-list ul { font-size: 0.8em; }
