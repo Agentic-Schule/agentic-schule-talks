@@ -251,8 +251,14 @@ html.print-pdf .reveal .gradient-text { background: none; color: var(--accent); 
 .reveal .small-list li { margin: 0.15em 0; }
 
 /* Vorstellung: Foto links, Text rechts */
-.reveal .about { display: grid; grid-template-columns: 400px 1fr; gap: 56px; align-items: center; text-align: left; }
-.reveal .about img { width: 400px; height: 400px; object-fit: cover; margin: 0; border-radius: 12px; border: 1px solid var(--border); }
+.reveal .about { display: grid; grid-template-columns: 1fr 440px; gap: 48px; align-items: center; text-align: left; }
+.reveal .about-photo { display: flex; justify-content: center; }
+.reveal .about-photo img { display: block; margin: 0; }
+.reveal .about-photo .photo-dark { height: 540px; width: auto; }
+/* Dunkles Theme: freigestelltes Foto ohne Rahmen, es geht in die Folie über. Helles Theme: Original mit schwarzem Grund als Kachel */
+.reveal .about-photo .photo-light { display: none; border-radius: 12px; border: 1px solid var(--border); width: 400px; height: 400px; }
+:root[data-theme='light'] .reveal .about-photo .photo-dark { display: none; }
+:root[data-theme='light'] .reveal .about-photo .photo-light { display: block; }
 .reveal .about h2 { margin-bottom: 16px; }
 
 /* Karte mit Kante statt Schatten */

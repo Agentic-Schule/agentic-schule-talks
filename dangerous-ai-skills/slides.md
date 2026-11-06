@@ -36,7 +36,6 @@ Usually most hands go down at the third question. That is the talk.
 ---
 
 <div class="about">
-<img src="img/johannes-hoppe.webp" alt="Johannes Hoppe in a dark blazer, photographed at a slight angle against a black background">
 <div>
 
 <span class="kicker left">About me</span>
@@ -50,6 +49,10 @@ Usually most hands go down at the third question. That is the talk.
 
 <p class="muted">Workshops at <strong>agentic.schule</strong> and <strong>angular.schule</strong></p>
 
+</div>
+<div class="about-photo">
+<img class="photo-dark" src="img/johannes-hoppe-cutout.webp" alt="Johannes Hoppe in a dark blazer, photographed at a slight angle">
+<img class="photo-light" src="img/johannes-hoppe.webp" alt="Johannes Hoppe in a dark blazer, photographed at a slight angle against a black background">
 </div>
 </div>
 
