@@ -52,7 +52,7 @@
   --font-body: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-heading: 'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-code: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
-  --hero: linear-gradient(358deg, var(--hero-1) 0%, var(--hero-2) 90%);
+  --hero: linear-gradient(355deg, var(--hero-1) 0%, var(--hero-2) 100%);
 
   --r-background-color: var(--bg);
   --r-main-font: var(--font-body);
@@ -360,10 +360,15 @@ html.source-footer .reveal .slides .source { display: none; }
 
 /* ---------- Titel-, Kapitel- und Schlussfolie: Hero-Verlauf ---------- */
 
+/* Wie der Hero auf agentic.schule: Verlauf, darüber das feine Linienmuster (Weiß, 10 %) und am Fuß
+   das Trapez mit zwei durchscheinenden Bändern (Pfade aus dem Website-Repo, src/scss/_hero.scss) */
+:root {
+  --hero-lines: url("data:image/svg+xml,%3Csvg width='1267' height='628' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23FFF' fill='none' fill-rule='evenodd' stroke-opacity='.1'%3E%3Cpath d='M461-51l185 693M211-51l185 693M-39-51l185 693M712-51l185 693M962-51l185 693M1212-51l185 693M531-51l685 689M873-51l685 689M190-51l685 689M-152-51l685 689M-493-51l685 689M1302 593l-178 47M1301.447 342L-150.131 731.13M1301.447 90L-150.131 479.13M1301.447-162L-150.131 227.13M378-52L190 646M126-52L-62 646M628-52L440 646M879-52L691 646M1129-52L941 646M641-52L-71 659M295-52l-712 711M982-52L270 659M1326-52L614 659M1294 303L-65-63M1294 554L-65 188M1294 804L-65 438'/%3E%3C/g%3E%3C/svg%3E");
+  --hero-bands: url("data:image/svg+xml,%3Csvg width='1280' height='143' viewBox='0 0 1280 143' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231B1525'%3E%3Cpath opacity='.35' d='M0 23.766L1280 1.19 0 86.978z'/%3E%3Cpath opacity='.45' d='M0 86.93l1280-86v142H0z'/%3E%3Cpath opacity='.35' d='M0 63.332l1280-61.14L0 86.561z'/%3E%3C/g%3E%3C/svg%3E");
+  --hero-deco: var(--hero-bands) bottom / 100% 26% no-repeat, var(--hero-lines) center / cover no-repeat;
+}
 html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) {
-  background:
-    linear-gradient(175deg, transparent 0 74%, rgba(0, 0, 0, 0.14) 74.2%),
-    var(--hero);
+  background: var(--hero-deco), var(--hero);
 }
 html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .slides section.present,
 html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .slides section.present :is(h1, h2, h3, p, li, a, strong, small, .kicker) {
@@ -493,7 +498,7 @@ html.print-pdf .reveal .brand-logo { display: none; }
 html.print-pdf .reveal-viewport, html.print-pdf body { background: var(--bg) !important; }
 html.print-pdf .reveal .pdf-page { background: var(--bg); }
 html.print-pdf .reveal .pdf-page:has(section:is(.title, .chapter, .end)),
-html.print-pdf .reveal .pdf-page:has(section:is(.title, .chapter, .end)) .slide-background { background: var(--hero) !important; }
+html.print-pdf .reveal .pdf-page:has(section:is(.title, .chapter, .end)) .slide-background { background: var(--hero-deco), var(--hero) !important; }
 html.print-pdf .reveal section:is(.title, .chapter, .end),
 html.print-pdf .reveal section:is(.title, .chapter, .end) :is(h1, h2, h3, p, li, strong, .kicker) { color: #ffffff; }
 html.print-pdf .reveal section.title .title-logo { background-image: url('../img/logo-white.svg'); }
