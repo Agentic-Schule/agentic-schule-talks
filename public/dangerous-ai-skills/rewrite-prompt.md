@@ -1,6 +1,6 @@
 # Prompt: adopt a skill without copying it
 
-Use this prompt with your coding agent (Antigravity, Claude Code, Codex, …) when you found a skill you like. Put the skill into a folder outside your project first, for example `~/untrusted/some-skill/`. Do not install it. Run the prompt in a fresh session without network access, and read the result yourself.
+Use this prompt with your coding agent (Antigravity, Claude Code, Codex, …) when you found a skill you like. Put the skill into a folder outside your project first, for example `~/untrusted/some-skill/`. Do not install it. Read the result yourself.
 
 From the talk "Dangerous AI Skills" by Johannes Hoppe, agentic.schule.
 

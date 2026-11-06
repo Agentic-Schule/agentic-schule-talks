@@ -1079,7 +1079,7 @@ Note:
 
 <ol>
 <li class="fragment"><strong>Start with an empty file</strong>, carry the ideas across</li>
-<li class="fragment"><strong>Let the agent rewrite it</strong>: fresh session, no web access, then read the result</li>
+<li class="fragment"><strong>Let the agent rewrite it</strong>, then read the result</li>
 <li class="fragment"><strong>Same for code</strong>: have it rewritten</li>
 </ol>
 
