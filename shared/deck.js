@@ -94,8 +94,8 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     ...options,
   });
 
-  // Titelfolie: QR-Code in die obere rechte, Logo in die untere rechte Bildschirmecke, wie der Hero
-  // der Website. Im PDF bleiben beide auf der Folie und werden dort per CSS platziert.
+  // Titelfolie: QR-Code in die obere rechte Bildschirmecke. Im PDF bleibt er auf der Folie und
+  // wird dort per CSS platziert.
   deck.on('ready', () => {
     if (/print-pdf/.test(window.location.search)) return;
     const reveal = document.querySelector('.reveal');
@@ -103,12 +103,6 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
     if (qr) {
       qr.classList.add('title-qr-corner');
       reveal.append(qr);
-    }
-    if (reveal.querySelector('.slides section.title .title-logo')) {
-      const logo = document.createElement('div');
-      logo.className = 'title-logo-corner';
-      logo.setAttribute('aria-hidden', 'true');
-      reveal.append(logo);
     }
   });
 

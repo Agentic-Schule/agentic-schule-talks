@@ -566,6 +566,7 @@ Note:
 
 <figure class="meme">
 <video src="img/irony.mp4" data-autoplay loop muted playsinline></video>
+<img class="meme-print" src="img/irony-poster.webp" alt="Jacksepticeye irons his own face">
 <figcaption>The irony!</figcaption>
 </figure>
 

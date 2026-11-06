@@ -203,16 +203,15 @@ html:lang(de) .reveal .slides > section:not(:has(h2, .statement, blockquote ~ bl
 
 .reveal .brand-logo {
   position: absolute;
-  left: 28px;
+  right: 28px;
   bottom: 22px;
   width: 120px;
   height: 45px;
-  background: var(--logo) no-repeat left center / contain;
+  background: var(--logo) no-repeat right center / contain;
   z-index: 30;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
-html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { opacity: 0; }
 
 /* ---------- Bausteine ---------- */
 
@@ -398,12 +397,11 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .progress span 
 /* QR-Code (SVG aus img/, immer schwarz auf weiß mit Ruhezone) */
 .reveal .qr svg { display: block; width: 100%; height: auto; border-radius: 10px; }
 .reveal section.title .title-qr { display: none; }
-.reveal > :is(.title-qr-corner, .title-logo-corner) { position: absolute; z-index: 30; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.reveal > .title-qr-corner { position: absolute; z-index: 30; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .reveal > .title-qr-corner { right: 28px; top: 24px; display: flex; flex-direction: row-reverse; align-items: center; gap: 16px; text-align: right; font-size: 18px; line-height: 1.3; color: #ffffff; }
 .reveal > .title-qr-corner .qr { width: 112px; }
 .reveal > .title-qr-corner strong { color: #ffffff; }
-.reveal > .title-logo-corner { right: 28px; bottom: 22px; width: 150px; height: 56px; background: var(--logo) no-repeat right center / contain; }
-html:not(.print-pdf) .reveal-viewport.title .reveal:not(.overview) > :is(.title-qr-corner, .title-logo-corner) { opacity: 1; pointer-events: auto; }
+html:not(.print-pdf) .reveal-viewport.title .reveal:not(.overview) > .title-qr-corner { opacity: 1; pointer-events: auto; }
 /* Der QR-Code sitzt in der Ecke des Umschalters, auf der Titelfolie bleibt dafür nur die Taste D */
 html:not(.print-pdf) .reveal-viewport.title .theme-switch { opacity: 0; pointer-events: none; }
 /* Endfolie: links groß der Dank und die Kanäle, rechts der QR-Code zu den Materialien (Breiten im goldenen Schnitt) */
@@ -498,6 +496,8 @@ html.print-pdf .reveal .theme-switch { display: none; }
 /* ---------- Druck / PDF (?print-pdf) ---------- */
 
 html.print-pdf .reveal .brand-logo { display: none; }
+/* Im PDF trägt jede Seite das Logo unten rechts */
+html.print-pdf .reveal .pdf-page::after { content: ''; position: absolute; right: 28px; bottom: 22px; width: 120px; height: 45px; background: var(--logo) no-repeat right center / contain; z-index: 30; }
 html.print-pdf .reveal-viewport, html.print-pdf body { background: var(--bg) !important; }
 html.print-pdf .reveal .pdf-page { background: var(--bg); }
 html.print-pdf .reveal .pdf-page:has(section:is(.title, .chapter, .end)),
@@ -505,7 +505,6 @@ html.print-pdf .reveal .pdf-page:has(section:is(.title, .chapter, .end)) .slide-
 html.print-pdf .reveal section:is(.title, .chapter, .end),
 html.print-pdf .reveal section:is(.title, .chapter, .end) :is(h1, h2, h3, p, li, strong, .kicker) { color: #ffffff; }
 html.print-pdf .reveal .pdf-page > section.title { top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; padding: 0 96px 90px !important; box-sizing: border-box !important; display: flex !important; flex-direction: column; justify-content: center; }
-html.print-pdf .reveal section.title .title-logo { display: block; position: absolute; right: 28px; bottom: 22px; width: 150px; height: 56px; margin: 0; background: var(--logo) no-repeat right center / contain; }
 html.print-pdf .reveal section.title .title-qr { display: flex; position: absolute; right: 28px; top: 24px; flex-direction: row-reverse; align-items: center; gap: 16px; text-align: right; font-size: 18px; line-height: 1.3; }
 html.print-pdf .reveal section.title .title-qr .qr { width: 112px; }
 
@@ -547,3 +546,7 @@ html.reduced-motion .reveal pre code { transition: none; }
 .reveal .meme { position: relative; width: fit-content; margin: 0 auto; }
 .reveal .meme video { display: block; height: 520px; width: auto; border-radius: 12px; }
 .reveal .meme figcaption { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; font-family: var(--font-heading); font-weight: 800; font-size: 64px; letter-spacing: 0.01em; text-transform: uppercase; color: #ffffff; text-shadow: 0 0 6px #000, 0 2px 0 #000, 2px 0 0 #000, -2px 0 0 #000, 0 -2px 0 #000; }
+.reveal .meme .meme-print { display: none; }
+html.print-pdf .reveal .meme video { display: none; }
+html.print-pdf .reveal .meme .meme-print { display: block; height: 520px; width: auto; border-radius: 12px; margin: 0; border: 0; }
+.reveal .shots.stack ~ p.caption { width: fit-content; margin-left: auto; margin-right: auto; }
