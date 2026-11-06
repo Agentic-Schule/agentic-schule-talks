@@ -1573,7 +1573,7 @@ Note:
 
 </div>
 
-Six repos (three shown), byte for byte the same files. Nothing inside comes from obra/superpowers: it is a copy of inference.sh’s skills. No malware today, but someone else controls the content. <!-- .element: class="fragment" -->
+Six repos (three shown). No malware today, but someone else controls the content. <!-- .element: class="fragment" -->
 
 <p class="source">skills.sh leaderboard, 5 November 2026 · GitHub API: HEAD commit becc256 in all six repos</p>
 
