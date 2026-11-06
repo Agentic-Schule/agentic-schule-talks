@@ -518,7 +518,7 @@ Almost everyone needs one. The risk looks like zero. That mindset lowers your gu
 
 <ul>
 <li><code>wshobson/agents</code>: a Claude Code plugin marketplace, a GitHub repo with ~35,000 stars at the time</li>
-<li>Then: plugins for Claude Code. Today: 7 agents, incl. <strong>Antigravity CLI</strong></li>
+<li>Then: plugins for Claude Code. Today: 7 agents, incl. Antigravity CLI</li>
 <li class="fragment"><strong>Merged</strong> after three days</li>
 </ul>
 
