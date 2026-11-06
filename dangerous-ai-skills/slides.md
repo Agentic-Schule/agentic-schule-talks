@@ -498,8 +498,9 @@ Note:
 <div class="columns even">
 <div class="card">
 
-### Landing page skill
+### Something harmless
 
+<span class="muted small-note">e.g. a landing page skill</span><br>
 “It just has to look good.”
 
 </div>
