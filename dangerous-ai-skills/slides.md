@@ -519,10 +519,10 @@ Almost everyone needs one. The risk looks like zero. That mindset lowers your gu
 <ul>
 <li><code>wshobson/agents</code>: a Claude Code plugin marketplace, a GitHub repo with ~35,000 stars at the time</li>
 <li>Then: plugins for Claude Code. Today: 7 agents, incl. <strong>Antigravity CLI</strong></li>
-<li class="fragment">After “a few anxious days”: <strong>merged</strong></li>
+<li class="fragment"><strong>Merged</strong> after three days</li>
 </ul>
 
-<p class="source">github.com/wshobson/agents · web.archive.org, 2 May 2026: 34,643 stars · AIR Security, “The Story of Skills”, 22 June 2026: “a few anxious days” · PR opened 29 April, merged 2 May 2026</p>
+<p class="source">github.com/wshobson/agents · web.archive.org, 2 May 2026: 34,643 stars · PR opened 29 April, merged 2 May 2026</p>
 
 Note:
 Today the repo describes itself as "Plugins, agents, skills, and commands for Claude Code, Codex CLI, Cursor, OpenCode, Antigravity CLI, GitHub Copilot, and Pi". At the merge on 2 May 2026 it was Claude Code only; Codex, Cursor, OpenCode and Gemini CLI came on 22 May (#541), Antigravity CLI replaced Gemini CLI on 18 August (#669). AIR: "a welcoming contribution policy". PR #509 was opened by travis-d-elliott (AIR) and merged by the maintainer wshobson.
