@@ -260,12 +260,12 @@ Even if it learns every phrasing and follows every link, it cannot know what a l
 ---
 <!-- .slide: data-state="chapter" class="chapter" -->
 
-<span class="kicker">Skills in 60 seconds</span>
+<span class="kicker">I haven’t even introduced myself</span>
 
 ## OK, but let’s step back.
 
 Note:
-**Say:** Before we look at how this skill reached so many agents: what exactly is a skill, and where do people get them?
+**Say:** I haven’t even introduced myself. After that: what exactly is a skill, and where do people get them? Then we look at how this one reached so many agents.
 
 ---
 
