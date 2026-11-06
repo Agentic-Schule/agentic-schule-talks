@@ -228,7 +228,7 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { o
 .reveal .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; text-align: left; }
 
 /* Screenshots: eine große Aufnahme oder zwei nebeneinander, die Aussage steht in der Bildunterschrift */
-.reveal .shot img { display: block; width: 100%; max-height: 470px; object-fit: contain; margin: 0 auto; border: 1px solid var(--border); border-radius: 10px; }
+.reveal .shot img { display: block; box-sizing: border-box; width: auto; max-width: 100%; max-height: 470px; object-fit: contain; margin: 0 auto; border: 1px solid var(--border); border-radius: 10px; }
 .reveal .caption { margin-top: 16px; font-size: 0.9em; }
 .reveal .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
 .reveal .shots.one { grid-template-columns: 1.3fr 1fr; align-items: center; }
@@ -501,4 +501,9 @@ html.reduced-motion .reveal pre code { transition: none; }
 .reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > ul, .reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > div > ul { display: block; margin-left: 0.95em; }
 .reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > ol, .reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > div > ol { display: block; margin-left: 1.25em; }
 .reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) .compare table { margin-left: 0; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) .compare table :is(th, td):first-child { padding-left: 0; }
 .reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) .flow-caption { text-align: left; }
+/* Kernsatz direkt unter der Überschrift, etwa die Definition auf „What is a skill?“ */
+.reveal .lead { font-family: var(--font-heading); font-size: 1.2em; font-weight: 600; line-height: 1.2; color: var(--heading); margin-top: 0; }
+/* Ergänzung in kleinerer, gedämpfter Schrift unter einem Absatz */
+.reveal .small-note { font-size: 0.75em; color: var(--muted); margin-top: 0.4em; }

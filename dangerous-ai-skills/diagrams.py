@@ -22,31 +22,31 @@ def esc(t):
 def text(x, y, t, cls='', size=26, anchor='start', extra=''):
     return f'<text x="{x}" y="{y}" class="{cls}" font-size="{size}" text-anchor="{anchor}" {extra}>{esc(t)}</text>'
 
-# ---------- 1. Skill anatomy ----------
+# ---------- 1. Skill anatomy: progressive disclosure nach agentskills.io/specification ----------
+# Beispiel pdf-processing aus der Spezifikation und der Anthropic-Doku, bewusst nicht brand-landingpage:
+# die Folie zeigt den allgemeinen Aufbau, keinen bestimmten Skill.
 p = 'an'
 b = []
 b.append('<rect x="40" y="20" width="520" height="500" rx="10" class="box"/>')
-b.append(text(64, 58, 'SKILL.md', 't-head t-code', 26))
-# frontmatter
+b.append(text(64, 58, 'pdf-processing/', 't-head t-code', 26))
+# SKILL.md: Frontmatter
 b.append('<rect x="64" y="80" width="472" height="118" rx="6" class="box-2"/>')
-b.append(text(84, 112, '---', 't-muted t-code', 26))
-b.append(text(84, 140, 'name: brand-landingpage', 't-code', 26))
-b.append(text(84, 166, 'description: Design a landing page …', 't-code', 26))
-b.append(text(84, 190, '---', 't-muted t-code', 26))
-# body
+b.append(text(84, 112, 'SKILL.md', 't-muted t-code', 26))
+b.append(text(84, 140, 'name: pdf-processing', 't-code', 26))
+b.append(text(84, 168, 'description: Extract PDF …', 't-code', 26))
+# SKILL.md: Markdown-Body
 b.append('<rect x="64" y="214" width="472" height="186" rx="6" class="box-2"/>')
-b.append(text(84, 248, '## Phase 0: Prerequisites', 't-code t-bold', 26))
+b.append(text(84, 248, '# PDF Processing', 't-code t-bold', 26))
 for i, wdt in enumerate([400, 360, 420, 300, 380]):
     b.append(f'<rect x="84" y="{266 + i * 24}" width="{wdt}" height="10" rx="5" class="fill-muted"/>')
-# references
+# weitere Dateien
 b.append('<rect x="64" y="416" width="472" height="84" rx="6" class="box-2"/>')
-b.append(text(84, 448, '## Documentation', 't-code t-bold', 26))
-b.append(text(84, 478, '- https://…/docs/sdk', 't-code t-accent', 26))
-# annotations
+b.append(text(84, 448, 'references/FORMS.md', 't-code', 26))
+b.append(text(84, 478, 'scripts/fill_form.py', 't-code', 26))
 ann = [
-    (139, 'Name and description', 'always in the agent’s context', 'line', 'm', ''),
-    (307, 'Instructions', 'loaded when the task matches', 'line', 'm', 'fragment'),
-    (458, 'Links', 'fetched if the agent follows them', 'line-accent', 'a', 'fragment'),
+    (139, 'Name and description', 'loaded at startup, always in context', 'line', 'm', ''),
+    (307, 'Markdown body', 'loaded when the skill is activated', 'line', 'm', 'fragment'),
+    (458, 'Files and links', 'only when the agent opens them', 'line-accent', 'a', 'fragment'),
 ]
 for y, head, sub, lcls, mk, frag in ann:
     b.append(f'<g class="{frag}">')

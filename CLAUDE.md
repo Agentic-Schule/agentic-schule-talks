@@ -37,7 +37,7 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 
 ## Folien schreiben
 
-- `---` auf einer eigenen Zeile: nächste Folie daneben. `--`: Folie darunter (vertikal).
+- `---` auf einer eigenen Zeile: nächste Folie daneben. Das gilt auch in Codeblöcken; YAML-Frontmatter im Code deshalb als `--- ` mit Leerzeichen am Ende schreiben. `--`: Folie darunter (vertikal).
 - `Note:` am Ende einer Folie: Sprechernotizen, nur in der Speaker View (Taste S).
 - Folien-Attribute: `<!-- .slide: class="..." data-state="..." -->` direkt am Folienanfang.
 - Element-Attribute: `<!-- .element: class="fragment" -->` hinter dem Element, bei Codeblöcken in der Zeile nach der schließenden Fence.

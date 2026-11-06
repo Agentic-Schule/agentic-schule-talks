@@ -58,12 +58,62 @@ Usually most hands go down at the third question. That is the talk.
 
 ## What is a skill?
 
-<div class="svg" data-svg="skill-anatomy"></div>
+<p class="lead">A Markdown file with YAML frontmatter: <code>SKILL.md</code></p>
 
-<p class="source">agentskills.io, the open Agent Skills format</p>
+```markdown small wrap
+--- 
+name: pdf-processing
+description: Extract PDF text, fill forms, merge files. Use when handling PDFs.
+--- 
+
+# PDF Processing
+
+Use pdfplumber to extract text from PDFs: …
+```
+
+<p class="fragment">Required: <code>name</code> and <code>description</code>. The body has no fixed format.</p>
+
+<p class="source">agentskills.io/specification · platform.claude.com/docs/en/agents-and-tools/agent-skills/overview</p>
 
 Note:
-Progressive disclosure: name and description sit in the context all the time, the instructions are loaded when the task matches, everything else only when needed.
+The specification: "A skill is a directory containing, at minimum, a SKILL.md file" and "The SKILL.md file must contain YAML frontmatter followed by Markdown content." About the body: "There are no format restrictions." Next to SKILL.md the folder may hold scripts/, references/ and assets/. The frontmatter example is the one from the specification, the body is from Anthropic's Agent Skills overview.
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## More than name and description
+
+<div class="compare">
+
+| | Frontmatter fields the agent reads |
+| --- | --- |
+| **Agent Skills spec** | `name`, `description` · optional: `license`, `compatibility`, `metadata`, `allowed-tools` |
+| **Claude Code** | 20 fields, among them `allowed-tools`, `hooks`, `model`, `context` |
+| **Codex** | `name`, `description`, `metadata.short-description` |
+| **Gemini CLI** | `name`, `description` |
+
+</div>
+
+<p class="fragment">The same file can do more in one agent than in another.</p>
+
+<p class="source">agentskills.io/specification · code.claude.com/docs/en/skills · gemini-cli packages/core/src/skills/skillLoader.ts (3fd7d26) · codex codex-rs/skills/src/parser.rs (2c502d8) · 6 November 2026</p>
+
+Note:
+Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses name, description and metadata.short-description (parser.rs). The same file can mean more in one agent than in another.
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## How the agent loads it
+
+<div class="svg" data-svg="skill-anatomy"></div>
+
+<p class="source">agentskills.io/specification, “Progressive disclosure”</p>
+
+Note:
+Specification: metadata (~100 tokens) "loaded at startup for all skills", the full SKILL.md body "loaded when the skill is activated", files in scripts/, references/ or assets/ "loaded only when required". A link in the body is the same: the agent only fetches it when it follows it. That is where this talk goes.
 
 ---
 
@@ -74,13 +124,39 @@ Progressive disclosure: name and description sit in the context all the time, th
 <ul>
 <li>You write them yourself</li>
 <li>Vendors publish them, e.g. <code>angular/skills</code>, <code>anthropics/skills</code></li>
-<li class="fragment"><strong>Marketplaces</strong>: GitHub repositories full of skills from anyone</li>
+<li class="fragment"><strong>Marketplaces</strong>: catalogs of skills from anyone</li>
 </ul>
 
 One command, and the skill is installed. <!-- .element: class="fragment" -->
 
 <p class="source">github.com/angular/skills · github.com/anthropics/skills</p>
 
+
+---
+
+<span class="kicker">Skills in 60 seconds</span>
+
+## How marketplaces fill up
+
+<div class="compare">
+
+| | How a skill gets in |
+| --- | --- |
+| **skills.sh** (Vercel) | listed via `npx skills add`, the skill stays on GitHub |
+| **Claude Marketplaces** | crawls GitHub and skills.sh |
+| **claude-plugins.dev** | auto-indexes public skills on GitHub |
+| **Gemini CLI gallery** | crawls tagged GitHub repositories daily |
+| **ClawHub** | anyone uploads |
+| **agentskill.sh** | repository import or a link to a `SKILL.md` |
+
+</div>
+
+<p class="fragment">Crawled or uploaded: the content stays under the author’s control.</p>
+
+<p class="source">skills.sh/docs/faq · claudemarketplaces.com/about · claude-plugins.dev/skills · geminicli.com/docs/extensions/releasing · docs.openclaw.ai/clawhub · agentskill.sh/submit · 6 November 2026</p>
+
+Note:
+skills.sh FAQ: "Skills appear on the leaderboard automatically through anonymous telemetry when users run npx skills add <owner/repo>." and "Skills are hosted in GitHub repositories." Claude Marketplaces: "Crawlers sweep skills.sh, GitHub, and the MCP registries on a schedule". claude-plugins.dev: "All public skills on GitHub are auto-indexed". Gemini CLI: "Our system crawls tagged repositories daily." ClawHub: "anyone can upload, but publishing requires a GitHub account old enough to pass the upload gate." agentskill.sh: "Import from a GitHub repository or paste a direct link to any SKILL.md file." Reviews: Skillstore runs an automated audit before listing, ClawHub automated checks plus moderators on reports, Claude Marketplaces says an editor reviews new and borderline listings. None of them describes a human review of every file before listing. Install counts on skills.sh only count npx skills add runs.
 ---
 
 <span class="kicker">Skills in 60 seconds</span>
@@ -135,6 +211,19 @@ Built on **Google Stitch**.
 
 Note:
 Authors: Niv Hoffman and Or Nevo. Google Stitch is Google's real design tool.
+
+---
+
+<span class="kicker">brand-landingpage · the bait</span>
+
+<div class="shot"><img src="img/air-brand-landingpage.webp" alt="Landing page for the skill Brand Landing Page: headline From Brand Interview to Live UI in minutes, buttons Install the Skill and See how it works, and the line Joined by 2,000+ developers this week"></div>
+
+<p class="caption">“From Brand Interview to Live UI in minutes”: AIR built this page with its own skill</p>
+
+<p class="source">AIR Security, “The Story of Skills”, 22 June 2026</p>
+
+Note:
+AIR: "Your one-stop, one-hour vibe-written skill for building an eye-dazzling, wallet-opening website to advertise your freshly built product. It helps you define your brand's visual direction, then generates a deployable landing page using Stitch. No code or design knowledge required." And: "we tested it by creating a brand-landingpage brand landing page." That is the bait: a real, useful result. "Joined by 2,000+ developers this week" is part of the mockup.
 
 ---
 
@@ -227,7 +316,7 @@ It is exactly the guide you would write for a young SDK. <!-- .element: class="f
 - DESIGN.md documentation and examples: `https://stitch-design.ai/docs/design-md/overview`
 ```
 
-Every skill has a section like this. <!-- .element: class="fragment" -->
+Many skills have a section like this: links for the agent to read on. <!-- .element: class="fragment" -->
 
 <p class="source">wshobson/agents, plugins/brand-landingpage/skills/brand-landingpage/SKILL.md, lines 246 to 249</p>
 
@@ -299,7 +388,7 @@ Cisco · NVIDIA · skills.sh
 
 <span class="kicker" data-vt="rd-kicker">The resting state</span>
 
-## And anyone who checks the link is reassured
+## The link looks harmless
 
 <div class="flow">
 <div class="node" data-vt="rd-agent"><strong>Your agent</strong><span>reads the skill</span></div>
@@ -319,7 +408,7 @@ Cisco · NVIDIA · skills.sh
 
 <span class="kicker" data-vt="rd-kicker">Flip the switch</span>
 
-## And anyone who checks the link is reassured
+## Now the agent follows new instructions
 
 <div class="flow">
 <div class="node" data-vt="rd-agent"><strong>Your agent</strong><span>reads the skill</span></div>
@@ -1430,7 +1519,7 @@ added     .github/setup.js
 modified  package.json            "test": "node .github/setup.js"
 ```
 
-Every tool that opens the folder starts the same payload. <!-- .element: class="fragment" -->
+Each of these files makes a different tool start the same payload. <!-- .element: class="fragment" -->
 
 <p class="source">github.com/A-Mitch/spotify-codes-simulation, commit 855614e · safedep.io/miasma-worm-ai-coding-agent-config-injection, 5 June 2026 · github.com/icflorescu/mantine-datatable, discussion #813</p>
 
