@@ -45,53 +45,6 @@ If most hands go down at the third question, that gap is what this talk is about
 
 ---
 
-<span class="kicker">22 June 2026</span>
-
-## “The Story of Skills”
-
-<div class="columns">
-<div>
-
-- Security firm **AIR** plays the attacker
-- Skill built in “less than an hour”
-- Merged into **wshobson/agents**
-
-</div>
-<div class="card">
-
-### `brand-landingpage`
-
-Designs a landing page from a short brand interview.
-
-Built on **Google Stitch**.
-
-</div>
-</div>
-
-<p class="source">AIR Security, “The Story of Skills”, 22 June 2026 (vendor report, self-reported numbers)</p>
-
-Note:
-**Say:** Important: AIR is a security firm. They played the attacker in an experiment. They built the skill, registered the domain, got it merged and ran the ad.
-
-**Sources:** Authors: Niv Hoffman and Or Nevo. AIR built the skill, registered the domain, got the skill merged and ran the ad itself: an experiment, not an attack it found. AIR: "In less than an hour, we built a single skill, released it into that ecosystem". Google Stitch is Google's real design tool.
-
----
-
-<span class="kicker">brand-landingpage · the bait</span>
-
-<div class="shot"><img src="img/air-brand-landingpage.webp" alt="Landing page for the skill Brand Landing Page: headline From Brand Interview to Live UI in minutes, buttons Install the Skill and See how it works, and the line Joined by 2,000+ developers this week"></div>
-
-<p class="caption">“From Brand Interview to Live UI in minutes”: AIR built this page with its own skill</p>
-
-<p class="source">AIR Security, “The Story of Skills”, 22 June 2026</p>
-
-Note:
-**Say:** This is the bait: a real, useful result. A landing page from a short brand interview. The "2,000+ developers" line is part of AIR's mockup.
-
-**Sources:** AIR: "Your one-stop, one-hour vibe-written skill for building an eye-dazzling, wallet-opening website to advertise your freshly built product. It helps you define your brand's visual direction, then generates a deployable landing page using Stitch. No code or design knowledge required." And: "we tested it by creating a brand-landingpage brand landing page." That is the bait: a real, useful result. "Joined by 2,000+ developers this week" is part of the mockup.
-
----
-
 <span class="kicker">brand-landingpage · Phase 0, lines 27 to 36</span>
 
 ## Can you spot the attack?
@@ -183,10 +136,10 @@ Many skills have a section like this: links for the agent to read on. <!-- .elem
 
 <div class="domains">
 <div class="domain-card ok small" data-vt="dom-real"><span class="domain ok">stitch.withgoogle.com</span><span class="muted">Google Stitch</span></div>
-<div class="domain-card bad" data-vt="dom-fake"><span class="domain bad">stitch-design.ai</span><span class="muted">registered by AIR, the attacker</span></div>
+<div class="domain-card bad" data-vt="dom-fake"><span class="domain bad">stitch-design.ai</span><span class="muted">registered on 20 April 2026</span></div>
 </div>
 
-<p class="source">whois stitch-design.ai: created 20 April 2026 · AIR Security, “The Story of Skills”: “our domain”</p>
+<p class="source">whois stitch-design.ai: created 20 April 2026</p>
 
 ---
 
@@ -211,18 +164,6 @@ A reviewer reads Phase 0, ticks it off, scrolls through the interview framework,
 
 ---
 
-<span class="kicker">brand-landingpage · June 2026</span>
-
-## All three scanners said: safe
-
-Cisco skill-scanner · NVIDIA SkillSpector · skills.sh audits
-
-<p class="statement fragment ok">✓ ✓ ✓</p>
-
-<p class="source">AIR Security, “The Story of Skills”, 22 June 2026: “All vetted brand-landingpage as safe”</p>
-
----
-
 <!-- .slide: data-view-transition data-transition="none" -->
 
 <span class="kicker" data-vt="rd-kicker">The resting state</span>
@@ -232,7 +173,7 @@ Cisco skill-scanner · NVIDIA SkillSpector · skills.sh audits
 <div class="flow">
 <div class="node" data-vt="rd-agent"><strong>Your agent</strong><span>reads the skill</span></div>
 <div class="arrow" data-vt="rd-arrow1"></div>
-<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design.ai</strong><span>owned by AIR</span></div>
+<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design.ai</strong><span>owned by the attacker</span></div>
 <div class="arrow ok" data-vt="rd-arrow2"><span>302</span></div>
 <div class="node ok" data-vt="rd-target"><strong class="mono">stitch.withgoogle.com</strong><span>Google’s real docs</span></div>
 </div>
@@ -252,18 +193,12 @@ Cisco skill-scanner · NVIDIA SkillSpector · skills.sh audits
 <div class="flow">
 <div class="node" data-vt="rd-agent"><strong>Your agent</strong><span>reads the skill</span></div>
 <div class="arrow" data-vt="rd-arrow1"></div>
-<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design.ai</strong><span>owned by AIR</span></div>
+<div class="node accent" data-vt="rd-domain"><strong class="mono">stitch-design.ai</strong><span>owned by the attacker</span></div>
 <div class="arrow bad" data-vt="rd-arrow2"><span>200</span></div>
 <div class="node bad" data-vt="rd-target"><strong>install script</strong><span>download and run</span></div>
 </div>
 
 <p class="flow-caption bad" data-vt="rd-caption">Same link, new content. The skill did not change.</p>
-
-<p class="source">AIR Security, “The Story of Skills”, 22 June 2026</p>
-
----
-
-> … there's no way for either a standard user or an LLM scanner to tell something's off from a static look at the skill alone.
 
 <p class="source">AIR Security, “The Story of Skills”, 22 June 2026</p>
 
@@ -509,6 +444,53 @@ Note:
 
 ---
 
+<span class="kicker">22 June 2026</span>
+
+## “The Story of Skills”
+
+<div class="columns">
+<div>
+
+- Security firm **AIR** plays the attacker
+- Skill built in “less than an hour”
+- Merged into **wshobson/agents**
+
+</div>
+<div class="card">
+
+### `brand-landingpage`
+
+Designs a landing page from a short brand interview.
+
+Built on **Google Stitch**.
+
+</div>
+</div>
+
+<p class="source">AIR Security, “The Story of Skills”, 22 June 2026 (vendor report, self-reported numbers)</p>
+
+Note:
+**Say:** Important: AIR is a security firm. They played the attacker in an experiment. They built the skill, registered the domain, got it merged and ran the ad.
+
+**Sources:** Authors: Niv Hoffman and Or Nevo. AIR built the skill, registered the domain, got the skill merged and ran the ad itself: an experiment, not an attack it found. AIR: "In less than an hour, we built a single skill, released it into that ecosystem". Google Stitch is Google's real design tool.
+
+---
+
+<span class="kicker">brand-landingpage · the bait</span>
+
+<div class="shot"><img src="img/air-brand-landingpage.webp" alt="Landing page for the skill Brand Landing Page: headline From Brand Interview to Live UI in minutes, buttons Install the Skill and See how it works, and the line Joined by 2,000+ developers this week"></div>
+
+<p class="caption">“From Brand Interview to Live UI in minutes”: AIR built this page with its own skill</p>
+
+<p class="source">AIR Security, “The Story of Skills”, 22 June 2026</p>
+
+Note:
+**Say:** This is the bait: a real, useful result. A landing page from a short brand interview. The "2,000+ developers" line is part of AIR's mockup.
+
+**Sources:** AIR: "Your one-stop, one-hour vibe-written skill for building an eye-dazzling, wallet-opening website to advertise your freshly built product. It helps you define your brand's visual direction, then generates a deployable landing page using Stitch. No code or design knowledge required." And: "we tested it by creating a brand-landingpage brand landing page." That is the bait: a real, useful result. "Joined by 2,000+ developers this week" is part of the mockup.
+
+---
+
 <span class="kicker">The choice of topic</span>
 
 ## Why a landing page?
@@ -575,6 +557,24 @@ Note:
 **Say:** The review was generated by Claude Code. An agent reviewed a skill for agents and praised Phase 0, exactly where the attack sits. Don't blame the reviewer: it is one sentence in 266 lines, and it reads like good practice.
 
 **Sources:** An agent reviewed a skill written for agents and waved it through, including Phase 0, where the attack sits. Do not blame the reviewer: the attack is one sentence among 266 lines (258 at commit 7e2fb55), and it reads like good practice.
+
+---
+
+<span class="kicker">brand-landingpage · June 2026</span>
+
+## All three scanners said: safe
+
+Cisco skill-scanner · NVIDIA SkillSpector · skills.sh audits
+
+<p class="statement fragment ok">✓ ✓ ✓</p>
+
+<p class="source">AIR Security, “The Story of Skills”, 22 June 2026: “All vetted brand-landingpage as safe”</p>
+
+---
+
+> … there's no way for either a standard user or an LLM scanner to tell something's off from a static look at the skill alone.
+
+<p class="source">AIR Security, “The Story of Skills”, 22 June 2026</p>
 
 ---
 
