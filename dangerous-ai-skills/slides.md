@@ -1032,7 +1032,7 @@ A skill that fetches instructions from the internet cannot be reviewed once and 
 
 ---
 
-<span class="kicker">Still want a foreign skill?</span>
+<span class="kicker">Still want an untrusted skill?</span>
 
 ## The five-minute check
 
@@ -1088,7 +1088,7 @@ Antigravity asks before read_url and execute_url by default; Claude Code's auto 
 ---
 
 
-<p class="statement">Treat foreign skills as inspiration.<br><span class="gradient-text">Never as a dependency.</span></p>
+<p class="statement">Treat untrusted skills as inspiration.<br><span class="gradient-text">Never as a dependency.</span></p>
 
 A skill is prose. Write it yourself, or let your agent write it. <!-- .element: class="fragment" -->
 
@@ -1139,7 +1139,7 @@ Use marketplaces as a catalog of ideas. <!-- .element: class="fragment" -->
 <li class="fragment">Stars and downloads are not a security signal.</li>
 <li class="fragment">Without a sandbox, the agent acts with your permissions.</li>
 <li class="fragment"><strong>Write your skills yourself.</strong></li>
-<li class="fragment">Never copy a foreign skill. Reveal hidden characters, then let your agent rewrite it.</li>
+<li class="fragment">Never copy a skill. Reveal hidden characters, then let your agent rewrite it.</li>
 </ul>
 
 Note:
