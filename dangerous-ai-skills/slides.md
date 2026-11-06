@@ -841,7 +841,7 @@ The attacker gets the agent’s identity, and with it every service where the ag
 
 <span class="kicker">Before any review</span>
 
-<p class="statement">Truly trustworthy skills are hard to find.</p>
+<p class="statement">Trustworthy skills are hard to find.</p>
 
 My personal list: **the Angular team**. <!-- .element: class="fragment" -->
 
@@ -890,7 +890,7 @@ Same pattern as the attack, only the link belongs to the vendor. That is fine if
 
 <p class="statement">Not malicious.<br><span class="gradient-text">But you trust whoever controls that main branch.</span></p>
 
-On every single run. <!-- .element: class="fragment" -->
+On every run. <!-- .element: class="fragment" -->
 
 Note:
 A skill that fetches instructions from the internet cannot be reviewed. You can still use it if you trust the operator of that address permanently, like a package manager. Just do not pretend you reviewed it.
