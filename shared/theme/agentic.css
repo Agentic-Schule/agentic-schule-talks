@@ -164,7 +164,14 @@ body,
 }
 .reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p { text-indent: -0.42em; }
 .reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p::before { content: '“'; color: var(--accent); }
-.reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p::after { content: '”'; }
+.reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p::after { content: '”'; color: var(--accent); }
+/* Deutsche Folien: „…“ */
+html:lang(de) .reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p::before { content: '„'; }
+html:lang(de) .reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p::after { content: '“'; }
+/* Zitatfolie: Kicker, Zitat und Folgeabsatz auf derselben 96-px-Linie wie die Inhaltsfolien, das öffnende Anführungszeichen hängt davor */
+.reveal .slides > section:has(> blockquote):not(:has(h2, .statement, blockquote ~ blockquote)) { text-align: left; padding-left: 96px; padding-right: 96px; box-sizing: border-box; }
+.reveal .slides > section:has(> blockquote):not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote { margin-left: 0; margin-right: 0; }
+.reveal .slides > section:has(> blockquote):not(:has(h2, .statement, blockquote ~ blockquote)) > p:not(.source) { margin-left: 0; margin-right: 0; max-width: 32em; }
 
 .reveal table { border-collapse: collapse; margin: auto; font-size: 0.8em; }
 .reveal table th { font-weight: 700; color: var(--heading); }

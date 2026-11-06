@@ -56,17 +56,12 @@ export function createDeck(markdown, { svgs, assets, ...options } = {}) {
   logo.setAttribute('aria-hidden', 'true');
   document.querySelector('.reveal').append(logo);
 
-  // Versehentliches Schwarzschalten und Übersicht verhindern: B, V und . (auch die Blackout-Taste
-  // vieler Clicker) tun nichts. Escape schließt nur noch Übersicht oder Overlay und öffnet nichts.
-  // Die Übersicht bleibt über O erreichbar.
+  // Versehentliches Schwarzschalten verhindern: B, V und . (auch die Blackout-Taste vieler Clicker)
+  // tun nichts. Escape und O öffnen die Übersicht wie in reveal.js üblich.
   const keyboard = {
     66: null,
     86: null,
     190: null,
-    27: () => {
-      if (deck.isOverlayOpen?.()) deck.closeOverlay();
-      else if (deck.isOverview()) deck.toggleOverview(false);
-    },
   };
 
   const deck = new Reveal({
