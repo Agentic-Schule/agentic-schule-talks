@@ -255,7 +255,7 @@ Even if it learns every phrasing and follows every link, it cannot know what a l
 
 <p class="statement" data-vt="st-exec"><span class="gradient-text">What gets executed is whatever sits behind the link.</span></p>
 
-<p class="fragment">Security researchers call this a <strong>rug pull</strong>.</p>
+<p class="fragment">Classic <strong>rug pull</strong>.</p>
 
 ---
 <!-- .slide: data-state="chapter" class="chapter" -->
