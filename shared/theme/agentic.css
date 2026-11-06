@@ -550,3 +550,4 @@ html.reduced-motion .reveal pre code { transition: none; }
 html.print-pdf .reveal .meme video { display: none; }
 html.print-pdf .reveal .meme .meme-print { display: block; height: 520px; width: auto; border-radius: 12px; margin: 0; border: 0; }
 .reveal .shots.stack ~ p.caption { width: fit-content; margin-left: auto; margin-right: auto; }
+.reveal .statement.ok code { color: inherit; background: color-mix(in srgb, var(--ok) 14%, transparent); }

@@ -210,26 +210,14 @@ for i, (h, s2) in enumerate(chain):
     cls = 'box-bad' if i == 3 else 'box'
     b.append(f'<rect x="{x}" y="40" width="250" height="120" rx="12" class="{cls}"/>')
     b.append(text(x + 125, 92, h, 't-head', 28, 'middle'))
-    b.append(text(x + 125, 128, s2, 't-muted', 26, 'middle'))
+    b.append(text(x + 125, 128, s2, 't-muted', 22, 'middle'))
     if i < 3:
         b.append(f'<path d="M{x + 254},100 L{x + 290},100" class="line" marker-end="url(#{p}-m)"/>')
 b.append('<g class="fragment">')
 b.append('<rect x="290" y="190" width="320" height="70" rx="12" class="box-accent dash"/>')
 b.append(text(450, 234, '+ one more marketplace', 't-accent', 26, 'middle'))
-b.append(text(600, 310, 'A longer chain does not become more trustworthy.', 't-muted', 26, 'middle'))
 b.append('</g>')
-b.append('<g class="fragment">')
-b.append('<rect x="20" y="350" width="250" height="100" rx="12" class="box-ok"/>')
-b.append(text(145, 410, 'You', 't-head', 30, 'middle'))
-b.append(f'<path d="M274,400 L310,400" class="line-ok" marker-end="url(#{p}-o)"/>')
-b.append('<rect x="315" y="350" width="250" height="100" rx="12" class="box-ok"/>')
-b.append(text(440, 410, 'Your skill', 't-head', 30, 'middle'))
-b.append(f'<path d="M569,400 L605,400" class="line-ok" marker-end="url(#{p}-o)"/>')
-b.append('<rect x="610" y="350" width="250" height="100" rx="12" class="box-ok"/>')
-b.append(text(735, 410, 'Your agent', 't-head', 30, 'middle'))
-b.append(text(900, 410, 'nothing to transfer', 't-ok', 26))
-b.append('</g>')
-svg('trust-chain', 1200, 470, '\n'.join(b), p)
+svg('trust-chain', 1200, 280, '\n'.join(b), p)
 
 # ---------- 13. Agent identity ----------
 p = 'id'

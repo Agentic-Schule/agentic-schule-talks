@@ -1156,6 +1156,27 @@ Note:
 
 <p class="source">AIR Security, “The Story of Skills”, 22 June 2026, last section</p>
 
+
+---
+
+<span class="kicker">One more marketplace to fix marketplaces</span>
+
+<figure class="meme">
+<video src="img/irony.mp4" data-autoplay loop muted playsinline></video>
+<img class="meme-print" src="img/irony-poster.webp" alt="Jacksepticeye irons his own face">
+<figcaption>The irony!</figcaption>
+</figure>
+
+<p class="source">Clip: jacksepticeye, “KISS ME JACK! | Reading Your Comments #55”, YouTube</p>
+
+---
+
+<p class="statement ok">Your own plain, innocent <code>SKILL.md</code>.<br>And a few scripts you understand.</p>
+
+<p class="statement fragment ok">That’s all!</p>
+
+Note:
+**Say:** No marketplace, no catalog, no stranger in the chain. A text file you wrote, scripts you can read. That's all you need.
 ---
 
 <span class="kicker">My opinion</span>
@@ -1174,7 +1195,7 @@ Use marketplaces as a catalog of ideas. <!-- .element: class="fragment" -->
 <li class="fragment">Review time is not runtime.</li>
 <li class="fragment">Stars and downloads are not a security signal.</li>
 <li class="fragment">Without a sandbox, the agent acts with your permissions.</li>
-<li class="fragment"><strong>Write your skills yourself</strong>, or use only skills from teams you really trust.</li>
+<li class="fragment"><strong>Write your skills yourself</strong>,<br>or use only skills from teams you REALLY trust.</li>
 <li class="fragment">Never copy a skill. Let your agent rewrite it.</li>
 </ul>
 
@@ -1217,7 +1238,7 @@ Ask: what could this do if it were malicious?
 
 <!-- .slide: data-state="chapter" class="chapter" -->
 
-<span class="kicker">Backup</span>
+<span class="kicker">You still want more?</span>
 
 ## Popular skills, analyzed
 
