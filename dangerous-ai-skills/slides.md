@@ -45,7 +45,7 @@ If most hands go down at the third question, that gap is what this talk is about
 - Trainer and consultant
 - Google Developer Expert
 - Angular since the very beginning
-- Agentic development with Claude Code, Codex and Antigravity
+- Agentic development with Claude Code, GitHub Copilot and more
 
 <p class="muted">Workshops at <strong>agentic.schule</strong> and <strong>angular.schule</strong></p>
 
