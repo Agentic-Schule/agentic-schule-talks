@@ -113,24 +113,6 @@ b.append(text(1040, 326, 'serves right now', 't-muted', 26, 'middle'))
 b.append('</g>')
 svg('review-runtime', 1200, 390, '\n'.join(b), p)
 
-# ---------- 6. Perceived risk vs permissions ----------
-p = 'pr'
-b = []
-rows = [('Landing page skill', 0.12, '“It just has to look good.”'), ('Database migration skill', 0.8, '“Let me read this carefully.”')]
-for i, (lab, risk, quote) in enumerate(rows):
-    y = 60 + i * 230
-    b.append(text(40, y, lab, 't-head', 32))
-    b.append(text(40, y + 44, 'Perceived risk', 't-muted', 26))
-    b.append(f'<rect x="300" y="{y + 24}" width="800" height="30" rx="15" class="box-2"/>')
-    b.append(f'<rect x="300" y="{y + 24}" width="{800 * risk:.0f}" height="30" rx="15" class="fill-accent"/>')
-    b.append(text(300, y + 92, quote, 't-muted', 26))
-    b.append(f'<g class="fragment" data-fragment-index="1">')
-    b.append(text(40, y + 140, 'Agent permissions', 't-muted', 26))
-    b.append(f'<rect x="300" y="{y + 120}" width="800" height="30" rx="15" class="fill-bad"/>')
-    b.append(text(1090, y + 143, 'all of yours', 't-head', 26, 'end', 'style="fill:#fff"'))
-    b.append('</g>')
-svg('perceived-risk', 1200, 500, '\n'.join(b), p)
-
 # ---------- 7. Attack timeline ----------
 p = 'tl'
 b = []
@@ -205,21 +187,6 @@ for i, (lab, total, bad) in enumerate(rows):
     b.append('</g>')
 svg('koi', 1200, 400, '\n'.join(b), p)
 
-# ---------- 10. Scanner Venn ----------
-p = 've'
-b = []
-for cx, cy, lab, lx, ly in [(470, 210, 'VirusTotal', 300, 90), (730, 210, 'Static analysis', 900, 90), (600, 400, 'SkillSpector', 600, 590)]:
-    b.append(f'<circle cx="{cx}" cy="{cy}" r="190" class="box-accent" style="fill-opacity:0.6"/>')
-    b.append(text(lx, ly, lab, 't-head', 26, 'middle'))
-b.append(text(600, 300, '0.69 %', 't-head', 30, 'middle', 'style="fill:var(--heading)"'))
-b.append(text(600, 330, 'all three', 't-muted', 26, 'middle'))
-b.append('<g class="fragment">')
-b.append(text(1180, 300, '81.9 %', 't-head t-bad', 64, 'end'))
-b.append(text(1180, 346, 'of flagged skills: found', 't-muted', 26, 'end'))
-b.append(text(1180, 378, 'by one scanner only', 't-muted', 26, 'end'))
-b.append('</g>')
-svg('venn', 1200, 610, '\n'.join(b), p)
-
 # ---------- 11. Permissions: API vs Claude Code ----------
 p = 'pm'
 b = []
@@ -247,7 +214,7 @@ svg('permissions', 1200, 460, '\n'.join(b), p)
 # ---------- 12. Trust chain ----------
 p = 'tc'
 b = []
-chain = [('A stranger', 'account 6 days old'), ('A catalog', 'stars, install counts'), ('Your project', 'skills folder'), ('Your agent', 'your permissions')]
+chain = [('A stranger', 'one pull request'), ('A catalog', 'stars, install counts'), ('Your project', 'skills folder'), ('Your agent', 'your permissions')]
 for i, (h, s2) in enumerate(chain):
     x = 20 + i * 295
     cls = 'box-bad' if i == 3 else 'box'

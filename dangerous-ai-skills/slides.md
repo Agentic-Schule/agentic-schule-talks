@@ -281,43 +281,17 @@ Original text, lines 27 to 36. Space walks through three lines: 31 documentation
 
 <span class="kicker">brand-landingpage · Phase 0</span>
 
-## Four harmless instructions
+## Five harmless instructions
 
 <ol>
 <li class="fragment">Read the SDK documentation</li>
 <li class="fragment">Treat it as <strong>“the ground truth”</strong></li>
 <li class="fragment"><strong>Install</strong> the SDK if missing, “global install by default”</li>
 <li class="fragment">Do it <strong>“without bothering”</strong> the user</li>
+<li class="fragment">“Never display, transcribe, or echo the key”</li>
 </ol>
 
 <p class="source">wshobson/agents, plugins/brand-landingpage/skills/brand-landingpage/SKILL.md, lines 31 to 36</p>
-
----
-
-<span class="kicker">brand-landingpage · Phase 0</span>
-
-## Two more phrases
-
-<div class="columns">
-<div class="card">
-
-### “Never display, transcribe, or echo the key.”
-
-Sounds like secret hygiene.<br>
-<span class="bad fragment">Also: you never see where the key goes.</span>
-
-</div>
-<div class="card">
-
-### “Fail fast, recover quietly.”
-
-Sounds like clean error handling.<br>
-<span class="bad fragment">Also: one silent retry first.</span>
-
-</div>
-</div>
-
-<p class="source">wshobson/agents, plugins/brand-landingpage/skills/brand-landingpage/SKILL.md, lines 36 and 42</p>
 
 ---
 
@@ -519,7 +493,24 @@ Even if it learns every phrasing, it cannot see what the link returns. <!-- .ele
 
 ## Why a landing page?
 
-<div class="svg" data-svg="perceived-risk"></div>
+<div class="columns">
+<div class="card">
+
+### Landing page skill
+
+“It just has to look good.”
+
+</div>
+<div class="card">
+
+### Database migration skill
+
+“Let me read this carefully.”
+
+</div>
+</div>
+
+<p class="fragment"><strong>Same permissions for both: <span class="bad">all of yours.</span></strong></p>
 
 <p class="source">AIR Security, “The Story of Skills”, 22 June 2026: “we wanted to target a universal need”</p>
 
@@ -534,7 +525,7 @@ Almost everyone needs one. The risk looks like zero. That mindset lowers your gu
 
 <ul>
 <li><code>wshobson/agents</code>: a Claude Code plugin marketplace, a GitHub repo with ~35,000 stars at the time</li>
-<li>Then: plugins for Claude Code. Today: 7 agents, incl. Antigravity CLI</li>
+<li>Then: plugins for Claude Code. Today: plugins for 7 coding agents, incl. Antigravity CLI</li>
 <li class="fragment"><strong>Merged</strong> after three days</li>
 </ul>
 
@@ -700,13 +691,17 @@ Note:
 
 ---
 
-<span class="kicker">ClawHub · 67,453 skill versions</span>
+<span class="kicker">ClawHub · 67,453 skills, latest versions</span>
 
 ## The scanners disagree
 
-<div class="svg short" data-svg="venn"></div>
+<p class="statement xl">81.9 %</p>
 
-<p class="source">“ClawHub Security Signals”, arXiv 2606.01494: VirusTotal, static analysis and SkillSpector; 0.69% of skills flagged by all three</p>
+<p>of the skills a scanner flags are flagged by only one of three scanners.</p>
+
+<p class="fragment">All three agree on 0.69 % of all skills.</p>
+
+<p class="source">“ClawHub Security Signals”, arXiv 2606.01494: VirusTotal, static analysis and SkillSpector; “81.9% of flagged skills are identified by a single scanner”, “only 0.69% of skills are flagged by all three”</p>
 
 ---
 
@@ -749,24 +744,14 @@ Note:
 So let's look. State on 4 November 2026.
 
 ---
-
 <span class="kicker">skills.sh · “Made with care by Vercel”</span>
 
-<div class="shot"><img src="img/market-skillssh.webp" alt="skills.sh listing of brand-landingpage from wshobson/agents with 39.8K installs, 42.2K GitHub stars, first seen May 2, 2026, and the install command npx skills add"></div>
+<div class="shots stack">
+<figure><img src="img/market-skillssh.webp" alt="skills.sh listing of brand-landingpage from wshobson/agents with 39.8K installs, 42.2K GitHub stars, first seen May 2, 2026, and the install command npx skills add"><figcaption><strong>39.8K installs</strong> · one-line install command</figcaption></figure>
+<figure><img src="img/market-skillssh-audit.webp" alt="skills.sh security audit page for brand-landingpage by Gen Agent Trust Hub: risk level critical, flags for external downloads, remote code execution, command execution and indirect prompt injection"><figcaption><span class="bad"><strong>“CRITICAL … DO NOT USE”</strong></span> since 15 September · still installable</figcaption></figure>
+</div>
 
-<p class="caption"><strong>39.8K installs</strong> · one-line install command</p>
-
-<p class="source">skills.sh/wshobson/agents/brand-landingpage, 4 November 2026</p>
-
----
-
-<span class="kicker">skills.sh · audit on its own listing</span>
-
-<div class="shot"><img src="img/market-skillssh-audit.webp" alt="skills.sh security audit page for brand-landingpage by Gen Agent Trust Hub: risk level critical, flags for external downloads, remote code execution, command execution and indirect prompt injection"></div>
-
-<p class="caption"><span class="bad"><strong>“RISK LEVEL: CRITICAL … DO NOT USE”</strong></span> since 15 September · still installable</p>
-
-<p class="source">skills.sh/wshobson/agents/brand-landingpage/security/agent-trust-hub, 4 November 2026</p>
+<p class="source">skills.sh/wshobson/agents/brand-landingpage and …/security/agent-trust-hub, 4 November 2026</p>
 
 Note:
 **Say:** skills.sh's own audit says critical, do not use, since September. And the install command is still there.
@@ -774,37 +759,16 @@ Note:
 **Sources:** Gen Agent Trust Hub (Gen Digital) audit from 15 September 2026: "Contains 2 malicious URL(s) - DO NOT USE" and "1 file(s) identified as malware by FileRep". Socket and Snyk audits on the same page: PASS.
 
 ---
+<span class="kicker">The same skill elsewhere</span>
 
-<span class="kicker">Two more</span>
-
-<div class="shots">
-<figure><img src="img/market-claudemarketplaces.webp" alt="Claude Marketplaces listing of Brand Landingpage in the category Frontend Development with 39.6K installs"><figcaption><strong>Claude Marketplaces</strong><br>39.6K installs</figcaption></figure>
-<figure><img src="img/market-claudemarket.webp" alt="Claude Market listing of brand-landingpage with risk tags like Remote Code Execution next to an install command and an affiliate button for Hostinger"><figcaption><strong>Claude Market</strong><br>risk tags, install button, <span class="bad">hosting ad</span></figcaption></figure>
+<div class="shots stack narrow">
+<figure><img src="img/market-skillselion.webp" alt="Skillselion listing of the Brand Landingpage Skill with 39.7k installs"><figcaption><strong>Skillselion</strong> · <span class="ok">“3 / 3 scanners passed”</span></figcaption></figure>
+<figure><img src="img/market-agentskillsh.webp" alt="agentskill.sh listing of brand-landingpage with a secured badge, quality 92 and security 93"><figcaption><strong>agentskill.sh</strong> · <span class="ok">“secured” · Security 93</span></figcaption></figure>
 </div>
 
-<p class="source">claudemarketplaces.com · claudemarket.ai, 4 November 2026</p>
+<p class="caption fragment">Same skill, opposite verdicts.</p>
 
----
-
-<span class="kicker">Marketplace scanners</span>
-
-<div class="shots">
-<figure><img src="img/market-skillselion.webp" alt="Skillselion listing of the Brand Landingpage Skill with 39.7k installs"><figcaption><strong>Skillselion</strong><br><span class="ok">“3 / 3 scanners passed”</span></figcaption></figure>
-<figure><img src="img/market-agentskillsh.webp" alt="agentskill.sh listing of brand-landingpage with a secured badge, quality 92 and security 93"><figcaption><strong>agentskill.sh</strong><br><span class="ok">“secured” · Security 93</span></figcaption></figure>
-</div>
-
-<p class="source">skillselion.com · agentskill.sh, 4 November 2026</p>
-
----
-
-<span class="kicker">Two more listings</span>
-
-<div class="shots">
-<figure><img src="img/market-skillstore.webp" alt="Skillstore listing of brand-landingpage marked High Risk with a score of 38"><figcaption><strong>Skillstore</strong><br>“High Risk”, still listed</figcaption></figure>
-<figure><img src="img/market-opendesign.webp" alt="OpenDesign listing of the Brand Landing Page Skill, attributed by OpenDesign to Seth Hobson, the maintainer who merged it, with a download button"><figcaption><strong>OpenDesign</strong><br>download button</figcaption></figure>
-</div>
-
-<p class="source">skillstore.io · open-design.ai, 4 November 2026</p>
+<p class="source">skillselion.com · agentskill.sh, 4 November 2026 · further listings on the materials page</p>
 
 ---
 
@@ -839,7 +803,7 @@ Almost nobody removed it. <!-- .element: class="fragment" -->
 $ agy plugin install https://github.com/<owner>/<repo>
 ```
 
-<p class="fragment">A plugin bundles skills, MCP servers, subagents, rules and lifecycle hooks. The plugin docs contain no security warning.</p>
+<p class="fragment">Plugins are how skills reach Antigravity users. A plugin bundles skills, MCP servers, subagents, rules and lifecycle hooks. The plugin docs contain no security warning.</p>
 
 <p class="source">antigravity.google/docs/plugins · antigravity.google/docs/marketplace, 6 November 2026</p>
 
@@ -919,15 +883,14 @@ Note:
 | | Default | Auto-approve mode |
 | --- | --- | --- |
 | **Antigravity** | App: sandbox on · CLI: **sandbox off** | App: Turbo<br>CLI: <span class="nowrap">`--dangerously-skip-permissions`</span> |
-| **Claude Code** | **auto mode** (classifier), sandbox off | bypass permissions |
+| **Claude Code** | **auto mode**, sandbox off | bypass permissions |
 | **Codex** | sandbox on, **network off** | `--yolo` |
 
 </div>
 
-> Agent Skills can execute scripts and access your files.
-<!-- .element: class="fragment" -->
+<p class="fragment">Sandbox with the network off: commands cannot reach the attacker’s domain.</p>
 
-<p class="source">Antigravity: docs/sandbox, docs/permissions · Claude Code: docs/en/permission-modes, docs/en/sandboxing · Codex: protocol.rs, shared_options.rs · quote: Gemini CLI docs, using-agent-skills.md · 5 November 2026</p>
+<p class="source">Antigravity: docs/sandbox, docs/permissions · Claude Code: docs/en/permission-modes, docs/en/sandboxing · Codex: protocol.rs, shared_options.rs · 5 November 2026</p>
 
 Note:
 **Say:** A skill can do whatever your agent may do. Codex starts with the sandbox on and the network off. Antigravity's app has the sandbox on, its CLI has it off. Claude Code's auto mode blocks curl | bash, but reading the docs is allowed, and that brings the attacker's text into the session.
@@ -946,26 +909,6 @@ Note:
 
 Note:
 The attacker gets the agent’s identity, and with it every service where the agent is already signed in.
-
----
-
-<span class="kicker">Invisible Unicode</span>
-
-## Instructions you cannot see
-
-> These characters are invisible when rendered but are still processed by AI models. Attackers use them to smuggle instructions past human review.
-
-<div class="seen fragment">
-<p><span class="muted">You see:</span> <code>Format the code nicely.</code></p>
-<p><span class="muted">The agent reads:</span> <code>Format the code nicely.<span class="bad">⟨U+E0041⟩⟨U+E006C⟩⟨U+E0073⟩ …</span></code></p>
-</div>
-
-<p class="source">Snyk Agent Scan, issue code W021</p>
-
-Note:
-**Say:** You see a harmless sentence, the model reads more. The third grep later in the talk finds these characters.
-
-**Sources:** Quote from Snyk Agent Scan, finding W021. Embrace The Red names "certain models, like Gemini, Claude, Grok"; I found no source for GPT or Codex. Unicode tag characters can encode a whole hidden message. Zero-width characters, direction overrides, tag characters.
 
 ---
 
@@ -991,7 +934,7 @@ Note:
 
 ---
 
-<span class="kicker">My preference</span>
+<span class="kicker">The one exception I make</span>
 
 <p class="statement">I prefer skills from dedicated teams.</p>
 
@@ -1060,24 +1003,9 @@ A skill that fetches instructions from the internet cannot be reviewed once and 
 <ol>
 <li class="fragment"><strong>Read the <code>SKILL.md</code></strong>, not the README</li>
 <li class="fragment"><strong>Search for addresses</strong>: does every domain belong to the vendor?</li>
-<li class="fragment"><strong>Search for authority</strong>: “ground truth”, “authoritative”, “always follow”</li>
 <li class="fragment"><strong>Look into the scripts</strong> and everything it wants to install</li>
 <li class="fragment"><strong>Origin over popularity</strong>: who submitted it, how old is the account?</li>
 </ol>
-
----
-
-<span class="kicker">The five-minute check</span>
-
-## Three greps
-
-```bash
-$ grep -rn "https\?://" .
-$ grep -rniE "ground truth|authoritative|always follow" .
-$ LC_ALL=C grep -rn '[^[:print:][:space:]]' .
-```
-
-Addresses · authority · non-ASCII bytes (where invisible characters hide)
 
 ---
 
@@ -1117,13 +1045,33 @@ A skill is prose. Write it yourself, or let your agent write it. <!-- .element: 
 
 ---
 
+<span class="kicker">Invisible Unicode</span>
+
+## Instructions you cannot see
+
+> These characters are invisible when rendered but are still processed by AI models. Attackers use them to smuggle instructions past human review.
+
+<div class="seen fragment">
+<p><span class="muted">You see:</span> <code>Format the code nicely.</code></p>
+<p><span class="muted">The agent reads:</span> <code>Format the code nicely.<span class="bad">⟨U+E0041⟩⟨U+E006C⟩⟨U+E0073⟩ …</span></code></p>
+</div>
+
+<p class="source">Snyk Agent Scan, issue code W021</p>
+
+Note:
+**Say:** You see a harmless sentence, the model reads more. The rewrite step reveals them.
+
+**Sources:** Quote from Snyk Agent Scan, finding W021. Embrace The Red names "certain models, like Gemini, Claude, Grok"; I found no source for GPT or Codex. Unicode tag characters can encode a whole hidden message. Zero-width characters, direction overrides, tag characters.
+
+---
+
 <span class="kicker">Your own version</span>
 
 ## Rewrite, don’t copy
 
 <ol>
 <li class="fragment"><strong>Start with an empty file</strong>, carry the ideas across</li>
-<li class="fragment"><strong>Find non-ASCII characters</strong> (third grep)</li>
+<li class="fragment"><strong>Reveal hidden characters</strong></li>
 <li class="fragment"><strong>Let the agent rewrite it</strong>: fresh session, no web access</li>
 <li class="fragment"><strong>Same for code</strong>: have it rewritten</li>
 </ol>
@@ -1161,7 +1109,7 @@ Use marketplaces as a catalog of ideas. <!-- .element: class="fragment" -->
 <li class="fragment">Review time is not runtime.</li>
 <li class="fragment">Stars and downloads are not a security signal.</li>
 <li class="fragment">Without a sandbox, the agent acts with your permissions.</li>
-<li class="fragment"><strong>Write your skills yourself.</strong></li>
+<li class="fragment"><strong>Write your skills yourself</strong>, or use only skills from teams you really trust.</li>
 <li class="fragment">Never copy a skill. Reveal hidden characters, then let your agent rewrite it.</li>
 </ul>
 

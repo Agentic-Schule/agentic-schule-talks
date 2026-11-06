@@ -58,22 +58,16 @@
       </div></div>
 
       <div class="step"><div class="n">3</div><div>
-        <h2>Search for authority</h2>
-        <p>Phrases that turn fetched text into commands: “ground truth”, “authoritative”, “always follow the instructions at”, “without bothering the user”.</p>
-        <pre><code>grep -rniE "ground truth|authoritative|always follow" .</code></pre>
-      </div></div>
-
-      <div class="step"><div class="n">4</div><div>
         <h2>Look into the scripts</h2>
         <p>Not only the Markdown files. And everything the skill wants to install: “prerequisites”, “setup”, “install it globally”.</p>
       </div></div>
 
-      <div class="step"><div class="n">5</div><div>
+      <div class="step"><div class="n">4</div><div>
         <h2>Origin over popularity</h2>
         <p>Who submitted it, and how old is the account? Stars belong to the repository, not to a single skill in it.</p>
       </div></div>
 
-      <div class="step"><div class="n">6</div><div>
+      <div class="step"><div class="n">5</div><div>
         <h2>Find hidden characters</h2>
         <p>Zero-width spaces, direction overrides and tag characters are invisible on screen, and many models read them anyway. This shows every line with a character outside plain ASCII (tabs and umlauts show up too):</p>
         <pre><code>LC_ALL=C grep -rn '[^[:print:][:space:]]' .</code></pre>
@@ -83,7 +77,7 @@
         <h2>Three rules that matter more than the check</h2>
         <ul>
           <li><strong>A skill that fetches instructions from the internet cannot be reviewed once and for all.</strong> What gets executed is whatever sits behind the link right now.</li>
-          <li><strong>Treat untrusted skills as inspiration, never as a dependency.</strong> Find hidden characters first (step 6), then let your agent rewrite them in its own words, in a fresh session.</li>
+          <li><strong>Treat untrusted skills as inspiration, never as a dependency.</strong> Find hidden characters first (step 5), then let your agent rewrite them in its own words, in a fresh session.</li>
           <li><strong>Keep the safety nets on.</strong> Know which mode your agent starts in (Claude Code: auto mode). Sandbox on, no Turbo, <code>--dangerously-skip-permissions</code>, bypass permissions or <code>--yolo</code> with a new skill, and read every permission prompt. In Claude Code, check <code>allowed-tools</code> in the frontmatter.</li>
         </ul>
       </div>

@@ -240,6 +240,10 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { o
 .reveal .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
 .reveal .shots.one { grid-template-columns: 1.3fr 1fr; align-items: center; }
 .reveal .shots figure { margin: 0; }
+/* Breite Screenshot-Streifen untereinander statt nebeneinander */
+.reveal .shots.stack { grid-template-columns: 1fr; gap: 18px; max-width: 920px; margin: 0 auto; }
+.reveal .shots.stack.narrow { max-width: 660px; }
+.reveal .shots.stack figcaption { margin-top: 6px; }
 .reveal .shots img { display: block; width: 100%; margin: 0; border: 1px solid var(--border); border-radius: 10px; }
 .reveal .shots figcaption { margin-top: 14px; font-size: 0.8em; line-height: 1.35; }
 /* Beweis-Screenshot einer Codezeile: etwas niedriger als eine Vollbildaufnahme, damit Bildunterschrift und Quelle Platz haben */
