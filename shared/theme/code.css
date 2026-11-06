@@ -185,6 +185,6 @@ html.print-pdf .reveal pre code.zoom { max-height: none; }
 html.reduced-motion .reveal pre > code::after { animation: none; }
 
 /* ---------- Terminal-Aufnahmen (plugins/cast-player.js) ---------- */
-.reveal .cast { width: 100%; }
+.reveal .cast { width: 92%; margin: 0 auto; }
 .reveal pre.cast-term { margin: 0 auto; width: 100%; box-sizing: border-box; cursor: pointer; }
 .reveal pre.cast-term > code.cast-screen { display: block; height: 348px; overflow: hidden; white-space: pre-wrap; word-break: break-word; font-size: 20px; line-height: 1.4; text-align: left; padding: 14px 18px; }

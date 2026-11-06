@@ -41,6 +41,7 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 - `Note:` am Ende einer Folie: Sprechernotizen, nur in der Speaker View (Taste S).
 - Folien-Attribute: `<!-- .slide: class="..." data-state="..." -->` direkt am Folienanfang.
 - Element-Attribute: `<!-- .element: class="fragment" -->` hinter dem Element, bei Codeblöcken in der Zeile nach der schließenden Fence.
+- Falle: Der Kommentar landet auf dem letzten Element davor im selben Block und ersetzt dessen `class`. Steht in der Zeile `**fett**`, `` `Code` `` oder ein `<span>`, blendet nur dieses Stück ein und verliert seine Klasse. Solche Zeilen als HTML schreiben: `<p class="fragment">…</p>`, `<li class="fragment">…</li>` in einer HTML-Liste, `<span class="bad fragment">`.
 - HTML ist im Markdown erlaubt, etwa für Spalten und Karten. Markdown innerhalb von HTML braucht eine Leerzeile davor und danach.
 
 ### Folientypen
@@ -53,11 +54,19 @@ Ein neuer Talk: Ordner `features/` kopieren, `slides.md` leeren, Titel in `index
 
 `data-state` färbt den ganzen Hintergrund mit dem Hero-Verlauf und blendet das kleine Logo aus, `class` steuert die Typografie. Beides gehört zusammen.
 
+### Gestaltung
+
+- Jede Folie hat eine Bezugslinie. Folien mit Überschrift und Text, Liste, Code oder Tabelle stehen linksbündig auf einer Kante 96 px vom Folienrand; Aufzählungszeichen hängen in den Rand. Kapitel, Schlussfolie und Über-mich-Folie nutzen dieselbe Kante. Kernaussagen, Zitatfolien, Diagramme, Screenshots, Domain-Vergleiche und Abläufe bleiben auf der Mittelachse. Die Regel steckt in `agentic.css` (Abschnitt „Raster“) und braucht kein Markup.
+- Keine Dekoration ohne Aussage: keine Linien über Überschriften, keine Verlaufsschrift, keine Kästen um Zitate, die allein auf der Folie stehen.
+- Kurze Wörter dürfen sehr groß stehen (Kapitel, `statement xl`, Namen, „Thank you!“). Proportionen nach dem goldenen Schnitt, etwa Spalten `1.618fr 1fr`.
+- Nach jeder Änderung beide Themes ansehen und `?check` laufen lassen.
+
 ### Bausteine
 
-- `<span class="kicker">Thema</span>` über einer Überschrift: Kicker wie auf der Website.
+- `<span class="kicker">Thema</span>` über einer Überschrift: Kicker wie auf der Website, ohne Zierlinie.
 - `<div class="columns">` mit zwei `<div>`: zwei Spalten. `<div class="card">`: Karte.
-- `<p class="statement">`: große Kernaussage. `<span class="gradient-text">`: Verlauf im Text.
+- `<p class="statement">`: große Kernaussage, `statement xl` für bis zu drei Wörter. Absätze danach erscheinen kleiner und gedämpft. `<span class="gradient-text">`: hervorgehobene Zeile in der Akzentfarbe.
+- `<span class="nowrap">`: verhindert den Umbruch, etwa am Bindestrich in `brand-landingpage`.
 - `class="r-fit-text"`: Überschrift so groß wie die Folie erlaubt (reveal.js).
 - `<div class="qr" data-qr="https://…"></div>`: QR-Code, erzeugt im Browser (`plugins/qr.js`, Generator in `shared/vendor/qrjs2.js`, Public Domain).
 - `<kbd>`: Taste. `.muted`, `.accent`, `.ok`, `.bad`, `.left`: Hilfsklassen.

@@ -135,7 +135,7 @@ body,
   width: 0.38em;
   height: 0.38em;
   border-radius: 2px;
-  background: var(--hero);
+  background: var(--accent);
 }
 .reveal ol { list-style-type: decimal; }
 .reveal ol > li { margin: 0.35em 0; }
@@ -155,7 +155,16 @@ body,
   border-left: 6px solid var(--accent);
   border-radius: 2px;
 }
-.reveal blockquote p { margin: 0; }
+.reveal blockquote { width: fit-content; max-width: 80%; box-sizing: border-box; }
+.reveal blockquote p { margin: 0; text-wrap: pretty; }
+/* Zitatfolie ohne Überschrift: das Zitat ist der Inhalt, groß und ohne Kasten */
+.reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote {
+  max-width: 21em; margin: 28px auto; padding: 0; background: none; border: 0;
+  font-family: var(--font-heading); font-style: normal; font-weight: 600; font-size: 1.3em; line-height: 1.22; letter-spacing: -0.015em; color: var(--heading);
+}
+.reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p { text-indent: -0.42em; }
+.reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p::before { content: '“'; color: var(--accent); }
+.reveal .slides > section:not(:has(h2, .statement, blockquote ~ blockquote)) > blockquote p::after { content: '”'; }
 
 .reveal table { border-collapse: collapse; margin: auto; font-size: 0.8em; }
 .reveal table th { font-weight: 700; color: var(--heading); }
@@ -208,26 +217,11 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { o
   text-transform: uppercase;
   color: var(--accent);
 }
-.reveal .kicker::before {
-  content: '';
-  display: block;
-  width: 3em;
-  height: 3px;
-  margin: 0 auto 12px;
-  background: var(--accent);
-}
-.reveal .left .kicker::before, .reveal .kicker.left::before { margin-left: 0; }
 
 .reveal .muted { color: var(--muted); }
 .reveal .accent { color: var(--accent); }
-.reveal .gradient-text {
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-/* Chrome zeichnet beim Drucken Haarlinien um Verlaufstext: im PDF einfarbig */
-html.print-pdf .reveal .gradient-text { background: none; color: var(--accent); }
+/* Hervorgehobene Zeile in Kernaussagen: einfarbig in der Akzentfarbe, ein Verlauf verliert am Ende an Kontrast */
+.reveal .gradient-text { color: var(--accent); }
 .reveal .left { text-align: left; }
 
 /* Zweispaltig: <div class="columns"><div>…</div><div>…</div></div> */
@@ -243,23 +237,23 @@ html.print-pdf .reveal .gradient-text { background: none; color: var(--accent); 
 .reveal .shots figcaption { margin-top: 14px; font-size: 0.8em; line-height: 1.35; }
 /* Beweis-Screenshot einer Codezeile: etwas niedriger als eine Vollbildaufnahme, damit Bildunterschrift und Quelle Platz haben */
 .reveal .shot.proof img { max-height: 400px; width: auto; max-width: 100%; }
+.reveal .shot.proof + .caption { font-family: var(--font-heading); font-size: 1.05em; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--heading); }
 /* Liste gesicherter Paketnamen: Name groß, Herkunft klein darunter */
 .reveal .secured ul { margin: 0; padding: 0; list-style: none; font-size: 0.76em; }
 .reveal .secured li { margin: 0 0 0.3em; line-height: 1.2; }
-.reveal .secured small { font-size: 0.9em; color: var(--muted); }
+.reveal .secured small { font-size: 0.9em; color: var(--muted); white-space: nowrap; }
 .reveal .small-list ul { font-size: 0.8em; }
 .reveal .small-list li { margin: 0.15em 0; }
 
-/* Vorstellung: Foto links, Text rechts */
-.reveal .about { display: grid; grid-template-columns: 1fr 440px; gap: 48px; align-items: center; text-align: left; }
-.reveal .about-photo { display: flex; justify-content: center; }
-.reveal .about-photo img { display: block; margin: 0; }
-.reveal .about-photo .photo-dark { height: 540px; width: auto; }
-/* Dunkles Theme: freigestelltes Foto ohne Rahmen, es geht in die Folie über. Helles Theme: Original mit schwarzem Grund als Kachel */
-.reveal .about-photo .photo-light { display: none; border-radius: 12px; border: 1px solid var(--border); width: 400px; height: 400px; }
-:root[data-theme='light'] .reveal .about-photo .photo-dark { display: none; }
-:root[data-theme='light'] .reveal .about-photo .photo-light { display: block; }
-.reveal .about h2 { margin-bottom: 16px; }
+/* Vorstellung: rechts ein schwarzer Streifen im goldenen Schnitt (38,2 % der Breite) mit dem Foto, als Folienhintergrund img/about-bg.webp.
+   Der Text beginnt auf der Rasterkante (96 px) und endet vor x = 750, damit er auch im PDF (Streifen ab x = 791) Abstand zum Foto hält. */
+/* Dunkles Theme: kein schwarzer Streifen, sondern das freigestellte Foto auf der normalen Hintergrundfarbe. Reveal gibt die Folienklasse an das Hintergrundelement weiter. */
+:root:not([data-theme='light']) .reveal .slide-background.about-slide .slide-background-content { background-image: url('../../dangerous-ai-skills/img/about-bg-dark.webp') !important; }
+.reveal .about { width: 750px; padding-left: 96px; box-sizing: border-box; display: flex; justify-content: flex-start; text-align: left; }
+.reveal .about .about-name { margin: 0 0 28px; font-size: 112px; line-height: 0.92; letter-spacing: -0.035em; }
+.reveal .about ul { font-size: 0.86em; }
+.reveal .about li { margin: 0.22em 0; }
+.reveal .about .muted { margin-top: 24px; font-size: 0.86em; }
 
 /* Karte mit Kante statt Schatten */
 .reveal .card {
@@ -271,7 +265,13 @@ html.print-pdf .reveal .gradient-text { background: none; color: var(--accent); 
 }
 
 /* Große Zahl oder Kernaussage */
-.reveal .statement { font-family: var(--font-heading); font-size: 1.8em; font-weight: 700; line-height: 1.15; color: var(--heading); }
+.reveal .statement { font-family: var(--font-heading); font-size: 2.1em; font-weight: 700; line-height: 1.06; letter-spacing: -0.025em; color: var(--heading); max-width: 21ch; margin-left: auto; margin-right: auto; }
+/* Sehr kurze Kernaussagen (bis drei Wörter) als großer Kontrast zum Fließtext */
+.reveal .statement.xl { font-size: 3.6em; line-height: 0.95; letter-spacing: -0.04em; }
+.reveal .statement + .statement { margin-top: 0.45em; }
+/* Nachsatz unter einer Kernaussage: kleiner und gedämpft, damit die Aussage allein trägt */
+.reveal .statement ~ p:not(.statement, .source) { font-size: 0.85em; color: var(--muted); margin-top: 36px; }
+.reveal .statement ~ p:not(.statement, .source) strong { color: var(--accent); }
 
 /* ---------- Diagramme (inline SVG, siehe plugins/inline-svg.js) ---------- */
 
@@ -350,7 +350,6 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .slides section
 html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .slides section.present :is(h1, h2, h3, p, li, a, strong, small, .kicker) {
   color: #ffffff;
 }
-html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .slides section.present .kicker::before { background: #ffffff; }
 html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .progress span { background: #ffffff; }
 
 .reveal section.title .title-logo {
@@ -365,16 +364,29 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .progress span 
 .reveal section.title .speaker { margin-top: 48px; font-size: 0.75em; font-weight: 700; }
 .reveal section.title .event { margin-top: 4px; font-size: 0.65em; opacity: 0.85; }
 
-.reveal section.chapter h2 { font-size: 2em; }
+.reveal section.chapter { text-align: left; padding-bottom: 90px; }
+.reveal section.chapter :is(.kicker, h2) { margin-left: 96px; margin-right: 96px; }
+.reveal section.chapter .kicker { margin-bottom: 20px; font-size: 0.75em; }
+.reveal section.chapter h2 { font-size: 3em; line-height: 0.96; letter-spacing: -0.04em; max-width: 11em; }
 
 /* QR-Code (SVG aus img/, immer schwarz auf weiß mit Ruhezone) */
 .reveal .qr svg { display: block; width: 100%; height: auto; border-radius: 10px; }
 .reveal section.title .title-qr { position: absolute; right: 0; bottom: -40px; display: flex; align-items: center; gap: 16px; text-align: left; font-size: 0.65em; line-height: 1.3; }
 .reveal section.title .title-qr .qr { width: 120px; }
 .reveal section.title .title-qr strong { color: #ffffff; }
-.reveal section.end .end-qr { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: center; margin-top: 24px; }
-.reveal section.end .end-qr .qr { width: 300px; }
-.reveal section.end .url { font-family: var(--font-heading); font-size: 1.2em; font-weight: 700; margin: 12px 0; }
+/* Endfolie: links groß der Dank und die Kanäle, rechts der QR-Code zu den Materialien (Breiten im goldenen Schnitt) */
+.reveal section.end .end-grid { display: grid; grid-template-columns: 1.618fr 1fr; gap: 48px; align-items: center; margin: 0 96px; text-align: left; }
+.reveal section.end .end-title { margin: 0 0 48px; font-size: 128px; line-height: 0.92; letter-spacing: -0.04em; }
+.reveal section.end .connect-label { margin: 0 0 18px; font-size: 0.66em; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+.reveal section.end .socials { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; font-size: 0.86em; }
+.reveal section.end .socials li { margin: 0; padding: 0; }
+.reveal section.end .socials li::before { display: none; }
+.reveal section.end .socials a { display: inline-flex; align-items: center; gap: 18px; color: #ffffff; text-decoration: none; font-weight: 500; }
+.reveal section.end .socials svg { width: 30px; height: 30px; flex: none; fill: currentColor; }
+.reveal section.end .end-materials { text-align: left; }
+.reveal section.end .end-materials .qr { width: 260px; margin-bottom: 20px; }
+.reveal section.end .end-materials p { margin: 0; font-size: 0.66em; line-height: 1.35; opacity: 0.85; }
+.reveal section.end .url { white-space: nowrap; font-family: var(--font-heading); font-size: 0.86em !important; font-weight: 700; margin: 6px 0 0 !important; opacity: 1 !important; }
 
 /* ---------- View Transitions (plugins/view-transitions.js) ---------- */
 
@@ -409,7 +421,7 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .progress span 
 .reveal .seen p { margin: 10px 0; }
 
 /* Vergleichstabelle */
-.reveal .compare table { font-size: 0.72em; width: 100%; }
+.reveal .compare table { font-size: 0.72em; width: auto; }
 .reveal .compare td:first-child { white-space: nowrap; }
 
 /* Domain-Gegenüberstellung */
@@ -471,3 +483,22 @@ html.reduced-motion .reveal pre code { transition: none; }
 .layout-check-mark { outline: 3px dashed #ff2d55 !important; outline-offset: 2px; }
 .layout-check-panel { position: fixed; right: 12px; bottom: 12px; z-index: 50; max-width: 520px; max-height: 45vh; overflow: auto; padding: 10px 14px; background: #111; color: #eee; font: 13px/1.45 ui-monospace, Menlo, monospace; border: 1px solid #ff2d55; border-radius: 8px; }
 .layout-check-panel a { color: #ff9ab8; cursor: pointer; }
+
+/* Fließtext unter dem Hauptelement: begrenzte Zeilenlänge statt Kante zu Kante */
+.reveal .slides > section > p:not(.statement, .source, .caption, .speaker, .event, :has(> .kicker)) { max-width: 28em; margin-left: auto; margin-right: auto; }
+.reveal .nowrap { white-space: nowrap; }
+
+/* ---------- Raster: eine Bezugslinie pro Folie ----------
+   Folien mit Überschrift (ohne Diagramm, Screenshot, Domain-Vergleich oder Ablauf) stehen linksbündig auf einer gemeinsamen Kante (96 px vom Folienrand):
+   Kicker, Überschrift, Absätze, Codeblöcke und Tabellen beginnen dort, Aufzählungszeichen und Nummern hängen in den Rand.
+   Kernaussagen, Zitatfolien, Diagramme und Screenshots bleiben auf der Mittelachse. */
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) { text-align: left; padding-left: 96px; padding-right: 96px; box-sizing: border-box; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > :is(p, h2, pre, blockquote, .statement, .seen, .cast, .compare) { margin-left: 0; margin-right: 0; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > :is(pre, .cast, .seen) { width: 100%; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > blockquote { max-width: 100%; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > p:not(.statement, .source) { max-width: 32em; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) .statement { text-align: left; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > ul, .reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > div > ul { display: block; margin-left: 0.95em; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > ol, .reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) > div > ol { display: block; margin-left: 1.25em; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) .compare table { margin-left: 0; }
+.reveal .slides > section:has(> h2):not(.title, .chapter, .end, .about-slide, :has(> .svg, > .shot, > .shots, > .domains, > .flow)) .flow-caption { text-align: left; }
