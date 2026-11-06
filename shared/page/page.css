@@ -88,3 +88,9 @@ footer { max-width: 46rem; margin: 0 auto; padding: 24px 16px 48px; color: var(-
   a { color: #000; text-decoration: none; }
   pre { color: #111; }
 }
+
+/* Datei ansehen (großer Link) und daneben herunterladen (kleines Symbol) */
+.file-link { display: flex; align-items: center; gap: 12px; }
+.file-link .view { font-size: 1.15rem; font-weight: 600; }
+.file-link .download-icon { display: inline-flex; padding: 6px; border: 1px solid var(--border); border-radius: 6px; color: var(--accent); }
+.file-link .download-icon:hover { border-color: var(--accent); }
