@@ -692,7 +692,7 @@ Note:
 
 <ul>
 <li>Expires on <strong>20 April 2028</strong>. Better not let it expire.</li>
-<li class="fragment">Whoever owns it decides what every copy of <span class="nowrap">brand-landingpage</span> points to</li>
+<li class="fragment">Whoever owns it decides what every copy loads</li>
 <li class="fragment">And hopefully they don’t decide to be evil one day</li>
 </ul>
 
