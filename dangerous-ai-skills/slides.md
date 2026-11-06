@@ -137,7 +137,7 @@ One command, and the skill is installed. <!-- .element: class="fragment" -->
 
 <span class="kicker">Skills in 60 seconds</span>
 
-## How popular marketplaces fill up
+## Popular marketplaces open to anyone
 
 <div class="columns market">
 <div>
@@ -146,28 +146,23 @@ One command, and the skill is installed. <!-- .element: class="fragment" -->
 
 - SkillsMP
 - skills.sh
-- claudemarketplaces.com
 - claude-plugins.dev
 
 </div>
 <div>
 
-### Uploaded by anyone
+### Submitted by anyone
 
 - ClawHub
-
-### Run by Anthropic
-
-- claude-plugins-official
-- claude-community
+- agentskill.sh
 
 </div>
 </div>
 
-<p class="source">skillsmp.com/about · skills.sh/docs/faq · claudemarketplaces.com/about · claude-plugins.dev/skills · docs.openclaw.ai/clawhub · code.claude.com/docs/en/plugins/anthropic-marketplaces · 6 November 2026</p>
+<p class="source">skillsmp.com/about · skills.sh/docs/faq · claude-plugins.dev/skills · docs.openclaw.ai/clawhub · agentskill.sh/submit · 6 November 2026</p>
 
 Note:
-SkillsMP: "Collect ≈4M SKILL.md files from public GitHub repositories" and "Skills are sourced from public GitHub repositories. Always review code before installation." Independent, not affiliated with Anthropic or OpenAI. Anthropic's marketplaces: claude-plugins-official holds "Plugins Anthropic maintains, plus plugins from partners and other authors", Claude Code adds it on the first interactive start. claude-community holds "Third-party plugins that their authors submitted to Anthropic". Install warning for every marketplace: "Anthropic does not control what MCP servers, files, or other software are included in plugins and cannot verify that they will work as intended or that they won't change." skills.sh FAQ: "Skills appear on the leaderboard automatically through anonymous telemetry when users run npx skills add <owner/repo>." and "Skills are hosted in GitHub repositories." Claude Marketplaces: "Crawlers sweep skills.sh, GitHub, and the MCP registries on a schedule". claudemarketplaces.com: "This is an independent, community-run directory and is not officially affiliated with Anthropic or Claude." claude-plugins.dev: "All public skills on GitHub are auto-indexed". Antigravity Marketplace: "Fill out this interest form to submit your validated plugin to the Antigravity Marketplace." and agy plugin install "Clone and stage a plugin directly from a GitHub repository URL". A review process is not described. Skills reach Antigravity users as part of plugins. ClawHub, the registry for OpenClaw: "anyone can upload, but publishing requires a GitHub account old enough to pass the upload gate." agentskill.sh: "Import from a GitHub repository or paste a direct link to any SKILL.md file." Reviews: Skillstore runs an automated audit before listing, ClawHub automated checks plus moderators on reports, Claude Marketplaces says an editor reviews new and borderline listings. None of them describes a human review of every file before listing. Install counts on skills.sh only count npx skills add runs. The slide shows a selection. Also worth naming: agentskill.sh (repository import or a link to a SKILL.md), Skillstore and the Antigravity Marketplace (plugins with skills inside, see Part 5).
+SkillsMP: "Collect ≈4M SKILL.md files from public GitHub repositories" and "Skills are sourced from public GitHub repositories. Always review code before installation." Independent, not affiliated with Anthropic or OpenAI. Not on the slide, curated by the vendors: OpenAI's Plugins Directory is shared by ChatGPT and Codex, public submissions go through a flow with "required permissions, review materials, MCP checks, and test case requirements" (learn.chatgpt.com/docs/plugins). Google's Antigravity Marketplace: "Fill out this interest form to submit your validated plugin". Anthropic's official marketplace claude-plugins-official holds "Plugins Anthropic maintains, plus plugins from partners and other authors" and takes no submissions through the portal; Claude Code adds it on the first interactive start; browsable as Claude Marketplace on claude.com/marketplace. Curated does not mean verified: Anthropic's install warning reads "Anthropic does not control what MCP servers, files, or other software are included in plugins and cannot verify that they will work as intended or that they won't change." skills.sh FAQ: "Skills appear on the leaderboard automatically through anonymous telemetry when users run npx skills add <owner/repo>." and "Skills are hosted in GitHub repositories." Claude Marketplaces: "Crawlers sweep skills.sh, GitHub, and the MCP registries on a schedule". claudemarketplaces.com: "This is an independent, community-run directory and is not officially affiliated with Anthropic or Claude." claude-plugins.dev: "All public skills on GitHub are auto-indexed". Antigravity Marketplace: "Fill out this interest form to submit your validated plugin to the Antigravity Marketplace." and agy plugin install "Clone and stage a plugin directly from a GitHub repository URL". A review process is not described. Skills reach Antigravity users as part of plugins. ClawHub, the registry for OpenClaw: "anyone can upload, but publishing requires a GitHub account old enough to pass the upload gate." agentskill.sh: "Import from a GitHub repository or paste a direct link to any SKILL.md file." Reviews: Skillstore runs an automated audit before listing, ClawHub automated checks plus moderators on reports, Claude Marketplaces says an editor reviews new and borderline listings. None of them describes a human review of every file before listing. Install counts on skills.sh only count npx skills add runs. The slide shows a selection. Not on the slide because an editor reviews new and borderline listings: claudemarketplaces.com. Also open: Skillstore and Anthropic's community marketplace claude-community ("Third-party plugins that their authors submitted to Anthropic"). Antigravity plugins in detail: Part 5.
 
 ---
 
