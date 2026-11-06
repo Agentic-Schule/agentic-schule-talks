@@ -71,7 +71,7 @@ description: Extract PDF text, fill forms, merge files. Use when handling PDFs.
 Use pdfplumber to extract text from PDFs: …
 ```
 
-<p class="fragment">The spec requires <code>name</code> and <code>description</code>. The body has no fixed format.</p>
+<p class="fragment">The open Agent Skills specification requires <code>name</code> and <code>description</code>. The body has no fixed format.</p>
 
 <p class="source">agentskills.io/specification · platform.claude.com/docs/en/agents-and-tools/agent-skills/overview</p>
 
@@ -101,7 +101,7 @@ The specification: "A skill is a directory containing, at minimum, a SKILL.md fi
 <p class="source">agentskills.io/specification · code.claude.com/docs/en/skills · gemini-cli packages/core/src/skills/skillLoader.ts (3fd7d26) · codex codex-rs/skills/src/parser.rs (2c502d8) · antigravity.google/docs/skills · 6 November 2026</p>
 
 Note:
-Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses description (required), name (optional, falls back to a default) and metadata.short-description (parser.rs). Gemini CLI has been for Gemini Code Assist Standard/Enterprise since 18 June 2026; free and Google AI Pro/Ultra users moved to Antigravity CLI (gemini-cli README). Antigravity is closed source; its docs list only name ("optional", "Defaults to the folder name if not provided") and description ("required"). The same file can mean more in one agent than in another.
+Frontmatter per agent, as of 6 November 2026. Specification: name and description required, license, compatibility, metadata and allowed-tools (experimental) optional. Claude Code: 20 fields, adds among others when_to_use, disable-model-invocation, user-invocable, disallowed-tools, model, effort, context: fork, agent, hooks ("Hooks that Claude Code registers when the skill is invoked and keeps running for the rest of the session"), paths, shell. allowed-tools in Claude Code: "Tools Claude can use without asking permission during the turn that invokes this skill." Gemini CLI parses only name and description (skillLoader.ts). Codex parses description (required), name (optional, falls back to a default) and metadata.short-description (parser.rs). Since 18 June 2026, Gemini CLI is reserved for Gemini Code Assist Standard/Enterprise. Free and Google AI Pro/Ultra users moved to Antigravity CLI (gemini-cli README). Antigravity is closed source; its docs list only name ("optional", "Defaults to the folder name if not provided") and description ("required"). The same file can do more in one agent than in another.
 
 ---
 
@@ -162,7 +162,7 @@ One command, and the skill is installed. <!-- .element: class="fragment" -->
 <p class="source">skillsmp.com/about · skills.sh/docs/faq · claude-plugins.dev/skills · docs.openclaw.ai/clawhub · agentskill.sh/submit · 6 November 2026</p>
 
 Note:
-SkillsMP: "Collect ≈4M SKILL.md files from public GitHub repositories" and "Skills are sourced from public GitHub repositories. Always review code before installation." Independent, not affiliated with Anthropic or OpenAI. Not on the slide, curated by the vendors: OpenAI's Plugins Directory is shared by ChatGPT and Codex, public submissions go through a flow with "required permissions, review materials, MCP checks, and test case requirements" (learn.chatgpt.com/docs/plugins). Google's Antigravity Marketplace: "Fill out this interest form to submit your validated plugin". Anthropic's official marketplace claude-plugins-official holds "Plugins Anthropic maintains, plus plugins from partners and other authors" and takes no submissions through the portal; Claude Code adds it on the first interactive start; browsable as Claude Marketplace on claude.com/marketplace. Curated does not mean verified: Anthropic's install warning reads "Anthropic does not control what MCP servers, files, or other software are included in plugins and cannot verify that they will work as intended or that they won't change." skills.sh FAQ: "Skills appear on the leaderboard automatically through anonymous telemetry when users run npx skills add <owner/repo>." and "Skills are hosted in GitHub repositories." Claude Marketplaces: "Crawlers sweep skills.sh, GitHub, and the MCP registries on a schedule". claudemarketplaces.com: "This is an independent, community-run directory and is not officially affiliated with Anthropic or Claude." claude-plugins.dev: "All public skills on GitHub are auto-indexed". Antigravity Marketplace: "Fill out this interest form to submit your validated plugin to the Antigravity Marketplace." and agy plugin install "Clone and stage a plugin directly from a GitHub repository URL". A review process is not described. Skills reach Antigravity users as part of plugins. ClawHub, the registry for OpenClaw: "anyone can upload, but publishing requires a GitHub account old enough to pass the upload gate." agentskill.sh: "Import from a GitHub repository or paste a direct link to any SKILL.md file." Reviews: Skillstore runs an automated audit before listing, ClawHub automated checks plus moderators on reports, Claude Marketplaces says an editor reviews new and borderline listings. None of them describes a human review of every file before listing. Install counts on skills.sh only count npx skills add runs. The slide shows a selection. Not on the slide because an editor reviews new and borderline listings: claudemarketplaces.com. Also open: Skillstore and Anthropic's community marketplace claude-community ("Third-party plugins that their authors submitted to Anthropic"). Antigravity plugins in detail: Part 5.
+SkillsMP: "Collect ≈4M SKILL.md files from public GitHub repositories" and "Skills are sourced from public GitHub repositories. Always review code before installation." Independent, not affiliated with Anthropic or OpenAI. Not on the slide, curated by the vendors: OpenAI's Plugins Directory is shared by ChatGPT and Codex, public submissions go through a flow with "required permissions, review materials, MCP checks, and test case requirements" (learn.chatgpt.com/docs/plugins). Google's Antigravity Marketplace: see below. Anthropic's official marketplace claude-plugins-official holds "Plugins Anthropic maintains, plus plugins from partners and other authors" and takes no submissions through the portal; Claude Code adds it on the first interactive start; browsable as Claude Marketplace on claude.com/marketplace. Curated does not mean verified: Anthropic's install warning reads "Anthropic does not control what MCP servers, files, or other software are included in plugins and cannot verify that they will work as intended or that they won't change." skills.sh FAQ: "Skills appear on the leaderboard automatically through anonymous telemetry when users run npx skills add <owner/repo>." and "Skills are hosted in GitHub repositories." Claude Marketplaces: "Crawlers sweep skills.sh, GitHub, and the MCP registries on a schedule". claudemarketplaces.com: "This is an independent, community-run directory and is not officially affiliated with Anthropic or Claude." claude-plugins.dev: "All public skills on GitHub are auto-indexed". Antigravity Marketplace: "Fill out this interest form to submit your validated plugin to the Antigravity Marketplace." and agy plugin install "Clone and stage a plugin directly from a GitHub repository URL". A review process is not described. Skills reach Antigravity users as part of plugins. ClawHub, the registry for OpenClaw: "anyone can upload, but publishing requires a GitHub account old enough to pass the upload gate." agentskill.sh: "Import from a GitHub repository or paste a direct link to any SKILL.md file." Reviews: Skillstore runs an automated audit before listing, ClawHub automated checks plus moderators on reports, Claude Marketplaces says an editor reviews new and borderline listings. None of them describes a human review of every file before listing. Install counts on skills.sh only count npx skills add runs. The slide shows a selection. claudemarketplaces.com is not on it because of that editor review. Also open: Skillstore and Anthropic's community marketplace claude-community ("Third-party plugins that their authors submitted to Anthropic"). Antigravity plugins in detail: Part 5.
 
 ---
 
@@ -261,7 +261,7 @@ Original text, lines 27 to 36. Space walks through three lines: 31 documentation
 
 <p class="statement">Nothing here looks like an attack.</p>
 
-<p class="fragment">No <code>curl</code>. No script. No suspicious line.</p>
+<p class="fragment">No <code>curl</code>. No script.</p>
 
 ---
 
@@ -380,11 +380,11 @@ A reviewer reads Phase 0, ticks it off, scrolls through the interview framework,
 
 ---
 
-<span class="kicker">brand-landingpage · June 2026, before the switch</span>
+<span class="kicker">brand-landingpage · June 2026</span>
 
 ## All three scanners said: safe
 
-Cisco · NVIDIA · skills.sh
+Cisco skill-scanner · NVIDIA SkillSpector · skills.sh audits
 
 <p class="statement fragment ok">✓ ✓ ✓</p>
 
@@ -451,7 +451,7 @@ location: https://stitch.withgoogle.com/docs/sdk/ai-sdk
 <p class="source">curl -sI, 5 November 2026</p>
 
 Note:
-Resting state, still today. Do not open the link in the browser on stage, curl -I only shows the headers. It shows the state of this one moment. And that state belongs to somebody else.
+Resting state on 5 November 2026; check again on the morning of the talk. Do not open the link in the browser on stage. curl -sI only shows the headers. It shows the state of this one moment. And that state belongs to somebody else.
 
 ---
 
@@ -517,13 +517,12 @@ Almost everyone needs one. The risk looks like zero. That mindset lowers your gu
 ## Pull request #509
 
 <ul>
-<li><code>wshobson/agents</code>, ~36,000 stars at the time</li>
+<li><code>wshobson/agents</code>: a Claude Code plugin marketplace, a GitHub repo with ~35,000 stars at the time</li>
 <li>Then: plugins for Claude Code. Today: 7 agents, incl. <strong>Antigravity CLI</strong></li>
-<li class="fragment">Account created <strong>six days</strong> before the PR</li>
 <li class="fragment">After “a few anxious days”: <strong>merged</strong></li>
 </ul>
 
-<p class="source">github.com/wshobson/agents · AIR Security, “The Story of Skills”, 22 June 2026: “~36K stars … a welcoming contribution policy” · account created 23 April, PR opened 29 April, merged 2 May 2026</p>
+<p class="source">github.com/wshobson/agents · web.archive.org, 2 May 2026: 34,643 stars · AIR Security, “The Story of Skills”, 22 June 2026: “a few anxious days” · PR opened 29 April, merged 2 May 2026</p>
 
 Note:
 Today the repo describes itself as "Plugins, agents, skills, and commands for Claude Code, Codex CLI, Cursor, OpenCode, Antigravity CLI, GitHub Copilot, and Pi". At the merge on 2 May 2026 it was Claude Code only; Codex, Cursor, OpenCode and Gemini CLI came on 22 May (#541), Antigravity CLI replaced Gemini CLI on 18 August (#669). AIR: "a welcoming contribution policy". PR #509 was opened by travis-d-elliott (AIR) and merged by the maintainer wshobson.
@@ -544,7 +543,7 @@ Today the repo describes itself as "Plugins, agents, skills, and commands for Cl
 <p class="source">github.com/wshobson/agents/pull/509, review comment</p>
 
 Note:
-An agent reviewed a skill written for agents and waved it through, including Phase 0, where the attack sits. Do not blame the reviewer: the attack is one sentence among 258 lines, and it reads like good practice.
+An agent reviewed a skill written for agents and waved it through, including Phase 0, where the attack sits. Do not blame the reviewer: the attack is one sentence among 266 lines (258 at commit 7e2fb55), and it reads like good practice.
 
 ---
 
@@ -664,7 +663,7 @@ Koi audited all 2,857 skills on ClawHub and found 341 malicious ones, 335 from o
 
 <span class="kicker">SkillSpector · Agent Scan · Skill Scanner</span>
 
-## By default, scanners read only the file
+## By default, these scanners read only the file
 
 > … analysis is limited to the skill’s own content, not externally referenced dependencies
 
@@ -794,33 +793,9 @@ GitHub code search for "stitch-design.ai" on 6 November 2026: 89 hits in 66 repo
 
 <span class="kicker">My conclusion</span>
 
-<p class="statement">Every big marketplace you know<br><span class="gradient-text">may contain malware.</span></p>
+<p class="statement">Every big skill directory you know<br><span class="gradient-text">may list malware.</span></p>
 
-Nobody removed this one. <!-- .element: class="fragment" -->
-
----
-
-<span class="kicker">brand-landingpage · it gets worse</span>
-
-## A second copy, a second domain
-
-<div class="shots one">
-<figure><img src="img/market-lobehub.webp" alt="LobeHub listing of brand-landingpage version 1.0.1 by NeverSight from October 21, 2026"><figcaption><strong>LobeHub</strong>, copy from October 2026</figcaption></figure>
-<div class="left">
-
-<ul>
-<li>Links to <code>stitch-designer.ai</code></li>
-<li>Account <strong>5 minutes</strong> older than the one behind PR #509</li>
-<li class="fragment">The domain is <strong>unregistered</strong></li>
-</ul>
-
-</div>
-</div>
-
-<p class="source">lobehub.com/skills/neversight-learn-skills.dev-brand-landingpage · GitHub API: users adamturner-1, travis-d-elliott</p>
-
-Note:
-Observed on GitHub and LobeHub on 4 November 2026. Both accounts were created on 23 April 2026, 11:43 and 11:48 UTC; both design-skill repos are deleted now. I don't know whether this variant is part of the AIR experiment. whois -h whois.nic.ai stitch-designer.ai on 5 November 2026: "Domain not found." Anyone can register it today.
+Almost nobody removed it. <!-- .element: class="fragment" -->
 
 ---
 
@@ -914,7 +889,7 @@ ClawHub grew from 2,857 to over 10,700 skills in two weeks (Koi Security, update
 > Agent Skills can execute scripts and access your files.
 <!-- .element: class="fragment" -->
 
-<p class="source">Antigravity: docs/sandbox, docs/permissions · Claude Code: docs/en/permission-modes, docs/en/sandboxing · Codex: protocol.rs, shared_options.rs · 5 November 2026</p>
+<p class="source">Antigravity: docs/sandbox, docs/permissions · Claude Code: docs/en/permission-modes, docs/en/sandboxing · Codex: protocol.rs, shared_options.rs · quote: Gemini CLI docs, using-agent-skills.md · 5 November 2026</p>
 
 Note:
 Antigravity docs: in the App, the Default preset has the sandbox on ("Allowed in sandbox; ask outside"); commands outside the sandbox "run on your host with full privileges"; in the CLI enableTerminalSandbox defaults to false; for the older security presets "None of the presets turn the sandbox on". App presets: Request Review, Default, Auto, Turbo; Turbo runs terminal commands "Allowed (unrestricted)" with the sandbox disabled. CLI modes: default, accept-edits, auto; --dangerously-skip-permissions sets toolPermission to always-proceed. read_url and execute_url "default to Ask" in App and CLI. Gemini CLI (enterprise only since 18 June 2026): sandbox off unless set, shell and web_fetch ask first, YOLO allows everything. Claude Code docs: "With Claude Code v2.1.283 or later, auto mode is the built-in starting permission mode"; auto mode allows "Read-only HTTP requests" and blocks "Downloading and executing code, like curl | bash"; "The sandbox is off by default". Codex source: outbound network "false by default" (protocol.rs); --yolo is an alias of --dangerously-bypass-approvals-and-sandbox, commented "EXTREMELY DANGEROUS". Claude Code and Antigravity are closed source, so for them this is vendor documentation only. Fetching the docs brings the attacker's text into the session; from there, one approved install is enough. Anthropic's skills documentation draws the line for Claude: in the Claude API a skill runs in a container with "No network access", in Claude Code it has "Full network access".
@@ -948,7 +923,7 @@ The attacker gets the agent’s identity, and with it every service where the ag
 <p class="source">Snyk Agent Scan, issue code W021</p>
 
 Note:
-Quote from Snyk Agent Scan, finding W021. Embrace The Red names "certain models, like Gemini, Claude, Grok"; I found no source for GPT or Codex. Unicode tag characters can encode a whole hidden message. You cannot review what you cannot see. Zero-width characters, direction overrides, tag characters.
+Quote from Snyk Agent Scan, finding W021. Embrace The Red names "certain models, like Gemini, Claude, Grok"; I found no source for GPT or Codex. Unicode tag characters can encode a whole hidden message. Zero-width characters, direction overrides, tag characters.
 
 ---
 
@@ -983,7 +958,7 @@ Quote from Snyk Agent Scan, finding W021. Embrace The Red names "certain models,
 <p class="source">github.com/angular/skills, mirrored from angular/angular</p>
 
 Note:
-angular/skills is mirrored from the angular/angular monorepo, where the Angular team reviews every change. A dedicated team owns the skill, reviews every change and answers for it. Other vendors have good policies, see next slide, but even they fetch at runtime.
+angular/skills is mirrored from the angular/angular monorepo, where the Angular team reviews every change. A dedicated team owns the skill, reviews every change and answers for it. That is why I make this exception to Anthropic's advice to use only skills you wrote yourself or got from Anthropic. Other vendors have good policies, see next slide, but even they fetch at runtime.
 
 ---
 
@@ -1199,7 +1174,7 @@ Reserve slides, not part of the 60 minutes. Cases whose instructions were public
 
 ### Careless
 
-No bad intent. A name nobody owns, an install step nobody tested.
+No bad intent. A package name nobody registered, a fallback that runs it.
 
 </div>
 <div class="card">
@@ -1239,7 +1214,7 @@ function resolveMcpCommand(): { command: string; args: string[] } {
 <p class="source">github.com/juliusbrussee/caveman, commit 2e068f7, packages/cli/src/index.ts, lines 13900 to 13906 · own test: node:24 container, @caveman-ai/cli 4.0.1, 5 November 2026 · npm registry: “Not found”</p>
 
 Note:
-caveman: "Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman." (repo description). The comment above the function: "CAVEMAN_MCP_BIN, `caveman-mcp` on PATH or ~/.caveman/bin, else `npx -y caveman-mcp`. The returned argv is what gets written into each agent's MCP config." My test on 5 November 2026 in a fresh node:24 container with @caveman-ai/cli 4.0.1 and a stub claude command that logs its arguments: after npm i -g there is no ~/.caveman/bin. With a full pseudo-terminal, caveman claude shows a setup menu and downloads its runtime even with "Not now". So npx -y caveman-mcp only lands in the config when the MCP step runs first: right after the install (docs/technical/cli-reference.md, line 141) or in a non-interactive shell. caveman tools mcp install claude --server caveman then calls "claude mcp add --scope user caveman -- /usr/local/bin/npx -y caveman-mcp" and prints "✓ Claude Code: caveman_retrieve installed", no warning. Only caveman setup --install puts caveman-mcp into ~/.caveman/bin. Tested only with Claude Code as the target. mcp/package.json declares the name caveman-mcp, but the project never published it. 73,456 downloads of @caveman-ai/cli from 6 October to 4 November 2026. No sign of bad intent: a programming oversight.
+caveman: "Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman." (repo description). The comment above the function: "CAVEMAN_MCP_BIN, `caveman-mcp` on PATH or ~/.caveman/bin, else `npx -y caveman-mcp`. The returned argv is what gets written into each agent's MCP config." My test on 5 November 2026 in a fresh node:24 container with @caveman-ai/cli 4.0.1 and a stub claude command that logs its arguments: after npm i -g there is no ~/.caveman/bin. With a full pseudo-terminal, caveman claude shows a setup menu and downloads its runtime even with "Not now": bootstrapLocalWrapRuntime() calls the same setupInstall() as caveman setup --install (index.ts, line 6233), which puts caveman-mcp into ~/.caveman/bin. From then on resolveMcpCommand() finds the binary. So npx -y caveman-mcp only lands in the config when the MCP step runs first: right after the install (docs/technical/cli-reference.md, line 141) or in a non-interactive shell. caveman tools mcp install claude --server caveman then calls "claude mcp add --scope user caveman -- /usr/local/bin/npx -y caveman-mcp" and prints "✓ Claude Code: caveman_retrieve installed", no warning. Without that installer run there is no caveman-mcp in ~/.caveman/bin. Tested only with Claude Code as the target. mcp/package.json declares the name caveman-mcp, but the project never published it. 73,456 downloads of @caveman-ai/cli from 6 October to 4 November 2026. No sign of bad intent: a programming oversight.
 
 ---
 
@@ -1425,7 +1400,7 @@ sundial-org/awesome-openclaw-skills, commit b80cde2, skills/bybit-trading/SKILL.
 
 ---
 
-<span class="kicker">Deliberate · LeoYeAI/agent-master-skills · 2,179 stars</span>
+<span class="kicker">Deliberate · LeoYeAI/agent-master-skills · 2,181 stars</span>
 
 ## Mass import, malware included
 
@@ -1433,12 +1408,12 @@ sundial-org/awesome-openclaw-skills, commit b80cde2, skills/bybit-trading/SKILL.
 
 Among the 600: the same download-and-run line, in a skill for LinkedIn job applications. <!-- .element: class="fragment" -->
 
-Still maintained: last push on 5 November 2026. <!-- .element: class="fragment" -->
+Last push: 6 November 2026. <!-- .element: class="fragment" -->
 
 <p class="source">github.com/LeoYeAI/agent-master-skills, commit fd6c8c4 · skills/linkedin-job-application/SKILL.md, line 35</p>
 
 Note:
-LeoYeAI/agent-master-skills, commit 9d2199c, skills/linkedin-job-application/SKILL.md lines 3, 22, 35, 203 and 569: the same "AuthTool" text and the same base64 string that decodes to a curl from 91.92.242.30. It arrived with commit fd6c8c4, the mass import. 2,179 stars, 329 forks, last push on 5 November 2026. This collection, with over 2,000 stars, copied malware that had been public since February.
+LeoYeAI/agent-master-skills, commit 9d2199c, skills/linkedin-job-application/SKILL.md lines 3, 22, 35, 203 and 569: the same "AuthTool" text and the same base64 string that decodes to a curl from 91.92.242.30. It arrived with commit fd6c8c4, the mass import. 2,181 stars, 330 forks, last push on 6 November 2026 (GitHub API, 6 November 2026). This collection, with over 2,000 stars, copied malware that had been public since February.
 
 ---
 
@@ -1477,7 +1452,7 @@ roin-orca/skills, commit 44cd96f, skills/find-skills/SKILL.md lines 6 to 11. It 
 
 </div>
 
-Six repos (three shown), byte for byte the same files. Inside: a copy of inference.sh’s skills. No malware today, but someone else controls the content. <!-- .element: class="fragment" -->
+Six repos (three shown), byte for byte the same files. Nothing inside comes from obra/superpowers: it is a copy of inference.sh’s skills. No malware today, but someone else controls the content. <!-- .element: class="fragment" -->
 
 <p class="source">skills.sh leaderboard, 5 November 2026 · GitHub API: HEAD commit becc256 in all six repos</p>
 
@@ -1515,7 +1490,7 @@ https://raw.githubusercontent.com/hfgwygey/yu-ai-agent/master/src/test/java/yu-a
 
 <p class="fragment">Eight links, including the <code>git clone</code> line, rewritten on 12 October 2026. Still online.</p>
 
-<p class="fragment">Island’s list names 7,600 repository URLs from this campaign. The blog title counts 800 skills and MCP servers.</p>
+<p class="fragment">Island’s list names 7,600 repository URLs from this campaign. The blog title says 800+ skills and MCP servers.</p>
 
 <p class="source">github.com/hfgwygey/yu-ai-agent, commit 3bd1d39, README.md · github.com/island-io/island-security-research-artifacts, agentbaiting · island.io/blog/agentbaiting-how-800-fake-ai-skills-and-mcp-servers-delivered-malware</p>
 
