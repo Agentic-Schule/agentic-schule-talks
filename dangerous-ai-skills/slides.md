@@ -495,7 +495,7 @@ Note:
 
 ## Why a landing page?
 
-<div class="columns">
+<div class="columns even">
 <div class="card">
 
 ### Landing page skill
@@ -505,8 +505,9 @@ Note:
 </div>
 <div class="card">
 
-### Database migration skill
+### Something more important
 
+<span class="muted small-note">e.g. a database migration skill</span><br>
 “Let me read this carefully.”
 
 </div>

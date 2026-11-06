@@ -235,6 +235,7 @@ html:not(.print-pdf) .reveal-viewport:is(.title, .chapter, .end) .brand-logo { o
 
 /* Zweispaltig: <div class="columns"><div>…</div><div>…</div></div> */
 .reveal .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; text-align: left; }
+.reveal .columns.even { align-items: stretch; }
 /* Zwei Gruppen von Namen: kleine gedämpfte Spaltenüberschrift, darunter die Namen ohne Aufzählungszeichen */
 .reveal .columns.market { margin: 48px 0 56px; }
 .reveal .columns.market h3 { font-family: var(--font-body); font-size: 0.7em; font-weight: 600; letter-spacing: 0; color: var(--muted); margin: 0 0 16px; }
