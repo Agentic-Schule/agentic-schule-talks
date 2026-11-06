@@ -1159,6 +1159,120 @@ I published both names as placeholders on 5 November 2026. Version 0.0.1 only pr
 
 ---
 
+<!-- Nicht gesichert (PyPI-Konto am 6. November 2026 gesperrt), Stand f62d849 in lastmile-ai/mcp-agent, src/mcp_agent/cli/commands/server.py: mcp-server-gcp (Zeile 162, GOOGLE_APPLICATION_CREDENTIALS), mcp-server-mongodb (145, MONGODB_URI), mcp-server-todoist (198, TODOIST_API_TOKEN), mcp-server-python (258), mcp-server-terraform (221), mcp-server-pandas (236), mcp-server-plotly (243). mcp-server-aws (154, AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY): erster Upload „isn't allowed“, danach nur noch 429. Nach dem Talk an security@pypi.org und die mcp-agent-Maintainer melden. -->
+
+<span class="kicker">Placeholders · 5 and 6 November 2026</span>
+
+## Secured during this talk
+
+<div class="columns secured">
+<div class="card">
+
+### npm
+
+- `caveman-mcp`<br><small>juliusbrussee/caveman · 118k stars</small>
+- `extract-design-system-mcp`<br><small>arvindrk/extract-design-system</small>
+- `browseract-mcp`<br><small>davila7/claude-code-templates · 33k stars</small>
+- `@frontendchecklist/cli`<br><small>thedaviddias/Front-End-Checklist · 75k stars</small>
+
+</div>
+<div class="card">
+
+### PyPI
+
+- `context7-mcp`<br><small>openclaw/openclaw · 394k stars</small>
+- `mcp-server-azure`, `-arxiv`, `-discord`<br><small>lastmile-ai/mcp-agent · 8.6k stars</small>
+- <span class="bad">Then PyPI suspended my account.</span>
+
+</div>
+</div>
+
+<span class="gradient-text">npm: safe. PyPI: quarantined.</span> <!-- .element: class="fragment" -->
+
+<p class="source">npmjs.com/~johanneshoppe · pypi.org/simple/context7-mcp, project status “quarantined”, 6 Nov 2026 · every placeholder only prints a warning and exits with code 1</p>
+
+Note:
+All of these names were unregistered while a popular repo told agents or users to run them with npx -y or uvx. I registered placeholders: version 0.0.1, no install scripts, no dependencies, no network access, a warning on stderr with the correct command, exit code 1. Each README offers the name to the maintainers. On npm all four are mine now. On PyPI I got through four names (context7-mcp, mcp-server-arxiv, -azure, -discord), then PyPI limited new projects ("429 Too many new projects created") and on 6 November 2026 suspended my account ("Your account has been suspended. Please contact security@pypi.org"). The four projects are quarantined: they exist, but have no files, so uvx installs nothing and nobody else can claim them for now. Reserving names for defence looks exactly like squatting to a registry. The fix belongs in the repos, not in the registry. The next slides show the line in each repo, pinned to a commit, so the link keeps working after a fix.
+---
+
+<span class="kicker">Proof · npm · juliusbrussee/caveman · 118k stars</span>
+
+<div class="shot proof"><img src="img/proof-caveman.webp" alt="GitHub view of caveman packages/cli/src/index.ts at commit 2e068f7, function resolveMcpCommand; line 13904 highlighted: if (npx) return mcpServerLaunch(npx, [&quot;-y&quot;, &quot;caveman-mcp&quot;]);"></div>
+
+<p class="caption">The fallback writes <code>npx -y caveman-mcp</code> into the agent's MCP config</p>
+
+<p class="source"><a href="https://github.com/juliusbrussee/caveman/blob/2e068f735253cce28256744804785f01887d9646/packages/cli/src/index.ts#L13904">github.com/juliusbrussee/caveman/blob/2e068f7…/packages/cli/src/index.ts#L13904</a> · npm “Not found” until 5 Nov 2026</p>
+
+Note:
+Permalink to commit 2e068f735253cce28256744804785f01887d9646. On 6 November 2026 the same line is still in main (commit ca3a524, line 13991). The yellow box is my marking, GitHub's own highlight of the permalink line sits underneath.
+
+---
+
+<span class="kicker">Proof · npm · arvindrk/extract-design-system</span>
+
+<div class="shot proof"><img src="img/proof-eds.webp" alt="GitHub view of extract-design-system README.md at commit 1873741, Cursor MCP configuration; line 175 highlighted: &quot;args&quot;: [&quot;-y&quot;, &quot;extract-design-system-mcp&quot;]"></div>
+
+<p class="caption">The README config runs a package name nobody owned</p>
+
+<p class="source"><a href="https://github.com/arvindrk/extract-design-system/blob/1873741ba8dea755e35e6e15134f7918cd58e036/README.md?plain=1#L175">github.com/arvindrk/extract-design-system/blob/1873741…/README.md#L175</a> · npm “Not found” until 5 Nov 2026</p>
+
+Note:
+Permalink to commit 1873741ba8dea755e35e6e15134f7918cd58e036, still main on 6 November 2026. Line 192 repeats the same args for Claude Desktop.
+
+---
+
+<span class="kicker">Proof · npm · davila7/claude-code-templates · 33k stars</span>
+
+<div class="shot proof"><img src="img/proof-browseract.webp" alt="GitHub view of claude-code-templates cli-tool/components/mcps/web-data/browseract.json at commit 5cc17cf; line 6 highlighted: &quot;args&quot;: [&quot;-y&quot;, &quot;browseract-mcp&quot;], followed by BROWSERACT_API_KEY in env"></div>
+
+<p class="caption">An MCP template for a package that does not exist, with your API key in <code>env</code></p>
+
+<p class="source"><a href="https://github.com/davila7/claude-code-templates/blob/5cc17cf267132cc690dee82239b80a99ec82e4f8/cli-tool/components/mcps/web-data/browseract.json#L6">github.com/davila7/claude-code-templates/blob/5cc17cf…/browseract.json#L6</a> · npm “Not found” until 6 Nov 2026</p>
+
+Note:
+Permalink to commit 5cc17cf267132cc690dee82239b80a99ec82e4f8, main on 6 November 2026. BrowserAct's own docs use a remote server, https://mcp.browseract.com/mcp/ (browseract-ai/docs, integrations/mcp.mdx, line 22). A squatter would have received BROWSERACT_API_KEY at every start.
+
+---
+
+<span class="kicker">Proof · npm · thedaviddias/Front-End-Checklist · 75k stars</span>
+
+<div class="shot proof"><img src="img/proof-frontendchecklist.webp" alt="GitHub view of Front-End-Checklist packages/cli/SKILL.md at commit e8d14d0; line 12 highlighted: Run it with npx -y @frontendchecklist/cli &lt;command&gt; if frontendchecklist is not installed."></div>
+
+<p class="caption">The skill tells the agent to run a package in a scope nobody had claimed</p>
+
+<p class="source"><a href="https://github.com/thedaviddias/Front-End-Checklist/blob/e8d14d049010e2ce25afcd5e8609dfcbbe63e47e/packages/cli/SKILL.md?plain=1#L12">github.com/thedaviddias/Front-End-Checklist/blob/e8d14d0…/packages/cli/SKILL.md#L12</a> · npm scope “frontendchecklist” not found until 6 Nov 2026</p>
+
+Note:
+Permalink to commit e8d14d049010e2ce25afcd5e8609dfcbbe63e47e, main on 6 November 2026. Scoped names need the scope: whoever creates the npm organization frontendchecklist owns every package below it.
+
+---
+
+<span class="kicker">Proof · PyPI · openclaw/openclaw · 394k stars</span>
+
+<div class="shot proof"><img src="img/proof-openclaw.webp" alt="GitHub view of openclaw docs/cli/mcp/registry.md at commit 957f71e; line 113 highlighted: openclaw mcp set context7 '{&quot;command&quot;:&quot;uvx&quot;,&quot;args&quot;:[&quot;context7-mcp&quot;]}'"></div>
+
+<p class="caption"><code>uvx</code> fetches from PyPI. Context7 lives on npm as <code>@upstash/context7-mcp</code>.</p>
+
+<p class="source"><a href="https://github.com/openclaw/openclaw/blob/957f71e3566d2412ea2aa508fa600449e0b07c4d/docs/cli/mcp/registry.md?plain=1#L113">github.com/openclaw/openclaw/blob/957f71e…/docs/cli/mcp/registry.md#L113</a> · same hint in src/cli/mcp-cli.ts, lines 628 and 955 · PyPI 404 until 6 Nov 2026</p>
+
+Note:
+Permalink to commit 957f71e3566d2412ea2aa508fa600449e0b07c4d, main on 6 November 2026. The CLI prints the same example when no MCP server is configured (src/cli/mcp-cli.ts line 628) and in the help text of openclaw mcp set (line 955). The daisyUI docs repeat it. PyPI had neither context7-mcp nor context7_mcp nor context7mcp.
+
+---
+
+<span class="kicker">Proof · PyPI · lastmile-ai/mcp-agent · 8.6k stars</span>
+
+<div class="shot proof"><img src="img/proof-mcp-agent.webp" alt="GitHub view of mcp-agent src/mcp_agent/cli/commands/server.py at commit f62d849, the azure entry in SERVER_RECIPES; lines 172 and 173 highlighted: &quot;command&quot;: &quot;uvx&quot;, &quot;args&quot;: [&quot;mcp-server-azure&quot;], lines 177 to 179 require AZURE_SUBSCRIPTION_ID, AZURE_CLIENT_ID and AZURE_CLIENT_SECRET"></div>
+
+<p class="caption">An unowned package name, started with your Azure client secret</p>
+
+<p class="source"><a href="https://github.com/lastmile-ai/mcp-agent/blob/f62d849350816588b1c6294e7914bbe4d8b84072/src/mcp_agent/cli/commands/server.py#L170-L181">github.com/lastmile-ai/mcp-agent/blob/f62d849…/cli/commands/server.py#L170-L181</a> · PyPI 404 until 6 Nov 2026</p>
+
+Note:
+Permalink to commit f62d849350816588b1c6294e7914bbe4d8b84072, main on 6 November 2026. mcp-agent server add recipe azure writes this entry into mcp_agent.config.yaml. arxiv (line 97) and discord (line 113, needs DISCORD_BOT_TOKEN) had the same problem; both names are quarantined on PyPI with the placeholders.
+
+---
+
 <span class="kicker">Deliberate · sundial-org/awesome-openclaw-skills · 674 stars</span>
 
 ## Three scanners: Fail. Still installable.

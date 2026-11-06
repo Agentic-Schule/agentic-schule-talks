@@ -13,7 +13,7 @@ npm run build   # statischer Build nach dist/
 npm run preview # Build ansehen: http://127.0.0.1:8001/
 ```
 
-Deploy: Cloudflare Pages baut das Repo selbst über die Git-Anbindung (Projekt `agentic-schule-talks`, Build `npm ci && npm run build`, Ausgabe `dist`, `NODE_VERSION` aus `.nvmrc`, Domain `talks.agentic.schule`). Jeder Push auf `main` geht kurz danach live, andere Branches als Preview. Es gibt bewusst keinen Deploy-Token und keine GitHub Actions.
+Deploy: GitHub Actions (`.github/workflows/deploy.yml`) baut bei jedem Push und lädt `dist/` per wrangler (`pages deploy`) zu Cloudflare Pages hoch, Projekt `agentic-schule-talks`, Domain `talks.agentic.schule`. `main` geht als Produktion live, andere Branches als Preview unter `<branch>.agentic-schule-talks.pages.dev`. Secrets im Repo: `CLOUDFLARE_API_TOKEN` (eigener Token, nur „Cloudflare Pages: Edit“) und `CLOUDFLARE_ACCOUNT_ID`. Die Actions sind per Commit-SHA gepinnt, wrangler auf eine exakte Version; ein Update nur nach Rücksprache mit Johannes.
 
 Keine neuen Pakete ohne Johannes' Zustimmung (siehe globale Regeln). Abhängigkeiten sind exakt gepinnt.
 
